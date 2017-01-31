@@ -4,7 +4,7 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class ContatoProf_model extends CI_Model {
+class Contatoprof_model extends CI_Model {
 
     public function __construct() {
         parent::__construct();
@@ -12,8 +12,8 @@ class ContatoProf_model extends CI_Model {
         $this->load->library('basico');
         $this->load->model(array('Basico_model'));
     }
-    
-    public function set_contatoprof($data) {
+
+    public function set_contatoProf($data) {
 
         $query = $this->db->insert('App_ContatoProf', $data);
 
@@ -25,15 +25,15 @@ class ContatoProf_model extends CI_Model {
         }
     }
 
-    public function get_contatoprof($data) {
+    public function get_contatoProf($data) {
         $query = $this->db->query('SELECT * FROM App_ContatoProf WHERE idApp_ContatoProf = ' . $data);
-        
+
         $query = $query->result_array();
 
         return $query[0];
     }
 
-    public function update_contatoprof($data, $id) {
+    public function update_contatoProf($data, $id) {
 
         unset($data['Id']);
         $query = $this->db->update('App_ContatoProf', $data, array('idApp_ContatoProf' => $id));
@@ -52,7 +52,7 @@ class ContatoProf_model extends CI_Model {
         }
     }
 
-    public function delete_contatoprof($data) {
+    public function delete_contatoProf($data) {
         $query = $this->db->delete('App_ContatoProf', array('idApp_ContatoProf' => $data));
 
         if ($this->db->affected_rows() === 0) {
@@ -62,7 +62,7 @@ class ContatoProf_model extends CI_Model {
         }
     }
 
-    public function lista_contatoprof($x) {
+    public function lista_contatoProf($x) {
 
         $query = $this->db->query('SELECT * '
                 . 'FROM App_ContatoProf WHERE '
@@ -91,7 +91,7 @@ class ContatoProf_model extends CI_Model {
             }
         }
     }
-    
+
     public function select_status_vida($data = FALSE) {
 
         if ($data === TRUE) {
@@ -106,6 +106,6 @@ class ContatoProf_model extends CI_Model {
         }
 
         return $array;
-    }    
+    }
 
 }

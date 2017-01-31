@@ -3,8 +3,8 @@
 <table class="table table-hover">
     <thead>
         <tr>
-            <th>Func./Profissional</th>
-            <th>Atividade</th>
+            <th>Paciente</th>
+            <th>Funcao</th>
 			<!--<th>Nascimento</th>-->
             <th>Telefone</th>
         </tr>
@@ -21,7 +21,7 @@
                     
             echo '<tr class="clickable-row" data-href="' . $url . '">';
                 echo '<td>' . $row['NomeProfissional'] . '</td>';
-				echo '<td>' . $row['Atividade'] . '</td>';
+				echo '<td>' . $row['Funcao'] . '</td>';
 				
                 #echo '<td>' . $row['DataNascimento'] . '</td>';
                 echo '<td>' . $row['Telefone1'] . '</td>';

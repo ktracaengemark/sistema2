@@ -1165,9 +1165,9 @@ $('#calendar').fullCalendar({
         else {
 
             if (event.Paciente == 'D')
-                var title = "<b>" + event.title + "</b><br><b>Responsável:</b> " + event.subtitle + "<br>\n\<b>Tipo de Consulta:</b> " + event.TipoConsulta + "<br><b>Procedimento:</b> " + event.Procedimento + "<br><b>Profissional:</b> " + event.Profissional;
+                var title = "<b>" + event.title + "</b><br><b>Responsável:</b> " + event.subtitle + "<br>\n\<b>Tipo de Consulta:</b> " + event.TipoConsulta + "<br><b>Obs:</b> " + event.Obs + "<br><b>Profissional:</b> " + event.Profissional;
             else
-                var title = "<b>" + event.title + "</b><br>\n\<b>Tipo de Consulta:</b> " + event.TipoConsulta + "<br><b>Procedimento:</b> " + event.Procedimento + "<br><b>Profissional:</b> " + event.Profissional;
+                var title = "<b>" + event.title + "</b><br>\n\<b>Tipo de Consulta:</b> " + event.TipoConsulta + "<br><b>Obs:</b> " + event.Obs + "<br><b>Profissional:</b> " + event.Profissional;
         }
 
 

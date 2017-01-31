@@ -12,7 +12,7 @@
 				<div class="panel-heading"><strong><?php echo $titulo; ?></strong></div>
 				<div class="panel-body">
 
-					<p>Nome, Funcao, Telefone do <b>Funcionario & Profissional</b>:</p>
+					<p>Informe o <b>Nome, Função ou Telefone do Func / Prof</b>:</p>
 
 					<div class="row">
 						<?php echo form_open('profissional/pesquisar', 'role="form"'); ?>
@@ -54,4 +54,4 @@
 		<div class="col-md-2"></div>
 
 	</div>
-</div>
+</div>	

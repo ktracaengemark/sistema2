@@ -22,12 +22,36 @@
 								<input type="text" class="form-control" id="NomeEmpresa" maxlength="255" <?php echo $readonly; ?>
 									   name="NomeEmpresa" autofocus value="<?php echo $query['NomeEmpresa']; ?>">
 							</div>
+							<br>
 							<div class="col-md-4">
 								<label for="Telefone1">Telefone Principal: *</label>
 								<input type="text" class="form-control Celular CelularVariavel" id="Telefone1" maxlength="20" <?php echo $readonly; ?>
 									   name="Telefone1" placeholder="(99) 99999-9999" value="<?php echo $query['Telefone1']; ?>">
 							</div>
-													
+							<br>                        
+							<div class="col-md-4">
+								<label for="Sexo">Sexo:</label>
+								<select data-placeholder="Selecione uma opção..." class="form-control" <?php echo $readonly; ?>
+										id="Sexo" name="Sexo">
+									<option value="">-- Selecione uma opção --</option>
+									<?php
+									foreach ($select['Sexo'] as $key => $row) {
+										if ($query['Sexo'] == $key) {
+											echo '<option value="' . $key . '" selected="selected">' . $row . '</option>';
+										} else {
+											echo '<option value="' . $key . '">' . $row . '</option>';
+										}
+									}
+									?>   
+								</select>
+							</div>
+							<br>
+							<div class="col-md-4">
+								<label for="DataNascimento">Data de Nascimento:</label>
+								<input type="text" class="form-control Date" maxlength="10" <?php echo $readonly; ?>
+									   name="DataNascimento" placeholder="DD/MM/AAAA" value="<?php echo $query['DataNascimento']; ?>">
+							</div>	
+							<br>
 							<div class="col-md-4">
 								<label for="Atividade">Atividade: *</label>
 								<a class="btn btn-xs btn-info" href="<?php echo base_url() ?>atividade/cadastrar/atividade" role="button"> 
@@ -46,12 +70,9 @@
 									}
 									?>   
 								</select>          
-							</div>
-																																									
+							</div>																																									
 						</div>
-					</div> 
-
-									
+					</div> 									
 					<div class="form-group">
 						<div class="row">
 							<div class="col-md-12 text-center">
@@ -86,28 +107,7 @@
 									<label for="Cnpj">Cnpj:</label>
 									<input type="text" class="form-control" maxlength="45" <?php echo $readonly; ?>
 										   name="Cnpj" value="<?php echo $query['Cnpj']; ?>">
-								</div>                        
-								<div class="col-md-4">
-									<label for="DataNascimento">Data de Nascimento:</label>
-									<input type="text" class="form-control Date" maxlength="10" <?php echo $readonly; ?>
-										   name="DataNascimento" placeholder="DD/MM/AAAA" value="<?php echo $query['DataNascimento']; ?>">
-								</div>                        
-								<div class="col-md-4">
-									<label for="Sexo">Sexo:</label>
-									<select data-placeholder="Selecione uma opção..." class="form-control" <?php echo $readonly; ?>
-											id="Sexo" name="Sexo">
-										<option value="">-- Selecione uma opção --</option>
-										<?php
-										foreach ($select['Sexo'] as $key => $row) {
-											if ($query['Sexo'] == $key) {
-												echo '<option value="' . $key . '" selected="selected">' . $row . '</option>';
-											} else {
-												echo '<option value="' . $key . '">' . $row . '</option>';
-											}
-										}
-										?>   
-									</select>
-								</div>                        
+								</div>                        								                        
 							</div>
 						</div>                 
 
