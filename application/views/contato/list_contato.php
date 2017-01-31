@@ -1,19 +1,19 @@
 <?php (isset($contato)) ? $query = $contato : FALSE; ?>
+<div class="container-fluid">
+	<div class="row">
+		<div class="btn-group" role="group">
+			<a class="btn btn-lg btn-primary active"> 
+				<span class="glyphicon glyphicon-sort-by-attributes"></span> <?php echo '<b>Total de Contatos:</b> ' . $query->num_rows() ?>
+			</a>        
+		</div>
 
-<div class="row">
-    <div class="btn-group" role="group">
-        <a class="btn btn-lg btn-primary active"> 
-            <span class="glyphicon glyphicon-sort-by-attributes"></span> <?php echo '<b>Total de Contatos:</b> ' . $query->num_rows() ?>
-        </a>        
-    </div>
-
-    <div class="btn-group" role="group">
-        <a class="btn btn-lg btn-warning" href="<?php echo base_url() ?>contato/cadastrar" role="button"> 
-            <span class="glyphicon glyphicon-plus"></span> Cadastrar Novo Contato
-        </a>
-    </div>
-</div>        
-
+		<div class="btn-group" role="group">
+			<a class="btn btn-lg btn-warning" href="<?php echo base_url() ?>contato/cadastrar" role="button"> 
+				<span class="glyphicon glyphicon-plus"></span> Cadastrar Novo Contato
+			</a>
+		</div>
+	</div>        
+</div>
 <br>
 
 <?php
@@ -60,7 +60,7 @@ foreach ($query->result_array() as $row) {
             
             <h4>
                 <span class="<?php echo $row['icon']; ?>"></span> 
-                Nome Contato: <?php echo $row['NomeContato'] . ' <code><small>Identificador: ' . $row['idApp_Contato'] . '</small></code>'; ?>
+                Contato: <?php echo $row['NomeContato'] . '</small></code>'; ?>
                 <?php echo $row['vida']; ?>
             </h4> 
 

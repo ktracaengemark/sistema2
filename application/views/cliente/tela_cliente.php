@@ -2,11 +2,11 @@
 
 <div class="container-fluid">
     <div class="row">
-        <div class="col-sm-3 col-md-2 sidebar">
+        <div class="col-sm-3 col-md-2">
             <?php echo $nav_secundario; ?>
         </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-            <h1 class="page-header"><?php echo $query['NomeCliente'] . ' <small>Identificador: ' . $query['idApp_Cliente'] . '</small>'; ?></h1>
+            <!--<h1 class="page-header"><?php echo $query['NomeCliente'] . ' <small>Identificador: ' . $query['idApp_Cliente'] . '</small>'; ?></h1>-->
 
             <div class="col-md-2 col-lg-2 " align="center"> 
                 <img alt="User Pic" src="<?php echo base_url() . 'arquivos/imagens/profile-' . $query['profile'] . '.png'; ?>" 

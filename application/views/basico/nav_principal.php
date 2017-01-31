@@ -3,7 +3,8 @@
     <div class="row">	
         <div class="col-md-9">
             <ul class="nav navbar-nav">
-                <li>
+                <li class="active"><a class="navbar-brand" href="<?php echo base_url(); ?>agenda">AGENDA</a></li>
+				<li>
                     <?php echo form_open(base_url() . 'cliente/pesquisar', 'class="navbar-form navbar-left"'); ?>
                     <div class="input-group">
                         <input type="text" placeholder="Pesquisar" class="form-control" name="Pesquisa" value="">
@@ -13,7 +14,7 @@
                     </div>
                     </form>
                 </li>
-				<li class="active"><a class="navbar-brand" href="<?php echo base_url(); ?>agenda">AGENDA</a></li>
+				
 
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Pesquisas & Cadastros<span class="caret"></span></a>
@@ -106,30 +107,32 @@
     </div>
 
 </nav>-->
-<div class="navbar navbar-inverse navbar-fixed-top" role="banner"> 
+<nav class="navbar navbar-inverse navbar-fixed-top" role="banner"> 
 	<div class="container"> 
 		<div class="navbar-header"> 
 			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"> 
 				<span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> 
 			</button> 
 			<a class="navbar-brand">
-			<!--<img class="img-responsive" src="arquivos/imagens/ktraca.png" alt="logo">-->
+			<img class="img-responsive" src="arquivos/imagens/ktraca.png" alt="logo">
 			</a>
 		</div> 
 		<div class="collapse navbar-collapse"> 
-			
-					
+								
 					<ul class="nav navbar-nav navbar-left"> 			
 						<li>
-						<li><a class="navbar-brand" href="<?php echo base_url(); ?>agenda">AGENDA</a></li>
+							
+							<li><a class="navbar-brand" href="<?php echo base_url(); ?>agenda">AGENDA</a></li>
 							<?php echo form_open(base_url() . 'cliente/pesquisar', 'class="navbar-form navbar-left"'); ?>
+							<form>
 							<div class="input-group">
-								<input type="text" placeholder="Pesquisar" class="form-control" name="Pesquisa" value="">
+								<input type="text" placeholder="Pesquisar Cliente" class="form-control" name="Pesquisa" value="">
 								<span class="input-group-btn">
 									<button class="btn btn-info" type="submit"><span class="glyphicon glyphicon-search"></span></button>
 								</span>
-							</div>
+							</div>						
 							</form>
+							
 						</li>
 
 						<li class="dropdown">
@@ -197,6 +200,6 @@
 					</ul>	
 		</div> 
 	</div> 
-</div>
+</nav>
 
 <br>

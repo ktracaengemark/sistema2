@@ -5,8 +5,8 @@
 
             <!-- Nav tabs -->
             <ul class="nav nav-tabs" role="tablist">
-    			<li role="presentation"><a href="#proxima" aria-controls="proxima" role="tab" data-toggle="tab">Orçamentos Aprovados</a></li>
-                <li role="presentation" class="active"><a href="#anterior" aria-controls="anterior" role="tab" data-toggle="tab">Orçamentos Não Aprovados</a></li>
+    			<li role="presentation"><a href="#proxima" aria-controls="proxima" role="tab" data-toggle="tab">Orçam. Aprov.</a></li>
+                <li role="presentation" class="active"><a href="#anterior" aria-controls="anterior" role="tab" data-toggle="tab">Orçam. <strong>Não</strong> Aprov.</a></li>
             </ul>
 
             <!-- Tab panes -->
