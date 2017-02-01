@@ -25,8 +25,7 @@ if ($_GET['q']==1) {
                 Tab_Servico
             WHERE
                 idTab_Modulo = ' . $_SESSION['log']['idTab_Modulo'] . ' AND
-                idSis_Usuario = ' . $_SESSION['log']['id'] . '
-                ORDER BY NomeServico ASC'
+                idSis_Usuario = ' . $_SESSION['log']['id']
     );
 
     while ($row = mysql_fetch_assoc($result)) {
@@ -50,8 +49,7 @@ elseif ($_GET['q'] == 2) {
                 Tab_Produto
             WHERE
                 idTab_Modulo = ' . $_SESSION['log']['idTab_Modulo'] . ' AND
-                idSis_Usuario = ' . $_SESSION['log']['id'] . '
-                ORDER BY NomeProduto ASC'
+                idSis_Usuario = ' . $_SESSION['log']['id']
     );
 
     while ($row = mysql_fetch_assoc($result)) {
@@ -74,8 +72,7 @@ elseif ($_GET['q'] == 3) {
                 App_Profissional
             WHERE
                 idTab_Modulo = ' . $_SESSION['log']['idTab_Modulo'] . ' AND
-                idSis_Usuario = ' . $_SESSION['log']['id'] . '
-                ORDER BY NomeProfissional ASC'
+                idSis_Usuario = ' . $_SESSION['log']['id']
     );
 
     while ($row = mysql_fetch_assoc($result)) {

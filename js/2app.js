@@ -230,9 +230,6 @@ function adicionaProcedimento() {
     $("#PMCount").val(pc);
     //console.log(ps);
 
-    //Captura a data do dia e carrega no campo correspondente
-    var currentDate = moment();
-
     $(".input_fields_wrap3").append('\
         <div class="form-group" id="3div'+pc+'">\
             <div class="row">\
@@ -240,7 +237,7 @@ function adicionaProcedimento() {
                     <label for="DataProcedimento'+pc+'">Data do Procedimento:</label>\
                     <div class="input-group DatePicker">\
                         <input type="text" class="form-control Date" maxlength="10" placeholder="DD/MM/AAAA"\
-                               name="DataProcedimento'+pc+'" value="'+currentDate.format('DD/MM/YYYY')+'">\
+                               name="DataProcedimento'+pc+'" value="">\
                         <span class="input-group-addon" disabled>\
                             <span class="glyphicon glyphicon-calendar"></span>\
                         </span>\
@@ -1168,9 +1165,9 @@ $('#calendar').fullCalendar({
         else {
 
             if (event.Paciente == 'D')
-                var title = "<b>" + event.title + "</b><br><b>Responsável:</b> " + event.subtitle + "<br>\n\<b>Tipo de Consulta:</b> " + event.TipoConsulta + "<br><b>Procedimento:</b> " + event.Procedimento + "<br><b>Profissional:</b> " + event.Profissional;
+                var title = "<b>" + event.title + "</b><br><b>Responsável:</b> " + event.subtitle + "<br>\n\<b>Tipo de Consulta:</b> " + event.TipoConsulta + "<br><b>Obs:</b> " + event.Obs + "<br><b>Profissional:</b> " + event.Profissional;
             else
-                var title = "<b>" + event.title + "</b><br>\n\<b>Tipo de Consulta:</b> " + event.TipoConsulta + "<br><b>Procedimento:</b> " + event.Procedimento + "<br><b>Profissional:</b> " + event.Profissional;
+                var title = "<b>" + event.title + "</b><br>\n\<b>Tipo de Consulta:</b> " + event.TipoConsulta + "<br><b>Obs:</b> " + event.Obs + "<br><b>Profissional:</b> " + event.Profissional;
         }
 
 
