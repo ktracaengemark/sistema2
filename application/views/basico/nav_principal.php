@@ -117,11 +117,9 @@
 			<img class="img-responsive" src="arquivos/imagens/ktraca.png" alt="logo">
 			</a>
 		</div> 
-		<div class="collapse navbar-collapse"> 
-								
+		<div class="collapse navbar-collapse"> 								
 					<ul class="nav navbar-nav navbar-left"> 			
-						<li>
-							
+						<li>							
 							<li><a class="navbar-brand" href="<?php echo base_url(); ?>agenda">AGENDA</a></li>
 							<?php echo form_open(base_url() . 'cliente/pesquisar', 'class="navbar-form navbar-left"'); ?>
 							<form>
@@ -131,72 +129,78 @@
 									<button class="btn btn-info" type="submit"><span class="glyphicon glyphicon-search"></span></button>
 								</span>
 							</div>						
-							</form>
-							
+							</form>							
 						</li>
-
+						
 						<li class="dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Pesquisas & Cadastros<span class="caret"></span></a>
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Vendas<span class="caret"></span></a>
 							<ul class="dropdown-menu">
-								<li><a href="<?php echo base_url() ?>cliente/pesquisar">Clientes</a></li>
+								<li><a href="<?php echo base_url() ?>cliente/pesquisar">Vendas</a></li>
 								<li role="separator" class="divider"></li>
-								<li><a href="<?php echo base_url() ?>cliente/pesquisar">Contatos</a></li>
+								<li><a href="<?php echo base_url() ?>cliente/pesquisar">Orçamentos</a></li>											
 								<li role="separator" class="divider"></li>
-								<li><a href="<?php echo base_url() ?>profissional/pesquisar">Funcionários & Profissionais</a></li>
-								<li role="separator" class="divider"></li>
-								<li><a href="<?php echo base_url() ?>empresa/pesquisar">Empresas & Prestadores de Serviço</a></li>
-								<li role="separator" class="divider"></li>
-								<li><a href="<?php echo base_url() ?>funcao/cadastrar/funcao">Função dos Funcionários & Profissionais</a></li>
-								<li role="separator" class="divider"></li>
-								<li><a href="<?php echo base_url() ?>atividade/cadastrar/atividade">Atividade das Empresas & Prestadores de Serviço</a></li>
-								<li role="separator" class="divider"></li>
-								<li><a href="<?php echo base_url() ?>servico/cadastrar">Tabela de Preço de Serviços</a></li>
-								<li role="separator" class="divider"></li>
-								<li><a href="<?php echo base_url() ?>produto/cadastrar">Tabela de Preço de Produtos</a></li>
 							</ul>
 						</li>
-
-						<li class="dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Consultas & Orçamentos<span class="caret"></span></a>
-							<ul class="dropdown-menu">
-								<li><a href="<?php echo base_url() ?>cliente/pesquisar">Consultas & Sessões</a></li>
-								<li role="separator" class="divider"></li>
-								<li><a href="<?php echo base_url() ?>cliente/pesquisar">Orçamento & Plano de Tratamento</a></li>											
-							</ul>
-						</li>
-
+						
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Despesas<span class="caret"></span></a>
 							<ul class="dropdown-menu">
 								<li><a href="<?php echo base_url() ?>despesa/cadastrar/despesa">Despesas</a></li>
 								<li role="separator" class="divider"></li>
 								<li><a href="<?php echo base_url() ?>tipodespesa/cadastrar/tipodespesa">Tipo de Despesa</a></li>
+								<li role="separator" class="divider"></li>
 							</ul>
 						</li>
-
+						
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Consultas<span class="caret"></span></a>
+							<ul class="dropdown-menu">
+								<li><a href="<?php echo base_url() ?>cliente/pesquisar">Consultas & Sessões</a></li>
+								<li role="separator" class="divider"></li>
+								<li><a href="<?php echo base_url() ?>cliente/pesquisar">Planos de Tratamento & Orçamentos  </a></li>											
+								<li role="separator" class="divider"></li>
+							</ul>
+						</li>
+						
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Relatórios<span class="caret"></span></a>
 							<ul class="dropdown-menu">
 								<li><a href="<?php echo base_url() ?>">Financeiro</a></li>
 								<li role="separator" class="divider"></li>
 								<li><a href="<?php echo base_url() ?>">Estoque</a></li>
+								<li role="separator" class="divider"></li>
 							</ul>
 						</li>
-
-						<!--<li class="dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Outros<span class="caret"></span></a>
+						
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Cadastros<span class="caret"></span></a>
 							<ul class="dropdown-menu">
-								<li><a href="<?php echo base_url() ?>profissional/pesquisar">Pesquisar/Cadastrar Funcionários/Profissionais</a></li>
+								<li><a href="<?php echo base_url() ?>cliente/pesquisar">Clientes</a></li>
 								<li role="separator" class="divider"></li>
-								<li><a href="<?php echo base_url() ?>empresa/pesquisar">Pesquisar/Cadastrar Empresas/Prestadores de Serviço</a></li>
+								<li><a href="<?php echo base_url() ?>cliente/pesquisar">Contatos</a></li>
 								<li role="separator" class="divider"></li>
-								<li><a href="<?php echo base_url() ?>funcao/cadastrar/funcao">Função dos Funcionários/Profissionais</a></li>
-								<li><a href="<?php echo base_url() ?>atividade/cadastrar/atividade">Atividade das Empresas/Prestadores de Serviço</a></li>
+								<li><a href="<?php echo base_url() ?>profissional/pesquisar">Funcionários</a></li>
+								<li role="separator" class="divider"></li>
+								<li><a href="<?php echo base_url() ?>profissional/pesquisar">Profissionais</a></li>
+								<li role="separator" class="divider"></li>
+								<li><a href="<?php echo base_url() ?>empresa/pesquisar">Fornecedores</a></li>
+								<li role="separator" class="divider"></li>
+								<li><a href="<?php echo base_url() ?>empresa/pesquisar">Prestadores de Serviço</a></li>
+								<li role="separator" class="divider"></li>
+								<li><a href="<?php echo base_url() ?>funcao/cadastrar/funcao">Função dos Funcionários</a></li>
+								<li role="separator" class="divider"></li>
+								<li><a href="<?php echo base_url() ?>funcao/cadastrar/funcao">Função dos Profissionais</a></li>
+								<li role="separator" class="divider"></li>
+								<li><a href="<?php echo base_url() ?>atividade/cadastrar/atividade">Atividade dos Fornecedores</a></li>
+								<li role="separator" class="divider"></li>
+								<li><a href="<?php echo base_url() ?>atividade/cadastrar/atividade">Atividade dos Prestadores de Serviço</a></li>
+								<li role="separator" class="divider"></li>
+								<li><a href="<?php echo base_url() ?>servico/cadastrar">Tabela de Preço de Serviços</a></li>
+								<li role="separator" class="divider"></li>
+								<li><a href="<?php echo base_url() ?>produto/cadastrar">Tabela de Preço de Produtos</a></li>
+								<li role="separator" class="divider"></li>
 							</ul>
-						</li>
-
-						<li class="active"><a class="navbar-brand" href="<?php echo base_url(); ?>teste">TESTE</a></li>-->
-										
+						</li>																					
 					</ul>	
 		</div> 
 	</div> 
