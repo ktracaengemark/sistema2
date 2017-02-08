@@ -21,34 +21,27 @@
 								<input type="text" class="form-control" maxlength="200"
 									   autofocus name="Despesa" value="<?php echo $despesa['Despesa'] ?>">
 							</div>
+							<br>
 							<div class="col-md-3">
-									<label for="TipoDespesa">Tipo Despesa</label>
-									<!--<a class="btn btn-xs btn-info" href="<?php echo base_url() ?>tipodespesa/cadastrar/tipodespesa" role="button"> 
-										<span class="glyphicon glyphicon-plus"></span> <b>Forma Pag</b>
-									</a>-->
-									<select data-placeholder="Selecione uma opção..." class="form-control" <?php echo $readonly; ?>
-											id="TipoDespesa" name="TipoDespesa">
-										<option value="">-- Sel. Tipo Despesa --</option>
-										<?php
-										foreach ($select['TipoDespesa'] as $key => $row) {
-											if ($despesa['TipoDespesa'] == $key) {
-												echo '<option value="' . $key . '" selected="selected">' . $row . '</option>';
-											} else {
-												echo '<option value="' . $key . '">' . $row . '</option>';
-											}
+								<label for="TipoDespesa">Tipo Despesa</label>
+								<!--<a class="btn btn-xs btn-info" href="<?php echo base_url() ?>tipodespesa/cadastrar/tipodespesa" role="button"> 
+									<span class="glyphicon glyphicon-plus"></span> <b>Forma Pag</b>
+								</a>-->
+								<select data-placeholder="Selecione uma opção..." class="form-control" <?php echo $readonly; ?>
+										id="TipoDespesa" name="TipoDespesa">
+									<option value="">-- Sel. Tipo Despesa --</option>
+									<?php
+									foreach ($select['TipoDespesa'] as $key => $row) {
+										if ($despesa['TipoDespesa'] == $key) {
+											echo '<option value="' . $key . '" selected="selected">' . $row . '</option>';
+										} else {
+											echo '<option value="' . $key . '">' . $row . '</option>';
 										}
-										?>   
-									</select>          
-								</div>
-							
-							<div class="col-md-3">
-								<label for="ValorTotalDesp">Valor Total da Desp.:</label><br>						
-								<div class="input-group">
-									<span class="input-group-addon" id="basic-addon1">R$</span>
-									<input type="text" class="form-control Valor" maxlength="10" placeholder="0,00"
-											name="ValorTotalDesp" value="<?php echo $despesa['ValorTotalDesp'] ?>">
-								</div>
+									}
+									?>   
+								</select>          
 							</div>
+							<br>
 							<div class="col-md-3">
 								<label for="DataDesp">Data da Desp..</label>
 								<div class="input-group <?php echo $datepicker; ?>">
@@ -58,6 +51,35 @@
 										<span class="glyphicon glyphicon-calendar"></span>
 									</span>
 								</div>
+							</div>
+							<br>
+							<div class="col-md-3">
+								<label for="ValorTotalDesp">Valor Total da Desp.:</label><br>						
+								<div class="input-group">
+									<span class="input-group-addon" id="basic-addon1">R$</span>
+									<input type="text" class="form-control Valor" maxlength="10" placeholder="0,00"
+											name="ValorTotalDesp" value="<?php echo $despesa['ValorTotalDesp'] ?>">
+								</div>
+							</div>
+							<br>
+							<div class="col-md-3">
+								<label for="FormaPag">Forma Pag</label>
+								<!--<a class="btn btn-xs btn-info" href="<?php echo base_url() ?>formapag/cadastrar/formapag" role="button"> 
+									<span class="glyphicon glyphicon-plus"></span> <b>Forma Pag</b>
+								</a>-->
+								<select data-placeholder="Selecione uma opção..." class="form-control" <?php echo $readonly; ?>
+										id="FormaPag" name="FormaPag">
+									<option value="">-- Sel. Forma --</option>
+									<?php
+									foreach ($select['FormaPag'] as $key => $row) {
+										if ($despesa['FormaPag'] == $key) {
+											echo '<option value="' . $key . '" selected="selected">' . $row . '</option>';
+										} else {
+											echo '<option value="' . $key . '">' . $row . '</option>';
+										}
+									}
+									?>   
+								</select>          
 							</div>
 							
 							 
@@ -75,7 +97,7 @@
 						<div class="row">
 							<div class="col-md-12 text-center">
 								<button class="btn btn-warning" type="button" data-toggle="collapse" data-target="#FormaPagamento" aria-expanded="false" aria-controls="FormaPagamento">
-									<span class="glyphicon glyphicon-menu-down"></span> Forma de Pagamento - Parcelas -
+									<span class="glyphicon glyphicon-menu-down"></span> Parcelado / Faturado
 								</button>
 							</div>						
 						</div>	
@@ -86,31 +108,7 @@
 					<div <?php echo $collapse; ?> id="FormaPagamento">
 					
 						<div class="form-group">	
-							<div class="row">	
-								<div class="col-md-3">
-									<label for="FormaPag">Forma Pag</label>
-									<!--<a class="btn btn-xs btn-info" href="<?php echo base_url() ?>formapag/cadastrar/formapag" role="button"> 
-										<span class="glyphicon glyphicon-plus"></span> <b>Forma Pag</b>
-									</a>-->
-									<select data-placeholder="Selecione uma opção..." class="form-control" <?php echo $readonly; ?>
-											id="FormaPag" name="FormaPag">
-										<option value="">-- Sel. Forma --</option>
-										<?php
-										foreach ($select['FormaPag'] as $key => $row) {
-											if ($despesa['FormaPag'] == $key) {
-												echo '<option value="' . $key . '" selected="selected">' . $row . '</option>';
-											} else {
-												echo '<option value="' . $key . '">' . $row . '</option>';
-											}
-										}
-										?>   
-									</select>          
-								</div>
-								
-								
-								
-								
-										   
+							<div class="row">																																								   
 								<div class="col-md-1">
 									<label for="QtdParcDesp">Qt.Parc.</label><br>
 										<input type="text" class="form-control" maxlength="3"
@@ -201,8 +199,23 @@
 										
 								</div>
 							</div>
-						</div>	
+						</div>
+					</div>	
 						<hr>
+						
+					<div class="form-group">
+						<div class="row">
+							<div class="col-md-12 text-center">
+								<button class="btn btn-warning" type="button" data-toggle="collapse" data-target="#DetalhesDespesa" aria-expanded="false" aria-controls="DetalhesDespesa">
+									<span class="glyphicon glyphicon-menu-down"></span> Detalhes da Despesa - Produtos 
+								</button>
+							</div>						
+						</div>	
+					</div> 
+						
+						<hr>
+						
+					<div <?php echo $collapse; ?> id="DetalhesDespesa">
 						<div class="form-group">
 							<div class="row">
 								<div class="col-md-4">

@@ -32,9 +32,10 @@
                         <h4>
                             <span class="glyphicon glyphicon-calendar"></span> <b>Data do Orçamento:</b> <?php echo $row['DataOrca']; ?>
                         </h4>
-
+						
                         <p>
-                            <?php if ($row['ProfissionalOrca']) { ?>
+                            
+							<?php if ($row['ProfissionalOrca']) { ?>
                             <span class="glyphicon glyphicon-user"></span> <b>Profissional:</b> <?php echo $row['ProfissionalOrca']; ?> -
                             <?php } if ($row['AprovadoOrca']) { ?>
                             <span class="glyphicon glyphicon-thumbs-up"></span> <b>Orçamento Aprovado?</b> <?php echo $row['AprovadoOrca']; ?>

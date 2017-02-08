@@ -89,7 +89,7 @@ class Formapag_model extends CI_Model {
                 #. 'WHERE '
                 #. 'idSis_Usuario = ' . $_SESSION['log']['id'] . ' AND '
                 #. 'idTab_Modulo = ' . $_SESSION['log']['idTab_Modulo'] . ' '
-                . 'ORDER BY idTab_FormaPag ASC ');
+                . 'ORDER BY FormaPag ASC ');
 
         /*
           echo $this->db->last_query();
@@ -128,10 +128,10 @@ class Formapag_model extends CI_Model {
                     #. 'WHERE '
                     #. 'idSis_Usuario = ' . $_SESSION['log']['id'] . ' AND '
                     #. 'idTab_Modulo = ' . $_SESSION['log']['idTab_Modulo'] );
-					. 'ORDER BY idTab_FormaPag ASC ');
+					. 'ORDER BY FormaPag ASC ');
         } else {
             #$query = $this->db->query('SELECT idTab_FormaPag, FormaPag FROM Tab_FormaPag WHERE idSis_Usuario = ' . $_SESSION['log']['id']);
-            $query = $this->db->query('SELECT idTab_FormaPag, FormaPag FROM Tab_FormaPag ORDER BY idTab_FormaPag ASC ');
+            $query = $this->db->query('SELECT idTab_FormaPag, FormaPag FROM Tab_FormaPag ORDER BY FormaPag ASC ');
             $array = array();
             foreach ($query->result() as $row) {
                 $array[$row->idTab_FormaPag] = $row->FormaPag;

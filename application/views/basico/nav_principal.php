@@ -190,6 +190,8 @@
 						<li role="separator" class="divider"></li>
 						<li><a href="<?php echo base_url() ?>funcao/cadastrar/funcao">Função dos Profissionais</a></li>
 						<li role="separator" class="divider"></li>
+						<li><a href="<?php echo base_url() ?>formapag/cadastrar/formapag">Forma de Pagamento</a></li>
+						<li role="separator" class="divider"></li>
 						<li><a href="<?php echo base_url() ?>atividade/cadastrar/atividade">Atividade dos Fornecedores</a></li>
 						<li role="separator" class="divider"></li>
 						<li><a href="<?php echo base_url() ?>atividade/cadastrar/atividade">Atividade dos Prestadores de Serviço</a></li>
