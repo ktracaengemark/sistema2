@@ -302,16 +302,7 @@
 													<input type="text" class="form-control Valor" id="ValorOrca" maxlength="10" placeholder="0,00" readonly=""
 														   name="ValorOrca" value="<?php echo $orcatrata['ValorOrca'] ?>">
 												</div>
-											</div>
-											<br>
-											<div class="col-md-3">
-												<label for="ValorRestanteOrca">Resta Pagar:</label><br>
-												<div class="input-group" id="txtHint">
-													<span class="input-group-addon" id="basic-addon1">R$</span>
-													<input type="text" class="form-control Valor" id="ValorRestanteOrca" maxlength="10" placeholder="0,00" readonly=""
-														   name="ValorRestanteOrca" value="<?php echo $orcatrata['ValorRestanteOrca'] ?>">
-												</div>
-											</div>
+											</div>										
 											<br>
 											<div class="col-md-3">
 												<label for="FormaPagamento">Forma de Pagamento:</label>
@@ -349,7 +340,16 @@
 														<span class="glyphicon glyphicon-calendar"></span>
 													</span>
 												</div>
-											</div>											
+											</div>
+											<br>
+											<div class="col-md-3">
+												<label for="ValorRestanteOrca">Resta Pagar:</label><br>
+												<div class="input-group" id="txtHint">
+													<span class="input-group-addon" id="basic-addon1">R$</span>
+													<input type="text" class="form-control Valor" id="ValorRestanteOrca" maxlength="10" placeholder="0,00" readonly=""
+														   name="ValorRestanteOrca" value="<?php echo $orcatrata['ValorRestanteOrca'] ?>">
+												</div>
+											</div>
 										</div>
 									</div>
 
