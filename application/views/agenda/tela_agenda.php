@@ -4,9 +4,6 @@
 <div id="datepickerinline" class="col-md-2"></div>
 <div id="calendar" class="col-md-8"></div>-->
 
-<div id="datepickerinline" class="col-md-2"></div> 
-<div id="calendar" class="col-md-10"></div>
-
 <div id="fluxo" class="modal bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="fluxo" aria-hidden="true">
     <div class="vertical-alignment-helper">
         <div class="modal-dialog modal-sm vertical-align-center">
@@ -24,6 +21,10 @@
         </div>
     </div>
 </div>
+
+<div id="calendar" class="col-md-10"></div>
+<div id="datepickerinline" class="col-md-2"></div> 
+
 <div class="col-md-2">
     
     <div id="datepickerinline"></div>    
