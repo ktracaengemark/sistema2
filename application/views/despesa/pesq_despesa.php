@@ -43,6 +43,15 @@
 							</div>
 							<br>
 							<div class="col-md-3">
+								<label for="ValorTotalDesp">Valor Total da Desp.:</label><br>						
+								<div class="input-group">
+									<span class="input-group-addon" id="basic-addon1">R$</span>
+									<input type="text" class="form-control Valor" maxlength="10" placeholder="0,00"
+											name="ValorTotalDesp" value="<?php echo $despesa['ValorTotalDesp'] ?>">
+								</div>
+							</div>
+							<br>
+							<div class="col-md-3">
 								<label for="DataDesp">Data da Desp..</label>
 								<div class="input-group <?php echo $datepicker; ?>">
 									<input type="text" class="form-control Date" <?php echo $readonly; ?> maxlength="10" placeholder="DD/MM/AAAA"
@@ -52,16 +61,7 @@
 									</span>
 								</div>
 							</div>
-							<br>
-							<div class="col-md-3">
-								<label for="ValorTotalDesp">Valor Total da Desp.:</label><br>						
-								<div class="input-group">
-									<span class="input-group-addon" id="basic-addon1">R$</span>
-									<input type="text" class="form-control Valor" maxlength="10" placeholder="0,00"
-											name="ValorTotalDesp" value="<?php echo $despesa['ValorTotalDesp'] ?>">
-								</div>
-							</div>
-							<br>
+							<br>							
 							<div class="col-md-3">
 								<label for="FormaPag">Forma Pag</label>
 								<!--<a class="btn btn-xs btn-info" href="<?php echo base_url() ?>formapag/cadastrar/formapag" role="button"> 

@@ -16,24 +16,7 @@ class Relatorio_model extends CI_Model {
 
     public function list_orcamento($data, $completo) {
 
-        /*
         $consulta = ($data['DataFim']) ? $data['Pesquisa'] . ' <= "' . $data['DataFim'] . '" AND ' : FALSE;
-        ' . $data['Pesquisa'] . ' >= "' . $data['DataInicio'] . '" AND
-        ' . $consulta . '
-        ' . $data['Pesquisa'] . ' ASC,
-        #C.NomeCliente ASC
-        */
-
-        if ($data['DataFim']) {
-            $consulta =
-            '(OT.DataEntradaOrca >= "' . $data['DataInicio'] . '" AND OT.DataEntradaOrca <= "' . $data['DataFim'] . '") OR
-            (PR.DataVencimentoRecebiveis >= "' . $data['DataInicio'] . '" AND PR.DataVencimentoRecebiveis <= "' . $data['DataFim'] . '")';
-        }
-        else {
-            $consulta =
-            '(OT.DataEntradaOrca >= "' . $data['DataInicio'] . '") OR
-            (PR.DataVencimentoRecebiveis >= "' . $data['DataInicio'] . '")';
-        }
 
         $query = $this->db->query('
             SELECT
@@ -53,18 +36,22 @@ class Relatorio_model extends CI_Model {
                 PR.QuitadoRecebiveis
 
             FROM
-                App_Cliente AS C,
-                App_OrcaTrata AS OT
-                    LEFT JOIN App_ParcelasRecebiveis AS PR ON OT.idApp_OrcaTrata = PR.idApp_OrcaTrata
+                app.App_Cliente AS C,
+                app.App_OrcaTrata AS OT,
+                app.App_ParcelasRecebiveis AS PR
 
             WHERE
                 C.idSis_Usuario = ' . $_SESSION['log']['id'] . ' AND
-                (' . $consulta . ') AND
-                C.idApp_Cliente = OT.idApp_Cliente
+                ' . $data['Pesquisa'] . ' >= "' . $data['DataInicio'] . '" AND
+                ' . $consulta . '
+                C.idApp_Cliente = OT.idApp_Cliente AND
+                OT.idApp_OrcaTrata = PR.idApp_OrcaTrata
 
             ORDER BY
-                OT.DataOrca ASC,
+                C.NomeCliente ASC,
+                ' . $data['Pesquisa'] . ' ASC,
                 PR.ParcelaRecebiveis ASC
+
         ');
 
         /*
@@ -79,7 +66,7 @@ class Relatorio_model extends CI_Model {
             return TRUE;
         } else {
 
-            $somaentrada=$somareceber=$somapago=$balanco=$ant=0;
+            $entrada=$somaparcela=$somapago=$ant=0;
             foreach ($query->result() as $row) {
 				$row->DataOrca = $this->basico->mascara_data($row->DataOrca, 'barras');
                 $row->DataEntradaOrca = $this->basico->mascara_data($row->DataEntradaOrca, 'barras');
@@ -93,28 +80,20 @@ class Relatorio_model extends CI_Model {
                 #o valor da entrada que pode aparecer mais de uma vez
                 if ($ant != $row->idApp_OrcaTrata) {
                     $ant = $row->idApp_OrcaTrata;
-                    $somaentrada += $row->ValorEntradaOrca;
+                    $somaparcela += $row->ValorParcelaRecebiveis + $row->ValorEntradaOrca;
                 }
                 else {
-                    $row->ValorEntradaOrca = FALSE;
-                    $row->DataEntradaOrca = FALSE;
+                    $somaparcela += $row->ValorParcelaRecebiveis;
                 }
-
                 $somapago += $row->ValorPagoRecebiveis;
-                $somareceber += $row->ValorParcelaRecebiveis;
 
                 $row->ValorEntradaOrca = number_format($row->ValorEntradaOrca, 2, ',', '.');
                 $row->ValorParcelaRecebiveis = number_format($row->ValorParcelaRecebiveis, 2, ',', '.');
                 $row->ValorPagoRecebiveis = number_format($row->ValorPagoRecebiveis, 2, ',', '.');
             }
-            $somareceber -= $somapago;
-            $balanco = $somapago + $somareceber + $somaentrada;
-
             $query->soma = new stdClass();
-            $query->soma->somareceber = number_format($somareceber, 2, ',', '.');
+            $query->soma->somaparcela = number_format($somaparcela, 2, ',', '.');
             $query->soma->somapago = number_format($somapago, 2, ',', '.');
-            $query->soma->somaentrada = number_format($somaentrada, 2, ',', '.');
-            $query->soma->balanco = number_format($balanco, 2, ',', '.');
 
             return $query;
         }

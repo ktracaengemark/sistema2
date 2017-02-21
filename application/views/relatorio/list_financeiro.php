@@ -1,10 +1,16 @@
 <div class="panel panel-default">
     <div class="panel-body">
 
-        <div class="col-md-3"></div>
+        <div class="col-md-3">
+            <label for="DataFim">Total Pago À vista/Entrada:</label>
+            <div class="input-group">
+                <span class="input-group-addon">R$</span>
+                <input type="text" class="form-control" disabled aria-label="Total Pago" value="<?php echo $report->soma->somaentrada ?>">
+            </div>
+        </div>
 
         <div class="col-md-3">
-            <label for="DataFim">Total Pago:</label>
+            <label for="DataFim">Total Pago das Parcelas:</label>
             <div class="input-group">
                 <span class="input-group-addon">R$</span>
                 <input type="text" class="form-control" disabled aria-label="Total Pago" value="<?php echo $report->soma->somapago ?>">
@@ -12,14 +18,21 @@
         </div>
 
         <div class="col-md-3">
-            <label for="DataFim">Total a receber:</label>
+            <label for="DataFim">Total a receber das parcelas:</label>
             <div class="input-group">
                 <span class="input-group-addon">R$</span>
-                <input type="text" class="form-control" disabled aria-label="Total a receber" value="<?php echo $report->soma->somaparcela ?>">
+                <input type="text" class="form-control" disabled aria-label="Total a receber" value="<?php echo $report->soma->somareceber ?>">
             </div>
         </div>
 
-        <div class="col-md-3"></div>
+        <div class="col-md-3">
+            <label for="DataFim">Balanço do Período:</label>
+            <div class="input-group">
+                <span class="input-group-addon">R$</span>
+                <input type="text" class="form-control" disabled aria-label="Total a receber" value="<?php echo $report->soma->balanco ?>">
+            </div>
+        </div>
+
 
     </div>
 </div>
@@ -29,11 +42,11 @@
 
         <div>
 
-            <table class="table table-bordered table-condensed">
+            <table class="table table-bordered table-condensed table-hover">
 
                 <thead>
                     <tr>
-                        <th class="active">#</th>
+                        <th class="active">Orç</th>
                         <th class="active">Cliente</th>
                         <th class="active">Aprovado?</th>
                         <th class="active">Data do Orçamento</th>
@@ -53,7 +66,8 @@
                     <?php
                     foreach ($report->result_array() as $row) {
 
-                        echo '<tr>';
+                        #echo '<tr>';
+                        echo '<tr class="clickable-row" data-href="' . base_url() . 'orcatrata/alterar/' . $row['idApp_OrcaTrata'] . '">';
                             echo '<td>' . $row['idApp_OrcaTrata'] . '</td>';
 
                             echo '<td>' . $row['NomeCliente'] . '</td>';

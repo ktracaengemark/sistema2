@@ -216,7 +216,7 @@
 								<span class="glyphicon glyphicon-log-out"></span> Sair
 							</button>
 						</a>
-					</div>
+					</div>										
 					<div class="btn-group" role="group" aria-label="..."> </div>
 				</div>
 			</div>				
