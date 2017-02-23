@@ -34,3 +34,7 @@ ERROR - 2017-02-23 22:03:23 --> Severity: Notice --> Undefined index: idApp_Proc
 ERROR - 2017-02-23 22:03:23 --> Severity: Notice --> Undefined index: idApp_ParcelasRec C:\xampp\htdocs\sistema2\application\views\orcatrata\form_orcatrata.php 730
 ERROR - 2017-02-23 22:03:25 --> Query error: Unknown column 'arquivos' in 'where clause' - Invalid query: SELECT * FROM App_OrcaTrata WHERE idApp_OrcaTrata = arquivos
 ERROR - 2017-02-23 22:03:37 --> Query error: Unknown column 'arquivos' in 'where clause' - Invalid query: SELECT OT.idApp_OrcaTrata, OT.DataOrca, OT.ProfissionalOrca, OT.AprovadoOrca, OT.ObsOrca FROM App_OrcaTrata AS OT WHERE OT.idApp_Cliente = arquivos AND OT.AprovadoOrca = "S" ORDER BY OT.DataOrca DESC 
+ERROR - 2017-02-23 22:40:55 --> Severity: Notice --> Undefined variable: nav_secundario C:\xampp\htdocs\sistema2\application\views\relatorio\tela_orcamento.php 7
+ERROR - 2017-02-23 22:40:56 --> 404 Page Not Found: Relatorio/arquivos
+ERROR - 2017-02-23 22:41:55 --> Severity: Notice --> Undefined variable: nav_secundario C:\xampp\htdocs\sistema2\application\views\relatorio\tela_orcamento.php 7
+ERROR - 2017-02-23 22:41:56 --> 404 Page Not Found: Relatorio/arquivos
