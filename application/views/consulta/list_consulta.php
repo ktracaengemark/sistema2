@@ -11,8 +11,8 @@
 
                 <!-- Nav tabs -->
                 <ul class="nav nav-tabs" role="tablist">
-                    <li role="presentation" ><a href="#anterior" aria-controls="anterior" role="tab" data-toggle="tab">Histórico de Sessão</a></li>
-					<li role="presentation" class="active"><a href="#proxima" aria-controls="proxima" role="tab" data-toggle="tab">Próximas Sessão</a></li>
+                    <li role="presentation" ><a href="#anterior" aria-controls="anterior" role="tab" data-toggle="tab">Hist. de Sessões</a></li>
+					<li role="presentation" class="active"><a href="#proxima" aria-controls="proxima" role="tab" data-toggle="tab">Próx. Sessões</a></li>
                    
                 </ul>
 

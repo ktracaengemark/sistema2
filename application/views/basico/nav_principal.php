@@ -132,10 +132,8 @@
 					</form>							
 				</li>				
 				<li class="dropdown">
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Vendas<span class="caret"></span></a>
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Orçamentos<span class="caret"></span></a>
 					<ul class="dropdown-menu">
-						<li><a href="<?php echo base_url() ?>cliente/pesquisar">Vendas</a></li>
-						<li role="separator" class="divider"></li>
 						<li><a href="<?php echo base_url() ?>cliente/pesquisar">Orçamentos</a></li>											
 						<li role="separator" class="divider"></li>
 					</ul>
@@ -146,8 +144,6 @@
 					<ul class="dropdown-menu">
 						<li><a href="<?php echo base_url() ?>despesa/cadastrar/despesa">Despesas</a></li>
 						<li role="separator" class="divider"></li>
-						<li><a href="<?php echo base_url() ?>tipodespesa/cadastrar/tipodespesa">Tipo de Despesa</a></li>
-						<li role="separator" class="divider"></li>
 					</ul>
 				</li>
 				
@@ -156,17 +152,17 @@
 					<ul class="dropdown-menu">
 						<li><a href="<?php echo base_url() ?>cliente/pesquisar">Consultas & Sessões</a></li>
 						<li role="separator" class="divider"></li>
-						<li><a href="<?php echo base_url() ?>cliente/pesquisar">Planos de Tratamento & Orçamentos  </a></li>											
-						<li role="separator" class="divider"></li>
 					</ul>
 				</li>
 				
 				<li class="dropdown">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Relatórios<span class="caret"></span></a>
 					<ul class="dropdown-menu">
-						<li><a href="<?php echo base_url() ?>relatorio/financeiro">Financeiro</a></li>					
+						<li><a href="<?php echo base_url() ?>relatorio/clientes">Clientes</a></li>											
 						<li role="separator" class="divider"></li>
 						<li><a href="<?php echo base_url() ?>relatorio/orcamento">Orçamento</a></li>
+						<li role="separator" class="divider"></li>
+						<li><a href="<?php echo base_url() ?>relatorio/financeiro">Financeiro</a></li>
 						<li role="separator" class="divider"></li>
 						<li><a href="<?php echo base_url() ?>">Estoque</a></li>
 						<li role="separator" class="divider"></li>
@@ -193,6 +189,8 @@
 						<li><a href="<?php echo base_url() ?>funcao/cadastrar/funcao">Função dos Profissionais</a></li>
 						<li role="separator" class="divider"></li>
 						<li><a href="<?php echo base_url() ?>formapag/cadastrar/formapag">Forma de Pagamento</a></li>
+						<li role="separator" class="divider"></li>
+						<li><a href="<?php echo base_url() ?>tipodespesa/cadastrar/tipodespesa">Tipo de Despesa</a></li>
 						<li role="separator" class="divider"></li>
 						<li><a href="<?php echo base_url() ?>atividade/cadastrar/atividade">Atividade dos Fornecedores</a></li>
 						<li role="separator" class="divider"></li>

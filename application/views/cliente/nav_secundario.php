@@ -30,24 +30,24 @@
 		</li>
 		
 		<li class="dropdown">
-			<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Consultas & Sessões<span class="caret"></span></a>
+			<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Agenda<span class="caret"></span></a>
 			<ul class="dropdown-menu">
 				<li <?php if (preg_match("/consulta\/(cadastrar|alterar)\b/", $_SERVER['REQUEST_URI'])) echo 'class=active'; ?>>
 					<a href="<?php echo base_url() . 'consulta/cadastrar/' . $_SESSION['Cliente']['idApp_Cliente']; ?>">
-						<span class="glyphicon glyphicon-time"></span> Cadastrar
+						<span class="glyphicon glyphicon-time"></span> Cadastrar Sessões
 					</a>
 				</li>				
 				<li role="separator" class="divider"></li>
 				<li <?php if (preg_match("/consulta\/listar\b/", $_SERVER['REQUEST_URI'])) echo 'class=active'; ?>>
 					<a href="<?php echo base_url() . 'consulta/listar/' . $_SESSION['Cliente']['idApp_Cliente']; ?>">
-						<span class="glyphicon glyphicon-list"></span> Listar 
+						<span class="glyphicon glyphicon-list"></span> Listar Sessões
 					</a>
 				</li>											
 			</ul>
 		</li>
 		
 		<li class="dropdown">
-			<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Vendas & Orçamentos<span class="caret"></span></a>
+			<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Orçamentos<span class="caret"></span></a>
 			<ul class="dropdown-menu">
 				<li <?php if (preg_match("/orcatrata\/cadastrar\b/", $_SERVER['REQUEST_URI'])) echo 'class=active'; ?>>
 					<a href="<?php echo base_url() . 'orcatrata/cadastrar/' . $_SESSION['Cliente']['idApp_Cliente']; ?>">
