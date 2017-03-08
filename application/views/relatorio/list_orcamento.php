@@ -1,3 +1,16 @@
+<div class="panel panel-default">
+    <div class="panel-body">
+
+        <div class="col-md-2">
+            <label for="DataFim">Total dos Orçamentos:</label>
+            <div class="input-group">
+                <span class="input-group-addon">R$</span>
+                <input type="text" class="form-control" disabled aria-label="Total Orcamentos" value="<?php echo $report->soma->somaorcamento ?>">
+            </div>
+        </div>
+
+    </div>
+</div>
 <div class="container-fluid">
     <div class="row">
 
@@ -57,16 +70,4 @@
     </div>
 
 </div>
-<div class="panel panel-default">
-    <div class="panel-body">
 
-        <div class="col-md-2">
-            <label for="DataFim">Total dos Orçamentos:</label>
-            <div class="input-group">
-                <span class="input-group-addon">R$</span>
-                <input type="text" class="form-control" disabled aria-label="Total Orcamentos" value="<?php echo $report->soma->somaorcamento ?>">
-            </div>
-        </div>
-
-    </div>
-</div>

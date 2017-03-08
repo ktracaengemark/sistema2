@@ -159,8 +159,14 @@
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Relatórios<span class="caret"></span></a>
 					<ul class="dropdown-menu">
 						<li><a href="<?php echo base_url() ?>relatorio/clientes">Clientes</a></li>											
+						<li role="separator" class="divider"></li>						
+						<li><a href="<?php echo base_url() ?>relatorio/profissionais">Profissionais</a></li>
 						<li role="separator" class="divider"></li>
-						<li><a href="<?php echo base_url() ?>relatorio/orcamento">Orçamento</a></li>
+						<li><a href="<?php echo base_url() ?>relatorio/empresas">Fornecedores</a></li>
+						<li role="separator" class="divider"></li>
+						<li><a href="<?php echo base_url() ?>relatorio/orcamento">Orçamentos</a></li>
+						<li role="separator" class="divider"></li>
+						<li><a href="<?php echo base_url() ?>relatorio/despesa">Despesas</a></li>
 						<li role="separator" class="divider"></li>
 						<li><a href="<?php echo base_url() ?>relatorio/financeiro">Financeiro</a></li>
 						<li role="separator" class="divider"></li>

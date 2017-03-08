@@ -18,13 +18,13 @@
 					<div class="form-group">
 						<div class="row">
 							<div class="col-md-4">
-								<label for="NomeProfissional">Profissional ou Prest. de Serviço: *</label>
+								<label for="NomeProfissional">Profissional:*</label>
 								<input type="text" class="form-control" id="NomeProfissional" maxlength="255" <?php echo $readonly; ?>
 									   name="NomeProfissional" autofocus value="<?php echo $query['NomeProfissional']; ?>">
 							</div>
 							<br>
 							<div class="col-md-4">
-								<label for="Telefone1">Telefone Principal: *</label>
+								<label for="Telefone1">Telefone Principal:*</label>
 								<input type="text" class="form-control Celular CelularVariavel" id="Telefone1" maxlength="20" <?php echo $readonly; ?>
 									   name="Telefone1" placeholder="(99) 99999-9999" value="<?php echo $query['Telefone1']; ?>">
 							</div>							
@@ -53,7 +53,7 @@
 							</div>
 							<br>						
 							<div class="col-md-4">
-								<label for="Funcao">Funcao: *</label>
+								<label for="Funcao">Funcao:*</label>
 								<a class="btn btn-xs btn-info" href="<?php echo base_url() ?>funcao/cadastrar/funcao" role="button"> 
 									<span class="glyphicon glyphicon-plus"></span> <b>Nova Funcao</b>
 								</a>
