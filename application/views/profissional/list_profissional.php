@@ -4,8 +4,8 @@
     <thead>
         <tr>
             <th>Func./Profissional</th>
-            <th>Atividade</th>
-			<!--<th>Nascimento</th>-->
+            <th>Funcao</th>
+			<th>Nascimento</th>
             <th>Telefone</th>
         </tr>
     </thead>
@@ -21,9 +21,8 @@
                     
             echo '<tr class="clickable-row" data-href="' . $url . '">';
                 echo '<td>' . $row['NomeProfissional'] . '</td>';
-				echo '<td>' . $row['Atividade'] . '</td>';
-				
-                #echo '<td>' . $row['DataNascimento'] . '</td>';
+				echo '<td>' . $row['Funcao'] . '</td>';				
+                echo '<td>' . $row['DataNascimento'] . '</td>';
                 echo '<td>' . $row['Telefone1'] . '</td>';
             echo '</tr>';            
         }

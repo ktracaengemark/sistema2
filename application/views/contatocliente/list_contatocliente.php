@@ -1,3 +1,4 @@
+
 <?php (isset($contatocliente)) ? $query = $contatocliente : FALSE; ?>
 <div class="container-fluid">
 	<div class="row">
@@ -63,19 +64,23 @@ foreach ($query->result_array() as $row) {
 				<?php echo $row['NomeContatoCliente']; ?>
 				<?php echo $row['vida']; ?>
 				<?php if ($row['RelaPes']) { ?>
+			</h4>	
+			<h4>	
 				<span class="glyphicon glyphicon-user"></span> <b>Relação:</b> <?php echo $row['RelaPes']; ?>
 				<?php } ?>
 			</h4> 
 
 			<p>
 				<?php if ($row['DataNascimento']) { ?>
-				<span class="glyphicon glyphicon-gift"></span> <b>Data de Nascimento:</b> <?php echo $row['DataNascimento']; ?> -
-					<b>Idade:</b> <?php echo $row['Idade']; ?> -
+				<span class="glyphicon glyphicon-gift"></span> <b>Aniversário:</b> <?php echo $row['DataNascimento']; ?> -
+					<b>Idade:</b> <?php echo $row['Idade']; ?>
+			</p>
+			<p>	
 				<?php } if ($row['Sexo']) { ?>
 				<span class="<?php echo $row['icon-sex']; ?>"></span> <b>Sexo:</b> <?php echo $row['Sexo']; ?>
 				<?php } ?>
-
 			</p>
+			
 			<p>
 				<?php if ($row['Telefone1']) { ?>
 				<span class="glyphicon glyphicon-phone-alt"></span> <b>Telefone:</b> <?php echo $row['Telefone1']; ?>

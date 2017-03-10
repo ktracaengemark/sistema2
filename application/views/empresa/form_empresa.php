@@ -29,7 +29,7 @@
 									   name="Telefone1" placeholder="(99) 99999-9999" value="<?php echo $query['Telefone1']; ?>">
 							</div>
 							<br>                        
-							<div class="col-md-4">
+							<!--<div class="col-md-4">
 								<label for="Sexo">Sexo:</label>
 								<select data-placeholder="Selecione uma opção..." class="form-control" <?php echo $readonly; ?>
 										id="Sexo" name="Sexo">
@@ -51,7 +51,7 @@
 								<input type="text" class="form-control Date" maxlength="10" <?php echo $readonly; ?>
 									   name="DataNascimento" placeholder="DD/MM/AAAA" value="<?php echo $query['DataNascimento']; ?>">
 							</div>	
-							<br>
+							<br>-->
 							<div class="col-md-4">
 								<label for="Atividade">Atividade: *</label>
 								<a class="btn btn-xs btn-info" href="<?php echo base_url() ?>atividade/cadastrar/atividade" role="button"> 

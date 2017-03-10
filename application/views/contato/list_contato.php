@@ -49,18 +49,12 @@ foreach ($query->result_array() as $row) {
             <a class="btn btn-<?php echo $row['class']; ?>" href="<?php echo base_url() . 'contato/alterar/' . $row['idApp_Contato'] ?>" role="button"> 
                 <span class="glyphicon glyphicon-edit"></span> Editar Dados
             </a>          
-            <!--<a class="btn btn-<?php echo $row['class']; ?>" href="<?php echo base_url() . 'consulta/cadastrar/' . $row['idApp_Empresa'] . '/' . $row['idApp_Contato'] ?>" role="button"> 
-                <span class="glyphicon glyphicon-time"></span> Marcar Sessão
-            </a>            
-            <a class="btn btn-<?php echo $row['class']; ?>" href="<?php echo base_url() . 'consulta/listar/' . $row['idApp_Empresa'] ?>" role="button"> 
-                <span class="glyphicon glyphicon-list"></span> Listar Sessões
-            </a> --> 
             
             <br><br>
             
             <h4>
                 <span class="<?php echo $row['icon']; ?>"></span> 
-                Contato: <?php echo $row['NomeContato'] . '</small></code>'; ?>
+                <?php echo $row['NomeContato'] . '</small></code>'; ?>
                 <?php echo $row['vida']; ?>
             </h4> 
 
@@ -68,20 +62,19 @@ foreach ($query->result_array() as $row) {
             
             <p>
                 <?php if ($row['DataNascimento']) { ?>
-                <span class="glyphicon glyphicon-gift"></span> <b>Data de Nascimento:</b> <?php echo $row['DataNascimento']; ?> --
+                <span class="glyphicon glyphicon-gift"></span> <b>Data de Nascimento:</b> <?php echo $row['DataNascimento']; ?>-
                     
 					<b>Idade:</b> <?php echo $row['Idade']; ?> -
-                
+            </p>
+			<p>
 				<?php } if ($row['Sexo']) { ?>
-                <span class="<?php echo $row['icon-sex']; ?>"></span> <b>Sexo:</b> <?php echo $row['Sexo']; ?> --										
+                <span class="<?php echo $row['icon-sex']; ?>"></span> <b>Sexo:</b> <?php echo $row['Sexo']; ?>										
                 <?php } ?>
-				
+			</p>
+			<p>	
 				<?php if ($row['TelefoneContato']) { ?>
 				<span class="glyphicon glyphicon-phone-alt"></span> <b>Telefone:</b> <?php echo $row['TelefoneContato']; ?>
 				<?php } ?>
-				
-				
-				
             </p>
 
             <p>
