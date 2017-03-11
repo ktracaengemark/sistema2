@@ -3,9 +3,9 @@
 	<ul class="nav nav-sidebar">
 		<li class="dropdown">
 			<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-				<span class="glyphicon glyphicon-user"> </span> Dados do Profissional<span class="caret"></span>			
+				<span class="glyphicon glyphicon-user"> </span> Dados do Fornecedor<span class="caret"></span>			
 			</a>	
-			<ul class="dropdown-menu">
+			<ul class="dropdown-menu">	
 				<li <?php if (preg_match("/prontuario\b/", $_SERVER['REQUEST_URI'])) echo 'class=active'; //(.)+\/prontuario/   ?>>
 					<a href="<?php echo base_url() . 'profissional/prontuario/' . $_SESSION['Profissional']['idApp_Profissional']; ?>">
 						<span class="glyphicon glyphicon-user"> </span> Visualizar<span class="sr-only">(current)</span>
@@ -19,11 +19,13 @@
 				</li>
 			</ul>
 		</li>
+
 		<li <?php if (preg_match("/contatoprof\b/", $_SERVER['REQUEST_URI'])) echo 'class=active'; ?>>
 			<a href="<?php echo base_url() . 'contatoprof/pesquisar/' . $_SESSION['Profissional']['idApp_Profissional']; ?>">
-				<span class="fa fa-user-plus"></span> Contatos Profs
+				<span class="fa fa-user-plus"></span> Contatoprofs
 			</a>
-		</li>				
+		</li>
+		
 	</ul>
 	<ul class="nav nav-sidebar">
 		<li>

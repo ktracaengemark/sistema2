@@ -4,7 +4,7 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class ContatoProf extends CI_Controller {
+class Contatoprof extends CI_Controller {
 
     public function __construct() {
         parent::__construct();
@@ -13,7 +13,7 @@ class ContatoProf extends CI_Controller {
         $this->load->helper(array('form', 'url', 'date', 'string'));
         #$this->load->library(array('basico', 'Basico_model', 'form_validation'));
         $this->load->library(array('basico', 'form_validation'));
-        $this->load->model(array('Basico_model', 'ContatoProf_model', 'Profissional_model'));
+        $this->load->model(array('Basico_model', 'Contatoprof_model', 'Profissional_model'));
         $this->load->driver('session');
 
         #load header view
@@ -28,7 +28,7 @@ class ContatoProf extends CI_Controller {
         if ($this->input->get('m') == 1)
             $data['msg'] = $this->basico->msg('<strong>Informações salvas com sucesso</strong>', 'sucesso', TRUE, TRUE, TRUE);
         elseif ($this->input->get('m') == 2)
-            $data['msg'] = $this->basico->msg('<strong>Erro no Banco de dados. Entre em contatoprof com o administrador deste sistema.</strong>', 'erro', TRUE, TRUE, TRUE);
+            $data['msg'] = $this->basico->msg('<strong>Erro no Banco de dados. Entre em contato com o administrador deste sistema.</strong>', 'erro', TRUE, TRUE, TRUE);
         else
             $data['msg'] = '';
 
@@ -43,7 +43,7 @@ class ContatoProf extends CI_Controller {
         if ($this->input->get('m') == 1)
             $data['msg'] = $this->basico->msg('<strong>Informações salvas com sucesso</strong>', 'sucesso', TRUE, TRUE, TRUE);
         elseif ($this->input->get('m') == 2)
-            $data['msg'] = $this->basico->msg('<strong>Erro no Banco de dados. Entre em contatoprof com o administrador deste sistema.</strong>', 'erro', TRUE, TRUE, TRUE);
+            $data['msg'] = $this->basico->msg('<strong>Erro no Banco de dados. Entre em contato com o administrador deste sistema.</strong>', 'erro', TRUE, TRUE, TRUE);
         else
             $data['msg'] = '';
 
@@ -67,9 +67,9 @@ class ContatoProf extends CI_Controller {
         $this->form_validation->set_rules('DataNascimento', 'Data de Nascimento', 'trim|valid_date');
 		 $this->form_validation->set_rules('TelefoneContatoProf', 'TelefoneContatoProf', 'required|trim');
         $data['select']['Sexo'] = $this->Basico_model->select_sexo();
-        $data['select']['StatusVida'] = $this->ContatoProf_model->select_status_vida();
+        $data['select']['StatusVida'] = $this->Contatoprof_model->select_status_vida();
 
-        $data['titulo'] = 'Cadastrar ContatoProf';
+        $data['titulo'] = 'Cadastrar Contatoprof';
         $data['form_open_path'] = 'contatoprof/cadastrar';
         $data['readonly'] = '';
         $data['disabled'] = '';
@@ -91,10 +91,10 @@ class ContatoProf extends CI_Controller {
             $data['campos'] = array_keys($data['query']);
             $data['anterior'] = array();
 
-            $data['idApp_ContatoProf'] = $this->ContatoProf_model->set_contatoprof($data['query']);
+            $data['idApp_ContatoProf'] = $this->Contatoprof_model->set_contatoprof($data['query']);
 
             if ($data['idApp_ContatoProf'] === FALSE) {
-                $msg = "<strong>Erro no Banco de dados. Entre em contatoprof com o administrador deste sistema.</strong>";
+                $msg = "<strong>Erro no Banco de dados. Entre em contato com o administrador deste sistema.</strong>";
 
                 $this->basico->erro($msg);
                 $this->load->view('contatoprof/form_contatoprof', $data);
@@ -117,7 +117,7 @@ class ContatoProf extends CI_Controller {
         if ($this->input->get('m') == 1)
             $data['msg'] = $this->basico->msg('<strong>Informações salvas com sucesso</strong>', 'sucesso', TRUE, TRUE, TRUE);
         elseif ($this->input->get('m') == 2)
-            $data['msg'] = $this->basico->msg('<strong>Erro no Banco de dados. Entre em contatoprof com o administrador deste sistema.</strong>', 'erro', TRUE, TRUE, TRUE);
+            $data['msg'] = $this->basico->msg('<strong>Erro no Banco de dados. Entre em contato com o administrador deste sistema.</strong>', 'erro', TRUE, TRUE, TRUE);
         else
             $data['msg'] = '';
 
@@ -134,7 +134,7 @@ class ContatoProf extends CI_Controller {
                 ), TRUE);
 
         if ($id) {
-            $data['query'] = $this->ContatoProf_model->get_contatoprof($id);
+            $data['query'] = $this->Contatoprof_model->get_contatoprof($id);
             $data['query']['DataNascimento'] = $this->basico->mascara_data($data['query']['DataNascimento'], 'barras');
             $_SESSION['log']['idApp_ContatoProf'] = $id;
         }
@@ -145,7 +145,7 @@ class ContatoProf extends CI_Controller {
         $this->form_validation->set_rules('DataNascimento', 'Data de Nascimento', 'trim|valid_date');
 		$this->form_validation->set_rules('TelefoneContatoProf', 'TelefoneContatoProf', 'required|trim');
         $data['select']['Sexo'] = $this->Basico_model->select_sexo();
-        $data['select']['StatusVida'] = $this->ContatoProf_model->select_status_vida();
+        $data['select']['StatusVida'] = $this->Contatoprof_model->select_status_vida();
                
         $data['titulo'] = 'Editar Dados';
         $data['form_open_path'] = 'contatoprof/alterar';
@@ -167,12 +167,12 @@ class ContatoProf extends CI_Controller {
             $data['query']['idSis_Usuario'] = $_SESSION['log']['id']; 
 			$data['query']['idApp_ContatoProf'] = $_SESSION['log']['idApp_ContatoProf'];
 
-            $data['anterior'] = $this->ContatoProf_model->get_contatoprof($data['query']['idApp_ContatoProf']);
+            $data['anterior'] = $this->Contatoprof_model->get_contatoprof($data['query']['idApp_ContatoProf']);
             $data['campos'] = array_keys($data['query']);
 
             $data['auditoriaitem'] = $this->basico->set_log($data['anterior'], $data['query'], $data['campos'], $data['query']['idApp_ContatoProf'], TRUE);
 
-            if ($data['auditoriaitem'] && $this->ContatoProf_model->update_contatoprof($data['query'], $data['query']['idApp_ContatoProf']) === FALSE) {
+            if ($data['auditoriaitem'] && $this->Contatoprof_model->update_contatoprof($data['query'], $data['query']['idApp_ContatoProf']) === FALSE) {
                 $data['msg'] = '?m=2';
                 redirect(base_url() . 'contatoprof/form_contatoprof/' . $data['query']['idApp_ContatoProf'] . $data['msg']);
                 exit();
@@ -198,7 +198,7 @@ class ContatoProf extends CI_Controller {
         if ($this->input->get('m') == 1)
             $data['msg'] = $this->basico->msg('<strong>Informações salvas com sucesso</strong>', 'sucesso', TRUE, TRUE, TRUE);
         elseif ($this->input->get('m') == 2)
-            $data['msg'] = $this->basico->msg('<strong>Erro no Banco de dados. Entre em contatoprof com o administrador deste sistema.</strong>', 'erro', TRUE, TRUE, TRUE);
+            $data['msg'] = $this->basico->msg('<strong>Erro no Banco de dados. Entre em contato com o administrador deste sistema.</strong>', 'erro', TRUE, TRUE, TRUE);
         else
             $data['msg'] = '';
 
@@ -208,9 +208,9 @@ class ContatoProf extends CI_Controller {
                 ), TRUE);
 
         if ($id) {
-            $data['query'] = $this->ContatoProf_model->get_contatoprof($id);
+            $data['query'] = $this->Contatoprof_model->get_contatoprof($id);
             $data['query']['DataNascimento'] = $this->basico->mascara_data($data['query']['DataNascimento'], 'barras');
-            $data['query']['ContatoProfDataNascimento'] = $this->basico->mascara_data($data['query']['ContatoProfDataNascimento'], 'barras');
+            $data['query']['ContatoprofDataNascimento'] = $this->basico->mascara_data($data['query']['ContatoprofDataNascimento'], 'barras');
         }
 
         $data['select']['Municipio'] = $this->Basico_model->select_municipio();
@@ -235,13 +235,13 @@ class ContatoProf extends CI_Controller {
                 $this->load->view('contatoprof/form_contatoprof', $data);
             } else {
 
-                $data['anterior'] = $this->ContatoProf_model->get_contatoprof($data['query']['idApp_ContatoProf']);
+                $data['anterior'] = $this->Contatoprof_model->get_contatoprof($data['query']['idApp_ContatoProf']);
                 $data['campos'] = array_keys($data['anterior']);
 
                 $data['auditoriaitem'] = $this->basico->set_log($data['anterior'], NULL, $data['campos'], $data['query']['idApp_ContatoProf'], FALSE, TRUE);
                 $data['auditoria'] = $this->Basico_model->set_auditoria($data['auditoriaitem'], 'App_ContatoProf', 'DELETE', $data['auditoriaitem']);
 
-                $this->ContatoProf_model->delete_contatoprof($data['query']['idApp_ContatoProf']);
+                $this->Contatoprof_model->delete_contatoprof($data['query']['idApp_ContatoProf']);
 
                 $data['msg'] = '?m=1';
 
@@ -258,7 +258,7 @@ class ContatoProf extends CI_Controller {
         if ($this->input->get('m') == 1)
             $data['msg'] = $this->basico->msg('<strong>Informações salvas com sucesso</strong>', 'sucesso', TRUE, TRUE, TRUE);
         elseif ($this->input->get('m') == 2)
-            $data['msg'] = $this->basico->msg('<strong>Erro no Banco de dados. Entre em contatoprof com o administrador deste sistema.</strong>', 'erro', TRUE, TRUE, TRUE);
+            $data['msg'] = $this->basico->msg('<strong>Erro no Banco de dados. Entre em contato com o administrador deste sistema.</strong>', 'erro', TRUE, TRUE, TRUE);
         else
             $data['msg'] = '';
 
@@ -273,7 +273,7 @@ class ContatoProf extends CI_Controller {
         
         //echo date('d/m/Y H:i:s', $data['start'],0,-3));
 
-        $data['query'] = $this->ContatoProf_model->lista_contatoprof(TRUE);
+        $data['query'] = $this->Contatoprof_model->lista_contatoprof(TRUE);
         /*
           echo "<pre>";
           print_r($data['query']);
