@@ -13,7 +13,7 @@ class Contatoprof extends CI_Controller {
         $this->load->helper(array('form', 'url', 'date', 'string'));
         #$this->load->library(array('basico', 'Basico_model', 'form_validation'));
         $this->load->library(array('basico', 'form_validation'));
-        $this->load->model(array('Basico_model', 'Contatoprof_model', 'Profissional_model'));
+        $this->load->model(array('Basico_model', 'Contatoprof_model', 'Relapes_model', 'Profissional_model'));
         $this->load->driver('session');
 
         #load header view
@@ -54,6 +54,7 @@ class Contatoprof extends CI_Controller {
             'StatusVida',
             'DataNascimento',
             'Sexo',
+			#'idTab_RelaPes',
 			'TelefoneContatoProf',
             'Obs',
             'idApp_Profissional',
@@ -65,10 +66,11 @@ class Contatoprof extends CI_Controller {
 
         $this->form_validation->set_rules('NomeContatoProf', 'Nome do Responsável', 'required|trim');
         $this->form_validation->set_rules('DataNascimento', 'Data de Nascimento', 'trim|valid_date');
-		 $this->form_validation->set_rules('TelefoneContatoProf', 'TelefoneContatoProf', 'required|trim');
-        $data['select']['Sexo'] = $this->Basico_model->select_sexo();
+		$this->form_validation->set_rules('TelefoneContatoProf', 'TelefoneContatoProf', 'required|trim');
+        #$this->form_validation->set_rules('idTab_RelaPes', 'RelaPes', 'required|trim');
+		$data['select']['Sexo'] = $this->Basico_model->select_sexo();
         $data['select']['StatusVida'] = $this->Contatoprof_model->select_status_vida();
-
+		#$data['select']['idTab_RelaPes'] = $this->Relapes_model->select_relapes();
         $data['titulo'] = 'Cadastrar Contatoprof';
         $data['form_open_path'] = 'contatoprof/cadastrar';
         $data['readonly'] = '';
@@ -128,6 +130,7 @@ class Contatoprof extends CI_Controller {
             'StatusVida',
             'DataNascimento',
             'Sexo',
+			#'idTab_RelaPes',
             'TelefoneContatoProf',
             'Obs',
             'idApp_Profissional',
@@ -144,9 +147,10 @@ class Contatoprof extends CI_Controller {
         $this->form_validation->set_rules('NomeContatoProf', 'Nome do Responsável', 'required|trim');
         $this->form_validation->set_rules('DataNascimento', 'Data de Nascimento', 'trim|valid_date');
 		$this->form_validation->set_rules('TelefoneContatoProf', 'TelefoneContatoProf', 'required|trim');
-        $data['select']['Sexo'] = $this->Basico_model->select_sexo();
+        #$this->form_validation->set_rules('idTab_RelaPes', 'RelaPes', 'required|trim');
+		$data['select']['Sexo'] = $this->Basico_model->select_sexo();
         $data['select']['StatusVida'] = $this->Contatoprof_model->select_status_vida();
-               
+        #$data['select']['idTab_RelaPes'] = $this->Relapes_model->select_relapes();       
         $data['titulo'] = 'Editar Dados';
         $data['form_open_path'] = 'contatoprof/alterar';
         $data['readonly'] = '';

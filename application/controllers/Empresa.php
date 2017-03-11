@@ -315,7 +315,7 @@ class Empresa extends CI_Controller {
             $_SESSION['agenda']['HoraFim'] = substr($this->input->get('end'),0,-3);            
         }
         
-        $data['titulo'] = "Pesq. Prestadores de Serviço ou Empresas";
+        $data['titulo'] = "Pesq. Empresas";
         
         $data['Pesquisa'] = $this->input->post('Pesquisa');
         //echo date('d/m/Y H:i:s', $data['start'],0,-3));

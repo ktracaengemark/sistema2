@@ -66,6 +66,11 @@ foreach ($query->result_array() as $row) {
                     
 					<b>Idade:</b> <?php echo $row['Idade']; ?> -
             </p>
+			<!--<p>
+				<?php if ($row['idTab_RelaPes']) { ?>
+				<span class="glyphicon glyphicon-phone-alt"></span> <b>Relação:</b> <?php echo $row['idTab_RelaPes']; ?>
+				<?php } ?>
+			</p>-->
 			<p>
 				<?php } if ($row['Sexo']) { ?>
                 <span class="<?php echo $row['icon-sex']; ?>"></span> <b>Sexo:</b> <?php echo $row['Sexo']; ?>										

@@ -3,7 +3,7 @@
 	<ul class="nav nav-sidebar">
 		<li class="dropdown">
 			<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-				<span class="glyphicon glyphicon-user"> </span> Dados do Fornecedor<span class="caret"></span>			
+				<span class="glyphicon glyphicon-user"> </span> Dados do Profissional<span class="caret"></span>			
 			</a>	
 			<ul class="dropdown-menu">	
 				<li <?php if (preg_match("/prontuario\b/", $_SERVER['REQUEST_URI'])) echo 'class=active'; //(.)+\/prontuario/   ?>>

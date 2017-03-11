@@ -90,7 +90,27 @@
 							</div>                        
 												   
 						</div>
-					</div>                 
+					</div>
+					
+					<!--<div class="col-md-4">
+						<label for="idTab_RelaPes">Relação*</label>
+						<!--<a class="btn btn-xs btn-info" href="<?php echo base_url() ?>relapes/cadastrar/relapes" role="button"> 
+							<span class="glyphicon glyphicon-plus"></span> <b>Nova Relação</b>
+						</a>
+						<select data-placeholder="Selecione uma opção..." class="form-control" <?php echo $readonly; ?>
+								id="idTab_RelaPes" name="idTab_RelaPes">
+							<option value="">-- Selecione uma Relação --</option>
+							<?php
+							foreach ($select['idTab_RelaPes'] as $key => $row) {
+								if ($query['idTab_RelaPes'] == $key) {
+									echo '<option value="' . $key . '" selected="selected">' . $row . '</option>';
+								} else {
+									echo '<option value="' . $key . '">' . $row . '</option>';
+								}
+							}
+							?>   
+						</select>          
+					</div>-->
 
 					<div class="form-group">
 						<div class="row">
