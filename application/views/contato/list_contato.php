@@ -56,15 +56,19 @@ foreach ($query->result_array() as $row) {
                 <span class="<?php echo $row['icon']; ?>"></span> 
                 <?php echo $row['NomeContato'] . '</small></code>'; ?>
                 <?php echo $row['vida']; ?>
-            </h4> 
-
-            
-            
+				
+			</h4>	
+			<h5>
+				<?php if ($row['RelaCom']) { ?>	
+				<span class="glyphicon glyphicon-user"></span> <b>Relação:</b> <?php echo $row['RelaCom']; ?>
+				<?php } ?>
+			</h5>
+ 
             <p>
                 <?php if ($row['DataNascimento']) { ?>
-                <span class="glyphicon glyphicon-gift"></span> <b>Data de Nascimento:</b> <?php echo $row['DataNascimento']; ?>-
+                <span class="glyphicon glyphicon-gift"></span> <b>Aniver.:</b> <?php echo $row['DataNascimento']; ?>-
                     
-					<b>Idade:</b> <?php echo $row['Idade']; ?> -
+					<b>Idade:</b> <?php echo $row['Idade']; ?> 
             </p>
 			<p>
 				<?php } if ($row['Sexo']) { ?>

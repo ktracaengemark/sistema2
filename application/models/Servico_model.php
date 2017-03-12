@@ -90,15 +90,15 @@ class Servico_model extends CI_Model {
                 'SELECT '
                     . 'idTab_Servico, '
                     . 'NomeServico, '
-                    . 'ValorServVenda '
+                    . 'ValorVendaServico '
                     . 'FROM '
                     . 'Tab_Servico '
                     . 'WHERE '
                     . 'idSis_Usuario = ' . $_SESSION['log']['id'] . ' AND '
                     . 'idTab_Modulo = ' . $_SESSION['log']['idTab_Modulo'] );
         } else {
-            $query = $this->db->query('SELECT idTab_Servico, NomeServico, ValorServVenda FROM Tab_Servico WHERE idSis_Usuario = ' . $_SESSION['log']['id']);
-            
+            $query = $this->db->query('SELECT idTab_Servico, NomeServico, ValorVendaServico FROM Tab_Servico WHERE idSis_Usuario = ' . $_SESSION['log']['id']);
+
             $array = array();
             foreach ($query->result() as $row) {
                 $array[$row->idTab_Servico] = $row->NomeServico;

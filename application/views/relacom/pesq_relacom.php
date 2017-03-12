@@ -33,9 +33,7 @@
 					<?php if (isset($list)) echo $list; ?>
 
 				</div>
-
 			</div>
-
-		</div>		
+		</div>
 	</div>
 </div>

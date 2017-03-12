@@ -62,17 +62,17 @@ foreach ($query->result_array() as $row) {
 			<h4>
 				<span class="<?php echo $row['icon']; ?>"></span> 
 				<?php echo $row['NomeContatoCliente']; ?>
-				<?php echo $row['vida']; ?>
-				<?php if ($row['RelaPes']) { ?>
+				<?php echo $row['vida']; ?>				
 			</h4>	
-			<h4>	
+			<h5>
+				<?php if ($row['RelaPes']) { ?>
 				<span class="glyphicon glyphicon-user"></span> <b>Relação:</b> <?php echo $row['RelaPes']; ?>
 				<?php } ?>
-			</h4> 
+			</h5> 
 
 			<p>
 				<?php if ($row['DataNascimento']) { ?>
-				<span class="glyphicon glyphicon-gift"></span> <b>Aniversário:</b> <?php echo $row['DataNascimento']; ?> -
+				<span class="glyphicon glyphicon-gift"></span> <b>Aniver.:</b> <?php echo $row['DataNascimento']; ?> -
 					<b>Idade:</b> <?php echo $row['Idade']; ?>
 			</p>
 			<p>	

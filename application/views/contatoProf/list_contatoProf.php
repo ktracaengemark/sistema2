@@ -55,22 +55,20 @@ foreach ($query->result_array() as $row) {
             <h4>
                 <span class="<?php echo $row['icon']; ?>"></span> 
                 <?php echo $row['NomeContatoProf'] . '</small></code>'; ?>
-                <?php echo $row['vida']; ?>
-            </h4> 
-
-            
-            
+                <?php echo $row['vida']; ?>				
+			</h4>	
+			<h5>
+				<?php if ($row['RelaPes']) { ?>
+				<span class="glyphicon glyphicon-user"></span> <b>Relação:</b> <?php echo $row['RelaPes']; ?>
+				<?php } ?>
+            </h5> 
+         
             <p>
                 <?php if ($row['DataNascimento']) { ?>
-                <span class="glyphicon glyphicon-gift"></span> <b>Data de Nascimento:</b> <?php echo $row['DataNascimento']; ?>-
+                <span class="glyphicon glyphicon-gift"></span> <b>Aniver.:</b> <?php echo $row['DataNascimento']; ?>-
                     
-					<b>Idade:</b> <?php echo $row['Idade']; ?> -
+					<b>Idade:</b> <?php echo $row['Idade']; ?>
             </p>
-			<!--<p>
-				<?php if ($row['idTab_RelaPes']) { ?>
-				<span class="glyphicon glyphicon-phone-alt"></span> <b>Relação:</b> <?php echo $row['idTab_RelaPes']; ?>
-				<?php } ?>
-			</p>-->
 			<p>
 				<?php } if ($row['Sexo']) { ?>
                 <span class="<?php echo $row['icon-sex']; ?>"></span> <b>Sexo:</b> <?php echo $row['Sexo']; ?>										

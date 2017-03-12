@@ -25,7 +25,7 @@
                             <input type="text" class="form-control" maxlength="20"
                                    autofocus name="Unidade" value="<?php echo $query['Unidade'] ?>">
                         </div>
-						
+					
 						<div class="col-md-3">
                             <label for="ValorVenda">Valor de Venda: *</label><br>
                             <div class="input-group">

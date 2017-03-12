@@ -27,6 +27,15 @@
 							</div>
 							
 							<div class="col-md-3">
+								<label for="ValorCompraProduto">Valor de Compra: *</label><br>
+								<div class="input-group">
+									<span class="input-group-addon" id="basic-addon1">R$</span>
+									<input type="text" class="form-control Valor" maxlength="10" placeholder="0,00"
+										   autofocus name="ValorCompraProduto" value="<?php echo $query['ValorCompraProduto'] ?>">
+								</div>
+							</div>
+							
+							<div class="col-md-3">
 								<label for="ValorVendaProduto">Valor de Venda: *</label><br>
 								<div class="input-group">
 									<span class="input-group-addon" id="basic-addon1">R$</span>
@@ -39,34 +48,7 @@
 						</div>
 
 						<br>
-					<!--
-						<div class="row">
-							<div class="col-md-3">
-								<label for="Quantidade">Quantidade Comprada:</label><br>
-									<input type="text" class="form-control Valor" maxlength="10"
-										   autofocus name="Quantidade" value="<?php echo $query['Quantidade'] ?>">
-							</div>
-
-															 
-						</div>
-
-						<br>
-
-						<div class="row">
-							<div class="col-md-3">
-								<label for="ValorCompra">Valor total da Compra:</label><br>
-								<div class="input-group">
-									<span class="input-group-addon" id="basic-addon1">R$</span>
-									<input type="text" class="form-control Valor" maxlength="10" placeholder="0,00"
-										   autofocus name="ValorCompra" value="<?php echo $query['ValorCompra'] ?>">
-								</div>
-							</div>                             
-							
-								 
-						</div>
-					
-						<br>
-					-->    
+					    
 						<div class="row">
 							<div class="col-md-2">
 								<?php echo $button ?>

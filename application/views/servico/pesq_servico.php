@@ -1,58 +1,52 @@
 <?php if (isset($msg)) echo $msg; ?>
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-8">
 
-<div class="row">
+			<?php echo validation_errors(); ?>
 
-    <div class="col-md-2"></div>
-    <div class="col-md-8">
+			<div class="panel panel-primary">
 
-        <?php echo validation_errors(); ?>
+				<div class="panel-heading"><strong><?php echo $titulo; ?></strong></div>
+				<div class="panel-body">
 
-        <div class="panel panel-primary">
+					<?php echo form_open($form_open_path, 'role="form"'); ?>
+						<div class="row">
+							<div class="col-md-6">
+								<label for="NomeServico">Nome do Servico:</label><br>
+								<input type="text" class="form-control" maxlength="200"
+									   autofocus name="NomeServico" value="<?php echo $query['NomeServico'] ?>">
+							</div>
 
-            <div class="panel-heading"><strong><?php echo $titulo; ?></strong></div>
-            <div class="panel-body">
+							<div class="col-md-3">
+								<label for="ValorVendaServico">Valor do Servico:</label><br>
+								<div class="input-group" id="txtHint">
+									<span class="input-group-addon" id="basic-addon1">R$</span>
+									<input type="text" class="form-control Valor" maxlength="10" placeholder="0,00"
+										   autofocus name="ValorVendaServico" value="<?php echo $query['ValorVendaServico'] ?>">
+								</div>
+							</div>
 
-                <?php echo form_open($form_open_path, 'role="form"'); ?>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <label for="NomeServico">Nome do Servico:</label><br>
-                            <input type="text" class="form-control" maxlength="200"
-                                   autofocus name="NomeServico" value="<?php echo $query['NomeServico'] ?>">
-                        </div>
+							<input type="hidden" name="idTab_Servico" value="<?php echo $query['idTab_Servico']; ?>">
 
-                        <div class="col-md-3">
-                            <label for="ValorVendaServico">Valor do Servico:</label><br>
-                            <div class="input-group" id="txtHint">
-                                <span class="input-group-addon" id="basic-addon1">R$</span>
-                                <input type="text" class="form-control Valor" maxlength="10" placeholder="0,00"
-                                       autofocus name="ValorVendaServico" value="<?php echo $query['ValorVendaServico'] ?>">
-                            </div>
-                        </div>
+						</div>
 
-                        <input type="hidden" name="idTab_Servico" value="<?php echo $query['idTab_Servico']; ?>">
+						<br>
+					
+						<div class="row">
+							<div class="col-md-2">
+								<?php echo $button ?>
+							</div>
 
-                    </div>
+							<input type="hidden" name="idTab_Servico" value="<?php echo $query['idTab_Servico']; ?>">
+						</div>                
+					</form>
 
-                    <br>
-                
-                    <div class="row">
-                        <div class="col-md-2">
-                            <?php echo $button ?>
-                        </div>
-
-                        <input type="hidden" name="idTab_Servico" value="<?php echo $query['idTab_Servico']; ?>">
-                    </div>                
-                </form>
-
-                <br>                
-                
-                <?php if (isset($list)) echo $list; ?>
-
-            </div>
-
-        </div>
-
-    </div>
-    <div class="col-md-2"></div>
-
+					<br>                
+					
+					<?php if (isset($list)) echo $list; ?>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>

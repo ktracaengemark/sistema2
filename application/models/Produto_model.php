@@ -90,10 +90,10 @@ class Produto_model extends CI_Model {
                 'SELECT '
                     . 'idTab_Produto, '
                     . 'NomeProduto, '
-                    . 'Quantidade, '
-                    . 'Unidade, '
-                    . 'ValorCompra, '
-                    . 'ValorProdVenda '
+                    . 'QuantidadeProduto, '
+                    . 'UnidadeProduto, '
+                    . 'ValorCompraProduto, '
+                    . 'ValorVendaProduto '
                     . 'FROM '
                     . 'Tab_Produto '
                     . 'WHERE '
@@ -104,15 +104,15 @@ class Produto_model extends CI_Model {
                 'SELECT '
                     . 'idTab_Produto, '
                     . 'NomeProduto, '
-                    . 'Quantidade, '
-                    . 'Unidade, '
-                    . 'ValorCompra, '
-                    . 'ValorProdVenda '
+                    . 'QuantidadeProduto, '
+                    . 'UnidadeProduto, '
+                    . 'ValorCompraProduto, '
+                    . 'ValorVendaProduto '
                     . 'FROM '
                     . 'Tab_Produto '
                     . 'WHERE '
                     . 'idSis_Usuario = ' . $_SESSION['log']['id']);
-            
+
             $array = array();
             foreach ($query->result() as $row) {
                 $array[$row->idTab_Produto] = $row->NomeProduto;
