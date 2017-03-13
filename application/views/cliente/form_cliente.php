@@ -24,12 +24,6 @@
 							</div>
 							<br>
 							<div class="col-md-3">
-								<label for="Telefone1">Telefone Principal: *</label>
-								<input type="text" class="form-control Celular CelularVariavel" id="Telefone1" maxlength="20" <?php echo $readonly; ?>
-									   name="Telefone1" placeholder="(99) 99999-9999" value="<?php echo $query['Telefone1']; ?>">
-							</div>
-							<br>
-							<div class="col-md-3">
 								<label for="Sexo">Sexo:</label>
 								<select data-placeholder="Selecione uma opção..." class="form-control" <?php echo $readonly; ?>
 										id="Sexo" name="Sexo">
@@ -44,6 +38,12 @@
 									}
 									?>   
 								</select>
+							</div>
+							<br>
+							<div class="col-md-3">
+								<label for="Telefone1">Telefone Principal: *</label>
+								<input type="text" class="form-control Celular CelularVariavel" id="Telefone1" maxlength="20" <?php echo $readonly; ?>
+									   name="Telefone1" placeholder="(99) 99999-9999" value="<?php echo $query['Telefone1']; ?>">
 							</div>
 							<br>
 							<div class="col-md-4">

@@ -81,7 +81,7 @@ class Empresa extends CI_Controller {
         $data['select']['Sexo'] = $this->Basico_model->select_sexo();
 		$data['select']['Atividade'] = $this->Atividade_model->select_atividade();
 		
-        $data['titulo'] = 'Cad. Empresa / Prest. de Serviço';
+        $data['titulo'] = 'Cadastrar Empresa';
         $data['form_open_path'] = 'empresa/cadastrar';
         $data['readonly'] = '';
         $data['disabled'] = '';

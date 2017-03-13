@@ -81,7 +81,7 @@ class Profissional extends CI_Controller {
         $data['select']['Sexo'] = $this->Basico_model->select_sexo();
 		$data['select']['Funcao'] = $this->Funcao_model->select_funcao();
 		
-        $data['titulo'] = 'Cad. Profissional / Prest. de Serviço';
+        $data['titulo'] = 'Cadastrar Profissionais & Funcionários';
         $data['form_open_path'] = 'Profissional/cadastrar';
         $data['readonly'] = '';
         $data['disabled'] = '';

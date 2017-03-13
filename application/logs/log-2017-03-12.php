@@ -27,3 +27,14 @@ ERROR - 2017-03-12 22:10:37 --> Query error: Unknown column 'arquivos' in 'where
 ERROR - 2017-03-12 22:10:57 --> 404 Page Not Found: Relatorio/arquivos
 ERROR - 2017-03-12 22:12:40 --> 404 Page Not Found: Produto/arquivos
 ERROR - 2017-03-12 22:12:50 --> Query error: Unknown column 'arquivos' in 'where clause' - Invalid query: SELECT * FROM Tab_Produto WHERE idTab_Produto = arquivos
+ERROR - 2017-03-12 23:02:54 --> 404 Page Not Found: Cliente/arquivos
+ERROR - 2017-03-12 23:49:39 --> 404 Page Not Found: Profissional/arquivos
+ERROR - 2017-03-12 23:52:30 --> Severity: Notice --> Undefined index: agenda C:\xampp\htdocs\sistema2\application\controllers\Profissional.php 331
+ERROR - 2017-03-12 23:52:32 --> Query error: Unknown column 'arquivos' in 'where clause' - Invalid query: SELECT * FROM App_Profissional WHERE idApp_Profissional = arquivos
+ERROR - 2017-03-12 23:52:33 --> 404 Page Not Found: Faviconico/index
+ERROR - 2017-03-12 23:52:52 --> 404 Page Not Found: Profissional/arquivos
+ERROR - 2017-03-12 23:52:58 --> 404 Page Not Found: Profissional/arquivos
+ERROR - 2017-03-12 23:55:47 --> 404 Page Not Found: Profissional/arquivos
+ERROR - 2017-03-12 23:56:24 --> 404 Page Not Found: Empresa/arquivos
+ERROR - 2017-03-12 23:57:39 --> 404 Page Not Found: Empresa/arquivos
+ERROR - 2017-03-12 23:59:45 --> 404 Page Not Found: Empresa/arquivos

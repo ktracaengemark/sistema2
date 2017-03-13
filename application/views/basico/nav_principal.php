@@ -52,25 +52,19 @@
 				</li>
 				
 				<li class="dropdown">
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Consultas<span class="caret"></span></a>
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Marcações<span class="caret"></span></a>
 					<ul class="dropdown-menu">
-						<li><a href="<?php echo base_url() ?>cliente/pesquisar">Consultas & Sessões</a></li>
+						<li><a href="<?php echo base_url() ?>cliente/pesquisar">Consultas, Reuniões & Sessões</a></li>
 						<li role="separator" class="divider"></li>
 					</ul>
 				</li>
 				
 				<li class="dropdown">
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Receitas<span class="caret"></span></a>
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Movimentos<span class="caret"></span></a>
 					<ul class="dropdown-menu">
-						<li><a href="<?php echo base_url() ?>cliente/pesquisar">Orçamentos</a></li>											
+						<li><a href="<?php echo base_url() ?>cliente/pesquisar">Entradas</a></li>
 						<li role="separator" class="divider"></li>
-					</ul>
-				</li>
-				
-				<li class="dropdown">
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Despesas<span class="caret"></span></a>
-					<ul class="dropdown-menu">
-						<li><a href="<?php echo base_url() ?>despesa/cadastrar/despesa">Despesas</a></li>
+						<li><a href="<?php echo base_url() ?>despesa/cadastrar/despesa">Saídas</a></li>
 						<li role="separator" class="divider"></li>
 					</ul>
 				</li>
