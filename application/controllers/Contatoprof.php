@@ -54,7 +54,7 @@ class Contatoprof extends CI_Controller {
             'StatusVida',
             'DataNascimento',
             'Sexo',
-			#'idTab_RelaPes',
+			'RelaPes',
 			'TelefoneContatoProf',
             'Obs',
             'idApp_Profissional',
@@ -67,10 +67,10 @@ class Contatoprof extends CI_Controller {
         $this->form_validation->set_rules('NomeContatoProf', 'Nome do Responsável', 'required|trim');
         $this->form_validation->set_rules('DataNascimento', 'Data de Nascimento', 'trim|valid_date');
 		$this->form_validation->set_rules('TelefoneContatoProf', 'TelefoneContatoProf', 'required|trim');
-        #$this->form_validation->set_rules('idTab_RelaPes', 'RelaPes', 'required|trim');
+        $this->form_validation->set_rules('RelaPes', 'RelaPes', 'required|trim');
 		$data['select']['Sexo'] = $this->Basico_model->select_sexo();
         $data['select']['StatusVida'] = $this->Contatoprof_model->select_status_vida();
-		#$data['select']['idTab_RelaPes'] = $this->Relapes_model->select_relapes();
+		$data['select']['RelaPes'] = $this->Relapes_model->select_relapes();
         $data['titulo'] = 'Cadastrar Contatoprof';
         $data['form_open_path'] = 'contatoprof/cadastrar';
         $data['readonly'] = '';
@@ -130,7 +130,7 @@ class Contatoprof extends CI_Controller {
             'StatusVida',
             'DataNascimento',
             'Sexo',
-			#'idTab_RelaPes',
+			'RelaPes',
             'TelefoneContatoProf',
             'Obs',
             'idApp_Profissional',
@@ -147,10 +147,10 @@ class Contatoprof extends CI_Controller {
         $this->form_validation->set_rules('NomeContatoProf', 'Nome do Responsável', 'required|trim');
         $this->form_validation->set_rules('DataNascimento', 'Data de Nascimento', 'trim|valid_date');
 		$this->form_validation->set_rules('TelefoneContatoProf', 'TelefoneContatoProf', 'required|trim');
-        #$this->form_validation->set_rules('idTab_RelaPes', 'RelaPes', 'required|trim');
+        $this->form_validation->set_rules('RelaPes', 'RelaPes', 'required|trim');
 		$data['select']['Sexo'] = $this->Basico_model->select_sexo();
         $data['select']['StatusVida'] = $this->Contatoprof_model->select_status_vida();
-        #$data['select']['idTab_RelaPes'] = $this->Relapes_model->select_relapes();       
+        $data['select']['RelaPes'] = $this->Relapes_model->select_relapes();
         $data['titulo'] = 'Editar Dados';
         $data['form_open_path'] = 'contatoprof/alterar';
         $data['readonly'] = '';

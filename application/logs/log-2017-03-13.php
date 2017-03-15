@@ -48,3 +48,35 @@ ERROR - 2017-03-13 02:36:58 --> 404 Page Not Found: Cliente/arquivos
 ERROR - 2017-03-13 02:37:25 --> 404 Page Not Found: Cliente/arquivos
 ERROR - 2017-03-13 02:37:33 --> 404 Page Not Found: Cliente/arquivos
 ERROR - 2017-03-13 02:37:39 --> 404 Page Not Found: Cliente/arquivos
+ERROR - 2017-03-13 10:32:49 --> 404 Page Not Found: Relatorio/arquivos
+ERROR - 2017-03-13 10:32:56 --> Query error: Unknown column 'arquivos' in 'where clause' - Invalid query: SELECT * FROM App_Profissional WHERE idApp_Profissional = arquivos
+ERROR - 2017-03-13 10:32:57 --> 404 Page Not Found: Faviconico/index
+ERROR - 2017-03-13 10:33:06 --> Query error: Unknown column 'arquivos' in 'where clause' - Invalid query: SELECT * FROM App_Profissional WHERE idApp_Profissional = arquivos
+ERROR - 2017-03-13 10:40:41 --> Query error: Unknown column 'arquivos' in 'where clause' - Invalid query: SELECT * FROM App_Profissional WHERE idApp_Profissional = arquivos
+ERROR - 2017-03-13 10:40:51 --> 404 Page Not Found: Relatorio/arquivos
+ERROR - 2017-03-13 10:40:56 --> Query error: Unknown column 'arquivos' in 'where clause' - Invalid query: SELECT * FROM App_Cliente WHERE idApp_Cliente = arquivos
+ERROR - 2017-03-13 10:41:17 --> 404 Page Not Found: Relatorio/arquivos
+ERROR - 2017-03-13 10:41:25 --> Query error: Unknown column 'arquivos' in 'where clause' - Invalid query: SELECT * FROM App_Profissional WHERE idApp_Profissional = arquivos
+ERROR - 2017-03-13 10:41:33 --> Query error: Unknown column 'arquivos' in 'where clause' - Invalid query: SELECT * FROM App_Profissional WHERE idApp_Profissional = arquivos
+ERROR - 2017-03-13 10:41:41 --> 404 Page Not Found: Relatorio/arquivos
+ERROR - 2017-03-13 10:41:49 --> Query error: Unknown column 'arquivos' in 'where clause' - Invalid query: SELECT * FROM App_Cliente WHERE idApp_Cliente = arquivos
+ERROR - 2017-03-13 10:46:39 --> Query error: Unknown column 'arquivos' in 'where clause' - Invalid query: SELECT * FROM App_Cliente WHERE idApp_Cliente = arquivos
+ERROR - 2017-03-13 10:46:54 --> 404 Page Not Found: Relatorio/arquivos
+ERROR - 2017-03-13 10:47:01 --> Query error: Unknown column 'arquivos' in 'where clause' - Invalid query: SELECT * FROM App_Profissional WHERE idApp_Profissional = arquivos
+ERROR - 2017-03-13 10:51:17 --> Query error: Unknown column 'arquivos' in 'where clause' - Invalid query: SELECT * FROM App_Profissional WHERE idApp_Profissional = arquivos
+ERROR - 2017-03-13 10:51:30 --> 404 Page Not Found: Relatorio/arquivos
+ERROR - 2017-03-13 10:51:36 --> Query error: Unknown column 'arquivos' in 'where clause' - Invalid query: SELECT * FROM App_Cliente WHERE idApp_Cliente = arquivos
+ERROR - 2017-03-13 10:56:27 --> Query error: Unknown column 'arquivos' in 'where clause' - Invalid query: SELECT * FROM App_Cliente WHERE idApp_Cliente = arquivos
+ERROR - 2017-03-13 10:58:59 --> Query error: Unknown column 'arquivos' in 'where clause' - Invalid query: SELECT * FROM App_Cliente WHERE idApp_Cliente = arquivos
+ERROR - 2017-03-13 11:00:39 --> Query error: Unknown column 'arquivos' in 'where clause' - Invalid query: SELECT * FROM App_Cliente WHERE idApp_Cliente = arquivos
+ERROR - 2017-03-13 11:01:15 --> Query error: Unknown column 'arquivos' in 'where clause' - Invalid query: SELECT * FROM App_Cliente WHERE idApp_Cliente = arquivos
+ERROR - 2017-03-13 11:05:21 --> 404 Page Not Found: Relatorio/arquivos
+ERROR - 2017-03-13 11:05:28 --> Query error: Unknown column 'arquivos' in 'where clause' - Invalid query: SELECT * FROM App_Empresa WHERE idApp_Empresa = arquivos
+ERROR - 2017-03-13 11:05:36 --> Query error: Unknown column 'arquivos' in 'where clause' - Invalid query: SELECT * FROM App_Empresa WHERE idApp_Empresa = arquivos
+ERROR - 2017-03-13 11:19:40 --> 404 Page Not Found: Relatorio/arquivos
+ERROR - 2017-03-13 11:19:52 --> 404 Page Not Found: Relatorio/arquivos
+ERROR - 2017-03-13 11:20:06 --> Severity: Notice --> Undefined index: idApp_Procedimento C:\xampp\htdocs\sistema2\application\views\orcatrata\form_orcatrata.php 729
+ERROR - 2017-03-13 11:20:06 --> Severity: Notice --> Undefined index: idApp_ParcelasRec C:\xampp\htdocs\sistema2\application\views\orcatrata\form_orcatrata.php 730
+ERROR - 2017-03-13 11:20:08 --> Query error: Unknown column 'arquivos' in 'where clause' - Invalid query: SELECT * FROM App_OrcaTrata WHERE idApp_OrcaTrata = arquivos
+ERROR - 2017-03-13 11:28:34 --> 404 Page Not Found: Relatorio/arquivos
+ERROR - 2017-03-13 11:30:55 --> 404 Page Not Found: Relatorio/arquivos

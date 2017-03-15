@@ -52,9 +52,11 @@
 				</li>
 				
 				<li class="dropdown">
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Marcações<span class="caret"></span></a>
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Anotações<span class="caret"></span></a>
 					<ul class="dropdown-menu">
 						<li><a href="<?php echo base_url() ?>cliente/pesquisar">Consultas, Reuniões & Sessões</a></li>
+						<li role="separator" class="divider"></li>
+						<li><a href="<?php echo base_url() ?>profissional/pesquisar">Bloco de Tarefas</a></li>
 						<li role="separator" class="divider"></li>
 					</ul>
 				</li>
@@ -65,6 +67,8 @@
 						<li><a href="<?php echo base_url() ?>cliente/pesquisar">Entradas</a></li>
 						<li role="separator" class="divider"></li>
 						<li><a href="<?php echo base_url() ?>despesa/cadastrar/despesa">Saídas</a></li>
+						<li role="separator" class="divider"></li>
+						<li><a href="<?php echo base_url() ?>profissional/pesquisar">Despesas</a></li>
 						<li role="separator" class="divider"></li>
 					</ul>
 				</li>
