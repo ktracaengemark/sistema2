@@ -39,3 +39,12 @@ ERROR - 2017-03-15 11:15:22 --> Query error: Unknown column 'arquivos' in 'where
 ERROR - 2017-03-15 11:25:21 --> 404 Page Not Found: Relatorio/arquivos
 ERROR - 2017-03-15 11:25:27 --> Query error: Unknown column 'arquivos' in 'where clause' - Invalid query: SELECT * FROM App_Profissional WHERE idApp_Profissional = arquivos
 ERROR - 2017-03-15 11:25:32 --> Query error: Unknown column 'arquivos' in 'where clause' - Invalid query: SELECT * FROM App_ContatoProf WHERE idApp_ContatoProf = arquivos
+ERROR - 2017-03-15 14:31:10 --> 404 Page Not Found: Relatorio/arquivos
+ERROR - 2017-03-15 14:31:15 --> Query error: Unknown column 'arquivos' in 'where clause' - Invalid query: SELECT * FROM App_Profissional WHERE idApp_Profissional = arquivos
+ERROR - 2017-03-15 14:31:15 --> 404 Page Not Found: Faviconico/index
+ERROR - 2017-03-15 14:52:05 --> 404 Page Not Found: Relatorio/arquivos
+ERROR - 2017-03-15 14:52:09 --> Severity: Notice --> Undefined index: idApp_Profissional C:\xampp\htdocs\sistema2\application\views\contatocliente\list_contatocliente.php 53
+ERROR - 2017-03-15 14:52:09 --> Severity: Notice --> Undefined index: idApp_ContatoProf C:\xampp\htdocs\sistema2\application\views\contatocliente\list_contatocliente.php 53
+ERROR - 2017-03-15 14:52:09 --> Severity: Notice --> Undefined index: idApp_Profissional C:\xampp\htdocs\sistema2\application\views\contatocliente\list_contatocliente.php 56
+ERROR - 2017-03-15 14:52:10 --> Query error: Unknown column 'arquivos' in 'where clause' - Invalid query: SELECT * FROM App_Cliente WHERE idApp_Cliente = arquivos
+ERROR - 2017-03-15 15:36:32 --> 404 Page Not Found: Profissional/arquivos
