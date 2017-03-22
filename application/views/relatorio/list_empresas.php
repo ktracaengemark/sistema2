@@ -12,10 +12,10 @@
 						<th class="active">Atividade</th>
                         <!--<th class="active">Nascimento</th>-->
                         <th class="active">Telefone</th>
-                        <!--<th class="active">Sexo</th>
+                        <!--<th class="active">Sexo</th>-->
                         <th class="active">Endereço</th>
                         <th class="active">Bairro</th>
-                        <th class="active">Município</th>-->
+                        <th class="active">Município</th>
                         <th class="active">E-mail</th>
                     </tr>
                 </thead>
@@ -34,9 +34,9 @@
                             //echo '<td>' . $row['DataNascimento'] . '</td>';
                             echo '<td>' . $row['Telefone'] . '</td>';
                            //echo '<td>' . $row['Sexo'] . '</td>';
-                            //echo '<td>' . $row['Endereco'] . '</td>';
-                            //echo '<td>' . $row['Bairro'] . '</td>';
-                            //echo '<td>' . $row['Municipio'] . '</td>';
+                            echo '<td>' . $row['Endereco'] . '</td>';
+                            echo '<td>' . $row['Bairro'] . '</td>';
+                            echo '<td>' . $row['Municipio'] . '</td>';
                             echo '<td>' . $row['Email'] . '</td>';
                         echo '</tr>';
                     }
