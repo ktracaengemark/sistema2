@@ -56,17 +56,17 @@
 					<ul class="dropdown-menu">
 						<li><a href="<?php echo base_url() ?>cliente/pesquisar">Consultas, Reuniões & Sessões</a></li>
 						<li role="separator" class="divider"></li>
-						<li><a href="<?php echo base_url() ?>profissional/pesquisar">Bloco de Tarefas</a></li>
+						<li><a href="<?php echo base_url() ?>tarefa/cadastrar">Tarefas</a></li>
 						<li role="separator" class="divider"></li>
 					</ul>
 				</li>
 				
 				<li class="dropdown">
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Movimentações<span class="caret"></span></a>
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Financeiro<span class="caret"></span></a>
 					<ul class="dropdown-menu">
-						<li><a href="<?php echo base_url() ?>cliente/pesquisar">Orçamentos /Entradas</a></li>
+						<li><a href="<?php echo base_url() ?>cliente/pesquisar">Orçamentos & Entradas</a></li>
 						<li role="separator" class="divider"></li>
-						<li><a href="<?php echo base_url() ?>despesa/cadastrar/despesa">Despesas /Saídas</a></li>
+						<li><a href="<?php echo base_url() ?>despesa/cadastrar/despesa">Despesas & Saídas</a></li>
 						<li role="separator" class="divider"></li>
 
 					</ul>
@@ -81,12 +81,14 @@
 						<li role="separator" class="divider"></li>
 						<li><a href="<?php echo base_url() ?>relatorio/empresas">Empresas & Fornec.</a></li>
 						<li role="separator" class="divider"></li>
-						<li><a href="<?php echo base_url() ?>relatorio/orcamento">Receitas</a></li>
+						<li><a href="<?php echo base_url() ?>relatorio/orcamentopc">Orçamentos & Procedimentos</a></li>
 						<li role="separator" class="divider"></li>
-						<li><a href="<?php echo base_url() ?>relatorio/despesa">Despesas</a></li>
+						<li><a href="<?php echo base_url() ?>relatorio/orcamento">Orçamentos & Pagamentos</a></li>
 						<li role="separator" class="divider"></li>
-						<li><a href="<?php echo base_url() ?>relatorio/financeiro">Financeiro</a></li>
+						<li><a href="<?php echo base_url() ?>relatorio/despesa">Despesas & Saídas</a></li>
 						<li role="separator" class="divider"></li>
+						<li><a href="<?php echo base_url() ?>relatorio/financeiro">Balanço</a></li>
+						<li role="separator" class="divider"></li>					
 						<li><a href="<?php echo base_url() ?>">Estoque</a></li>
 						<li role="separator" class="divider"></li>
 					</ul>
