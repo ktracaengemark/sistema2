@@ -27,7 +27,6 @@
                                     </span>
                                 </div>
                             </div>
-							<br>
                             <div class="col-md-2">
                                 <label for="DataFim">Data Fim: (opcional)</label>
                                 <div class="input-group DatePicker">
@@ -38,7 +37,7 @@
                                     </span>
                                 </div>
                             </div>
-							<br>
+
                             <!--
 							<div class="col-md-1">
                                 <label for="AprovadoOrca">Aprovado?</label>
@@ -92,7 +91,7 @@
                                                 ?>
                                             </select>
                                         </div>
-										<br>
+
                                         <div class="col-md-6">
                                             <select data-placeholder="Selecione uma opção..." class="form-control Chosen"
                                                     id="Ordenamento" name="Ordenamento">

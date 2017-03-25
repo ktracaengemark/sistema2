@@ -9,8 +9,8 @@
 			</a>
 		</div> 
 		<div class="collapse navbar-collapse"> 											
-			<ul class="nav navbar-nav navbar-left"> 			
-				<li>							
+			<ul class="nav navbar-nav navbar-left"> 						
+				<li>																	
 					<li><a class="navbar-brand" href="<?php echo base_url(); ?>agenda">AGENDA</a></li>
 					<?php echo form_open(base_url() . 'cliente/pesquisar', 'class="navbar-form navbar-left"'); ?>
 					<form>
@@ -19,8 +19,8 @@
 						<span class="input-group-btn">
 							<button class="btn btn-info" type="submit"><span class="glyphicon glyphicon-search"></span></button>
 						</span>
-					</div>						
-					</form>							
+					</div>					
+					</form>											
 				</li>				
 				
 				<li class="dropdown">
@@ -54,9 +54,13 @@
 				<li class="dropdown">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Anotações<span class="caret"></span></a>
 					<ul class="dropdown-menu">
-						<li><a href="<?php echo base_url() ?>cliente/pesquisar">Consultas, Reuniões & Sessões</a></li>
+						<li><a href="<?php echo base_url() ?>cliente/pesquisar">Orçamentos & Entradas</a></li>
 						<li role="separator" class="divider"></li>
-						<li><a href="<?php echo base_url() ?>tarefa/cadastrar">Tarefas</a></li>
+						<li><a href="<?php echo base_url() ?>despesa/cadastrar/despesa">Despesas & Saídas</a></li>
+						<li role="separator" class="divider"></li>
+						<li><a href="<?php echo base_url() ?>cliente/pesquisar">Consultas & Reuniões</a></li>
+						<li role="separator" class="divider"></li>
+						<li><a href="<?php echo base_url() ?>tarefa/listar">Tarefas & A Fazer</a></li>
 						<li role="separator" class="divider"></li>
 					</ul>
 				</li>
@@ -64,9 +68,9 @@
 				<li class="dropdown">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Financeiro<span class="caret"></span></a>
 					<ul class="dropdown-menu">
-						<li><a href="<?php echo base_url() ?>cliente/pesquisar">Orçamentos & Entradas</a></li>
+						<li><a href="<?php echo base_url() ?>relatorio/financeiro">Orçamentos & Pagamentos</a></li>
 						<li role="separator" class="divider"></li>
-						<li><a href="<?php echo base_url() ?>despesa/cadastrar/despesa">Despesas & Saídas</a></li>
+						<li><a href="<?php echo base_url() ?>relatorio/despesa">Despesas & Saídas</a></li>
 						<li role="separator" class="divider"></li>
 
 					</ul>
@@ -81,21 +85,20 @@
 						<li role="separator" class="divider"></li>
 						<li><a href="<?php echo base_url() ?>relatorio/empresas">Empresas & Fornec.</a></li>
 						<li role="separator" class="divider"></li>
-						<li><a href="<?php echo base_url() ?>relatorio/orcamentopc">Orçamentos & Procedimentos</a></li>
+						<li><a href="<?php echo base_url() ?>relatorio/orcamentopc">Clientes & Procedimentos</a></li>
 						<li role="separator" class="divider"></li>
-						<li><a href="<?php echo base_url() ?>relatorio/orcamento">Orçamentos & Pagamentos</a></li>
+						<li><a href="<?php echo base_url() ?>relatorio/tarefa">Tarefas & Ações</a></li>
+						<li role="separator" class="divider"></li>
+						<li><a href="<?php echo base_url() ?>relatorio/orcamento">Orçamentos & Status</a></li>
 						<li role="separator" class="divider"></li>
 						<li><a href="<?php echo base_url() ?>relatorio/despesa">Despesas & Saídas</a></li>
 						<li role="separator" class="divider"></li>
-						<li><a href="<?php echo base_url() ?>relatorio/financeiro">Balanço</a></li>
+						<li><a href="<?php echo base_url() ?>relatorio/financeiro">Entradas & Pagamentos</a></li>
 						<li role="separator" class="divider"></li>					
 						<li><a href="<?php echo base_url() ?>">Estoque</a></li>
 						<li role="separator" class="divider"></li>
 					</ul>
 				</li>
-																													
-			</ul>			
-			<div class="col-md-3">
 				<div class="btn-toolbar navbar-form navbar-right" role="toolbar" aria-label="...">					
 					<div class="btn-group" role="group" aria-label="...">
 						<button type="button" class="btn btn-info active">
@@ -110,8 +113,8 @@
 						</a>
 					</div>										
 					<div class="btn-group" role="group" aria-label="..."> </div>
-				</div>
-			</div>				
+				</div>																													
+			</ul>						
 		</div> 
 	</div> 
 </nav>

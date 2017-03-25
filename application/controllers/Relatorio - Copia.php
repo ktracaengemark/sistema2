@@ -690,6 +690,6 @@ class Relatorio extends CI_Controller {
         $this->load->view('basico/footer');
 
     }
-    
+	
 
 }

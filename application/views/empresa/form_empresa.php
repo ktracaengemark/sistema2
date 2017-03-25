@@ -103,14 +103,19 @@
 						
 						<div class="form-group">
 							<div class="row">
-								<div class="col-md-4">
+								<div class="col-md-6">
 									<label for="Cnpj">Cnpj:</label>
 									<input type="text" class="form-control" maxlength="45" <?php echo $readonly; ?>
 										   name="Cnpj" value="<?php echo $query['Cnpj']; ?>">
 								</div>                        								                        
+							
+								<div class="col-md-6">
+									<label for="Email">Site / Email:</label>
+									<input type="text" class="form-control" id="Bairro" maxlength="100" <?php echo $readonly; ?>
+										   name="Email" value="<?php echo $query['Email']; ?>">
+								</div>
 							</div>
-						</div>                 
-
+						</div>
 						<div class="form-group">
 							<div class="row">
 								<div class="col-md-6">
@@ -143,12 +148,7 @@
 										}
 										?>
 									</select>
-								</div>
-								<div class="col-md-6">
-									<label for="Email">E-mail:</label>
-									<input type="text" class="form-control" id="Bairro" maxlength="100" <?php echo $readonly; ?>
-										   name="Email" value="<?php echo $query['Email']; ?>">
-								</div>                        
+								</div>								                        
 							</div>
 						</div> 
 

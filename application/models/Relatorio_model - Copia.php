@@ -27,12 +27,12 @@ class Relatorio_model extends CI_Model {
         if ($data['DataFim']) {
             $consulta =
                 '(OT.DataEntradaOrca >= "' . $data['DataInicio'] . '" AND OT.DataEntradaOrca <= "' . $data['DataFim'] . '") OR
-                (PR.DataPagoRecebiveis >= "' . $data['DataInicio'] . '" AND PR.DataPagoRecebiveis <= "' . $data['DataFim'] . '")';
+                (PR.DataVencimentoRecebiveis >= "' . $data['DataInicio'] . '" AND PR.DataVencimentoRecebiveis <= "' . $data['DataFim'] . '")';
         }
         else {
             $consulta =
                 '(OT.DataEntradaOrca >= "' . $data['DataInicio'] . '") OR
-                (PR.DataPagoRecebiveis >= "' . $data['DataInicio'] . '")';
+                (PR.DataVencimentoRecebiveis >= "' . $data['DataInicio'] . '")';
         }
 
         $query = $this->db->query('
@@ -657,6 +657,5 @@ class Relatorio_model extends CI_Model {
         }
 
     }
-	
 	
 }
