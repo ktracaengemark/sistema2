@@ -1,14 +1,11 @@
 <?php if (isset($msg)) echo $msg; ?>
 <div class="container-fluid">
 	<div class="row">	
-		<div class="col-sm-7 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-			<div class="form-group">
-				<div class="row">					
+		<div class="col-sm-7 col-sm-offset-3 col-md-10 col-md-offset-2 main">								
 					<a class="btn btn-lg btn-warning" href="<?php echo base_url() ?>tarefa/listar" role="button"> 
-						<span class="glyphicon glyphicon-plus"></span> Listar Tarefas
+						<span class="glyphicon glyphicon-list"></span> Listar Tarefas
 					</a>
-				</div>	
-			</div>
+				
 			<?php echo validation_errors(); ?>
 
 			<div class="panel panel-<?php echo $panel; ?>">
