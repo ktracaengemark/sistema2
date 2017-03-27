@@ -13,7 +13,6 @@ class Relatorio_model extends CI_Model {
         $this->load->model(array('Basico_model'));
     }
 
-
     public function list_financeiro($data, $completo) {
 
         /*
@@ -658,5 +657,59 @@ class Relatorio_model extends CI_Model {
 
     }
 	
-	
+	public function list_clienteprod($data, $completo) {
+
+        $data['Campo'] = (!$data['Campo']) ? 'C.NomeCliente' : $data['Campo'];
+        $data['Ordenamento'] = (!$data['Ordenamento']) ? 'ASC' : $data['Ordenamento'];
+
+        $query = $this->db->query('
+            SELECT
+                C.idApp_Cliente,
+                C.NomeCliente,
+				OT.idApp_OrcaTrata,
+				PD.idApp_ProdutoVenda,
+				PD.QtdVendaProduto,
+				TPD.NomeProduto,
+				PC.Procedimento
+
+            FROM
+                App_Cliente AS C,
+				App_OrcaTrata AS OT
+				LEFT JOIN App_ProdutoVenda AS PD ON OT.idApp_OrcaTrata = PD.idApp_OrcaTrata
+				LEFT JOIN Tab_Produto AS TPD ON TPD.idTab_Produto = PD.idTab_Produto
+				LEFT JOIN App_Procedimento AS PC ON OT.idApp_OrcaTrata = PC.idApp_OrcaTrata
+				
+            WHERE
+                C.idSis_Usuario = ' . $_SESSION['log']['id'] . ' AND
+				C.idApp_Cliente = OT.idApp_Cliente
+
+
+            ORDER BY
+                ' . $data['Campo'] . ' ' . $data['Ordenamento'] . '
+        ');
+
+        /*
+        #AND
+        #C.idApp_Cliente = OT.idApp_Cliente
+
+          echo $this->db->last_query();
+          echo "<pre>";
+          print_r($query);
+          echo "</pre>";
+          exit();
+        */
+
+        if ($completo === FALSE) {
+            return TRUE;
+        } else {
+
+            foreach ($query->result() as $row) {
+				#$row->DataNascimento = $this->basico->mascara_data($row->DataNascimento, 'barras');
+
+            }
+
+            return $query;
+        }
+
+    }
 }

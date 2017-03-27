@@ -91,3 +91,48 @@ ERROR - 2017-03-27 21:55:09 --> Severity: Notice --> Undefined index: Cliente C:
 ERROR - 2017-03-27 21:55:09 --> 404 Page Not Found: Tarefa/arquivos
 ERROR - 2017-03-27 22:00:59 --> Severity: Notice --> Undefined variable: nav_secundario C:\xampp\htdocs\sistema2\application\views\tarefa\tela_tarefa.php 6
 ERROR - 2017-03-27 22:01:00 --> 404 Page Not Found: Tarefa/arquivos
+ERROR - 2017-03-27 23:16:02 --> Severity: Notice --> Undefined index: ServicoConcluido C:\xampp\htdocs\sistema2\application\views\relatorio\tela_tarefa.php 78
+ERROR - 2017-03-27 23:16:02 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\sistema2\application\views\relatorio\tela_tarefa.php 78
+ERROR - 2017-03-27 23:16:02 --> Severity: Notice --> Undefined index: ConcluidoProcedtarefa C:\xampp\htdocs\sistema2\application\views\relatorio\tela_tarefa.php 94
+ERROR - 2017-03-27 23:16:02 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\sistema2\application\views\relatorio\tela_tarefa.php 94
+ERROR - 2017-03-27 23:16:03 --> 404 Page Not Found: Relatorio/arquivos
+ERROR - 2017-03-27 23:44:32 --> Severity: Notice --> Undefined index: ServicoConcluido C:\xampp\htdocs\sistema2\application\views\relatorio\tela_tarefa.php 78
+ERROR - 2017-03-27 23:44:32 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\sistema2\application\views\relatorio\tela_tarefa.php 78
+ERROR - 2017-03-27 23:44:32 --> Severity: Notice --> Undefined index: ConcluidoProcedtarefa C:\xampp\htdocs\sistema2\application\views\relatorio\tela_tarefa.php 94
+ERROR - 2017-03-27 23:44:32 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\sistema2\application\views\relatorio\tela_tarefa.php 94
+ERROR - 2017-03-27 23:44:32 --> 404 Page Not Found: Relatorio/arquivos
+ERROR - 2017-03-27 23:44:36 --> 404 Page Not Found: Relatorio/arquivos
+ERROR - 2017-03-27 23:44:47 --> Query error: Unknown column 'PD.QtdVendaProduto' in 'field list' - Invalid query: 
+            SELECT
+                C.NomeCliente,
+
+                OT.idApp_OrcaTrata,
+                OT.AprovadoOrca,
+                OT.DataOrca,
+                OT.DataEntradaOrca,
+                OT.ValorEntradaOrca,
+
+                PD.QtdVendaProduto,
+				PD.idTab_Produto
+				
+
+            FROM
+                App_Cliente AS C,
+                App_OrcaTrata AS OT
+                    LEFT JOIN App_ProdutoVenda AS PR ON OT.idApp_OrcaTrata = PD.idApp_OrcaTrata
+
+            WHERE
+                C.idSis_Usuario = 33 AND
+                ((OT.DataEntradaOrca >= "2017-01-01")) AND
+                OT.AprovadoOrca = "S" AND
+                C.idApp_Cliente = OT.idApp_Cliente
+
+            ORDER BY
+                OT.DataOrca ASC,
+                C.NomeCliente ASC
+        
+ERROR - 2017-03-27 23:49:13 --> Severity: Parsing Error --> syntax error, unexpected end of file, expecting function (T_FUNCTION) C:\xampp\htdocs\sistema2\application\models\Relatorio_model.php 734
+ERROR - 2017-03-27 23:52:20 --> Severity: Parsing Error --> syntax error, unexpected end of file, expecting function (T_FUNCTION) C:\xampp\htdocs\sistema2\application\models\Relatorio_model.php 734
+ERROR - 2017-03-27 23:55:26 --> Severity: Parsing Error --> syntax error, unexpected end of file, expecting function (T_FUNCTION) C:\xampp\htdocs\sistema2\application\models\Relatorio_model.php 733
+ERROR - 2017-03-27 23:56:08 --> Severity: Parsing Error --> syntax error, unexpected end of file, expecting function (T_FUNCTION) C:\xampp\htdocs\sistema2\application\models\Relatorio_model.php 725
+ERROR - 2017-03-27 23:58:10 --> Severity: Parsing Error --> syntax error, unexpected end of file, expecting function (T_FUNCTION) C:\xampp\htdocs\sistema2\application\models\Relatorio_model.php 725
