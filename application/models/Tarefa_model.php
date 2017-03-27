@@ -139,7 +139,8 @@ class Tarefa_model extends CI_Model {
             . 'App_Tarefa AS TF '
             . 'WHERE '
             #. 'TF.idApp_Cliente = ' . $id . ' AND '
-            . 'TF.AprovadoTarefa = "' . $aprovado . '" '
+            . 'TF.idSis_Usuario = ' . $_SESSION['log']['id'] . ' AND '
+			. 'TF.AprovadoTarefa = "' . $aprovado . '" '
             . 'ORDER BY TF.DataTarefa DESC ');
         /*
           echo $this->db->last_query();
