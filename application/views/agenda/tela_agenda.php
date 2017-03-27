@@ -10,7 +10,7 @@
             <div class="modal-content">
 
                 <div class="modal-body text-center">
-                    <button type="button" id="MarcarConsulta" onclick="redirecionar(2)" class="btn btn-primary">Marcar Consulta</button>
+                    <button type="button" id="MarcarConsulta" onclick="redirecionar(2)" class="btn btn-primary">Agendar Reunião</button>
 					<button type="button" id="AgendarEvento" onclick="redirecionar(1)" class="btn btn-info">Agendar Evento</button>
                     
                     <input type="hidden" id="start" />
@@ -23,7 +23,23 @@
 </div>
 
 <div id="calendar" class="col-md-10"></div>
-<div id="datepickerinline" class="col-md-2"></div> 
+
+<div class="container-fluid">
+	<div class="form-group">
+		<div class="row">
+			<a class="btn btn-lg btn-warning" href="<?php echo base_url() ?>tarefa/listar" role="button"> 
+				<span class="glyphicon glyphicon-list"></span> Listar Tarefas
+			</a>
+		<hr>	
+			<a class="btn btn-lg btn-warning" href="<?php echo base_url() ?>tarefa/cadastrar" role="button"> 
+				<span class="glyphicon glyphicon-plus"></span> Cadastrar Nova Tarefa
+			</a>
+		</div>	
+	</div>
+</div>
+
+<div id="datepickerinline" class="col-md-2"></div>
+ 
 
 <div class="col-md-2">
     
@@ -95,3 +111,4 @@
     </table>
     
 </div>
+
