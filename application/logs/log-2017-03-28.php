@@ -718,3 +718,155 @@ ERROR - 2017-03-28 04:04:46 --> Severity: Notice --> Undefined index: AprovadoOr
 ERROR - 2017-03-28 04:04:46 --> Severity: Notice --> Undefined index: AprovadoOrca C:\xampp\htdocs\sistema2\application\views\relatorio\tela_clienteprod.php 25
 ERROR - 2017-03-28 04:04:46 --> Severity: Notice --> Undefined index: AprovadoOrca C:\xampp\htdocs\sistema2\application\views\relatorio\tela_clienteprod.php 25
 ERROR - 2017-03-28 04:04:46 --> 404 Page Not Found: Relatorio/arquivos
+ERROR - 2017-03-28 04:25:56 --> Severity: Notice --> Undefined index: idApp_Procedimento C:\xampp\htdocs\sistema2\application\views\orcatrata\form_orcatrata.php 774
+ERROR - 2017-03-28 04:25:56 --> Severity: Notice --> Undefined index: idApp_ParcelasRec C:\xampp\htdocs\sistema2\application\views\orcatrata\form_orcatrata.php 775
+ERROR - 2017-03-28 04:25:57 --> Query error: Unknown column 'arquivos' in 'where clause' - Invalid query: SELECT * FROM App_OrcaTrata WHERE idApp_OrcaTrata = arquivos
+ERROR - 2017-03-28 11:39:15 --> Severity: Notice --> Undefined index: Cliente C:\xampp\htdocs\sistema2\application\views\tarefa\form_tarefa.php 332
+ERROR - 2017-03-28 11:39:16 --> 404 Page Not Found: Tarefa/arquivos
+ERROR - 2017-03-28 11:40:09 --> Severity: Notice --> Undefined variable: nav_secundario C:\xampp\htdocs\sistema2\application\views\tarefa\tela_tarefa.php 6
+ERROR - 2017-03-28 11:40:09 --> 404 Page Not Found: Tarefa/arquivos
+ERROR - 2017-03-28 12:41:25 --> 404 Page Not Found: Tarefa/arquivos
+ERROR - 2017-03-28 14:37:44 --> Severity: Notice --> Undefined variable: nav_secundario C:\xampp\htdocs\sistema2\application\views\tarefa\tela_tarefa.php 6
+ERROR - 2017-03-28 14:37:45 --> 404 Page Not Found: Tarefa/arquivos
+ERROR - 2017-03-28 14:43:06 --> 404 Page Not Found: Relatorio/arquivos
+ERROR - 2017-03-28 14:43:10 --> Severity: Notice --> Undefined index: idApp_Profissional C:\xampp\htdocs\sistema2\application\views\contatocliente\list_contatocliente.php 53
+ERROR - 2017-03-28 14:43:10 --> Severity: Notice --> Undefined index: idApp_ContatoProf C:\xampp\htdocs\sistema2\application\views\contatocliente\list_contatocliente.php 53
+ERROR - 2017-03-28 14:43:11 --> Severity: Notice --> Undefined index: idApp_Profissional C:\xampp\htdocs\sistema2\application\views\contatocliente\list_contatocliente.php 56
+ERROR - 2017-03-28 14:43:11 --> Severity: Notice --> Undefined index: idApp_Profissional C:\xampp\htdocs\sistema2\application\views\contatocliente\list_contatocliente.php 53
+ERROR - 2017-03-28 14:43:11 --> Severity: Notice --> Undefined index: idApp_ContatoProf C:\xampp\htdocs\sistema2\application\views\contatocliente\list_contatocliente.php 53
+ERROR - 2017-03-28 14:43:11 --> Severity: Notice --> Undefined index: idApp_Profissional C:\xampp\htdocs\sistema2\application\views\contatocliente\list_contatocliente.php 56
+ERROR - 2017-03-28 14:43:12 --> Query error: Unknown column 'arquivos' in 'where clause' - Invalid query: SELECT * FROM App_Cliente WHERE idApp_Cliente = arquivos
+ERROR - 2017-03-28 14:43:12 --> 404 Page Not Found: Faviconico/index
+ERROR - 2017-03-28 14:43:18 --> Query error: Unknown column 'arquivos' in 'where clause' - Invalid query: SELECT OT.idApp_OrcaTrata, OT.DataOrca, OT.DataPrazo, OT.ProfissionalOrca, OT.AprovadoOrca, OT.ObsOrca FROM App_OrcaTrata AS OT WHERE OT.idApp_Cliente = arquivos AND OT.AprovadoOrca = "S" ORDER BY OT.DataOrca DESC 
+ERROR - 2017-03-28 14:43:23 --> Severity: Notice --> Undefined index: idApp_Procedimento C:\xampp\htdocs\sistema2\application\views\orcatrata\form_orcatrata.php 776
+ERROR - 2017-03-28 14:43:23 --> Severity: Notice --> Undefined index: idApp_ParcelasRec C:\xampp\htdocs\sistema2\application\views\orcatrata\form_orcatrata.php 777
+ERROR - 2017-03-28 14:43:24 --> Query error: Unknown column 'arquivos' in 'where clause' - Invalid query: SELECT * FROM App_OrcaTrata WHERE idApp_OrcaTrata = arquivos
+ERROR - 2017-03-28 14:49:59 --> Severity: Notice --> Undefined index: idApp_Procedimento C:\xampp\htdocs\sistema2\application\views\orcatrata\form_orcatrata.php 907
+ERROR - 2017-03-28 14:49:59 --> Severity: Notice --> Undefined index: idApp_ParcelasRec C:\xampp\htdocs\sistema2\application\views\orcatrata\form_orcatrata.php 908
+ERROR - 2017-03-28 14:50:00 --> Query error: Unknown column 'arquivos' in 'where clause' - Invalid query: SELECT * FROM App_OrcaTrata WHERE idApp_OrcaTrata = arquivos
+ERROR - 2017-03-28 14:50:56 --> Severity: Notice --> Undefined index: idApp_Procedimento C:\xampp\htdocs\sistema2\application\views\orcatrata\form_orcatrata.php 775
+ERROR - 2017-03-28 14:50:56 --> Severity: Notice --> Undefined index: idApp_ParcelasRec C:\xampp\htdocs\sistema2\application\views\orcatrata\form_orcatrata.php 776
+ERROR - 2017-03-28 14:50:57 --> Query error: Unknown column 'arquivos' in 'where clause' - Invalid query: SELECT * FROM App_OrcaTrata WHERE idApp_OrcaTrata = arquivos
+ERROR - 2017-03-28 14:56:18 --> 404 Page Not Found: Relatorio/arquivos
+ERROR - 2017-03-28 14:56:21 --> Severity: Notice --> Undefined index: idApp_Profissional C:\xampp\htdocs\sistema2\application\views\contatocliente\list_contatocliente.php 53
+ERROR - 2017-03-28 14:56:21 --> Severity: Notice --> Undefined index: idApp_ContatoProf C:\xampp\htdocs\sistema2\application\views\contatocliente\list_contatocliente.php 53
+ERROR - 2017-03-28 14:56:21 --> Severity: Notice --> Undefined index: idApp_Profissional C:\xampp\htdocs\sistema2\application\views\contatocliente\list_contatocliente.php 56
+ERROR - 2017-03-28 14:56:21 --> Severity: Notice --> Undefined index: idApp_Profissional C:\xampp\htdocs\sistema2\application\views\contatocliente\list_contatocliente.php 53
+ERROR - 2017-03-28 14:56:21 --> Severity: Notice --> Undefined index: idApp_ContatoProf C:\xampp\htdocs\sistema2\application\views\contatocliente\list_contatocliente.php 53
+ERROR - 2017-03-28 14:56:22 --> Severity: Notice --> Undefined index: idApp_Profissional C:\xampp\htdocs\sistema2\application\views\contatocliente\list_contatocliente.php 56
+ERROR - 2017-03-28 14:56:23 --> Query error: Unknown column 'arquivos' in 'where clause' - Invalid query: SELECT * FROM App_Cliente WHERE idApp_Cliente = arquivos
+ERROR - 2017-03-28 14:56:28 --> Query error: Unknown column 'arquivos' in 'where clause' - Invalid query: SELECT OT.idApp_OrcaTrata, OT.DataOrca, OT.DataPrazo, OT.ProfissionalOrca, OT.AprovadoOrca, OT.ObsOrca FROM App_OrcaTrata AS OT WHERE OT.idApp_Cliente = arquivos AND OT.AprovadoOrca = "S" ORDER BY OT.DataOrca DESC 
+ERROR - 2017-03-28 14:56:33 --> Severity: Notice --> Undefined index: idApp_Procedimento C:\xampp\htdocs\sistema2\application\views\orcatrata\form_orcatrata.php 776
+ERROR - 2017-03-28 14:56:33 --> Severity: Notice --> Undefined index: idApp_ParcelasRec C:\xampp\htdocs\sistema2\application\views\orcatrata\form_orcatrata.php 777
+ERROR - 2017-03-28 14:56:34 --> Query error: Unknown column 'arquivos' in 'where clause' - Invalid query: SELECT * FROM App_OrcaTrata WHERE idApp_OrcaTrata = arquivos
+ERROR - 2017-03-28 14:59:10 --> Severity: Notice --> Undefined index: idApp_Procedimento C:\xampp\htdocs\sistema2\application\views\orcatrata\form_orcatrata.php 770
+ERROR - 2017-03-28 14:59:10 --> Severity: Notice --> Undefined index: idApp_ParcelasRec C:\xampp\htdocs\sistema2\application\views\orcatrata\form_orcatrata.php 771
+ERROR - 2017-03-28 14:59:11 --> Query error: Unknown column 'arquivos' in 'where clause' - Invalid query: SELECT * FROM App_OrcaTrata WHERE idApp_OrcaTrata = arquivos
+ERROR - 2017-03-28 15:00:59 --> Severity: Notice --> Undefined index: idApp_Procedimento C:\xampp\htdocs\sistema2\application\views\orcatrata\form_orcatrata.php 771
+ERROR - 2017-03-28 15:00:59 --> Severity: Notice --> Undefined index: idApp_ParcelasRec C:\xampp\htdocs\sistema2\application\views\orcatrata\form_orcatrata.php 772
+ERROR - 2017-03-28 15:01:00 --> Query error: Unknown column 'arquivos' in 'where clause' - Invalid query: SELECT * FROM App_OrcaTrata WHERE idApp_OrcaTrata = arquivos
+ERROR - 2017-03-28 15:03:38 --> Severity: Notice --> Undefined index: idApp_Procedimento C:\xampp\htdocs\sistema2\application\views\orcatrata\form_orcatrata.php 771
+ERROR - 2017-03-28 15:03:38 --> Severity: Notice --> Undefined index: idApp_ParcelasRec C:\xampp\htdocs\sistema2\application\views\orcatrata\form_orcatrata.php 772
+ERROR - 2017-03-28 15:03:39 --> Query error: Unknown column 'arquivos' in 'where clause' - Invalid query: SELECT * FROM App_OrcaTrata WHERE idApp_OrcaTrata = arquivos
+ERROR - 2017-03-28 15:06:04 --> Severity: Notice --> Undefined variable: nav_secundario C:\xampp\htdocs\sistema2\application\views\tarefa\tela_tarefa.php 6
+ERROR - 2017-03-28 15:06:05 --> 404 Page Not Found: Tarefa/arquivos
+ERROR - 2017-03-28 15:07:30 --> 404 Page Not Found: Relatorio/arquivos
+ERROR - 2017-03-28 15:07:33 --> Severity: Notice --> Undefined index: idApp_Profissional C:\xampp\htdocs\sistema2\application\views\contatocliente\list_contatocliente.php 53
+ERROR - 2017-03-28 15:07:33 --> Severity: Notice --> Undefined index: idApp_ContatoProf C:\xampp\htdocs\sistema2\application\views\contatocliente\list_contatocliente.php 53
+ERROR - 2017-03-28 15:07:33 --> Severity: Notice --> Undefined index: idApp_Profissional C:\xampp\htdocs\sistema2\application\views\contatocliente\list_contatocliente.php 56
+ERROR - 2017-03-28 15:07:33 --> Severity: Notice --> Undefined index: idApp_Profissional C:\xampp\htdocs\sistema2\application\views\contatocliente\list_contatocliente.php 53
+ERROR - 2017-03-28 15:07:33 --> Severity: Notice --> Undefined index: idApp_ContatoProf C:\xampp\htdocs\sistema2\application\views\contatocliente\list_contatocliente.php 53
+ERROR - 2017-03-28 15:07:33 --> Severity: Notice --> Undefined index: idApp_Profissional C:\xampp\htdocs\sistema2\application\views\contatocliente\list_contatocliente.php 56
+ERROR - 2017-03-28 15:07:34 --> Query error: Unknown column 'arquivos' in 'where clause' - Invalid query: SELECT * FROM App_Cliente WHERE idApp_Cliente = arquivos
+ERROR - 2017-03-28 15:07:38 --> Query error: Unknown column 'arquivos' in 'where clause' - Invalid query: SELECT OT.idApp_OrcaTrata, OT.DataOrca, OT.DataPrazo, OT.ProfissionalOrca, OT.AprovadoOrca, OT.ObsOrca FROM App_OrcaTrata AS OT WHERE OT.idApp_Cliente = arquivos AND OT.AprovadoOrca = "S" ORDER BY OT.DataOrca DESC 
+ERROR - 2017-03-28 15:07:42 --> Severity: Notice --> Undefined index: idApp_Procedimento C:\xampp\htdocs\sistema2\application\views\orcatrata\form_orcatrata.php 771
+ERROR - 2017-03-28 15:07:42 --> Severity: Notice --> Undefined index: idApp_ParcelasRec C:\xampp\htdocs\sistema2\application\views\orcatrata\form_orcatrata.php 772
+ERROR - 2017-03-28 15:07:43 --> Query error: Unknown column 'arquivos' in 'where clause' - Invalid query: SELECT * FROM App_OrcaTrata WHERE idApp_OrcaTrata = arquivos
+ERROR - 2017-03-28 15:13:15 --> Severity: Notice --> Undefined index: idApp_Procedimento C:\xampp\htdocs\sistema2\application\views\orcatrata\form_orcatrata.php 772
+ERROR - 2017-03-28 15:13:15 --> Severity: Notice --> Undefined index: idApp_ParcelasRec C:\xampp\htdocs\sistema2\application\views\orcatrata\form_orcatrata.php 773
+ERROR - 2017-03-28 15:13:16 --> Query error: Unknown column 'arquivos' in 'where clause' - Invalid query: SELECT * FROM App_OrcaTrata WHERE idApp_OrcaTrata = arquivos
+ERROR - 2017-03-28 15:19:18 --> Severity: Notice --> Undefined index: idApp_Procedimento C:\xampp\htdocs\sistema2\application\views\orcatrata\form_orcatrata.php 774
+ERROR - 2017-03-28 15:19:18 --> Severity: Notice --> Undefined index: idApp_ParcelasRec C:\xampp\htdocs\sistema2\application\views\orcatrata\form_orcatrata.php 775
+ERROR - 2017-03-28 15:19:19 --> Query error: Unknown column 'arquivos' in 'where clause' - Invalid query: SELECT * FROM App_OrcaTrata WHERE idApp_OrcaTrata = arquivos
+ERROR - 2017-03-28 15:25:20 --> Severity: Notice --> Undefined index: idApp_Procedimento C:\xampp\htdocs\sistema2\application\views\orcatrata\form_orcatrata.php 764
+ERROR - 2017-03-28 15:25:20 --> Severity: Notice --> Undefined index: idApp_ParcelasRec C:\xampp\htdocs\sistema2\application\views\orcatrata\form_orcatrata.php 765
+ERROR - 2017-03-28 15:25:21 --> Query error: Unknown column 'arquivos' in 'where clause' - Invalid query: SELECT * FROM App_OrcaTrata WHERE idApp_OrcaTrata = arquivos
+ERROR - 2017-03-28 15:26:14 --> 404 Page Not Found: Cliente/arquivos
+ERROR - 2017-03-28 15:26:17 --> Severity: Notice --> Undefined index: idApp_Profissional C:\xampp\htdocs\sistema2\application\views\contatocliente\list_contatocliente.php 53
+ERROR - 2017-03-28 15:26:18 --> Severity: Notice --> Undefined index: idApp_ContatoProf C:\xampp\htdocs\sistema2\application\views\contatocliente\list_contatocliente.php 53
+ERROR - 2017-03-28 15:26:18 --> Severity: Notice --> Undefined index: idApp_Profissional C:\xampp\htdocs\sistema2\application\views\contatocliente\list_contatocliente.php 56
+ERROR - 2017-03-28 15:26:18 --> Severity: Notice --> Undefined index: idApp_Profissional C:\xampp\htdocs\sistema2\application\views\contatocliente\list_contatocliente.php 53
+ERROR - 2017-03-28 15:26:18 --> Severity: Notice --> Undefined index: idApp_ContatoProf C:\xampp\htdocs\sistema2\application\views\contatocliente\list_contatocliente.php 53
+ERROR - 2017-03-28 15:26:18 --> Severity: Notice --> Undefined index: idApp_Profissional C:\xampp\htdocs\sistema2\application\views\contatocliente\list_contatocliente.php 56
+ERROR - 2017-03-28 15:26:19 --> Query error: Unknown column 'arquivos' in 'where clause' - Invalid query: SELECT * FROM App_Cliente WHERE idApp_Cliente = arquivos
+ERROR - 2017-03-28 15:26:23 --> Query error: Unknown column 'arquivos' in 'where clause' - Invalid query: SELECT OT.idApp_OrcaTrata, OT.DataOrca, OT.DataPrazo, OT.ProfissionalOrca, OT.AprovadoOrca, OT.ObsOrca FROM App_OrcaTrata AS OT WHERE OT.idApp_Cliente = arquivos AND OT.AprovadoOrca = "S" ORDER BY OT.DataOrca DESC 
+ERROR - 2017-03-28 15:26:27 --> Severity: Notice --> Undefined index: idApp_Procedimento C:\xampp\htdocs\sistema2\application\views\orcatrata\form_orcatrata.php 764
+ERROR - 2017-03-28 15:26:27 --> Severity: Notice --> Undefined index: idApp_ParcelasRec C:\xampp\htdocs\sistema2\application\views\orcatrata\form_orcatrata.php 765
+ERROR - 2017-03-28 15:26:28 --> Query error: Unknown column 'arquivos' in 'where clause' - Invalid query: SELECT * FROM App_OrcaTrata WHERE idApp_OrcaTrata = arquivos
+ERROR - 2017-03-28 15:32:50 --> Severity: Notice --> Undefined index: idApp_Procedimento C:\xampp\htdocs\sistema2\application\views\orcatrata\form_orcatrata.php 769
+ERROR - 2017-03-28 15:32:50 --> Severity: Notice --> Undefined index: idApp_ParcelasRec C:\xampp\htdocs\sistema2\application\views\orcatrata\form_orcatrata.php 770
+ERROR - 2017-03-28 15:32:51 --> Query error: Unknown column 'arquivos' in 'where clause' - Invalid query: SELECT * FROM App_OrcaTrata WHERE idApp_OrcaTrata = arquivos
+ERROR - 2017-03-28 15:33:56 --> Severity: Notice --> Undefined index: idApp_Procedimento C:\xampp\htdocs\sistema2\application\views\orcatrata\form_orcatrata.php 769
+ERROR - 2017-03-28 15:33:56 --> Severity: Notice --> Undefined index: idApp_ParcelasRec C:\xampp\htdocs\sistema2\application\views\orcatrata\form_orcatrata.php 770
+ERROR - 2017-03-28 15:33:56 --> Query error: Unknown column 'arquivos' in 'where clause' - Invalid query: SELECT * FROM App_OrcaTrata WHERE idApp_OrcaTrata = arquivos
+ERROR - 2017-03-28 15:35:35 --> Severity: Notice --> Undefined index: idApp_Procedimento C:\xampp\htdocs\sistema2\application\views\orcatrata\form_orcatrata.php 769
+ERROR - 2017-03-28 15:35:35 --> Severity: Notice --> Undefined index: idApp_ParcelasRec C:\xampp\htdocs\sistema2\application\views\orcatrata\form_orcatrata.php 770
+ERROR - 2017-03-28 15:35:36 --> Query error: Unknown column 'arquivos' in 'where clause' - Invalid query: SELECT * FROM App_OrcaTrata WHERE idApp_OrcaTrata = arquivos
+ERROR - 2017-03-28 15:36:26 --> Severity: Notice --> Undefined index: agenda C:\xampp\htdocs\sistema2\application\controllers\Cliente.php 329
+ERROR - 2017-03-28 15:36:27 --> Severity: Notice --> Undefined index: idApp_Profissional C:\xampp\htdocs\sistema2\application\views\contatocliente\list_contatocliente.php 53
+ERROR - 2017-03-28 15:36:27 --> Severity: Notice --> Undefined index: idApp_ContatoProf C:\xampp\htdocs\sistema2\application\views\contatocliente\list_contatocliente.php 53
+ERROR - 2017-03-28 15:36:27 --> Severity: Notice --> Undefined index: idApp_Profissional C:\xampp\htdocs\sistema2\application\views\contatocliente\list_contatocliente.php 56
+ERROR - 2017-03-28 15:36:27 --> Severity: Notice --> Undefined index: idApp_Profissional C:\xampp\htdocs\sistema2\application\views\contatocliente\list_contatocliente.php 53
+ERROR - 2017-03-28 15:36:27 --> Severity: Notice --> Undefined index: idApp_ContatoProf C:\xampp\htdocs\sistema2\application\views\contatocliente\list_contatocliente.php 53
+ERROR - 2017-03-28 15:36:27 --> Severity: Notice --> Undefined index: idApp_Profissional C:\xampp\htdocs\sistema2\application\views\contatocliente\list_contatocliente.php 56
+ERROR - 2017-03-28 15:36:28 --> Query error: Unknown column 'arquivos' in 'where clause' - Invalid query: SELECT * FROM App_Cliente WHERE idApp_Cliente = arquivos
+ERROR - 2017-03-28 15:36:33 --> Query error: Unknown column 'arquivos' in 'where clause' - Invalid query: SELECT OT.idApp_OrcaTrata, OT.DataOrca, OT.DataPrazo, OT.ProfissionalOrca, OT.AprovadoOrca, OT.ObsOrca FROM App_OrcaTrata AS OT WHERE OT.idApp_Cliente = arquivos AND OT.AprovadoOrca = "S" ORDER BY OT.DataOrca DESC 
+ERROR - 2017-03-28 15:36:38 --> Severity: Notice --> Undefined index: idApp_Procedimento C:\xampp\htdocs\sistema2\application\views\orcatrata\form_orcatrata.php 769
+ERROR - 2017-03-28 15:36:38 --> Severity: Notice --> Undefined index: idApp_ParcelasRec C:\xampp\htdocs\sistema2\application\views\orcatrata\form_orcatrata.php 770
+ERROR - 2017-03-28 15:36:39 --> Query error: Unknown column 'arquivos' in 'where clause' - Invalid query: SELECT * FROM App_OrcaTrata WHERE idApp_OrcaTrata = arquivos
+ERROR - 2017-03-28 15:38:28 --> Severity: Notice --> Undefined index: idApp_Procedimento C:\xampp\htdocs\sistema2\application\views\orcatrata\form_orcatrata.php 766
+ERROR - 2017-03-28 15:38:28 --> Severity: Notice --> Undefined index: idApp_ParcelasRec C:\xampp\htdocs\sistema2\application\views\orcatrata\form_orcatrata.php 767
+ERROR - 2017-03-28 15:38:29 --> Query error: Unknown column 'arquivos' in 'where clause' - Invalid query: SELECT * FROM App_OrcaTrata WHERE idApp_OrcaTrata = arquivos
+ERROR - 2017-03-28 15:39:57 --> Severity: Notice --> Undefined index: idApp_Procedimento C:\xampp\htdocs\sistema2\application\views\orcatrata\form_orcatrata.php 766
+ERROR - 2017-03-28 15:39:57 --> Severity: Notice --> Undefined index: idApp_ParcelasRec C:\xampp\htdocs\sistema2\application\views\orcatrata\form_orcatrata.php 767
+ERROR - 2017-03-28 15:39:58 --> Query error: Unknown column 'arquivos' in 'where clause' - Invalid query: SELECT * FROM App_OrcaTrata WHERE idApp_OrcaTrata = arquivos
+ERROR - 2017-03-28 15:41:52 --> Severity: Notice --> Undefined index: idApp_Procedimento C:\xampp\htdocs\sistema2\application\views\orcatrata\form_orcatrata.php 770
+ERROR - 2017-03-28 15:41:52 --> Severity: Notice --> Undefined index: idApp_ParcelasRec C:\xampp\htdocs\sistema2\application\views\orcatrata\form_orcatrata.php 771
+ERROR - 2017-03-28 15:41:53 --> Query error: Unknown column 'arquivos' in 'where clause' - Invalid query: SELECT * FROM App_OrcaTrata WHERE idApp_OrcaTrata = arquivos
+ERROR - 2017-03-28 15:43:39 --> Severity: Notice --> Undefined index: idApp_Procedimento C:\xampp\htdocs\sistema2\application\views\orcatrata\form_orcatrata.php 769
+ERROR - 2017-03-28 15:43:39 --> Severity: Notice --> Undefined index: idApp_ParcelasRec C:\xampp\htdocs\sistema2\application\views\orcatrata\form_orcatrata.php 770
+ERROR - 2017-03-28 15:43:40 --> Query error: Unknown column 'arquivos' in 'where clause' - Invalid query: SELECT * FROM App_OrcaTrata WHERE idApp_OrcaTrata = arquivos
+ERROR - 2017-03-28 15:45:00 --> Severity: Notice --> Undefined index: idApp_Procedimento C:\xampp\htdocs\sistema2\application\views\orcatrata\form_orcatrata.php 768
+ERROR - 2017-03-28 15:45:00 --> Severity: Notice --> Undefined index: idApp_ParcelasRec C:\xampp\htdocs\sistema2\application\views\orcatrata\form_orcatrata.php 769
+ERROR - 2017-03-28 15:45:01 --> Query error: Unknown column 'arquivos' in 'where clause' - Invalid query: SELECT * FROM App_OrcaTrata WHERE idApp_OrcaTrata = arquivos
+ERROR - 2017-03-28 15:47:23 --> Severity: Notice --> Undefined index: idApp_Procedimento C:\xampp\htdocs\sistema2\application\views\orcatrata\form_orcatrata.php 768
+ERROR - 2017-03-28 15:47:23 --> Severity: Notice --> Undefined index: idApp_ParcelasRec C:\xampp\htdocs\sistema2\application\views\orcatrata\form_orcatrata.php 769
+ERROR - 2017-03-28 15:47:24 --> Query error: Unknown column 'arquivos' in 'where clause' - Invalid query: SELECT * FROM App_OrcaTrata WHERE idApp_OrcaTrata = arquivos
+ERROR - 2017-03-28 15:48:28 --> Severity: Notice --> Undefined index: idApp_Procedimento C:\xampp\htdocs\sistema2\application\views\orcatrata\form_orcatrata.php 768
+ERROR - 2017-03-28 15:48:28 --> Severity: Notice --> Undefined index: idApp_ParcelasRec C:\xampp\htdocs\sistema2\application\views\orcatrata\form_orcatrata.php 769
+ERROR - 2017-03-28 15:48:29 --> Query error: Unknown column 'arquivos' in 'where clause' - Invalid query: SELECT * FROM App_OrcaTrata WHERE idApp_OrcaTrata = arquivos
+ERROR - 2017-03-28 15:56:08 --> Severity: Notice --> Undefined index: idApp_Procedimento C:\xampp\htdocs\sistema2\application\views\orcatrata\form_orcatrata.php 909
+ERROR - 2017-03-28 15:56:08 --> Severity: Notice --> Undefined index: idApp_ParcelasRec C:\xampp\htdocs\sistema2\application\views\orcatrata\form_orcatrata.php 910
+ERROR - 2017-03-28 15:56:09 --> Query error: Unknown column 'arquivos' in 'where clause' - Invalid query: SELECT * FROM App_OrcaTrata WHERE idApp_OrcaTrata = arquivos
+ERROR - 2017-03-28 15:57:27 --> Severity: Notice --> Undefined index: idApp_Procedimento C:\xampp\htdocs\sistema2\application\views\orcatrata\form_orcatrata.php 772
+ERROR - 2017-03-28 15:57:27 --> Severity: Notice --> Undefined index: idApp_ParcelasRec C:\xampp\htdocs\sistema2\application\views\orcatrata\form_orcatrata.php 773
+ERROR - 2017-03-28 15:57:28 --> Query error: Unknown column 'arquivos' in 'where clause' - Invalid query: SELECT * FROM App_OrcaTrata WHERE idApp_OrcaTrata = arquivos
+ERROR - 2017-03-28 15:59:26 --> Severity: Notice --> Undefined index: idApp_Procedimento C:\xampp\htdocs\sistema2\application\views\orcatrata\form_orcatrata.php 773
+ERROR - 2017-03-28 15:59:26 --> Severity: Notice --> Undefined index: idApp_ParcelasRec C:\xampp\htdocs\sistema2\application\views\orcatrata\form_orcatrata.php 774
+ERROR - 2017-03-28 15:59:27 --> Query error: Unknown column 'arquivos' in 'where clause' - Invalid query: SELECT * FROM App_OrcaTrata WHERE idApp_OrcaTrata = arquivos
+ERROR - 2017-03-28 16:07:19 --> Severity: Notice --> Undefined index: idApp_Procedimento C:\xampp\htdocs\sistema2\application\views\orcatrata\form_orcatrata.php 783
+ERROR - 2017-03-28 16:07:19 --> Severity: Notice --> Undefined index: idApp_ParcelasRec C:\xampp\htdocs\sistema2\application\views\orcatrata\form_orcatrata.php 784
+ERROR - 2017-03-28 16:07:20 --> Query error: Unknown column 'arquivos' in 'where clause' - Invalid query: SELECT * FROM App_OrcaTrata WHERE idApp_OrcaTrata = arquivos
+ERROR - 2017-03-28 16:16:31 --> Severity: Notice --> Undefined index: idApp_Procedimento C:\xampp\htdocs\sistema2\application\views\orcatrata\form_orcatrata.php 773
+ERROR - 2017-03-28 16:16:32 --> Severity: Notice --> Undefined index: idApp_ParcelasRec C:\xampp\htdocs\sistema2\application\views\orcatrata\form_orcatrata.php 774
+ERROR - 2017-03-28 16:16:32 --> Query error: Unknown column 'arquivos' in 'where clause' - Invalid query: SELECT * FROM App_OrcaTrata WHERE idApp_OrcaTrata = arquivos
+ERROR - 2017-03-28 16:16:56 --> Severity: Notice --> Undefined index: idApp_Procedimento C:\xampp\htdocs\sistema2\application\views\orcatrata\form_orcatrata.php 773
+ERROR - 2017-03-28 16:16:56 --> Severity: Notice --> Undefined index: idApp_ParcelasRec C:\xampp\htdocs\sistema2\application\views\orcatrata\form_orcatrata.php 774
+ERROR - 2017-03-28 16:16:57 --> Query error: Unknown column 'arquivos' in 'where clause' - Invalid query: SELECT * FROM App_OrcaTrata WHERE idApp_OrcaTrata = arquivos
+ERROR - 2017-03-28 16:17:10 --> Severity: Notice --> Undefined index: auditoriaitem C:\xampp\htdocs\sistema2\application\controllers\Orcatrata.php 785
+ERROR - 2017-03-28 16:17:12 --> Query error: Unknown column 'arquivos' in 'where clause' - Invalid query: SELECT OT.idApp_OrcaTrata, OT.DataOrca, OT.DataPrazo, OT.ProfissionalOrca, OT.AprovadoOrca, OT.ObsOrca FROM App_OrcaTrata AS OT WHERE OT.idApp_Cliente = arquivos AND OT.AprovadoOrca = "S" ORDER BY OT.DataOrca DESC 
+ERROR - 2017-03-28 16:17:16 --> Severity: Notice --> Undefined index: idApp_Procedimento C:\xampp\htdocs\sistema2\application\views\orcatrata\form_orcatrata.php 773
+ERROR - 2017-03-28 16:17:16 --> Severity: Notice --> Undefined index: idApp_ParcelasRec C:\xampp\htdocs\sistema2\application\views\orcatrata\form_orcatrata.php 774
+ERROR - 2017-03-28 16:17:17 --> Query error: Unknown column 'arquivos' in 'where clause' - Invalid query: SELECT * FROM App_OrcaTrata WHERE idApp_OrcaTrata = arquivos
+ERROR - 2017-03-28 16:17:26 --> Severity: Notice --> Undefined index: auditoriaitem C:\xampp\htdocs\sistema2\application\controllers\Orcatrata.php 785
+ERROR - 2017-03-28 16:17:28 --> Query error: Unknown column 'arquivos' in 'where clause' - Invalid query: SELECT OT.idApp_OrcaTrata, OT.DataOrca, OT.DataPrazo, OT.ProfissionalOrca, OT.AprovadoOrca, OT.ObsOrca FROM App_OrcaTrata AS OT WHERE OT.idApp_Cliente = arquivos AND OT.AprovadoOrca = "S" ORDER BY OT.DataOrca DESC 

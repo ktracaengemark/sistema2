@@ -61,32 +61,34 @@
 									?>
 								</select>
 							</div>
+							
 							<div class="col-md-4">
 								<label for="ObsOrca">OBS:</label>
 								<textarea class="form-control" id="ObsOrca" <?php echo $readonly; ?>
 										  name="ObsOrca"><?php echo $orcatrata['ObsOrca']; ?></textarea>
 							</div>
+							
 						</div>
 					</div>
 
-						<hr>
+					<hr>
 
 					<div class="panel-group" id="accordion1" role="tablist" aria-multiselectable="true">
 						<div class="panel panel-info">
-                            <div class="panel-heading collapsed" role="tab" id="heading1" data-toggle="collapse" data-parent="#accordion1" data-target="#collapse1" aria-expanded="false">								<h4 class="panel-title">
+							<div class="panel-heading collapsed" role="tab" id="heading1" data-toggle="collapse" data-parent="#accordion1" data-target="#collapse1" aria-expanded="false">
+								<h4 class="panel-title">
 									<a class="accordion-toggle">
-										<span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>
+										<span class="glyphicon glyphicon-chevron-down" aria-expanded="false"></span>
 										Orçamento - Produtos e Serviços
 									</a>
 								</h4>
 							</div>
-                              
-							<div id="collapse1" class="panel-collapse collapsed collapse" role="tabpanel" aria-labelledby="heading1" aria-expanded="false" style="height: 0px;">
+                                <div id="collapse1" class="panel-collapse collapsed collapse" role="tabpanel" aria-labelledby="heading1" aria-expanded="false" style="height: 0px;">
 								<div class="panel-body">
 
 									<!--#######################################-->
 
-									<input type="hidden" name="SCount" id="SCount" value="<?php echo $count['SCount']; ?>"/>
+									<input name="SCount" id="SCount" value="2" type="hidden">
 
 									<div class="input_fields_wrap">
 
@@ -501,8 +503,8 @@
 								</div>
 							</div>
 						</div>
-					</div>
-												
+					</div>									
+					
 					<hr>
 
 					<div class="form-group">
@@ -621,13 +623,14 @@
 											</span>
 										</div>
 									</div>
-									<br>
-									<br>
-									<br>
-									<br>
-									<div class="container-fluid">
-										<div class="panel-group" id="accordion3" role="tablist" aria-multiselectable="true">
-											<div class="panel panel-info">
+									<hr>
+									<hr>
+									<hr>
+									<hr>
+									<hr>
+                                        <div class="container-fluid">	
+										   <div class="panel-group" id="accordion3" role="tablist" aria-multiselectable="true">
+											  <div class="panel panel-info">
 												 <div class="panel-heading" role="tab" id="heading3" data-toggle="collapse" data-parent="#accordion3" data-target="#collapse3">
 													<h4 class="panel-title">
 														<a class="accordion-toggle">
@@ -640,7 +643,7 @@
 												<div id="collapse3" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading3" aria-expanded="false" style="height: 0px;">
 													<div class="panel-body">
 
-														<input type="hidden" name="PMCount" id="PMCount" value="<?php echo $count['PMCount']; ?>"/>
+														<input name="PMCount" id="PMCount" value="7" type="hidden">
 
 														<div class="input_fields_wrap3">
 
@@ -752,19 +755,20 @@
 																</div>
 															</div>
 														</div>
-
 													</div>
 												</div>
 											</div>
 										</div>
 									</div>
 								</div>  													
-							</div>							
-						</div>							
+							</div>
+						</div>
+					</div>	
+												
 					</div>
-					
+
 					<hr>
-										
+
 					<div class="form-group">
 						<div class="row">
 							<input type="hidden" name="idApp_Cliente" value="<?php echo $_SESSION['Cliente']['idApp_Cliente']; ?>">
