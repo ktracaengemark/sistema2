@@ -708,15 +708,21 @@ class Relatorio extends CI_Controller {
 
         $this->form_validation->set_error_delimiters('<div class="alert alert-danger" role="alert">', '</div>');
         #$this->form_validation->set_rules('Pesquisa', 'Pesquisa', 'required|trim');
-
+		
+		$data['select']['AprovadoOrca'] = array(
+            '#' => 'TODOS',
+            'N' => 'Não',
+            'S' => 'Sim',
+        );
 
         $data['select']['Campo'] = array(
-            'C.NomeCliente' => 'Nome do Cliente',
+			'C.NomeCliente' => 'Nome do Cliente',
 			'OT.idApp_OrcaTrata' => 'Número do Orçamento',
-			'PD.idApp_ProdutoVenda' => 'Número do Produto',
+			'OT.AprovadoOrca' => 'Aprovado?',
 			'PD.QtdVendaProduto' => 'Qtd. do Produto',
 			'PD.idTab_Produto' => 'Produto',
 			'PC.Procedimento' => 'Procedimento',
+			'PC.ConcluidoProcedimento' => 'Proc. Concl.?', 
 
         );
 
@@ -725,13 +731,15 @@ class Relatorio extends CI_Controller {
             'DESC' => 'Decrescente',
         );
 
-        $data['titulo'] = 'Relatório Clientes X Produtos';
+        $data['titulo'] = 'Relatório Clientes X Produtos X Procedimentos';
 
         #run form validation
         if ($this->form_validation->run() !== TRUE) {
 
             $data['bd']['Ordenamento'] = $data['query']['Ordenamento'];
             $data['bd']['Campo'] = $data['query']['Campo'];
+			#$data['bd']['AprovadoOrca'] = $data['query']['AprovadoOrca'];
+			#$data['bd']['ConcluidoProcedimento'] = $data['query']['ConcluidoProcedimento'];
 
             $data['report'] = $this->Relatorio_model->list_clienteprod($data['bd'],TRUE);
 

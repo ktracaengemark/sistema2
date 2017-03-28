@@ -661,16 +661,18 @@ class Relatorio_model extends CI_Model {
 
         $data['Campo'] = (!$data['Campo']) ? 'C.NomeCliente' : $data['Campo'];
         $data['Ordenamento'] = (!$data['Ordenamento']) ? 'ASC' : $data['Ordenamento'];
-
+		#$filtro1 = ($data['AprovadoOrca'] != '#') ? 'OT.AprovadoOrca = "' . $data['AprovadoOrca'] . '" AND ' : FALSE;
+		
         $query = $this->db->query('
             SELECT
-                C.idApp_Cliente,
+                
                 C.NomeCliente,
 				OT.idApp_OrcaTrata,
-				PD.idApp_ProdutoVenda,
+				OT.AprovadoOrca, 
 				PD.QtdVendaProduto,
 				TPD.NomeProduto,
-				PC.Procedimento
+				PC.Procedimento,
+				PC.ConcluidoProcedimento
 
             FROM
                 App_Cliente AS C,
@@ -681,6 +683,7 @@ class Relatorio_model extends CI_Model {
 				
             WHERE
                 C.idSis_Usuario = ' . $_SESSION['log']['id'] . ' AND
+
 				C.idApp_Cliente = OT.idApp_Cliente
 
 
@@ -705,7 +708,10 @@ class Relatorio_model extends CI_Model {
 
             foreach ($query->result() as $row) {
 				#$row->DataNascimento = $this->basico->mascara_data($row->DataNascimento, 'barras');
+				$row->AprovadoOrca = $this->basico->mascara_palavra_completa($row->AprovadoOrca, 'NS');
 
+				$row->ConcluidoProcedimento = $this->basico->mascara_palavra_completa($row->ConcluidoProcedimento, 'NS');
+				
             }
 
             return $query;

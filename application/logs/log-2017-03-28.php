@@ -336,3 +336,385 @@ ERROR - 2017-03-28 01:37:16 --> Severity: Notice --> Undefined index: idApp_Proc
 ERROR - 2017-03-28 01:37:16 --> Severity: Notice --> Undefined index: idApp_ParcelasRec C:\xampp\htdocs\sistema2\application\views\orcatrata\form_orcatrata.php 730
 ERROR - 2017-03-28 01:37:17 --> Query error: Unknown column 'arquivos' in 'where clause' - Invalid query: SELECT * FROM App_OrcaTrata WHERE idApp_OrcaTrata = arquivos
 ERROR - 2017-03-28 01:45:04 --> 404 Page Not Found: Relatorio/arquivos
+ERROR - 2017-03-28 02:24:55 --> 404 Page Not Found: Relatorio/arquivos
+ERROR - 2017-03-28 02:25:43 --> 404 Page Not Found: Relatorio/arquivos
+ERROR - 2017-03-28 02:25:49 --> 404 Page Not Found: Relatorio/arquivos
+ERROR - 2017-03-28 02:26:44 --> 404 Page Not Found: Relatorio/arquivos
+ERROR - 2017-03-28 02:26:51 --> 404 Page Not Found: Relatorio/arquivos
+ERROR - 2017-03-28 02:29:45 --> 404 Page Not Found: Relatorio/arquivos
+ERROR - 2017-03-28 02:31:23 --> Query error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') AND
+				C.idApp_Cliente = OT.idApp_Cliente
+
+
+            ORDER BY
+       ' at line 20 - Invalid query: 
+            SELECT
+                C.idApp_Cliente,
+                C.NomeCliente,
+				OT.idApp_OrcaTrata,
+				OT.AprovadoOrca,
+				PD.idApp_ProdutoVenda,
+				PD.QtdVendaProduto,
+				TPD.NomeProduto,
+				PC.Procedimento
+
+            FROM
+                App_Cliente AS C,
+				App_OrcaTrata AS OT
+				LEFT JOIN App_ProdutoVenda AS PD ON OT.idApp_OrcaTrata = PD.idApp_OrcaTrata
+				LEFT JOIN Tab_Produto AS TPD ON TPD.idTab_Produto = PD.idTab_Produto
+				LEFT JOIN App_Procedimento AS PC ON OT.idApp_OrcaTrata = PC.idApp_OrcaTrata
+				
+            WHERE
+                C.idSis_Usuario = 33 AND
+				(OT.AprovadoOrca = "" AND ) AND
+				C.idApp_Cliente = OT.idApp_Cliente
+
+
+            ORDER BY
+                C.NomeCliente ASC
+        
+ERROR - 2017-03-28 02:32:11 --> Query error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') AND
+				C.idApp_Cliente = OT.idApp_Cliente
+
+
+            ORDER BY' at line 20 - Invalid query: 
+            SELECT
+                C.idApp_Cliente,
+                C.NomeCliente,
+				OT.idApp_OrcaTrata,
+				OT.AprovadoOrca,
+				PD.idApp_ProdutoVenda,
+				PD.QtdVendaProduto,
+				TPD.NomeProduto,
+				PC.Procedimento
+
+            FROM
+                App_Cliente AS C,
+				App_OrcaTrata AS OT
+				LEFT JOIN App_ProdutoVenda AS PD ON OT.idApp_OrcaTrata = PD.idApp_OrcaTrata
+				LEFT JOIN Tab_Produto AS TPD ON TPD.idTab_Produto = PD.idTab_Produto
+				LEFT JOIN App_Procedimento AS PC ON OT.idApp_OrcaTrata = PC.idApp_OrcaTrata
+				
+            WHERE
+                C.idSis_Usuario = 33 AND
+				(OT.AprovadoOrca = "" AND ) AND
+				C.idApp_Cliente = OT.idApp_Cliente
+
+
+            ORDER BY
+                 
+        
+ERROR - 2017-03-28 02:33:01 --> Query error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 24 - Invalid query: 
+            SELECT
+                C.idApp_Cliente,
+                C.NomeCliente,
+				OT.idApp_OrcaTrata,
+				OT.AprovadoOrca,
+				PD.idApp_ProdutoVenda,
+				PD.QtdVendaProduto,
+				TPD.NomeProduto,
+				PC.Procedimento
+
+            FROM
+                App_Cliente AS C,
+				App_OrcaTrata AS OT
+				LEFT JOIN App_ProdutoVenda AS PD ON OT.idApp_OrcaTrata = PD.idApp_OrcaTrata
+				LEFT JOIN Tab_Produto AS TPD ON TPD.idTab_Produto = PD.idTab_Produto
+				LEFT JOIN App_Procedimento AS PC ON OT.idApp_OrcaTrata = PC.idApp_OrcaTrata
+				
+            WHERE
+                C.idSis_Usuario = 33 AND
+				OT.AprovadoOrca = "" AND 
+				C.idApp_Cliente = OT.idApp_Cliente
+
+
+            ORDER BY
+                 
+        
+ERROR - 2017-03-28 02:40:55 --> Query error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 26 - Invalid query: 
+            SELECT
+                C.idApp_Cliente,
+                C.NomeCliente,
+				OT.idApp_OrcaTrata,
+				OT.AprovadoOrca,
+                OT.DataOrca,
+				PD.idApp_ProdutoVenda,
+				PD.QtdVendaProduto,
+				TPD.NomeProduto,
+				PC.Procedimento
+
+            FROM
+                App_Cliente AS C,
+				App_OrcaTrata AS OT
+				LEFT JOIN App_ProdutoVenda AS PD ON OT.idApp_OrcaTrata = PD.idApp_OrcaTrata
+				LEFT JOIN Tab_Produto AS TPD ON TPD.idTab_Produto = PD.idTab_Produto
+				LEFT JOIN App_Procedimento AS PC ON OT.idApp_OrcaTrata = PC.idApp_OrcaTrata
+				
+            WHERE
+                C.idSis_Usuario = 33 AND
+                ((OT.DataOrca >= "")) AND
+                OT.AprovadoOrca = "" AND 			
+                C.idApp_Cliente = OT.idApp_Cliente
+
+
+            ORDER BY
+                 
+        
+ERROR - 2017-03-28 02:42:45 --> Query error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 26 - Invalid query: 
+            SELECT
+                C.idApp_Cliente,
+                C.NomeCliente,
+				OT.idApp_OrcaTrata,
+				OT.AprovadoOrca,
+                OT.DataOrca,
+				PD.idApp_ProdutoVenda,
+				PD.QtdVendaProduto,
+				TPD.NomeProduto,
+				PC.Procedimento
+
+            FROM
+                App_Cliente AS C,
+				App_OrcaTrata AS OT
+				LEFT JOIN App_ProdutoVenda AS PD ON OT.idApp_OrcaTrata = PD.idApp_OrcaTrata
+				LEFT JOIN Tab_Produto AS TPD ON TPD.idTab_Produto = PD.idTab_Produto
+				LEFT JOIN App_Procedimento AS PC ON OT.idApp_OrcaTrata = PC.idApp_OrcaTrata
+				
+            WHERE
+                C.idSis_Usuario = 33 AND
+                ((OT.DataOrca >= "")) AND
+                OT.AprovadoOrca = "" AND 			
+                C.idApp_Cliente = OT.idApp_Cliente
+
+
+            ORDER BY
+                 
+        
+ERROR - 2017-03-28 02:44:13 --> Query error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 26 - Invalid query: 
+            SELECT
+                C.idApp_Cliente,
+                C.NomeCliente,
+				OT.idApp_OrcaTrata,
+				OT.AprovadoOrca,
+                OT.DataOrca,
+				PD.idApp_ProdutoVenda,
+				PD.QtdVendaProduto,
+				TPD.NomeProduto,
+				PC.Procedimento
+
+            FROM
+                App_Cliente AS C,
+				App_OrcaTrata AS OT
+				LEFT JOIN App_ProdutoVenda AS PD ON OT.idApp_OrcaTrata = PD.idApp_OrcaTrata
+				LEFT JOIN Tab_Produto AS TPD ON TPD.idTab_Produto = PD.idTab_Produto
+				LEFT JOIN App_Procedimento AS PC ON OT.idApp_OrcaTrata = PC.idApp_OrcaTrata
+				
+            WHERE
+                C.idSis_Usuario = 33 AND
+                ((OT.DataOrca >= "")) AND
+                OT.AprovadoOrca = "" AND 			
+                C.idApp_Cliente = OT.idApp_Cliente
+
+
+            ORDER BY
+                 
+        
+ERROR - 2017-03-28 02:50:03 --> Severity: Notice --> Undefined index: AprovadoOrca C:\xampp\htdocs\sistema2\application\models\Relatorio_model.php 664
+ERROR - 2017-03-28 02:50:03 --> Severity: Notice --> Undefined index: AprovadoOrca C:\xampp\htdocs\sistema2\application\models\Relatorio_model.php 664
+ERROR - 2017-03-28 02:50:04 --> 404 Page Not Found: Relatorio/arquivos
+ERROR - 2017-03-28 02:50:56 --> Severity: Notice --> Undefined index: Procedimento C:\xampp\htdocs\sistema2\application\views\relatorio\list_clienteprod.php 34
+ERROR - 2017-03-28 02:50:56 --> Severity: Notice --> Undefined index: Procedimento C:\xampp\htdocs\sistema2\application\views\relatorio\list_clienteprod.php 34
+ERROR - 2017-03-28 02:50:56 --> Severity: Notice --> Undefined index: Procedimento C:\xampp\htdocs\sistema2\application\views\relatorio\list_clienteprod.php 34
+ERROR - 2017-03-28 02:50:56 --> Severity: Notice --> Undefined index: Procedimento C:\xampp\htdocs\sistema2\application\views\relatorio\list_clienteprod.php 34
+ERROR - 2017-03-28 02:50:56 --> Severity: Notice --> Undefined index: Procedimento C:\xampp\htdocs\sistema2\application\views\relatorio\list_clienteprod.php 34
+ERROR - 2017-03-28 02:50:56 --> Severity: Notice --> Undefined index: Procedimento C:\xampp\htdocs\sistema2\application\views\relatorio\list_clienteprod.php 34
+ERROR - 2017-03-28 02:50:56 --> Severity: Notice --> Undefined index: Procedimento C:\xampp\htdocs\sistema2\application\views\relatorio\list_clienteprod.php 34
+ERROR - 2017-03-28 02:50:56 --> Severity: Notice --> Undefined index: Procedimento C:\xampp\htdocs\sistema2\application\views\relatorio\list_clienteprod.php 34
+ERROR - 2017-03-28 02:50:56 --> Severity: Notice --> Undefined index: Procedimento C:\xampp\htdocs\sistema2\application\views\relatorio\list_clienteprod.php 34
+ERROR - 2017-03-28 02:50:57 --> Severity: Notice --> Undefined index: Procedimento C:\xampp\htdocs\sistema2\application\views\relatorio\list_clienteprod.php 34
+ERROR - 2017-03-28 02:50:57 --> Severity: Notice --> Undefined index: Procedimento C:\xampp\htdocs\sistema2\application\views\relatorio\list_clienteprod.php 34
+ERROR - 2017-03-28 02:50:57 --> Severity: Notice --> Undefined index: Procedimento C:\xampp\htdocs\sistema2\application\views\relatorio\list_clienteprod.php 34
+ERROR - 2017-03-28 02:50:57 --> Severity: Notice --> Undefined index: Procedimento C:\xampp\htdocs\sistema2\application\views\relatorio\list_clienteprod.php 34
+ERROR - 2017-03-28 02:50:57 --> Severity: Notice --> Undefined index: Procedimento C:\xampp\htdocs\sistema2\application\views\relatorio\list_clienteprod.php 34
+ERROR - 2017-03-28 02:50:57 --> Severity: Notice --> Undefined index: Procedimento C:\xampp\htdocs\sistema2\application\views\relatorio\list_clienteprod.php 34
+ERROR - 2017-03-28 02:50:57 --> Severity: Notice --> Undefined index: Procedimento C:\xampp\htdocs\sistema2\application\views\relatorio\list_clienteprod.php 34
+ERROR - 2017-03-28 02:50:57 --> Severity: Notice --> Undefined index: Procedimento C:\xampp\htdocs\sistema2\application\views\relatorio\list_clienteprod.php 34
+ERROR - 2017-03-28 02:50:57 --> Severity: Notice --> Undefined index: Procedimento C:\xampp\htdocs\sistema2\application\views\relatorio\list_clienteprod.php 34
+ERROR - 2017-03-28 02:50:57 --> Severity: Notice --> Undefined index: Procedimento C:\xampp\htdocs\sistema2\application\views\relatorio\list_clienteprod.php 34
+ERROR - 2017-03-28 02:50:57 --> Severity: Notice --> Undefined index: Procedimento C:\xampp\htdocs\sistema2\application\views\relatorio\list_clienteprod.php 34
+ERROR - 2017-03-28 02:50:57 --> Severity: Notice --> Undefined index: Procedimento C:\xampp\htdocs\sistema2\application\views\relatorio\list_clienteprod.php 34
+ERROR - 2017-03-28 02:50:57 --> Severity: Notice --> Undefined index: Procedimento C:\xampp\htdocs\sistema2\application\views\relatorio\list_clienteprod.php 34
+ERROR - 2017-03-28 02:50:57 --> Severity: Notice --> Undefined index: Procedimento C:\xampp\htdocs\sistema2\application\views\relatorio\list_clienteprod.php 34
+ERROR - 2017-03-28 02:50:57 --> Severity: Notice --> Undefined index: Procedimento C:\xampp\htdocs\sistema2\application\views\relatorio\list_clienteprod.php 34
+ERROR - 2017-03-28 02:50:57 --> Severity: Notice --> Undefined index: Procedimento C:\xampp\htdocs\sistema2\application\views\relatorio\list_clienteprod.php 34
+ERROR - 2017-03-28 02:50:57 --> Severity: Notice --> Undefined index: Procedimento C:\xampp\htdocs\sistema2\application\views\relatorio\list_clienteprod.php 34
+ERROR - 2017-03-28 02:50:57 --> Severity: Notice --> Undefined index: Procedimento C:\xampp\htdocs\sistema2\application\views\relatorio\list_clienteprod.php 34
+ERROR - 2017-03-28 02:50:57 --> Severity: Notice --> Undefined index: Procedimento C:\xampp\htdocs\sistema2\application\views\relatorio\list_clienteprod.php 34
+ERROR - 2017-03-28 02:50:57 --> Severity: Notice --> Undefined index: Procedimento C:\xampp\htdocs\sistema2\application\views\relatorio\list_clienteprod.php 34
+ERROR - 2017-03-28 02:50:57 --> Severity: Notice --> Undefined index: Procedimento C:\xampp\htdocs\sistema2\application\views\relatorio\list_clienteprod.php 34
+ERROR - 2017-03-28 02:50:57 --> Severity: Notice --> Undefined index: Procedimento C:\xampp\htdocs\sistema2\application\views\relatorio\list_clienteprod.php 34
+ERROR - 2017-03-28 02:50:57 --> Severity: Notice --> Undefined index: Procedimento C:\xampp\htdocs\sistema2\application\views\relatorio\list_clienteprod.php 34
+ERROR - 2017-03-28 02:50:57 --> Severity: Notice --> Undefined index: Procedimento C:\xampp\htdocs\sistema2\application\views\relatorio\list_clienteprod.php 34
+ERROR - 2017-03-28 02:50:57 --> Severity: Notice --> Undefined index: Procedimento C:\xampp\htdocs\sistema2\application\views\relatorio\list_clienteprod.php 34
+ERROR - 2017-03-28 02:50:57 --> Severity: Notice --> Undefined index: Procedimento C:\xampp\htdocs\sistema2\application\views\relatorio\list_clienteprod.php 34
+ERROR - 2017-03-28 02:50:57 --> Severity: Notice --> Undefined index: Procedimento C:\xampp\htdocs\sistema2\application\views\relatorio\list_clienteprod.php 34
+ERROR - 2017-03-28 02:50:57 --> Severity: Notice --> Undefined index: Procedimento C:\xampp\htdocs\sistema2\application\views\relatorio\list_clienteprod.php 34
+ERROR - 2017-03-28 02:50:58 --> Severity: Notice --> Undefined index: Procedimento C:\xampp\htdocs\sistema2\application\views\relatorio\list_clienteprod.php 34
+ERROR - 2017-03-28 02:50:58 --> Severity: Notice --> Undefined index: Procedimento C:\xampp\htdocs\sistema2\application\views\relatorio\list_clienteprod.php 34
+ERROR - 2017-03-28 02:50:58 --> Severity: Notice --> Undefined index: Procedimento C:\xampp\htdocs\sistema2\application\views\relatorio\list_clienteprod.php 34
+ERROR - 2017-03-28 02:50:58 --> Severity: Notice --> Undefined index: Procedimento C:\xampp\htdocs\sistema2\application\views\relatorio\list_clienteprod.php 34
+ERROR - 2017-03-28 02:50:58 --> Severity: Notice --> Undefined index: Procedimento C:\xampp\htdocs\sistema2\application\views\relatorio\list_clienteprod.php 34
+ERROR - 2017-03-28 02:50:58 --> Severity: Notice --> Undefined index: Procedimento C:\xampp\htdocs\sistema2\application\views\relatorio\list_clienteprod.php 34
+ERROR - 2017-03-28 02:50:58 --> Severity: Notice --> Undefined index: Procedimento C:\xampp\htdocs\sistema2\application\views\relatorio\list_clienteprod.php 34
+ERROR - 2017-03-28 02:50:58 --> Severity: Notice --> Undefined index: Procedimento C:\xampp\htdocs\sistema2\application\views\relatorio\list_clienteprod.php 34
+ERROR - 2017-03-28 02:50:58 --> Severity: Notice --> Undefined index: Procedimento C:\xampp\htdocs\sistema2\application\views\relatorio\list_clienteprod.php 34
+ERROR - 2017-03-28 02:50:58 --> Severity: Notice --> Undefined index: Procedimento C:\xampp\htdocs\sistema2\application\views\relatorio\list_clienteprod.php 34
+ERROR - 2017-03-28 02:50:58 --> Severity: Notice --> Undefined index: Procedimento C:\xampp\htdocs\sistema2\application\views\relatorio\list_clienteprod.php 34
+ERROR - 2017-03-28 02:50:58 --> Severity: Notice --> Undefined index: Procedimento C:\xampp\htdocs\sistema2\application\views\relatorio\list_clienteprod.php 34
+ERROR - 2017-03-28 02:50:58 --> Severity: Notice --> Undefined index: Procedimento C:\xampp\htdocs\sistema2\application\views\relatorio\list_clienteprod.php 34
+ERROR - 2017-03-28 02:50:58 --> Severity: Notice --> Undefined index: Procedimento C:\xampp\htdocs\sistema2\application\views\relatorio\list_clienteprod.php 34
+ERROR - 2017-03-28 02:50:58 --> Severity: Notice --> Undefined index: Procedimento C:\xampp\htdocs\sistema2\application\views\relatorio\list_clienteprod.php 34
+ERROR - 2017-03-28 02:50:58 --> Severity: Notice --> Undefined index: Procedimento C:\xampp\htdocs\sistema2\application\views\relatorio\list_clienteprod.php 34
+ERROR - 2017-03-28 02:50:58 --> Severity: Notice --> Undefined index: Procedimento C:\xampp\htdocs\sistema2\application\views\relatorio\list_clienteprod.php 34
+ERROR - 2017-03-28 02:50:58 --> Severity: Notice --> Undefined index: Procedimento C:\xampp\htdocs\sistema2\application\views\relatorio\list_clienteprod.php 34
+ERROR - 2017-03-28 02:50:58 --> Severity: Notice --> Undefined index: Procedimento C:\xampp\htdocs\sistema2\application\views\relatorio\list_clienteprod.php 34
+ERROR - 2017-03-28 02:50:58 --> Severity: Notice --> Undefined index: Procedimento C:\xampp\htdocs\sistema2\application\views\relatorio\list_clienteprod.php 34
+ERROR - 2017-03-28 02:50:58 --> Severity: Notice --> Undefined index: Procedimento C:\xampp\htdocs\sistema2\application\views\relatorio\list_clienteprod.php 34
+ERROR - 2017-03-28 02:50:58 --> Severity: Notice --> Undefined index: Procedimento C:\xampp\htdocs\sistema2\application\views\relatorio\list_clienteprod.php 34
+ERROR - 2017-03-28 02:50:58 --> Severity: Notice --> Undefined index: Procedimento C:\xampp\htdocs\sistema2\application\views\relatorio\list_clienteprod.php 34
+ERROR - 2017-03-28 02:50:58 --> Severity: Notice --> Undefined index: Procedimento C:\xampp\htdocs\sistema2\application\views\relatorio\list_clienteprod.php 34
+ERROR - 2017-03-28 02:50:58 --> Severity: Notice --> Undefined index: Procedimento C:\xampp\htdocs\sistema2\application\views\relatorio\list_clienteprod.php 34
+ERROR - 2017-03-28 02:50:58 --> Severity: Notice --> Undefined index: Procedimento C:\xampp\htdocs\sistema2\application\views\relatorio\list_clienteprod.php 34
+ERROR - 2017-03-28 02:50:58 --> Severity: Notice --> Undefined index: Procedimento C:\xampp\htdocs\sistema2\application\views\relatorio\list_clienteprod.php 34
+ERROR - 2017-03-28 02:50:58 --> Severity: Notice --> Undefined index: Procedimento C:\xampp\htdocs\sistema2\application\views\relatorio\list_clienteprod.php 34
+ERROR - 2017-03-28 02:50:59 --> Severity: Notice --> Undefined index: Procedimento C:\xampp\htdocs\sistema2\application\views\relatorio\list_clienteprod.php 34
+ERROR - 2017-03-28 02:50:59 --> Severity: Notice --> Undefined index: Procedimento C:\xampp\htdocs\sistema2\application\views\relatorio\list_clienteprod.php 34
+ERROR - 2017-03-28 02:50:59 --> Severity: Notice --> Undefined index: Procedimento C:\xampp\htdocs\sistema2\application\views\relatorio\list_clienteprod.php 34
+ERROR - 2017-03-28 02:50:59 --> Severity: Notice --> Undefined index: Procedimento C:\xampp\htdocs\sistema2\application\views\relatorio\list_clienteprod.php 34
+ERROR - 2017-03-28 02:50:59 --> Severity: Notice --> Undefined index: Procedimento C:\xampp\htdocs\sistema2\application\views\relatorio\list_clienteprod.php 34
+ERROR - 2017-03-28 02:50:59 --> Severity: Notice --> Undefined index: Procedimento C:\xampp\htdocs\sistema2\application\views\relatorio\list_clienteprod.php 34
+ERROR - 2017-03-28 02:50:59 --> Severity: Notice --> Undefined index: Procedimento C:\xampp\htdocs\sistema2\application\views\relatorio\list_clienteprod.php 34
+ERROR - 2017-03-28 02:50:59 --> 404 Page Not Found: Relatorio/arquivos
+ERROR - 2017-03-28 02:53:25 --> 404 Page Not Found: Relatorio/arquivos
+ERROR - 2017-03-28 02:59:14 --> 404 Page Not Found: Relatorio/arquivos
+ERROR - 2017-03-28 03:06:26 --> Severity: Warning --> mysqli::real_connect(): MySQL server has gone away C:\xampp\htdocs\sistema2\system\database\drivers\mysqli\mysqli_driver.php 133
+ERROR - 2017-03-28 03:06:27 --> 404 Page Not Found: Relatorio/arquivos
+ERROR - 2017-03-28 03:07:04 --> 404 Page Not Found: Relatorio/arquivos
+ERROR - 2017-03-28 03:08:01 --> 404 Page Not Found: Relatorio/arquivos
+ERROR - 2017-03-28 03:08:10 --> 404 Page Not Found: Relatorio/arquivos
+ERROR - 2017-03-28 03:08:17 --> 404 Page Not Found: Relatorio/arquivos
+ERROR - 2017-03-28 03:09:44 --> Severity: Notice --> Undefined index: idApp_Procedimento C:\xampp\htdocs\sistema2\application\views\orcatrata\form_orcatrata.php 729
+ERROR - 2017-03-28 03:09:44 --> Severity: Notice --> Undefined index: idApp_ParcelasRec C:\xampp\htdocs\sistema2\application\views\orcatrata\form_orcatrata.php 730
+ERROR - 2017-03-28 03:09:45 --> Query error: Unknown column 'arquivos' in 'where clause' - Invalid query: SELECT * FROM App_OrcaTrata WHERE idApp_OrcaTrata = arquivos
+ERROR - 2017-03-28 03:11:38 --> Severity: Notice --> Undefined index: agenda C:\xampp\htdocs\sistema2\application\controllers\Cliente.php 329
+ERROR - 2017-03-28 03:11:39 --> Severity: Notice --> Undefined index: idApp_Profissional C:\xampp\htdocs\sistema2\application\views\contatocliente\list_contatocliente.php 53
+ERROR - 2017-03-28 03:11:39 --> Severity: Notice --> Undefined index: idApp_ContatoProf C:\xampp\htdocs\sistema2\application\views\contatocliente\list_contatocliente.php 53
+ERROR - 2017-03-28 03:11:39 --> Severity: Notice --> Undefined index: idApp_Profissional C:\xampp\htdocs\sistema2\application\views\contatocliente\list_contatocliente.php 56
+ERROR - 2017-03-28 03:11:40 --> Query error: Unknown column 'arquivos' in 'where clause' - Invalid query: SELECT * FROM App_Cliente WHERE idApp_Cliente = arquivos
+ERROR - 2017-03-28 03:11:49 --> Query error: Unknown column 'arquivos' in 'where clause' - Invalid query: SELECT OT.idApp_OrcaTrata, OT.DataOrca, OT.ProfissionalOrca, OT.AprovadoOrca, OT.ObsOrca FROM App_OrcaTrata AS OT WHERE OT.idApp_Cliente = arquivos AND OT.AprovadoOrca = "S" ORDER BY OT.DataOrca DESC 
+ERROR - 2017-03-28 03:11:58 --> Severity: Notice --> Undefined index: idApp_Procedimento C:\xampp\htdocs\sistema2\application\views\orcatrata\form_orcatrata.php 729
+ERROR - 2017-03-28 03:11:58 --> Severity: Notice --> Undefined index: idApp_ParcelasRec C:\xampp\htdocs\sistema2\application\views\orcatrata\form_orcatrata.php 730
+ERROR - 2017-03-28 03:11:59 --> Query error: Unknown column 'arquivos' in 'where clause' - Invalid query: SELECT * FROM App_OrcaTrata WHERE idApp_OrcaTrata = arquivos
+ERROR - 2017-03-28 03:12:12 --> Query error: Unknown column 'arquivos' in 'where clause' - Invalid query: SELECT OT.idApp_OrcaTrata, OT.DataOrca, OT.ProfissionalOrca, OT.AprovadoOrca, OT.ObsOrca FROM App_OrcaTrata AS OT WHERE OT.idApp_Cliente = arquivos AND OT.AprovadoOrca = "S" ORDER BY OT.DataOrca DESC 
+ERROR - 2017-03-28 03:12:17 --> Severity: Notice --> Undefined index: idApp_Procedimento C:\xampp\htdocs\sistema2\application\views\orcatrata\form_orcatrata.php 729
+ERROR - 2017-03-28 03:12:17 --> Severity: Notice --> Undefined index: idApp_ParcelasRec C:\xampp\htdocs\sistema2\application\views\orcatrata\form_orcatrata.php 730
+ERROR - 2017-03-28 03:12:18 --> Query error: Unknown column 'arquivos' in 'where clause' - Invalid query: SELECT * FROM App_OrcaTrata WHERE idApp_OrcaTrata = arquivos
+ERROR - 2017-03-28 03:14:05 --> 404 Page Not Found: Servico/arquivos
+ERROR - 2017-03-28 03:14:53 --> 404 Page Not Found: Servico/arquivos
+ERROR - 2017-03-28 03:15:01 --> Severity: Notice --> Undefined index: agenda C:\xampp\htdocs\sistema2\application\controllers\Cliente.php 329
+ERROR - 2017-03-28 03:15:02 --> Severity: Notice --> Undefined index: idApp_Profissional C:\xampp\htdocs\sistema2\application\views\contatocliente\list_contatocliente.php 53
+ERROR - 2017-03-28 03:15:02 --> Severity: Notice --> Undefined index: idApp_ContatoProf C:\xampp\htdocs\sistema2\application\views\contatocliente\list_contatocliente.php 53
+ERROR - 2017-03-28 03:15:02 --> Severity: Notice --> Undefined index: idApp_Profissional C:\xampp\htdocs\sistema2\application\views\contatocliente\list_contatocliente.php 56
+ERROR - 2017-03-28 03:15:03 --> Query error: Unknown column 'arquivos' in 'where clause' - Invalid query: SELECT * FROM App_Cliente WHERE idApp_Cliente = arquivos
+ERROR - 2017-03-28 03:15:08 --> Query error: Unknown column 'arquivos' in 'where clause' - Invalid query: SELECT OT.idApp_OrcaTrata, OT.DataOrca, OT.ProfissionalOrca, OT.AprovadoOrca, OT.ObsOrca FROM App_OrcaTrata AS OT WHERE OT.idApp_Cliente = arquivos AND OT.AprovadoOrca = "S" ORDER BY OT.DataOrca DESC 
+ERROR - 2017-03-28 03:15:14 --> Severity: Notice --> Undefined index: idApp_Procedimento C:\xampp\htdocs\sistema2\application\views\orcatrata\form_orcatrata.php 729
+ERROR - 2017-03-28 03:15:14 --> Severity: Notice --> Undefined index: idApp_ParcelasRec C:\xampp\htdocs\sistema2\application\views\orcatrata\form_orcatrata.php 730
+ERROR - 2017-03-28 03:15:15 --> Query error: Unknown column 'arquivos' in 'where clause' - Invalid query: SELECT * FROM App_OrcaTrata WHERE idApp_OrcaTrata = arquivos
+ERROR - 2017-03-28 03:26:36 --> Severity: Notice --> Undefined index: idApp_Procedimento C:\xampp\htdocs\sistema2\application\views\orcatrata\form_orcatrata.php 774
+ERROR - 2017-03-28 03:26:36 --> Severity: Notice --> Undefined index: idApp_ParcelasRec C:\xampp\htdocs\sistema2\application\views\orcatrata\form_orcatrata.php 775
+ERROR - 2017-03-28 03:26:37 --> Query error: Unknown column 'arquivos' in 'where clause' - Invalid query: SELECT * FROM App_OrcaTrata WHERE idApp_OrcaTrata = arquivos
+ERROR - 2017-03-28 03:27:11 --> Severity: Notice --> Undefined index: auditoriaitem C:\xampp\htdocs\sistema2\application\controllers\Orcatrata.php 785
+ERROR - 2017-03-28 03:27:13 --> Query error: Unknown column 'arquivos' in 'where clause' - Invalid query: SELECT OT.idApp_OrcaTrata, OT.DataOrca, OT.DataPrazo, OT.ProfissionalOrca, OT.AprovadoOrca, OT.ObsOrca FROM App_OrcaTrata AS OT WHERE OT.idApp_Cliente = arquivos AND OT.AprovadoOrca = "S" ORDER BY OT.DataOrca DESC 
+ERROR - 2017-03-28 03:27:24 --> Severity: Notice --> Undefined index: idApp_Procedimento C:\xampp\htdocs\sistema2\application\views\orcatrata\form_orcatrata.php 774
+ERROR - 2017-03-28 03:27:25 --> Severity: Notice --> Undefined index: idApp_ParcelasRec C:\xampp\htdocs\sistema2\application\views\orcatrata\form_orcatrata.php 775
+ERROR - 2017-03-28 03:27:25 --> Query error: Unknown column 'arquivos' in 'where clause' - Invalid query: SELECT * FROM App_OrcaTrata WHERE idApp_OrcaTrata = arquivos
+ERROR - 2017-03-28 03:27:54 --> 404 Page Not Found: Relatorio/arquivos
+ERROR - 2017-03-28 03:36:07 --> Severity: Notice --> Undefined index: AprovadoOrca C:\xampp\htdocs\sistema2\application\controllers\Relatorio.php 735
+ERROR - 2017-03-28 03:36:07 --> Severity: Notice --> Undefined index: ConcluidoProcedimento C:\xampp\htdocs\sistema2\application\controllers\Relatorio.php 736
+ERROR - 2017-03-28 03:36:08 --> 404 Page Not Found: Relatorio/arquivos
+ERROR - 2017-03-28 03:36:52 --> 404 Page Not Found: Relatorio/arquivos
+ERROR - 2017-03-28 03:37:17 --> 404 Page Not Found: Relatorio/arquivos
+ERROR - 2017-03-28 03:45:35 --> 404 Page Not Found: Relatorio/arquivos
+ERROR - 2017-03-28 03:50:44 --> Severity: Notice --> Undefined index: AprovadoOrca C:\xampp\htdocs\sistema2\application\models\Relatorio_model.php 664
+ERROR - 2017-03-28 03:50:44 --> Severity: Notice --> Undefined index: AprovadoOrca C:\xampp\htdocs\sistema2\application\models\Relatorio_model.php 664
+ERROR - 2017-03-28 03:50:44 --> Severity: Notice --> Undefined index: AprovadoOrca C:\xampp\htdocs\sistema2\application\views\relatorio\tela_clienteprod.php 25
+ERROR - 2017-03-28 03:50:44 --> Severity: Notice --> Undefined index: AprovadoOrca C:\xampp\htdocs\sistema2\application\views\relatorio\tela_clienteprod.php 25
+ERROR - 2017-03-28 03:50:44 --> Severity: Notice --> Undefined index: AprovadoOrca C:\xampp\htdocs\sistema2\application\views\relatorio\tela_clienteprod.php 25
+ERROR - 2017-03-28 03:50:45 --> 404 Page Not Found: Relatorio/arquivos
+ERROR - 2017-03-28 03:55:43 --> Severity: Notice --> Undefined variable: filtro1 C:\xampp\htdocs\sistema2\application\models\Relatorio_model.php 686
+ERROR - 2017-03-28 03:55:43 --> Severity: Notice --> Undefined index: AprovadoOrca C:\xampp\htdocs\sistema2\application\views\relatorio\tela_clienteprod.php 25
+ERROR - 2017-03-28 03:55:44 --> Severity: Notice --> Undefined index: AprovadoOrca C:\xampp\htdocs\sistema2\application\views\relatorio\tela_clienteprod.php 25
+ERROR - 2017-03-28 03:55:44 --> Severity: Notice --> Undefined index: AprovadoOrca C:\xampp\htdocs\sistema2\application\views\relatorio\tela_clienteprod.php 25
+ERROR - 2017-03-28 03:55:44 --> 404 Page Not Found: Relatorio/arquivos
+ERROR - 2017-03-28 03:56:33 --> Severity: Warning --> mysqli::real_connect(): MySQL server has gone away C:\xampp\htdocs\sistema2\system\database\drivers\mysqli\mysqli_driver.php 133
+ERROR - 2017-03-28 03:56:34 --> Severity: Notice --> Undefined index: AprovadoOrca C:\xampp\htdocs\sistema2\application\views\relatorio\tela_clienteprod.php 25
+ERROR - 2017-03-28 03:56:34 --> Severity: Notice --> Undefined index: AprovadoOrca C:\xampp\htdocs\sistema2\application\views\relatorio\tela_clienteprod.php 25
+ERROR - 2017-03-28 03:56:34 --> Severity: Notice --> Undefined index: AprovadoOrca C:\xampp\htdocs\sistema2\application\views\relatorio\tela_clienteprod.php 25
+ERROR - 2017-03-28 03:56:34 --> 404 Page Not Found: Relatorio/arquivos
+ERROR - 2017-03-28 03:57:22 --> Severity: Notice --> Undefined index: AprovadoOrca C:\xampp\htdocs\sistema2\application\views\relatorio\tela_clienteprod.php 25
+ERROR - 2017-03-28 03:57:22 --> Severity: Notice --> Undefined index: AprovadoOrca C:\xampp\htdocs\sistema2\application\views\relatorio\tela_clienteprod.php 25
+ERROR - 2017-03-28 03:57:22 --> Severity: Notice --> Undefined index: AprovadoOrca C:\xampp\htdocs\sistema2\application\views\relatorio\tela_clienteprod.php 25
+ERROR - 2017-03-28 03:57:23 --> 404 Page Not Found: Relatorio/arquivos
+ERROR - 2017-03-28 03:57:32 --> Severity: Notice --> Undefined index: AprovadoOrca C:\xampp\htdocs\sistema2\application\views\relatorio\tela_clienteprod.php 25
+ERROR - 2017-03-28 03:57:32 --> Severity: Notice --> Undefined index: AprovadoOrca C:\xampp\htdocs\sistema2\application\views\relatorio\tela_clienteprod.php 25
+ERROR - 2017-03-28 03:57:32 --> Severity: Notice --> Undefined index: AprovadoOrca C:\xampp\htdocs\sistema2\application\views\relatorio\tela_clienteprod.php 25
+ERROR - 2017-03-28 03:57:32 --> 404 Page Not Found: Relatorio/arquivos
+ERROR - 2017-03-28 03:59:33 --> Severity: Notice --> Undefined index: AprovadoOrca C:\xampp\htdocs\sistema2\application\views\relatorio\tela_clienteprod.php 25
+ERROR - 2017-03-28 03:59:33 --> Severity: Notice --> Undefined index: AprovadoOrca C:\xampp\htdocs\sistema2\application\views\relatorio\tela_clienteprod.php 25
+ERROR - 2017-03-28 03:59:33 --> Severity: Notice --> Undefined index: AprovadoOrca C:\xampp\htdocs\sistema2\application\views\relatorio\tela_clienteprod.php 25
+ERROR - 2017-03-28 03:59:34 --> 404 Page Not Found: Relatorio/arquivos
+ERROR - 2017-03-28 03:59:39 --> Severity: Notice --> Undefined index: AprovadoOrca C:\xampp\htdocs\sistema2\application\views\relatorio\tela_clienteprod.php 25
+ERROR - 2017-03-28 03:59:39 --> Severity: Notice --> Undefined index: AprovadoOrca C:\xampp\htdocs\sistema2\application\views\relatorio\tela_clienteprod.php 25
+ERROR - 2017-03-28 03:59:39 --> Severity: Notice --> Undefined index: AprovadoOrca C:\xampp\htdocs\sistema2\application\views\relatorio\tela_clienteprod.php 25
+ERROR - 2017-03-28 03:59:39 --> 404 Page Not Found: Relatorio/arquivos
+ERROR - 2017-03-28 04:00:01 --> Severity: Notice --> Undefined index: AprovadoOrca C:\xampp\htdocs\sistema2\application\views\relatorio\tela_clienteprod.php 25
+ERROR - 2017-03-28 04:00:01 --> Severity: Notice --> Undefined index: AprovadoOrca C:\xampp\htdocs\sistema2\application\views\relatorio\tela_clienteprod.php 25
+ERROR - 2017-03-28 04:00:02 --> Severity: Notice --> Undefined index: AprovadoOrca C:\xampp\htdocs\sistema2\application\views\relatorio\tela_clienteprod.php 25
+ERROR - 2017-03-28 04:00:02 --> 404 Page Not Found: Relatorio/arquivos
+ERROR - 2017-03-28 04:01:13 --> Severity: Notice --> Undefined index: AprovadoOrca C:\xampp\htdocs\sistema2\application\controllers\Relatorio.php 741
+ERROR - 2017-03-28 04:01:13 --> Severity: Notice --> Undefined index: AprovadoOrca C:\xampp\htdocs\sistema2\application\views\relatorio\tela_clienteprod.php 25
+ERROR - 2017-03-28 04:01:13 --> Severity: Notice --> Undefined index: AprovadoOrca C:\xampp\htdocs\sistema2\application\views\relatorio\tela_clienteprod.php 25
+ERROR - 2017-03-28 04:01:13 --> Severity: Notice --> Undefined index: AprovadoOrca C:\xampp\htdocs\sistema2\application\views\relatorio\tela_clienteprod.php 25
+ERROR - 2017-03-28 04:01:13 --> 404 Page Not Found: Relatorio/arquivos
+ERROR - 2017-03-28 04:02:07 --> Severity: Notice --> Undefined index: AprovadoOrca C:\xampp\htdocs\sistema2\application\controllers\Relatorio.php 741
+ERROR - 2017-03-28 04:02:07 --> Severity: Notice --> Undefined index: AprovadoOrca C:\xampp\htdocs\sistema2\application\views\relatorio\tela_clienteprod.php 25
+ERROR - 2017-03-28 04:02:07 --> Severity: Notice --> Undefined index: AprovadoOrca C:\xampp\htdocs\sistema2\application\views\relatorio\tela_clienteprod.php 25
+ERROR - 2017-03-28 04:02:07 --> Severity: Notice --> Undefined index: AprovadoOrca C:\xampp\htdocs\sistema2\application\views\relatorio\tela_clienteprod.php 25
+ERROR - 2017-03-28 04:02:07 --> 404 Page Not Found: Relatorio/arquivos
+ERROR - 2017-03-28 04:02:18 --> Severity: Notice --> Undefined index: AprovadoOrca C:\xampp\htdocs\sistema2\application\models\Relatorio_model.php 664
+ERROR - 2017-03-28 04:02:18 --> Severity: Notice --> Undefined index: AprovadoOrca C:\xampp\htdocs\sistema2\application\models\Relatorio_model.php 664
+ERROR - 2017-03-28 04:02:18 --> Severity: Notice --> Undefined index: AprovadoOrca C:\xampp\htdocs\sistema2\application\views\relatorio\tela_clienteprod.php 25
+ERROR - 2017-03-28 04:02:18 --> Severity: Notice --> Undefined index: AprovadoOrca C:\xampp\htdocs\sistema2\application\views\relatorio\tela_clienteprod.php 25
+ERROR - 2017-03-28 04:02:18 --> Severity: Notice --> Undefined index: AprovadoOrca C:\xampp\htdocs\sistema2\application\views\relatorio\tela_clienteprod.php 25
+ERROR - 2017-03-28 04:02:18 --> 404 Page Not Found: Relatorio/arquivos
+ERROR - 2017-03-28 04:03:09 --> Severity: Notice --> Undefined index: AprovadoOrca C:\xampp\htdocs\sistema2\application\views\relatorio\tela_clienteprod.php 25
+ERROR - 2017-03-28 04:03:09 --> Severity: Notice --> Undefined index: AprovadoOrca C:\xampp\htdocs\sistema2\application\views\relatorio\tela_clienteprod.php 25
+ERROR - 2017-03-28 04:03:09 --> Severity: Notice --> Undefined index: AprovadoOrca C:\xampp\htdocs\sistema2\application\views\relatorio\tela_clienteprod.php 25
+ERROR - 2017-03-28 04:03:09 --> 404 Page Not Found: Relatorio/arquivos
+ERROR - 2017-03-28 04:03:20 --> Severity: Notice --> Undefined index: AprovadoOrca C:\xampp\htdocs\sistema2\application\views\relatorio\tela_clienteprod.php 25
+ERROR - 2017-03-28 04:03:20 --> Severity: Notice --> Undefined index: AprovadoOrca C:\xampp\htdocs\sistema2\application\views\relatorio\tela_clienteprod.php 25
+ERROR - 2017-03-28 04:03:20 --> Severity: Notice --> Undefined index: AprovadoOrca C:\xampp\htdocs\sistema2\application\views\relatorio\tela_clienteprod.php 25
+ERROR - 2017-03-28 04:03:20 --> 404 Page Not Found: Relatorio/arquivos
+ERROR - 2017-03-28 04:03:30 --> Severity: Notice --> Undefined index: AprovadoOrca C:\xampp\htdocs\sistema2\application\views\relatorio\tela_clienteprod.php 25
+ERROR - 2017-03-28 04:03:30 --> Severity: Notice --> Undefined index: AprovadoOrca C:\xampp\htdocs\sistema2\application\views\relatorio\tela_clienteprod.php 25
+ERROR - 2017-03-28 04:03:30 --> Severity: Notice --> Undefined index: AprovadoOrca C:\xampp\htdocs\sistema2\application\views\relatorio\tela_clienteprod.php 25
+ERROR - 2017-03-28 04:03:30 --> 404 Page Not Found: Relatorio/arquivos
+ERROR - 2017-03-28 04:04:09 --> Severity: Notice --> Undefined index: idApp_Procedimento C:\xampp\htdocs\sistema2\application\views\orcatrata\form_orcatrata.php 774
+ERROR - 2017-03-28 04:04:09 --> Severity: Notice --> Undefined index: idApp_ParcelasRec C:\xampp\htdocs\sistema2\application\views\orcatrata\form_orcatrata.php 775
+ERROR - 2017-03-28 04:04:10 --> Query error: Unknown column 'arquivos' in 'where clause' - Invalid query: SELECT * FROM App_OrcaTrata WHERE idApp_OrcaTrata = arquivos
+ERROR - 2017-03-28 04:04:37 --> Severity: Notice --> Undefined index: auditoriaitem C:\xampp\htdocs\sistema2\application\controllers\Orcatrata.php 785
+ERROR - 2017-03-28 04:04:39 --> Query error: Unknown column 'arquivos' in 'where clause' - Invalid query: SELECT OT.idApp_OrcaTrata, OT.DataOrca, OT.DataPrazo, OT.ProfissionalOrca, OT.AprovadoOrca, OT.ObsOrca FROM App_OrcaTrata AS OT WHERE OT.idApp_Cliente = arquivos AND OT.AprovadoOrca = "S" ORDER BY OT.DataOrca DESC 
+ERROR - 2017-03-28 04:04:46 --> Severity: Notice --> Undefined index: AprovadoOrca C:\xampp\htdocs\sistema2\application\views\relatorio\tela_clienteprod.php 25
+ERROR - 2017-03-28 04:04:46 --> Severity: Notice --> Undefined index: AprovadoOrca C:\xampp\htdocs\sistema2\application\views\relatorio\tela_clienteprod.php 25
+ERROR - 2017-03-28 04:04:46 --> Severity: Notice --> Undefined index: AprovadoOrca C:\xampp\htdocs\sistema2\application\views\relatorio\tela_clienteprod.php 25
+ERROR - 2017-03-28 04:04:46 --> 404 Page Not Found: Relatorio/arquivos
