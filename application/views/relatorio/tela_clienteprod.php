@@ -16,7 +16,21 @@
 
                     <div class="form-group">
                         <div class="row">
-
+							<div class="col-md-1">
+                                <label for="AprovadoOrca">Aprovado?</label>
+                                <select data-placeholder="Selecione uma opção..." class="form-control Chosen"
+                                        id="AprovadoOrca" name="AprovadoOrca">
+                                    <?php
+                                    foreach ($select['AprovadoOrca'] as $key => $row) {
+                                        if ($query['AprovadoOrca'] == $key) {
+                                            echo '<option value="' . $key . '" selected="selected">' . $row . '</option>';
+                                        } else {
+                                            echo '<option value="' . $key . '">' . $row . '</option>';
+                                        }
+                                    }
+                                    ?>
+                                </select>
+                            </div>
                             <div class="col-md-3"></div>
 
                             <div class="col-md-6">
