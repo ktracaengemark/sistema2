@@ -62,3 +62,5 @@ ERROR - 2017-03-31 18:51:57 --> 404 Page Not Found: Servico/arquivos
 ERROR - 2017-03-31 18:52:18 --> 404 Page Not Found: Produto/arquivos
 ERROR - 2017-03-31 18:52:41 --> 404 Page Not Found: Produto/arquivos
 ERROR - 2017-03-31 18:52:54 --> 404 Page Not Found: Produto/arquivos
+ERROR - 2017-03-31 22:44:46 --> Severity: Notice --> Undefined variable: nav_secundario C:\xampp\htdocs\sistema2\application\views\tarefa\tela_tarefa.php 6
+ERROR - 2017-03-31 22:45:07 --> Severity: Notice --> Undefined index: Cliente C:\xampp\htdocs\sistema2\application\views\tarefa\form_tarefa.php 335

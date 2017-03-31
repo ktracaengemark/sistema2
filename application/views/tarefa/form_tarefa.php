@@ -3,7 +3,7 @@
 	<div class="row">	
 		<div class="col-sm-7 col-sm-offset-3 col-md-10 col-md-offset-2 main">								
 					<a class="btn btn-lg btn-warning" href="<?php echo base_url() ?>tarefa/listar" role="button"> 
-						<span class="glyphicon glyphicon-list"></span> Listar Tarefas
+						<span class="glyphicon glyphicon-list"></span> Lista Tarefa
 					</a>
 			        <a class="btn btn-lg btn-info" href="<?php echo base_url() ?>agenda" role="button"> 
 				        <span class="glyphicon glyphicon-calendar"></span> Agenda
