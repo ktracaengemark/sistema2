@@ -104,3 +104,4 @@ ERROR - 2017-03-30 17:56:54 --> Query error: You have an error in your SQL synta
                 TF.ProfissionalTarefa ASC
         
 ERROR - 2017-03-30 17:58:10 --> 404 Page Not Found: Relatorio/arquivos
+ERROR - 2017-03-30 18:19:15 --> 404 Page Not Found: Relatorio/arquivos
