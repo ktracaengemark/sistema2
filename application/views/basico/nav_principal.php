@@ -97,8 +97,8 @@
 						<li role="separator" class="divider"></li>
 						<li><a href="<?php echo base_url() ?>relatorio/despesa">Despesas & Saídas</a></li>
 						<li role="separator" class="divider"></li>																			
-						<li><a href="<?php echo base_url() ?>">Estoque</a></li>
-						<li role="separator" class="divider"></li>
+						<!--<li><a href="<?php echo base_url() ?>">Estoque</a></li>
+						<li role="separator" class="divider"></li>-->
 					</ul>
 				</li>
 				<div class="btn-toolbar navbar-form navbar-right" role="toolbar" aria-label="...">					
