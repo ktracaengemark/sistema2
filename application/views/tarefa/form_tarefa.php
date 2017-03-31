@@ -5,6 +5,9 @@
 					<a class="btn btn-lg btn-warning" href="<?php echo base_url() ?>tarefa/listar" role="button"> 
 						<span class="glyphicon glyphicon-list"></span> Listar Tarefas
 					</a>
+			        <a class="btn btn-lg btn-info" href="<?php echo base_url() ?>agenda" role="button"> 
+				        <span class="glyphicon glyphicon-calendar"></span> Agenda
+			        </a>
 				
 			<?php echo validation_errors(); ?>
 
