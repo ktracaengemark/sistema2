@@ -85,7 +85,7 @@
 						<div class="row">
 							<div class="col-md-4">
 								<label for="DataNascimento">Data de Nascimento:</label>
-								<input type="text" class="form-control Date" maxlength="10" <?php echo $readonly; ?>
+								<input type="text" class="form-control" maxlength="8" <?php echo $readonly; ?>
 									   name="DataNascimento" placeholder="DD/MM/AAAA" value="<?php echo $query['DataNascimento']; ?>">
 							</div>                        
 							<br>
