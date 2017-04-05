@@ -45,8 +45,8 @@
     <br>    
     
     <label for="Celular">Celular:</label>
-    <input type="text" class="form-control" id="Celular" maxlength="45"
-           name="Celular" value="<?php echo $query['Celular']; ?>">
+    <input type="text" class="form-control" id="Usuario" maxlength="45"
+           name="Usuario" value="<?php echo $query['Usuario']; ?>">
     <?php echo form_error('Celular'); ?>
     <br>
     
