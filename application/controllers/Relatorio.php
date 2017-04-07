@@ -608,6 +608,7 @@ class Relatorio extends CI_Controller {
             'Ordenamento',
             'Campo',
             'AprovadoTarefa',
+			'ServicoConcluido',
             'QuitadoTarefa',
         ), TRUE));
 
@@ -621,13 +622,19 @@ class Relatorio extends CI_Controller {
             'N' => 'Não',
             'S' => 'Sim',
         );
+		
+		$data['select']['ServicoConcluido'] = array(
+            '#' => 'TODOS',
+            'N' => 'Não',
+            'S' => 'Sim',
+        );
 
         $data['select']['QuitadoTarefa'] = array(
             '#' => 'TODOS',
             'N' => 'Não',
             'S' => 'Sim',
         );
-
+				
         $data['select']['Campo'] = array(
            # 'C.NomeCliente' => 'Nome do Cliente',		
             
@@ -635,6 +642,7 @@ class Relatorio extends CI_Controller {
 			'TF.idApp_Tarefa' => 'Número do Tarefas',
 			'TF.ObsTarefa' => 'Tarefa',
             'TF.DataTarefa' => 'Data do Tarefa',
+			'TF.ServicoConcluido' => 'Rotina?',
             'TF.QuitadoTarefa' => 'É Prioridade?',
 			'TF.DataPrazoTarefa' => 'Prazo da Tarefa',
 			'TF.AprovadoTarefa' => 'Tarefa Concl.?',			
@@ -665,6 +673,7 @@ class Relatorio extends CI_Controller {
             $data['bd']['Campo'] = $data['query']['Campo'];
             $data['bd']['AprovadoTarefa'] = $data['query']['AprovadoTarefa'];
             $data['bd']['QuitadoTarefa'] = $data['query']['QuitadoTarefa'];
+			$data['bd']['ServicoConcluido'] = $data['query']['ServicoConcluido'];
 
             $data['report'] = $this->Relatorio_model->list_tarefa($data['bd'],TRUE);
 

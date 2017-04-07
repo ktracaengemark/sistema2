@@ -600,7 +600,8 @@ class Relatorio_model extends CI_Model {
                 TF.idApp_Tarefa,
 				TF.ObsTarefa,
                 TF.AprovadoTarefa,
-                TF.DataTarefa,               
+                TF.DataTarefa,
+				TF.ServicoConcluido,
 				TF.QuitadoTarefa,
 				TF.DataPrazoTarefa,
 				TF.DataConclusao,
@@ -644,6 +645,7 @@ class Relatorio_model extends CI_Model {
                 
 				$row->AprovadoTarefa = $this->basico->mascara_palavra_completa($row->AprovadoTarefa, 'NS');
                 $row->QuitadoTarefa = $this->basico->mascara_palavra_completa($row->QuitadoTarefa, 'NS');
+				$row->ServicoConcluido = $this->basico->mascara_palavra_completa($row->ServicoConcluido, 'NS');
 				$row->ConcluidoProcedtarefa = $this->basico->mascara_palavra_completa($row->ConcluidoProcedtarefa, 'NS');
 
             }

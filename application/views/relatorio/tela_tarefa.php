@@ -53,6 +53,21 @@
                                     ?>
                                 </select>
                             </div>
+							<div class="col-md-1">
+                                <label for="ServicoConcluido">Rotina?</label>
+                                <select data-placeholder="Selecione uma opção..." class="form-control Chosen"
+                                        id="ServicoConcluido" name="ServicoConcluido">
+                                    <?php
+                                    foreach ($select['ServicoConcluido'] as $key => $row) {
+                                        if ($query['ServicoConcluido'] == $key) {
+                                            echo '<option value="' . $key . '" selected="selected">' . $row . '</option>';
+                                        } else {
+                                            echo '<option value="' . $key . '">' . $row . '</option>';
+                                        }
+                                    }
+                                    ?>
+                                </select>
+                            </div>
 
                             <div class="col-md-1">
                                 <label for="QuitadoTarefa">Prioridade</label>

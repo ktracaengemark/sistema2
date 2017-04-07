@@ -27,29 +27,6 @@
 								<textarea class="form-control" id="ObsTarefa" <?php echo $readonly; ?>
 									autofocus name="ObsTarefa"><?php echo $tarefa['ObsTarefa']; ?></textarea>
 							</div>
-							
-							<div class="col-md-2">
-								<label for="DataTarefa">Criada em:</label>
-								<div class="input-group <?php echo $datepicker; ?>">
-									<input type="text" class="form-control Date" <?php echo $readonly; ?> maxlength="10" placeholder="DD/MM/AAAA"
-										   autofocus name="DataTarefa" value="<?php echo $tarefa['DataTarefa']; ?>">
-									<span class="input-group-addon" disabled>
-										<span class="glyphicon glyphicon-calendar"></span>
-									</span>
-								</div>
-							</div>
-							
-							<div class="col-md-2">
-									<label for="DataPrazoTarefa">Prazo Final:</label>
-									<div class="input-group <?php echo $datepicker; ?>">
-										<input type="text" class="form-control Date" <?php echo $readonly; ?> maxlength="10" placeholder="DD/MM/AAAA"
-											   autofocus name="DataPrazoTarefa" value="<?php echo $tarefa['DataPrazoTarefa']; ?>">
-										<span class="input-group-addon" disabled>
-											<span class="glyphicon glyphicon-calendar"></span>
-										</span>
-									</div>
-								</div>
-
 							<div class="col-md-3">
 								<label for="ProfissionalTarefa">Responsável da Tarefa:</label>
 								<!--<a class="btn btn-xs btn-info" href="<?php echo base_url() ?>profissional/cadastrar/profissional" role="button">
@@ -68,6 +45,34 @@
 									}
 									?>
 								</select>
+							</div>
+							<div class="col-md-2 form-inline">
+								<label for="ServicoConcluido">Rotina?</label><br>
+								<div class="form-group">
+									<div class="btn-group" data-toggle="buttons">
+										<?php
+										foreach ($select['ServicoConcluido'] as $key => $row) {
+											(!$tarefa['ServicoConcluido']) ? $tarefa['ServicoConcluido'] = 'N' : FALSE;
+
+											if ($tarefa['ServicoConcluido'] == $key) {
+												echo ''
+												. '<label class="btn btn-warning active" name="radiobutton_ServicoConcluido" id="radiobutton_ServicoConcluido' . $key . '">'
+												. '<input type="radio" name="ServicoConcluido" id="radiobutton" '
+												. 'autocomplete="off" value="' . $key . '" checked>' . $row
+												. '</label>'
+												;
+											} else {
+												echo ''
+												. '<label class="btn btn-default" name="radiobutton_ServicoConcluido" id="radiobutton_ServicoConcluido' . $key . '">'
+												. '<input type="radio" name="ServicoConcluido" id="radiobutton" '
+												. 'autocomplete="off" value="' . $key . '" >' . $row
+												. '</label>'
+												;
+											}
+										}
+										?>
+									</div>
+								</div>
 							</div>
 							<div class="col-md-2 form-inline">
 								<label for="QuitadoTarefa">Prioridade?</label><br>
@@ -97,6 +102,26 @@
 									</div>
 								</div>
 							</div>
+							<div class="col-md-2">
+								<label for="DataTarefa">Criada em:</label>
+								<div class="input-group <?php echo $datepicker; ?>">
+									<input type="text" class="form-control Date" <?php echo $readonly; ?> maxlength="10" placeholder="DD/MM/AAAA"
+										   autofocus name="DataTarefa" value="<?php echo $tarefa['DataTarefa']; ?>">
+									<span class="input-group-addon" disabled>
+										<span class="glyphicon glyphicon-calendar"></span>
+									</span>
+								</div>
+							</div>
+							<div class="col-md-2">
+								<label for="DataPrazoTarefa">Prazo Final:</label>
+								<div class="input-group <?php echo $datepicker; ?>">
+									<input type="text" class="form-control Date" <?php echo $readonly; ?> maxlength="10" placeholder="DD/MM/AAAA"
+										   autofocus name="DataPrazoTarefa" value="<?php echo $tarefa['DataPrazoTarefa']; ?>">
+									<span class="input-group-addon" disabled>
+										<span class="glyphicon glyphicon-calendar"></span>
+									</span>
+								</div>
+							</div>														
 						</div>
 					</div>
 
@@ -273,36 +298,6 @@
 
 							<div class="form-group">
 								<div id="AprovadoTarefa" <?php echo $div['AprovadoTarefa']; ?>>																
-									<!--
-									<div class="col-md-2 form-inline">
-										<label for="ServicoConcluido">Serviço Concluído?</label><br>
-										<div class="form-group">
-											<div class="btn-group" data-toggle="buttons">
-												<?php
-												foreach ($select['ServicoConcluido'] as $key => $row) {
-													(!$tarefa['ServicoConcluido']) ? $tarefa['ServicoConcluido'] = 'N' : FALSE;
-
-													if ($tarefa['ServicoConcluido'] == $key) {
-														echo ''
-														. '<label class="btn btn-warning active" name="radiobutton_ServicoConcluido" id="radiobutton_ServicoConcluido' . $key . '">'
-														. '<input type="radio" name="ServicoConcluido" id="radiobutton" '
-														. 'autocomplete="off" value="' . $key . '" checked>' . $row
-														. '</label>'
-														;
-													} else {
-														echo ''
-														. '<label class="btn btn-default" name="radiobutton_ServicoConcluido" id="radiobutton_ServicoConcluido' . $key . '">'
-														. '<input type="radio" name="ServicoConcluido" id="radiobutton" '
-														. 'autocomplete="off" value="' . $key . '" >' . $row
-														. '</label>'
-														;
-													}
-												}
-												?>
-											</div>
-										</div>
-									</div>
-									-->
 									<div class="col-md-2">
 										<label for="DataConclusao">Data da Conclusão:</label>
 										<div class="input-group <?php echo $datepicker; ?>">
