@@ -608,8 +608,8 @@ class Relatorio extends CI_Controller {
             'Ordenamento',
             'Campo',
             'AprovadoTarefa',
-			'ServicoConcluido',
             'QuitadoTarefa',
+			'ServicoConcluido',
         ), TRUE));
 
         $this->form_validation->set_error_delimiters('<div class="alert alert-danger" role="alert">', '</div>');
@@ -622,19 +622,13 @@ class Relatorio extends CI_Controller {
             'N' => 'Não',
             'S' => 'Sim',
         );
-		
-		$data['select']['ServicoConcluido'] = array(
-            '#' => 'TODOS',
-            'N' => 'Não',
-            'S' => 'Sim',
-        );
 
         $data['select']['QuitadoTarefa'] = array(
             '#' => 'TODOS',
             'N' => 'Não',
             'S' => 'Sim',
         );
-				
+
         $data['select']['Campo'] = array(
            # 'C.NomeCliente' => 'Nome do Cliente',		
             
@@ -642,8 +636,8 @@ class Relatorio extends CI_Controller {
 			'TF.idApp_Tarefa' => 'Número do Tarefas',
 			'TF.ObsTarefa' => 'Tarefa',
             'TF.DataTarefa' => 'Data do Tarefa',
-			'TF.ServicoConcluido' => 'Rotina?',
-            'TF.QuitadoTarefa' => 'É Prioridade?',
+            'TF.ServicoConcluido' => 'É Rotina?',
+			'TF.QuitadoTarefa' => 'É Prioridade?',
 			'TF.DataPrazoTarefa' => 'Prazo da Tarefa',
 			'TF.AprovadoTarefa' => 'Tarefa Concl.?',			
 			'TF.DataConclusao' => 'Data da Concl.',

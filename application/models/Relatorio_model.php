@@ -334,9 +334,12 @@ class Relatorio_model extends CI_Model {
                 #$row->Sexo = $this->basico->get_sexo($row->Sexo);
                 #$row->Sexo = ($row->Sexo == 2) ? 'F' : 'M';
                 
-                $row->Telefone = ($row->Telefone1) ? $row->Telefone1 : FALSE;
-                $row->Telefone .= ($row->Telefone2) ? ' / ' . $row->Telefone2 : FALSE;
-                $row->Telefone .= ($row->Telefone3) ? ' / ' . $row->Telefone3 : FALSE;
+                $row->Telefone1 = ($row->Telefone1) ? $row->Telefone1 : FALSE;
+				$row->Telefone2 = ($row->Telefone2) ? $row->Telefone2 : FALSE;
+				$row->Telefone3 = ($row->Telefone3) ? $row->Telefone3 : FALSE;
+				
+                #$row->Telefone .= ($row->Telefone2) ? ' / ' . $row->Telefone2 : FALSE;
+                #$row->Telefone .= ($row->Telefone3) ? ' / ' . $row->Telefone3 : FALSE;
 
             }
 
@@ -600,9 +603,9 @@ class Relatorio_model extends CI_Model {
                 TF.idApp_Tarefa,
 				TF.ObsTarefa,
                 TF.AprovadoTarefa,
-                TF.DataTarefa,
-				TF.ServicoConcluido,
+                TF.DataTarefa,               
 				TF.QuitadoTarefa,
+				TF.ServicoConcluido,
 				TF.DataPrazoTarefa,
 				TF.DataConclusao,
 				PT.Procedtarefa,
@@ -618,10 +621,14 @@ class Relatorio_model extends CI_Model {
             WHERE
                 TF.idSis_Usuario = ' . $_SESSION['log']['id'] . ' AND                
 				TF.idTab_Modulo = ' . $_SESSION['log']['idTab_Modulo'] . ' AND
+				TF.AprovadoTarefa = "N" AND
 				(' . $consulta . ')   
               
             ORDER BY
-                ' . $data['Campo'] . ' ' . $data['Ordenamento'] . '
+                TF.ProfissionalTarefa ASC,
+				TF.ServicoConcluido DESC,				
+				TF.QuitadoTarefa DESC,
+				TF.DataPrazoTarefa ASC
         ');
 
         /*
@@ -645,7 +652,6 @@ class Relatorio_model extends CI_Model {
                 
 				$row->AprovadoTarefa = $this->basico->mascara_palavra_completa($row->AprovadoTarefa, 'NS');
                 $row->QuitadoTarefa = $this->basico->mascara_palavra_completa($row->QuitadoTarefa, 'NS');
-				$row->ServicoConcluido = $this->basico->mascara_palavra_completa($row->ServicoConcluido, 'NS');
 				$row->ConcluidoProcedtarefa = $this->basico->mascara_palavra_completa($row->ConcluidoProcedtarefa, 'NS');
 
             }

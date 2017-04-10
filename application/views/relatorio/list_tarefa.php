@@ -10,7 +10,7 @@
                         
 						<th class="active">N.Tarefa</th>
 						<th class="active">Criada em:</th>
-						<th class="active">Rotina?</th>
+						<th class="active">Rotina?:</th>
 						<th class="active">Prioridade?</th>
 						<th class="active">Prazo de Conclusão</th>
 						
