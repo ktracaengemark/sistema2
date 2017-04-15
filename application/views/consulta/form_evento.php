@@ -16,7 +16,17 @@
 				<div class="panel-body">
 
 					<?php echo form_open_multipart($form_open_path); ?>
-
+					
+					<div class="form-group">
+						<div class="row">
+							<div class="col-md-12">
+								<label for="Obs">Evento:</label>
+								<textarea class="form-control" id="Obs"
+								autofocus name="Obs"><?php echo $query['Obs']; ?></textarea>
+							</div>
+						</div>
+					</div>
+					
 					<div class="form-group">
 						<div class="row">
 							<div class="col-md-3">
@@ -54,17 +64,7 @@
 
 						</div>
 					</div> 
-
-					<div class="form-group">
-						<div class="row">
-							<div class="col-md-12">
-								<label for="Obs">Obs:</label>
-								<textarea class="form-control" id="Obs"
-										  name="Obs"><?php echo $query['Obs']; ?></textarea>
-							</div>
-						</div>
-					</div> 
-
+					 
 					<br>
 
 					<div class="form-group">
