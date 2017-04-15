@@ -30,3 +30,6 @@ ERROR - 2017-04-15 15:01:08 --> Query error: Unknown column 'arquivos' in 'where
 ERROR - 2017-04-15 15:01:29 --> Query error: Unknown column 'arquivos' in 'where clause' - Invalid query: SELECT * FROM App_Cliente WHERE idApp_Cliente = arquivos
 ERROR - 2017-04-15 15:14:39 --> Query error: Unknown column 'arquivos' in 'where clause' - Invalid query: SELECT * FROM App_Cliente WHERE idApp_Cliente = arquivos
 ERROR - 2017-04-15 16:48:38 --> Query error: Unknown column 'arquivos' in 'where clause' - Invalid query: SELECT * FROM App_Cliente WHERE idApp_Cliente = arquivos
+ERROR - 2017-04-15 17:09:07 --> Severity: Error --> Maximum execution time of 30 seconds exceeded C:\xampp\htdocs\sistema2\system\core\Common.php 592
+ERROR - 2017-04-15 17:22:20 --> Severity: Notice --> Undefined index: QuitadoOrca C:\xampp\htdocs\sistema2\application\views\relatorio\tela_orcamentopc.php 78
+ERROR - 2017-04-15 17:22:20 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\sistema2\application\views\relatorio\tela_orcamentopc.php 78
