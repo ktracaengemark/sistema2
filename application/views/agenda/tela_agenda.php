@@ -27,7 +27,7 @@
 			<a class="btn btn-lg btn-warning" href="<?php echo base_url() ?>tarefa/cadastrar" role="button"> 
 				<span class="glyphicon glyphicon-plus"></span> Nova Tarefa
 			</a>
-			<a class="btn btn-lg btn-success" href="<?php echo base_url() ?>tarefa/listar" role="button"> 
+			<a class="btn btn-lg btn-success" href="<?php echo base_url() ?>relatorio/tarefa" role="button"> 
 				<span class="glyphicon glyphicon-list"></span> Lista Tarefa
 			</a>				
 		</div>	

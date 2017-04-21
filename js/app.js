@@ -757,10 +757,10 @@ $(document).ready(function () {
     $(".Cpf").mask("999.999.999-99");
     $(".Cep").mask("99999-999");
     $(".TituloEleitor").mask("9999.9999.9999");
-    $(".Valor").mask("#.##0,00", {reverse: true});
+    $(".Valor").mask("#.##000,00", {reverse: true});
     $('.Numero').mask('0#');
 
-    $(".Celular").mask("(99) 99999-9999");
+    $(".Celular").mask("(99) 999999999");
     $(".CelularVariavel").on("blur", function () {
         var last = $(this).val().substr($(this).val().indexOf("-") + 1);
 

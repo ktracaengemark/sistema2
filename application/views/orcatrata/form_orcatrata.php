@@ -333,7 +333,7 @@
 												<label for="ValorEntradaOrca">Valor Pago - A Vista /Entrada:</label><br>
 												<div class="input-group" id="txtHint">
 													<span class="input-group-addon" id="basic-addon1">R$</span>
-													<input type="text" class="form-control Valor" id="ValorEntradaOrca" maxlength="10" placeholder="0,00"
+													<input type="text" class="form-control" id="ValorEntradaOrca" maxlength="10" 
 														onkeyup="calculaResta(this.value)"
 														name="ValorEntradaOrca" value="<?php echo $orcatrata['ValorEntradaOrca'] ?>">
 												</div>

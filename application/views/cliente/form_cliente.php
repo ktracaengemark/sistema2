@@ -46,24 +46,31 @@
                             <label for="Telefone1">Telefone Principal: *</label>
                             <input type="tel" class="form-control" id="Telefone1" maxlength="11" <?php echo $readonly; ?>
                                    name="Telefone1" placeholder="(99) 99999-9999" value="<?php echo $query['Telefone1']; ?>">
-                        </div>-->
+                        </div>
 						<div class="col-md-4">
                             <label for="Telefone1">Telefone Principal: *</label>
                             <input type="tel" class="form-control"  placeholder="(99) 999999999" id="Telefone1" maxlength="14" required pattern="\([0-9]{2}\) [0-9]{9}" <?php echo $readonly; ?>
                                    name="Telefone1"  value="<?php echo $query['Telefone1']; ?>">
+                        </div>-->
+						
+						<div class="col-md-4">
+                            <label for="Telefone1">Telefone Principal: *</label>
+                            <input type="text" class="form-control Celular CelularVariavel" id="Telefone1" maxlength="14" <?php echo $readonly; ?>
+                                   name="Telefone1" placeholder="(99) 999999999" value="<?php echo $query['Telefone1']; ?>">
                         </div>
+						
 					</div>
 				</div> 	
 				<div class="form-group">	
 					<div class="row">
 						<div class="col-md-4">
 							<label for="Telefone2">Telefone ou Celular:</label>
-							<input type="text" class="form-control" placeholder="(99) 999999999" id="Telefone2" maxlength="11" <?php echo $readonly; ?>
+							<input type="text" class="form-control Celular" placeholder="(99) 999999999" id="Telefone2" maxlength="14" <?php echo $readonly; ?>
 								   name="Telefone2" value="<?php echo $query['Telefone2']; ?>">
 						</div>				
 						<div class="col-md-4">
 							<label for="DataNascimento">Data de Nascimento:</label>
-							<input type="text" class="form-control" placeholder="DD/MM/AAAA" maxlength="10" required pattern="[0-9]{2}\/[0-9]{2}\/[0-9]{4}" <?php echo $readonly; ?>
+							<input type="text" class="form-control Date" placeholder="DD/MM/AAAA" maxlength="10" required pattern="[0-9]{2}\/[0-9]{2}\/[0-9]{4}" <?php echo $readonly; ?>
 								   name="DataNascimento"  value="<?php echo $query['DataNascimento']; ?>">
 						</div>
 						<div class="col-md-4">

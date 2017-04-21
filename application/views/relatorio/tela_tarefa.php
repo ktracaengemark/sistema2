@@ -130,11 +130,23 @@
 
                     <div class="form-group">
                         <div class="row">
-                            <div class="col-md-12 text-center">
+                            <div class="col-md-2 text-left">
                                 <button class="btn btn-lg btn-primary" name="pesquisar" value="0" type="submit">
                                     <span class="glyphicon glyphicon-search"></span> Pesquisar
                                 </button>
                             </div>
+							<br>
+							<div class="col-md-2 text-left">											
+									<a class="btn btn-lg btn-warning" href="<?php echo base_url() ?>tarefa/cadastrar" role="button"> 
+										<span class="glyphicon glyphicon-plus"></span> Nova Tarefa
+									</a>
+							</div>
+							<br>
+							<div class="col-md-2 text-left">											
+									<a class="btn btn-lg btn-info" href="<?php echo base_url() ?>agenda" role="button"> 
+										<span class="glyphicon glyphicon-calendar"></span> Agenda
+									</a>															
+							</div>
                         </div>
                     </div>
 
