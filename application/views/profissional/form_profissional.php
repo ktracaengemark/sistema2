@@ -25,8 +25,8 @@
 							<br>
 							<div class="col-md-4">
 								<label for="Telefone1">Telefone Principal:*</label>
-								<input type="text" class="form-control" id="Telefone1" maxlength="11" <?php echo $readonly; ?>
-									   name="Telefone1" placeholder="(99) 99999-9999" value="<?php echo $query['Telefone1']; ?>">
+								<input type="text" class="form-control Celular CelularVariavel" id="Telefone1" maxlength="14" <?php echo $readonly; ?>
+									   name="Telefone1" placeholder="(99) 999999999" value="<?php echo $query['Telefone1']; ?>">
 							</div>							
 							<br>							
 							<div class="col-md-4">
@@ -48,7 +48,7 @@
 							<br>
 							<div class="col-md-4">
 								<label for="DataNascimento">Data de Nascimento:</label>
-								<input type="text" class="form-control" maxlength="8" <?php echo $readonly; ?>
+								<input type="text" class="form-control Date" maxlength="10" <?php echo $readonly; ?>
 									   name="DataNascimento" placeholder="DD/MM/AAAA" value="<?php echo $query['DataNascimento']; ?>">
 							</div>
 							<br>						
@@ -93,13 +93,13 @@
 							
 							<div class="col-md-4">
 								<label for="Telefone2">Telefone ou Celular:</label>
-								<input type="text" class="form-control" id="Telefone2" maxlength="11" <?php echo $readonly; ?>
-									   name="Telefone2" value="<?php echo $query['Telefone2']; ?>">
+								<input type="text" class="form-control Celular CelularVariavel" id="Telefone2" maxlength="14" <?php echo $readonly; ?>
+									   name="Telefone2" placeholder="(99) 999999999" value="<?php echo $query['Telefone2']; ?>">
 							</div>
 							<div class="col-md-4">
 								<label for="Telefone3">Telefone ou Celular:</label>
-								<input type="text" class="form-control Celular CelularVariavel" id="Telefone3" maxlength="20" <?php echo $readonly; ?>
-									   name="Telefone3" value="<?php echo $query['Telefone3']; ?>">
+								<input type="text" class="form-control Celular CelularVariavel" id="Telefone3" maxlength="14" <?php echo $readonly; ?>
+									   name="Telefone3" placeholder="(99) 999999999" value="<?php echo $query['Telefone3']; ?>">
 							</div>                    
 						</div>
 					</div>

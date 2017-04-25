@@ -10,8 +10,8 @@
             <div class="modal-content">
 
                 <div class="modal-body text-center">
-                    <button type="button" id="MarcarConsulta" onclick="redirecionar(2)" class="btn btn-primary">Agendar Reunião</button>
-					<button type="button" id="AgendarEvento" onclick="redirecionar(1)" class="btn btn-info">Agendar Evento</button>
+                    <button type="button" id="MarcarConsulta" onclick="redirecionar(2)" class="btn btn-primary">Consulta/Sessão</button> ou
+					<button type="button" id="AgendarEvento" onclick="redirecionar(1)" class="btn btn-info">Outro Evento</button>
                     
                     <input type="hidden" id="start" />
                     <input type="hidden" id="end" />

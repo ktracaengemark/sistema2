@@ -27,8 +27,8 @@
 							<br>
 							<div class="col-md-4">
 								<label for="TelefoneContatoProf">Telefone Principal: *</label>
-								<input type="text" class="form-control Celular CelularVariavel" id="TelefoneContatoProf" maxlength="20" <?php echo $readonly; ?>
-									   name="TelefoneContatoProf" placeholder="(99) 99999-9999" value="<?php echo $query['TelefoneContatoProf']; ?>">
+								<input type="text" class="form-control Celular CelularVariavel" id="TelefoneContatoProf" maxlength="14" <?php echo $readonly; ?>
+									   name="TelefoneContatoProf" placeholder="(99) 999999999" value="<?php echo $query['TelefoneContatoProf']; ?>">
 							</div>
 							<br>
 							<div class="col-md-4">
@@ -85,7 +85,7 @@
 						<div class="row">
 							<div class="col-md-4">
 								<label for="DataNascimento">Data de Nascimento:</label>
-								<input type="text" class="form-control" maxlength="8" <?php echo $readonly; ?>
+								<input type="text" class="form-control Date" maxlength="10" <?php echo $readonly; ?>
 									   name="DataNascimento" placeholder="DD/MM/AAAA" value="<?php echo $query['DataNascimento']; ?>">
 							</div>                        
 							<br>

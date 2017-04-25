@@ -106,7 +106,7 @@
 								<label for="DataTarefa">Criada em:</label>
 								<div class="input-group <?php echo $datepicker; ?>">
 									<input type="text" class="form-control Date" <?php echo $readonly; ?> maxlength="10" placeholder="DD/MM/AAAA"
-										   autofocus name="DataTarefa" value="<?php echo $tarefa['DataTarefa']; ?>">
+										   name="DataTarefa" value="<?php echo $tarefa['DataTarefa']; ?>">
 									<span class="input-group-addon" disabled>
 										<span class="glyphicon glyphicon-calendar"></span>
 									</span>
@@ -116,7 +116,7 @@
 								<label for="DataPrazoTarefa">Prazo Final:</label>
 								<div class="input-group <?php echo $datepicker; ?>">
 									<input type="text" class="form-control Date" <?php echo $readonly; ?> maxlength="10" placeholder="DD/MM/AAAA"
-										   autofocus name="DataPrazoTarefa" value="<?php echo $tarefa['DataPrazoTarefa']; ?>">
+										   name="DataPrazoTarefa" value="<?php echo $tarefa['DataPrazoTarefa']; ?>">
 									<span class="input-group-addon" disabled>
 										<span class="glyphicon glyphicon-calendar"></span>
 									</span>

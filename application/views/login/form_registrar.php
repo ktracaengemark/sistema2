@@ -48,7 +48,7 @@
 
     <label for="Celular">Celular:</label>
     <input type="text" class="form-control Celular CelularVariavel" id="Celular" maxlength="20"
-           name="Celular" placeholder="(99) 99999-9999" value="<?php echo $query['Celular']; ?>">
+           name="Celular" placeholder="(99) 999999999" value="<?php echo $query['Celular']; ?>">
     <?php echo form_error('Celular'); ?>
     <br>
 								
