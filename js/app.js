@@ -350,16 +350,6 @@ function adicionaProcedtarefa() {
         <div class="form-group" id="3div'+pt+'">\
             <div class="row">\
                 <div class="col-md-2">\
-                    <label for="DataProcedtarefa'+pt+'">Data da Ação:</label>\
-                    <div class="input-group DatePicker">\
-                        <input type="text" class="form-control Date" maxlength="10" placeholder="DD/MM/AAAA"\
-                               name="DataProcedtarefa'+pt+'" value="'+currentDate.format('DD/MM/YYYY')+'">\
-                        <span class="input-group-addon" disabled>\
-                            <span class="glyphicon glyphicon-calendar"></span>\
-                        </span>\
-                    </div>\
-                </div>\
-                <div class="col-md-2">\
                     <label for="Profissional'+pt+'">Profissional:</label>\
                     <select data-placeholder="Selecione uma opção..." class="form-control"\
                              id="listadinamicad'+pt+'" name="Profissional'+pt+'">\
@@ -370,6 +360,16 @@ function adicionaProcedtarefa() {
                     <label for="Procedtarefa'+pt+'">Ação:</label>\
                     <textarea class="form-control" id="Procedtarefa'+pt+'"\
                               name="Procedtarefa'+pt+'"></textarea>\
+                </div>\
+                <div class="col-md-2">\
+                    <label for="DataProcedtarefa'+pt+'">Data da Ação:</label>\
+                    <div class="input-group DatePicker">\
+                        <input type="text" class="form-control Date" maxlength="10" placeholder="DD/MM/AAAA"\
+                               name="DataProcedtarefa'+pt+'" value="'+currentDate.format('DD/MM/YYYY')+'">\
+                        <span class="input-group-addon" disabled>\
+                            <span class="glyphicon glyphicon-calendar"></span>\
+                        </span>\
+                    </div>\
                 </div>\
 				<div class="col-md-2">\
 					<label for="ConcluidoProcedtarefa">Ação Concl.? </label><br>\
@@ -757,7 +757,7 @@ $(document).ready(function () {
     $(".Cpf").mask("999.999.999-99");
     $(".Cep").mask("99999-999");
     $(".TituloEleitor").mask("9999.9999.9999");
-    $(".Valor").mask("#.##000,00", {reverse: true});
+    $(".Valor").mask("#.##0,00", {reverse: true});
     $('.Numero').mask('0#');
 
     $(".Celular").mask("(99) 999999999");
