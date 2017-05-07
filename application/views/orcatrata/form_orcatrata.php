@@ -795,7 +795,8 @@
 												<h4 class="modal-title">Tem certeza que deseja excluir?</h4>
 											</div>
 											<div class="modal-body">
-												<p>Ao confirmar a exclusão todos os dados serão excluídos do banco de dados. Esta operação é irreversível.</p>
+												<p>Ao confirmar esta operação todos os dados serão excluídos permanentemente do sistema. 
+                                                    Esta operação é irreversível.</p>
 											</div>
 											<div class="modal-footer">
 												<div class="col-md-6 text-left">
