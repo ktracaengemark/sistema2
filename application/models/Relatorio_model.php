@@ -636,7 +636,13 @@ class Relatorio_model extends CI_Model {
 
         $data['NomeProfissional'] = ($data['NomeProfissional']) ? ' AND P.idApp_Profissional = ' . $data['NomeProfissional'] : FALSE;
 		$data['Profissional'] = ($data['Profissional']) ? ' AND P2.idApp_Profissional = ' . $data['Profissional'] : FALSE;
-        $filtro5 = ($data['AprovadoTarefa'] != '#') ? 'TF.AprovadoTarefa = "' . $data['AprovadoTarefa'] . '" AND ' : FALSE;
+		
+		$data['ObsTarefa'] = ($data['ObsTarefa']) ? ' AND TF.idApp_Tarefa = ' . $data['ObsTarefa'] : FALSE;
+        
+		$data['Procedtarefa'] = ($data['Procedtarefa']) ? ' AND PT.idApp_Procedtarefa = ' . $data['Procedtarefa'] : FALSE;
+		
+		$filtro5 = ($data['AprovadoTarefa'] != '#') ? 'TF.AprovadoTarefa = "' . $data['AprovadoTarefa'] . '" AND ' : FALSE;
+		
         $filtro6 = ($data['QuitadoTarefa'] != '#') ? 'TF.QuitadoTarefa = "' . $data['QuitadoTarefa'] . '" AND ' : FALSE;
 		$filtro7 = ($data['ServicoConcluido'] != '#') ? 'TF.ServicoConcluido = "' . $data['ServicoConcluido'] . '" AND ' : FALSE;
 		$filtro8 = ($data['ConcluidoProcedtarefa'] != '#') ? 'PT.ConcluidoProcedtarefa = "' . $data['ConcluidoProcedtarefa'] . '" AND ' : FALSE;
@@ -654,6 +660,7 @@ class Relatorio_model extends CI_Model {
 				TF.DataPrazoTarefa,
 				TF.DataConclusao,
 				P2.NomeProfissional AS Profissional,
+				PT.idApp_Procedtarefa,
 				PT.Procedtarefa,
 				PT.DataProcedtarefa,
 				PT.ConcluidoProcedtarefa
@@ -676,6 +683,8 @@ class Relatorio_model extends CI_Model {
 				(' . $consulta . ')
                 ' . $data['NomeProfissional'] . ' 
 				' . $data['Profissional'] . '
+				' . $data['ObsTarefa'] . '
+				' . $data['Procedtarefa'] . '
 				                 
             ORDER BY
 				' . $data['Campo'] . ' ' . $data['Ordenamento'] . '
@@ -965,6 +974,52 @@ class Relatorio_model extends CI_Model {
         $array[0] = ':: Todos ::';
         foreach ($query->result() as $row) {
             $array[$row->idTab_TipoDespesa] = $row->TipoDespesa;
+        }
+
+        return $array;
+    }
+	
+	public function select_obstarefa() {
+
+        $query = $this->db->query('
+            SELECT
+                OB.idApp_Tarefa,
+                OB.ObsTarefa
+            FROM
+                App_Tarefa AS OB
+            WHERE
+                OB.idSis_Usuario = ' . $_SESSION['log']['id'] . '
+            ORDER BY
+                ObsTarefa ASC
+        ');
+
+        $array = array();
+        $array[0] = ':: Todos ::';
+        foreach ($query->result() as $row) {
+            $array[$row->idApp_Tarefa] = $row->ObsTarefa;
+        }
+
+        return $array;
+    }
+	
+	public function select_procedtarefa() {
+
+        $query = $this->db->query('
+            SELECT
+                OB.idApp_Procedtarefa,
+                OB.Procedtarefa
+            FROM
+                App_Procedtarefa AS OB
+            WHERE
+                OB.idSis_Usuario = ' . $_SESSION['log']['id'] . '
+            ORDER BY
+                Procedtarefa ASC
+        ');
+
+        $array = array();
+        $array[0] = ':: Todos ::';
+        foreach ($query->result() as $row) {
+            $array[$row->idApp_Procedtarefa] = $row->Procedtarefa;
         }
 
         return $array;

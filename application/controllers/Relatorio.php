@@ -714,6 +714,8 @@ class Relatorio extends CI_Controller {
             'QuitadoTarefa',
 			'ServicoConcluido',
 			'ConcluidoProcedtarefa',
+			'ObsTarefa',
+			'Procedtarefa',
 			
         ), TRUE));
 
@@ -751,13 +753,12 @@ class Relatorio extends CI_Controller {
 
         $data['select']['Campo'] = array(
            # 'C.NomeCliente' => 'Nome do Cliente',
-
+			'TF.ServicoConcluido' => 'É Rotina?',
 			'TF.ProfissionalTarefa' => 'Responsável',
-			'PT.Profissional' => 'Quem Faz',
+			'PT.Profissional' => 'Profissional',
 			'TF.idApp_Tarefa' => 'Número do Tarefas',
 			'TF.ObsTarefa' => 'Tarefa',
-            'TF.DataTarefa' => 'Data do Tarefa',
-            'TF.ServicoConcluido' => 'É Rotina?',
+            'TF.DataTarefa' => 'Data do Tarefa',           
 			'TF.QuitadoTarefa' => 'É Prioridade?',
 			'TF.DataPrazoTarefa' => 'Prazo da Tarefa',
 			'TF.AprovadoTarefa' => 'Tarefa Concl.?',
@@ -769,13 +770,16 @@ class Relatorio extends CI_Controller {
         );
 
         $data['select']['Ordenamento'] = array(
-            'ASC' => 'Crescente',
             'DESC' => 'Decrescente',
+			'ASC' => 'Crescente',
+            
         );
 
         $data['select']['NomeProfissional'] = $this->Relatorio_model->select_profissional();
 		$data['select']['Profissional'] = $this->Relatorio_model->select_profissional2();
-
+		$data['select']['ObsTarefa'] = $this->Relatorio_model->select_obstarefa();
+		$data['select']['Procedtarefa'] = $this->Relatorio_model->select_procedtarefa();
+		
         $data['titulo'] = 'Tarefas X Profissionais';
 
         #run form validation
@@ -793,6 +797,8 @@ class Relatorio extends CI_Controller {
             $data['bd']['QuitadoTarefa'] = $data['query']['QuitadoTarefa'];
 			$data['bd']['ServicoConcluido'] = $data['query']['ServicoConcluido'];
 			$data['bd']['ConcluidoProcedtarefa'] = $data['query']['ConcluidoProcedtarefa'];
+			$data['bd']['ObsTarefa'] = $data['query']['ObsTarefa'];
+			$data['bd']['Procedtarefa'] = $data['query']['Procedtarefa'];
 			
 
             $data['report'] = $this->Relatorio_model->list_tarefa($data['bd'],TRUE);

@@ -28,7 +28,7 @@
 									<span class="glyphicon glyphicon-plus"></span> <b>Novo Profissional</b>
 								</a>-->
 								<select data-placeholder="Selecione uma opção..." class="form-control" <?php echo $readonly; ?>
-										id="ProfissionalTarefa" name="ProfissionalTarefa">
+										id="ProfissionalTarefa" autofocus name="ProfissionalTarefa">
 									<option value="">-- Selecione uma opção --</option>
 									<?php
 									foreach ($select['Profissional'] as $key => $row) {
@@ -42,9 +42,9 @@
 								</select>
 							</div>
 							<div class="col-md-3">
-								<label for="ObsTarefa">Tarefa:</label>
+								<label for="ObsTarefa">Tarefa / Missão:</label>
 								<textarea class="form-control" id="ObsTarefa" <?php echo $readonly; ?>
-									autofocus name="ObsTarefa"><?php echo $tarefa['ObsTarefa']; ?></textarea>
+									 name="ObsTarefa"><?php echo $tarefa['ObsTarefa']; ?></textarea>
 							</div>
 							<div class="col-md-2 form-inline">
 								<label for="ServicoConcluido">Rotina?</label><br>
@@ -154,27 +154,7 @@
 									<?php } ?>
 
 									<div class="form-group" id="3div<?php echo $i ?>">
-										<div class="row">
-											<div class="col-md-2">
-												<label for="DataProcedtarefa<?php echo $i ?>">Data da Ação:</label>
-												<div class="input-group <?php echo $datepicker; ?>">
-													<input type="text" class="form-control Date" <?php echo $readonly; ?> maxlength="10" placeholder="DD/MM/AAAA"
-														   name="DataProcedtarefa<?php echo $i ?>" value="<?php echo $procedtarefa[$i]['DataProcedtarefa']; ?>">
-													<span class="input-group-addon" disabled>
-														<span class="glyphicon glyphicon-calendar"></span>
-													</span>
-												</div>
-											</div>
-											<div class="col-md-2">
-												<label for="DataProcedtarefaLimite<?php echo $i ?>">Data Limite:</label>
-												<div class="input-group <?php echo $datepicker; ?>">
-													<input type="text" class="form-control Date" <?php echo $readonly; ?> maxlength="10" placeholder="DD/MM/AAAA"
-														   name="DataProcedtarefaLimite<?php echo $i ?>" value="<?php echo $procedtarefa[$i]['DataProcedtarefaLimite']; ?>">
-													<span class="input-group-addon" disabled>
-														<span class="glyphicon glyphicon-calendar"></span>
-													</span>
-												</div>
-											</div>
+										<div class="row">											
 											<div class="col-md-2">
 												<label for="Profissional<?php echo $i ?>">Profissional:</label>
 												<?php if ($i == 1) { ?>
@@ -183,7 +163,7 @@
 												</a>-->
 												<?php } ?>
 												<select data-placeholder="Selecione uma opção..." class="form-control"
-														 id="listadinamicac<?php echo $i ?>" name="Profissional<?php echo $i ?>">
+														 id="listadinamicac<?php echo $i ?>" autofocus name="Profissional<?php echo $i ?>">
 													<option value="">-- Selecione uma opção --</option>
 													<?php
 													foreach ($select['Profissional'] as $key => $row) {
@@ -200,6 +180,16 @@
 												<label for="Procedtarefa<?php echo $i ?>">Ação:</label>
 												<textarea class="form-control" id="Procedtarefa<?php echo $i ?>" <?php echo $readonly; ?>
 														  name="Procedtarefa<?php echo $i ?>"><?php echo $procedtarefa[$i]['Procedtarefa']; ?></textarea>
+											</div>
+											<div class="col-md-2">
+												<label for="DataProcedtarefa<?php echo $i ?>">Data da Ação:</label>
+												<div class="input-group <?php echo $datepicker; ?>">
+													<input type="text" class="form-control Date" <?php echo $readonly; ?> maxlength="10" placeholder="DD/MM/AAAA"
+														   name="DataProcedtarefa<?php echo $i ?>" value="<?php echo $procedtarefa[$i]['DataProcedtarefa']; ?>">
+													<span class="input-group-addon" disabled>
+														<span class="glyphicon glyphicon-calendar"></span>
+													</span>
+												</div>
 											</div>
 											<div class="col-md-2">
 												<label for="ConcluidoProcedtarefa">Ação. Concl.? </label><br>
