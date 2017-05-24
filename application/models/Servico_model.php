@@ -49,6 +49,16 @@ class Servico_model extends CI_Model {
             return TRUE;
         }
     }
+	
+	public function delete_servico($data) {        
+		$query = $this->db->delete('Tab_Servico', array('idTab_Servico' => $data));
+
+        if ($this->db->affected_rows() === 0) {
+            return FALSE;
+        } else {
+            return TRUE;
+        }
+    }
  
     public function lista_servico($x) {
 
@@ -90,15 +100,15 @@ class Servico_model extends CI_Model {
                 'SELECT '
                     . 'idTab_Servico, '
                     . 'NomeServico, '
-                    . 'ValorVendaServico '
+                    . 'ValorServVenda '
                     . 'FROM '
                     . 'Tab_Servico '
                     . 'WHERE '
                     . 'idSis_Usuario = ' . $_SESSION['log']['id'] . ' AND '
                     . 'idTab_Modulo = ' . $_SESSION['log']['idTab_Modulo'] );
         } else {
-            $query = $this->db->query('SELECT idTab_Servico, NomeServico, ValorVendaServico FROM Tab_Servico WHERE idSis_Usuario = ' . $_SESSION['log']['id']);
-
+            $query = $this->db->query('SELECT idTab_Servico, NomeServico, ValorServVenda FROM Tab_Servico WHERE idSis_Usuario = ' . $_SESSION['log']['id']);
+            
             $array = array();
             foreach ($query->result() as $row) {
                 $array[$row->idTab_Servico] = $row->NomeServico;
