@@ -26,41 +26,51 @@
 				<li class="dropdown">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Cadastros<span class="caret"></span></a>
 					<ul class="dropdown-menu">
-						<li><a href="<?php echo base_url() ?>cliente/pesquisar">Clientes</a></li>
+						<li><a href="<?php echo base_url() ?>cliente/pesquisar">Clientes & Contatos</a></li>
 						<li role="separator" class="divider"></li>
-						<li><a href="<?php echo base_url() ?>profissional/pesquisar">Prof & Func.</a></li>
+						<li><a href="<?php echo base_url() ?>profissional/pesquisar">Profis & Contatos</a></li>
 						<li role="separator" class="divider"></li>
-						<li><a href="<?php echo base_url() ?>empresa/pesquisar">Empresas & Fornec.</a></li>
+						<li><a href="<?php echo base_url() ?>empresa/pesquisar">Empresas & Contatos</a></li>
 						<li role="separator" class="divider"></li>
-						<li><a href="<?php echo base_url() ?>funcao/cadastrar/funcao">Função dos Prof. & Func.</a></li>
+						<li><a href="<?php echo base_url() ?>cliente/pesquisar">Orçamentos & Entradas</a></li>
 						<li role="separator" class="divider"></li>
-						<li><a href="<?php echo base_url() ?>atividade/cadastrar/atividade">Atividade das Empresas & Fornec.</a></li>
+						<li><a href="<?php echo base_url() ?>cliente/pesquisar">Consultas & Reuniões</a></li>
 						<li role="separator" class="divider"></li>
-						<li><a href="<?php echo base_url() ?>formapag/cadastrar/formapag">Forma de Pagamento</a></li>
+						<li><a href="<?php echo base_url() ?>tarefa/cadastrar">Tarefas & A Fazer</a></li>
+						<li role="separator" class="divider"></li>
+						<li><a href="<?php echo base_url() ?>despesas/cadastrar">Despesas & Saídas</a></li>
+						<li role="separator" class="divider"></li>												
+						<li><a href="<?php echo base_url() ?>funcao/cadastrar/funcao">Função dos Profis.</a></li>
+						<li role="separator" class="divider"></li>
+						<li><a href="<?php echo base_url() ?>atividade/cadastrar/atividade">Atividade das Empresas</a></li>
+						<li role="separator" class="divider"></li>					
+						<li><a href="<?php echo base_url() ?>servico/cadastrar">Tabela de Preço de Serviços</a></li>
+						<li role="separator" class="divider"></li>
+						<li><a href="<?php echo base_url() ?>produto/cadastrar">Tabela de Preço de Produtos</a></li>
+						<li role="separator" class="divider"></li>
+						<!--<li><a href="<?php echo base_url() ?>formapag/cadastrar/formapag">Forma de Pagamento</a></li>
 						<li role="separator" class="divider"></li>
 						<li><a href="<?php echo base_url() ?>tipodespesa/cadastrar/tipodespesa">Tipo de Despesa</a></li>
 						<li role="separator" class="divider"></li>						
 						<li><a href="<?php echo base_url() ?>relapes/cadastrar">Relação Pessoal</a></li>
 						<li role="separator" class="divider"></li>
 						<li><a href="<?php echo base_url() ?>relacom/cadastrar">Relação Comercial</a></li>
-						<li role="separator" class="divider"></li>
-						<li><a href="<?php echo base_url() ?>servico/cadastrar">Tabela de Preço de Serviços</a></li>
-						<li role="separator" class="divider"></li>
-						<li><a href="<?php echo base_url() ?>produto/cadastrar">Tabela de Preço de Produtos</a></li>
-						<li role="separator" class="divider"></li>
+						<li role="separator" class="divider"></li>-->						
 					</ul>
 				</li>
 				
-				<li class="dropdown">
+				<!--<li class="dropdown">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Anotações<span class="caret"></span></a>
 					<ul class="dropdown-menu">
 						<li><a href="<?php echo base_url() ?>cliente/pesquisar">Orçamentos & Entradas</a></li>
 						<li role="separator" class="divider"></li>
-						<li><a href="<?php echo base_url() ?>despesa/cadastrar/despesa">Despesas & Saídas</a></li>
+						<li><a href="<?php echo base_url() ?>despesa/cadastrar/despesa">Despesas & Saídas - Antigas</a></li>
+						<li role="separator" class="divider"></li>
+						<li><a href="<?php echo base_url() ?>despesas/cadastrar">Despesas & Saídas</a></li>
 						<li role="separator" class="divider"></li>
 						<li><a href="<?php echo base_url() ?>cliente/pesquisar">Consultas & Reuniões</a></li>
 						<li role="separator" class="divider"></li>
-						<li><a href="<?php echo base_url() ?>tarefa/listar">Tarefas & A Fazer</a></li>
+						<li><a href="<?php echo base_url() ?>relatorio/tarefa">Tarefas & A Fazer</a></li>
 						<li role="separator" class="divider"></li>
 					</ul>
 				</li>
@@ -69,53 +79,74 @@
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Financeiro<span class="caret"></span></a>
 					<ul class="dropdown-menu">
 						<li><a href="<?php echo base_url() ?>relatorio/financeiro">Orçamentos & Pagamentos</a></li>
+						<li role="separator" class="divider"></li>				
+						<li><a href="<?php echo base_url() ?>relatorio/despesa">Despesas & Saídas - Antigas</a></li>						
+						<li role="separator" class="divider"></li>	
+						<li><a href="<?php echo base_url() ?>relatorio/receitas">Receitas & Entradas</a></li>
 						<li role="separator" class="divider"></li>
-						<li><a href="<?php echo base_url() ?>relatorio/despesa">Despesas & Saídas</a></li>
+						<li><a href="<?php echo base_url() ?>relatorio/despesas">Despesas & Saídas</a></li>
+						<li role="separator" class="divider"></li>
+						<li><a href="<?php echo base_url() ?>relatorio/balanco">Balanço</a></li>
 						<li role="separator" class="divider"></li>
 
 					</ul>
-				</li>
+				</li>-->
 	
 				<li class="dropdown">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Relatórios<span class="caret"></span></a>
 					<ul class="dropdown-menu">
 						<li><a href="<?php echo base_url() ?>relatorio/clientes">Clientes & Contatos</a></li>											
-						<li role="separator" class="divider"></li>						
-						<li><a href="<?php echo base_url() ?>relatorio/profissionais">Prof. & Func & Contatos.</a></li>
-						<li role="separator" class="divider"></li>						
-						<li><a href="<?php echo base_url() ?>relatorio/empresas">Empresas & Fornec & Contatos.</a></li>
 						<li role="separator" class="divider"></li>
 						<li><a href="<?php echo base_url() ?>relatorio/orcamentopc">Clientes & Procedimentos</a></li>
 						<li role="separator" class="divider"></li>
-						<li><a href="<?php echo base_url() ?>relatorio/tarefa">Tarefas & Profissionais</a></li>
-						<li role="separator" class="divider"></li>											
-						<li><a href="<?php echo base_url() ?>relatorio/orcamentosv">Clientes & Serviços</a></li>
-						<li role="separator" class="divider"></li>
 						<li><a href="<?php echo base_url() ?>relatorio/orcamento">Clientes & Orçamentos</a></li>
 						<li role="separator" class="divider"></li>
+						<li><a href="<?php echo base_url() ?>relatorio/receitas">Clientes & Pagamentos</a></li>
+						<li role="separator" class="divider"></li>
+						<li><a href="<?php echo base_url() ?>relatorio/profissionais">Profis. & Contatos.</a></li>
+						<li role="separator" class="divider"></li>
+						<li><a href="<?php echo base_url() ?>relatorio/tarefa">Profis. & Tarefas</a></li>
+						<li role="separator" class="divider"></li>
+						<li><a href="<?php echo base_url() ?>relatorio/empresas">Empresas & Contatos.</a></li>
+						<li role="separator" class="divider"></li>
+						<li><a href="<?php echo base_url() ?>relatorio/despesas">Despesas & Saídas</a></li>
+						<li role="separator" class="divider"></li>						
+						<!--<li><a href="<?php echo base_url() ?>relatorio/orcamentosv">Clientes & Serviços</a></li>
+						<li role="separator" class="divider"></li>
+						<li><a href="<?php echo base_url() ?>relatorio/clienteprod">Clientes & Produtos</a></li>
+						<li role="separator" class="divider"></li>					
 						<li><a href="<?php echo base_url() ?>relatorio/financeiro">Orçamentos & Pagamentos</a></li>
 						<li role="separator" class="divider"></li>
-						<li><a href="<?php echo base_url() ?>relatorio/despesa">Despesas & Saídas</a></li>
-						<li role="separator" class="divider"></li>																			
-						<!--<li><a href="<?php echo base_url() ?>">Estoque</a></li>
+						<li><a href="<?php echo base_url() ?>relatorio/despesa">Despesas & Saídas - Antigas</a></li>
+						<li role="separator" class="divider"></li>-->						
+						<!--<li><a href="<?php echo base_url() ?>relatorio/balanco">Balanço</a></li>
+						<li role="separator" class="divider"></li>
+						<li><a href="<?php echo base_url() ?>relatorio/estoque">Estoque</a></li>
 						<li role="separator" class="divider"></li>-->
 					</ul>
 				</li>
-				<div class="btn-toolbar navbar-form navbar-right" role="toolbar" aria-label="...">					
-					<div class="btn-group" role="group" aria-label="...">
-						<button type="button" class="btn btn-info active">
-							<span class="glyphicon glyphicon-user"></span> <?php echo $_SESSION['log']['Usuario']; ?>
-						</button>
-					</div>
-					<div class="btn-group" role="group" aria-label="...">
-						<a href="<?php echo base_url(); ?>login/sair">
-							<button type="button" class="btn btn-danger">
-								<span class="glyphicon glyphicon-log-out"></span> Sair
+				
+					<div class="btn-toolbar navbar-form navbar-right" role="toolbar" aria-label="...">					
+						<div class="btn-group" role="group" aria-label="...">
+							<button type="button" class="btn active" id="countdowndiv">
+								<span class="glyphicon glyphicon-hourglass" id="clock"></span>
 							</button>
-						</a>
-					</div>										
-					<div class="btn-group" role="group" aria-label="..."> </div>
-				</div>																													
+						</div>
+						<div class="btn-group" role="group" aria-label="...">
+							<button type="button" class="btn btn-info active">
+								<span class="glyphicon glyphicon-user"></span> <?php echo $_SESSION['log']['Usuario']; ?>
+							</button>
+						</div>
+						<div class="btn-group" role="group" aria-label="...">
+							<a href="<?php echo base_url(); ?>login/sair">
+								<button type="button" class="btn btn-danger">
+									<span class="glyphicon glyphicon-log-out"></span> Sair
+								</button>
+							</a>
+						</div>										
+						<div class="btn-group" role="group" aria-label="..."> </div>
+					</div>
+					
 			</ul>						
 		</div> 
 	</div> 

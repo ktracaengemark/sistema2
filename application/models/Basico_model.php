@@ -247,22 +247,35 @@ class Basico_model extends CI_Model {
             return '';
         }
     }
-
+	
 	public function select_profissional($data = FALSE) {
 
         if ($data === TRUE) {
-            $array = $this->db->query(
-                'SELECT '
-                    . 'idApp_Profissional, '
-                    . 'NomeProfissional '
-                    . 'FROM '
-                    . 'App_Profissional '
-                    . 'WHERE '
-                    . 'idSis_Usuario = ' . $_SESSION['log']['id'] . ' AND '
-                    . 'idTab_Modulo = ' . $_SESSION['log']['idTab_Modulo'] );
+            $array = $this->db->query(					
+				'SELECT                
+				idApp_Profissional,
+				CONCAT(Funcao, " --- ", NomeProfissional) AS NomeProfissional				
+            FROM
+                App_Profissional
+            WHERE
+                idTab_Modulo = ' . $_SESSION['log']['idTab_Modulo'] . ' AND
+                idSis_Usuario = ' . $_SESSION['log']['id'] . '
+                ORDER BY Funcao ASC, NomeProfissional ASC'
+    );
+					
         } else {
-            $query = $this->db->query('SELECT idApp_Profissional, NomeProfissional FROM App_Profissional WHERE idSis_Usuario = ' . $_SESSION['log']['id']);
-
+            $query = $this->db->query(
+                'SELECT                
+				idApp_Profissional,
+				CONCAT(Funcao, " --- ", NomeProfissional) AS NomeProfissional				
+            FROM
+                App_Profissional
+            WHERE
+                idTab_Modulo = ' . $_SESSION['log']['idTab_Modulo'] . ' AND
+                idSis_Usuario = ' . $_SESSION['log']['id'] . '
+                ORDER BY Funcao ASC, NomeProfissional ASC'
+    );
+            
             $array = array();
             foreach ($query->result() as $row) {
                 $array[$row->idApp_Profissional] = $row->NomeProfissional;
@@ -276,31 +289,28 @@ class Basico_model extends CI_Model {
 
         if ($data === TRUE) {
             $array = $this->db->query(
-                'SELECT '
-                    . 'idTab_Produto, '
-                    . 'NomeProduto, '
-                    . 'QuantidadeProduto, '
-                    . 'UnidadeProduto, '
-                    . 'ValorCompraProduto, '
-                    . 'ValorVendaProduto '
-                    . 'FROM '
-                    . 'Tab_Produto '
-                    . 'WHERE '
-                    . 'idSis_Usuario = ' . $_SESSION['log']['id'] . ' AND '
-                    . 'idTab_Modulo = ' . $_SESSION['log']['idTab_Modulo'] );
+                'SELECT                
+				idTab_Produto,
+				CONCAT(TipoProduto, " --- ", NomeProduto, " --- ", UnidadeProduto) AS NomeProduto				
+            FROM
+                Tab_Produto
+            WHERE
+                idTab_Modulo = ' . $_SESSION['log']['idTab_Modulo'] . ' AND
+                idSis_Usuario = ' . $_SESSION['log']['id'] . '
+                ORDER BY TipoProduto DESC, NomeProduto ASC'
+    );
         } else {
             $query = $this->db->query(
-                'SELECT '
-                    . 'idTab_Produto, '
-                    . 'NomeProduto, '
-                    . 'QuantidadeProduto, '
-                    . 'UnidadeProduto, '
-                    . 'ValorCompraProduto, '
-                    . 'ValorVendaProduto '
-                    . 'FROM '
-                    . 'Tab_Produto '
-                    . 'WHERE '
-                    . 'idSis_Usuario = ' . $_SESSION['log']['id']);
+                'SELECT                
+				idTab_Produto,
+				CONCAT(TipoProduto, " --- ", NomeProduto, " --- ", UnidadeProduto) AS NomeProduto				
+            FROM
+                Tab_Produto
+            WHERE
+                idTab_Modulo = ' . $_SESSION['log']['idTab_Modulo'] . ' AND
+                idSis_Usuario = ' . $_SESSION['log']['id'] . '
+                ORDER BY TipoProduto DESC, NomeProduto ASC'
+    );
 
             $array = array();
             foreach ($query->result() as $row) {
@@ -310,22 +320,59 @@ class Basico_model extends CI_Model {
 
         return $array;
     }
-
+	
 	public function select_servico($data = FALSE) {
+
+        if ($data === TRUE) {
+            $array = $this->db->query(
+                'SELECT                
+				idTab_Servico,
+				CONCAT(TipoServico, " --- ", NomeServico) AS NomeServico				
+            FROM
+                Tab_Servico
+            WHERE
+                idTab_Modulo = ' . $_SESSION['log']['idTab_Modulo'] . ' AND
+                idSis_Usuario = ' . $_SESSION['log']['id'] . '
+                ORDER BY TipoServico DESC, NomeServico ASC'
+    );
+        } else {
+            $query = $this->db->query(
+                'SELECT                
+				idTab_Servico,
+				CONCAT(TipoServico, " --- ", NomeServico) AS NomeServico				
+            FROM
+                Tab_Servico
+            WHERE
+                idTab_Modulo = ' . $_SESSION['log']['idTab_Modulo'] . ' AND
+                idSis_Usuario = ' . $_SESSION['log']['id'] . '
+                ORDER BY TipoServico DESC, NomeServico ASC'
+    );
+
+            $array = array();
+            foreach ($query->result() as $row) {
+                $array[$row->idTab_Servico] = $row->NomeServico;
+            }
+        }
+
+        return $array;
+    }
+
+	public function select_servico2($data = FALSE) {
 
         if ($data === TRUE) {
             $array = $this->db->query(
                 'SELECT '
                     . 'idTab_Servico, '
                     . 'NomeServico, '
-                    . 'ValorVendaServico '
+                    . 'ValorVendaServico, '
+					. 'ValorCompraServico '
                     . 'FROM '
                     . 'Tab_Servico '
                     . 'WHERE '
                     . 'idSis_Usuario = ' . $_SESSION['log']['id'] . ' AND '
                     . 'idTab_Modulo = ' . $_SESSION['log']['idTab_Modulo'] );
         } else {
-            $query = $this->db->query('SELECT idTab_Servico, NomeServico, ValorVendaServico FROM Tab_Servico WHERE idSis_Usuario = ' . $_SESSION['log']['id']);
+            $query = $this->db->query('SELECT idTab_Servico, NomeServico, ValorVendaServico, ValorCompraServico  FROM Tab_Servico WHERE idSis_Usuario = ' . $_SESSION['log']['id']);
 
             $array = array();
             foreach ($query->result() as $row) {
@@ -346,6 +393,22 @@ class Basico_model extends CI_Model {
             $array = array();
             foreach ($query->result() as $row) {
                 $array[$row->Abrev] = $row->StatusSN;
+            }
+        }
+
+        return $array;
+    }
+	
+	public function select_tipoproduto($data = FALSE) {
+
+        if ($data === TRUE) {
+            $array = $this->db->query('SELECT * FROM Tab_TipoProduto');
+        } else {
+            $query = $this->db->query('SELECT * FROM Tab_TipoProduto');
+
+            $array = array();
+            foreach ($query->result() as $row) {
+                $array[$row->Abrev] = $row->TipoProduto;
             }
         }
 
