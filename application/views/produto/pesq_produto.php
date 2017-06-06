@@ -14,7 +14,41 @@
 
 					<?php echo form_open($form_open_path, 'role="form"'); ?>
 						<div class="row">
-							<div class="col-md-6">
+							<div class="col-md-3">
+								<label for="TipoProduto">Tipo de Produto</label>								
+								<select data-placeholder="Selecione uma opção..." class="form-control" <?php echo $readonly; ?>
+										id="TipoProduto" autofocus name="TipoProduto">
+									<option value="">-- Sel. Tipo de Produto --</option>
+									<?php
+									foreach ($select['TipoProduto'] as $key => $row) {
+										if ($query['TipoProduto'] == $key) {
+											echo '<option value="' . $key . '" selected="selected">' . $row . '</option>';
+										} else {
+											echo '<option value="' . $key . '">' . $row . '</option>';
+										}
+									}
+									?>
+								</select>
+							</div>
+							
+							<div class="col-md-3">
+								<label for="Convenio">Convenio</label>								
+								<select data-placeholder="Selecione uma opção..." class="form-control" <?php echo $readonly; ?>
+										id="Convenio" name="Convenio">
+									<option value="">-- Convenio --</option>
+									<?php
+									foreach ($select['Convenio'] as $key => $row) {
+										if ($query['Convenio'] == $key) {
+											echo '<option value="' . $key . '" selected="selected">' . $row . '</option>';
+										} else {
+											echo '<option value="' . $key . '">' . $row . '</option>';
+										}
+									}
+									?>
+								</select>
+							</div>
+							
+							<div class="col-md-4">
 								<label for="NomeProduto">Nome do Produto: *</label><br>
 								<input type="text" class="form-control" maxlength="200"
 									   autofocus name="NomeProduto" value="<?php echo $query['NomeProduto'] ?>">

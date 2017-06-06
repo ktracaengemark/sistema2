@@ -1,7 +1,7 @@
 <?php if (isset($msg)) echo $msg; ?>
 <div class="container-fluid">
 	<div class="row">
-	
+
 		<div class="col-md-2"></div>
 		<div class="col-md-8">
 
@@ -14,65 +14,20 @@
 
 					<?php echo form_open($form_open_path, 'role="form"'); ?>
 						<div class="row">
-							<div class="col-md-3">
-								<label for="TipoServico">Tipo Servico</label>								
-								<select data-placeholder="Selecione uma opção..." class="form-control" <?php echo $readonly; ?>
-										id="TipoServico" autofocus name="TipoServico">
-									<option value="">-- Sel. Tipo de Servico --</option>
-									<?php
-									foreach ($select['TipoServico'] as $key => $row) {
-										if ($query['TipoServico'] == $key) {
-											echo '<option value="' . $key . '" selected="selected">' . $row . '</option>';
-										} else {
-											echo '<option value="' . $key . '">' . $row . '</option>';
-										}
-									}
-									?>
-								</select>
-							</div>
-							
-							<div class="col-md-3">
-								<label for="Convenio">Convenio</label>								
-								<select data-placeholder="Selecione uma opção..." class="form-control" <?php echo $readonly; ?>
-										id="Convenio" name="Convenio">
-									<option value="">-- Convenio --</option>
-									<?php
-									foreach ($select['Convenio'] as $key => $row) {
-										if ($query['Convenio'] == $key) {
-											echo '<option value="' . $key . '" selected="selected">' . $row . '</option>';
-										} else {
-											echo '<option value="' . $key . '">' . $row . '</option>';
-										}
-									}
-									?>
-								</select>
-							</div>
-							
 							<div class="col-md-4">
-								<label for="NomeServico">Nome do Servico:</label><br>
+								<label for="Convenio">Nome do Convenio:</label><br>
 								<input type="text" class="form-control" maxlength="200"
-									   autofocus name="NomeServico" value="<?php echo $query['NomeServico'] ?>">
+									   autofocus name="Convenio" value="<?php echo $query['Convenio'] ?>">
 							</div>
-
+							
 							<div class="col-md-3">
-								<label for="ValorCompraServico">Valor de Compra: *</label><br>
-								<div class="input-group">
-									<span class="input-group-addon" id="basic-addon1">R$</span>
-									<input type="text" class="form-control Valor" maxlength="10" placeholder="0,00"
-											name="ValorCompraServico" value="<?php echo $query['ValorCompraServico'] ?>">
-								</div>
+								<label for="Abrev">Abrev.:</label><br>
+								<input type="text" class="form-control" maxlength="200"
+									   autofocus name="Abrev" value="<?php echo $query['Abrev'] ?>">
 							</div>
-
-							<div class="col-md-3">
-								<label for="ValorVendaServico">Valor de Venda:</label><br>
-								<div class="input-group" id="txtHint">
-									<span class="input-group-addon" id="basic-addon1">R$</span>
-									<input type="text" class="form-control Valor" maxlength="10" placeholder="0,00"
-											name="ValorVendaServico" value="<?php echo $query['ValorVendaServico'] ?>">
-								</div>
-							</div>
-
-							<input type="hidden" name="idTab_Servico" value="<?php echo $query['idTab_Servico']; ?>">
+							
+						  
+							<input type="hidden" name="idTab_Convenio" value="<?php echo $query['idTab_Convenio']; ?>">
 
 						</div>
 
@@ -80,7 +35,7 @@
 					
 						<div class="form-group">
 							<div class="row">
-								<input type="hidden" name="idTab_Servico" value="<?php echo $query['idTab_Servico']; ?>">
+								<input type="hidden" name="idTab_Convenio" value="<?php echo $query['idTab_Convenio']; ?>">
 								<?php if ($metodo == 2) { ?>
 
 									<div class="col-md-6">
@@ -112,7 +67,7 @@
 														</button>
 													</div>
 													<div class="col-md-6 text-right">
-														<a class="btn btn-danger" href="<?php echo base_url() . 'servico/excluir/' . $query['idTab_Servico'] ?>" role="button">
+														<a class="btn btn-danger" href="<?php echo base_url() . 'convenio/excluir/' . $query['idTab_Convenio'] ?>" role="button">
 															<span class="glyphicon glyphicon-trash"></span> Confirmar Exclusão
 														</a>
 													</div>
@@ -129,16 +84,19 @@
 									</div>
 								<?php } ?>
 							</div>
-						</div>                  
+						</div>                
 					</form>
 
 					<br>                
 					
 					<?php if (isset($list)) echo $list; ?>
+
 				</div>
+
 			</div>
+
 		</div>
 		<div class="col-md-2"></div>
-		
+
 	</div>
 </div>
