@@ -718,7 +718,7 @@ class Relatorio extends CI_Controller {
 
         $data['select']['NomeCliente'] = $this->Relatorio_model->select_cliente();
 
-        $data['titulo'] = 'Relatório de Clientes';
+        $data['titulo'] = 'Clientes & Contatos';
 
         #run form validation
         if ($this->form_validation->run() !== TRUE) {
@@ -788,7 +788,7 @@ class Relatorio extends CI_Controller {
 
         $data['select']['NomeProfissional'] = $this->Relatorio_model->select_profissional();
 
-        $data['titulo'] = 'Relatório de Profissionais';
+        $data['titulo'] = 'Funcionários & Contatos';
 
         #run form validation
         if ($this->form_validation->run() !== TRUE) {
@@ -855,7 +855,7 @@ class Relatorio extends CI_Controller {
             'DESC' => 'Decrescente',
         );
 
-        $data['titulo'] = 'Relatório de Fornecedores';
+        $data['titulo'] = 'Fornecedores & Contatos';
 
         #run form validation
         if ($this->form_validation->run() !== TRUE) {
@@ -1093,7 +1093,7 @@ class Relatorio extends CI_Controller {
 		$data['select']['ObsTarefa'] = $this->Relatorio_model->select_obstarefa();
 		$data['select']['Procedtarefa'] = $this->Relatorio_model->select_procedtarefa();
 		
-        $data['titulo'] = 'Tarefas X Profissionais';
+        $data['titulo'] = 'Funcionários & Tarefas';
 
         #run form validation
         if ($this->form_validation->run() !== FALSE) {
