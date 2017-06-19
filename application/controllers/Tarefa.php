@@ -70,7 +70,7 @@ class Tarefa extends CI_Controller {
 
         //Data de hoje como default
         (!$data['tarefa']['DataTarefa']) ? $data['tarefa']['DataTarefa'] = date('d/m/Y', time()) : FALSE;
-		#(!$data['tarefa']['DataPrazoTarefa']) ? $data['tarefa']['DataPrazoTarefa'] = date('d/m/Y', time()) : FALSE;
+		(!$data['tarefa']['DataPrazoTarefa']) ? $data['tarefa']['DataPrazoTarefa'] = date('d/m/Y', time()) : FALSE;
 		
 		
         $j = 1;
@@ -94,7 +94,7 @@ class Tarefa extends CI_Controller {
 
         #### App_Tarefa ####
         $this->form_validation->set_rules('DataTarefa', 'Data da Tarefa', 'required|trim|valid_date');
-        #$this->form_validation->set_rules('DataProcedtarefa', 'DataProcedtarefa', 'required|trim');
+        $this->form_validation->set_rules('DataPrazoTarefa', 'Data para Conclusão', 'required|trim');
         $this->form_validation->set_rules('ProfissionalTarefa', 'Profissional', 'required|trim');
 
         $data['select']['AprovadoTarefa'] = $this->Basico_model->select_status_sn();
@@ -297,7 +297,7 @@ class Tarefa extends CI_Controller {
 
         #### App_Tarefa ####
         $this->form_validation->set_rules('DataTarefa', 'Data da Tarefa', 'required|trim|valid_date');        
-		#$this->form_validation->set_rules('DataProcedtarefa', 'DataProcedtarefa', 'required|trim');      
+		$this->form_validation->set_rules('DataPrazoTarefa', 'Data para Conclusão', 'required|trim');      
         $this->form_validation->set_rules('ProfissionalTarefa', 'Profissional', 'required|trim');
 
         $data['select']['AprovadoTarefa'] = $this->Basico_model->select_status_sn();        
