@@ -115,7 +115,7 @@
 										</div>
 									</div>
 									<div class="col-md-2">
-										<label for="DataPrazoTarefa">Prazo Final:</label>
+										<label for="DataPrazoTarefa">Data para Conclusão:</label>
 										<div class="input-group <?php echo $datepicker; ?>">
 											<input type="text" class="form-control Date" <?php echo $readonly; ?> maxlength="10" placeholder="DD/MM/AAAA"
 												   name="DataPrazoTarefa" value="<?php echo $tarefa['DataPrazoTarefa']; ?>">

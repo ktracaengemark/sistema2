@@ -31,7 +31,7 @@
                                     ?>
                                 </select>
                             </div>
-							
+							<!--
 							<div class="col-md-2">
                                 <label for="Ordenamento">Tarefa / Missão</label>
                                 <select data-placeholder="Selecione uma opção..." class="form-control Chosen"
@@ -47,7 +47,7 @@
                                     ?>
                                 </select>
                             </div>
-							
+							-->
 							<div class="col-md-1">
                                 <label for="AprovadoTarefa">Trf. Concl.?</label>
                                 <select data-placeholder="Selecione uma opção..." class="form-control Chosen"
@@ -78,6 +78,7 @@
                                     ?>
                                 </select>
                             </div>
+							<!--
 							<div class="col-md-2">
                                 <label for="Ordenamento">Ação</label>
                                 <select data-placeholder="Selecione uma opção..." class="form-control Chosen"
@@ -93,7 +94,7 @@
                                     ?>
                                 </select>
                             </div>
-							
+							-->
 							<div class="col-md-1">
                                 <label for="ConcluidoProcedtarefa">Ação Concl.?</label>
                                 <select data-placeholder="Selecione uma opção..." class="form-control Chosen"
