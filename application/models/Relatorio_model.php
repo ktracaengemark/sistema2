@@ -1122,8 +1122,10 @@ class Relatorio_model extends CI_Model {
             ORDER BY
 				P.NomeProfissional ASC,
 				TF.AprovadoTarefa ASC,
-				TF.ServicoConcluido Desc,			
+				TF.ServicoConcluido Desc,
 				PT.ConcluidoProcedtarefa ASC,
+				PT.DataProcedtarefa ASC,
+				TF.DataPrazoTarefa ASC,											
 				TF.QuitadoTarefa
 				
         ');
