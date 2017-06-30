@@ -61,20 +61,15 @@ var dateTimePickerOptions = {
  */
  
  /*Carrega a Data do Dia do lançamento*/
-function carregaQuitado(value, name, i, cadastrar = 0) {
+function carregaQuitado(value, name, i) {
 
     if (value == "S") {
 
         if (!$("#ValorPagoRecebiveis"+i).val() || $("#ValorPagoRecebiveis"+i).val() == "0,00")
             $("#ValorPagoRecebiveis"+i).val($("#ValorParcelaRecebiveis"+i).val())
 
-        if (!$("#DataPagoRecebiveis"+i).val()) {
-            if (cadastrar == 1)
-                $("#DataPagoRecebiveis"+i).val($("#DataVencimentoRecebiveis"+i).val())
-            else
-                $("#DataPagoRecebiveis"+i).val(currentDate.format('DD/MM/YYYY'))
-        }
-
+        if (!$("#DataPagoRecebiveis"+i).val())
+            $("#DataPagoRecebiveis"+i).val(currentDate.format('DD/MM/YYYY'))
 
     }
     else {
@@ -87,19 +82,15 @@ function carregaQuitado(value, name, i, cadastrar = 0) {
 }
 
 /*Carrega a Data do Dia do Vencimento*/
-function carregaQuitado2(value, name, i, cadastrar = 0) {
+function carregaQuitado2(value, name, i) {
 
     if (value == "S") {
 
         if (!$("#ValorPagoRecebiveis"+i).val() || $("#ValorPagoRecebiveis"+i).val() == "0,00")
             $("#ValorPagoRecebiveis"+i).val($("#ValorParcelaRecebiveis"+i).val())
-		
-		if (!$("#DataPagoRecebiveis"+i).val()) {
-            if (cadastrar == 1)
-                $("#DataPagoRecebiveis"+i).val($("#DataVencimentoRecebiveis"+i).val())
-            else
-                $("#DataPagoRecebiveis"+i).val($("#DataVencimentoRecebiveis"+i).val())
-        }
+
+        if (!$("#DataPagoRecebiveis"+i).val())
+			$("#DataPagoRecebiveis"+i).val($("#DataVencimentoRecebiveis"+i).val())
 
     }
     else {
@@ -122,19 +113,15 @@ function carregaQuitado2(value, name, i, cadastrar = 0) {
  */
  
  /*Carrega a Data do Dia do lançamento*/
-function carregaQuitadoDespesas(value, name, i, cadastrar = 0) {
+function carregaQuitadoDespesas(value, name, i) {
 
     if (value == "S") {
 
         if (!$("#ValorPagoPagaveis"+i).val() || $("#ValorPagoPagaveis"+i).val() == "0,00")
             $("#ValorPagoPagaveis"+i).val($("#ValorParcelaPagaveis"+i).val())
 
-		if (!$("#DataPagoPagaveis"+i).val()) {
-            if (cadastrar == 1)
-                $("#DataPagoPagaveis"+i).val($("#DataVencimentoPagaveis"+i).val())
-            else
-                $("#DataPagoPagaveis"+i).val(currentDate.format('DD/MM/YYYY'))
-        }
+        if (!$("#DataPagoPagaveis"+i).val())
+            $("#DataPagoPagaveis"+i).val(currentDate.format('DD/MM/YYYY'))
 
     }
     else {
@@ -147,19 +134,15 @@ function carregaQuitadoDespesas(value, name, i, cadastrar = 0) {
 }
 
 /*Carrega a Data do Dia do Vencimento*/
-function carregaQuitadoDespesas2(value, name, i, cadastrar = 0) {
+function carregaQuitadoDespesas2(value, name, i) {
 
     if (value == "S") {
 
         if (!$("#ValorPagoPagaveis"+i).val() || $("#ValorPagoPagaveis"+i).val() == "0,00")
             $("#ValorPagoPagaveis"+i).val($("#ValorParcelaPagaveis"+i).val())
-		
-		if (!$("#DataPagoPagaveis"+i).val()) {
-            if (cadastrar == 1)
-                $("#DataPagoPagaveis"+i).val($("#DataVencimentoPagaveis"+i).val())
-            else
-                $("#DataPagoPagaveis"+i).val($("#DataVencimentoPagaveis"+i).val())
-        }
+
+        if (!$("#DataPagoPagaveis"+i).val())
+			$("#DataPagoPagaveis"+i).val($("#DataVencimentoPagaveis"+i).val())
 
     }
     else {
@@ -286,13 +269,13 @@ function calculaParcelas() {
 								<div class="input-group" id="txtHint">\
 									<span class="input-group-addon" id="basic-addon1">R$</span>\
 									<input type="text" class="form-control Valor" maxlength="10" placeholder="0,00"\
-										    id="ValorParcelaRecebiveis'+i+'" name="ValorParcelaRecebiveis'+i+'" value="'+parcorca+'">\
+										   name="ValorParcelaRecebiveis'+i+'" value="'+parcorca+'">\
 								</div>\
 							</div>\
 							<div class="col-md-2">\
 								<label for="DataVencimentoRecebiveis">Data Venc. Parc.</label>\
 								<div class="input-group DatePicker">\
-									<input type="text" class="form-control Date" id="DataVencimentoRecebiveis'+i+'" maxlength="10" placeholder="DD/MM/AAAA"\
+									<input type="text" class="form-control Date" id="DataPagoRecebiveis'+i+'" maxlength="10" placeholder="DD/MM/AAAA"\
 										   name="DataVencimentoRecebiveis'+i+'" value="'+futureMonth.format('DD/MM/YYYY')+'">\
 									<span class="input-group-addon" disabled>\
 										<span class="glyphicon glyphicon-calendar"></span>\
@@ -304,7 +287,7 @@ function calculaParcelas() {
 								<div class="input-group" id="txtHint">\
 									<span class="input-group-addon" id="basic-addon1">R$</span>\
 									<input type="text" class="form-control Valor" maxlength="10" placeholder="0,00"\
-										    id="ValorPagoRecebiveis'+i+'" name="ValorPagoRecebiveis'+i+'" value="">\
+										   name="ValorPagoRecebiveis'+i+'" value="">\
 								</div>\
 							</div>\
 							<div class="col-md-2">\
@@ -318,16 +301,16 @@ function calculaParcelas() {
 								</div>\
 							</div>\
 							<div class="col-md-3">\
-								<label for="QuitadoRecebiveis">Quitado????</label><br>\
+								<label for="QuitadoRecebiveis">Quitado?</label><br>\
 								<div class="form-group">\
 									<div class="btn-group" data-toggle="buttons">\
 										<label class="btn btn-warning active" name="radio_QuitadoRecebiveis'+i+'" id="radio_QuitadoRecebiveis'+i+'N">\
 										<input type="radio" name="QuitadoRecebiveis'+i+'" id="radiogeraldinamico"\
-											onchange="carregaQuitado(this.value,this.name,'+i+',1)" autocomplete="off" value="N" checked>Não\
+											autocomplete="off" value="N" checked>Não\
 										</label>\
 										<label class="btn btn-default" name="radio_QuitadoRecebiveis'+i+'" id="radio_QuitadoRecebiveis'+i+'S">\
 										<input type="radio" name="QuitadoRecebiveis'+i+'" id="radiogeraldinamico"\
-											onchange="carregaQuitado(this.value,this.name,'+i+',1)" autocomplete="off" value="S">Sim\
+											autocomplete="off" value="S">Sim\
 										</label>\
 									</div>\
 								</div>\
@@ -412,13 +395,13 @@ function calculaParcelasPagaveis() {
 								<div class="input-group" id="txtHint">\
 									<span class="input-group-addon" id="basic-addon1">R$</span>\
 									<input type="text" class="form-control Valor" maxlength="10" placeholder="0,00"\
-										    id="ValorParcelaPagaveis'+i+'" name="ValorParcelaPagaveis'+i+'" value="'+parcdesp+'">\
+										   name="ValorParcelaPagaveis'+i+'" value="'+parcdesp+'">\
 								</div>\
 							</div>\
 							<div class="col-md-2">\
 								<label for="DataVencimentoPagaveis">Data Venc. Parc.</label>\
 								<div class="input-group DatePicker">\
-									<input type="text" class="form-control Date" id="DataVencimentoPagaveis'+i+'" maxlength="10" placeholder="DD/MM/AAAA"\
+									<input type="text" class="form-control Date" id="DataPagoPagaveis'+i+'" maxlength="10" placeholder="DD/MM/AAAA"\
 										   name="DataVencimentoPagaveis'+i+'" value="'+futureMonth.format('DD/MM/YYYY')+'">\
 									<span class="input-group-addon" disabled>\
 										<span class="glyphicon glyphicon-calendar"></span>\
@@ -430,7 +413,7 @@ function calculaParcelasPagaveis() {
 								<div class="input-group" id="txtHint">\
 									<span class="input-group-addon" id="basic-addon1">R$</span>\
 									<input type="text" class="form-control Valor" maxlength="10" placeholder="0,00"\
-										    id="ValorPagoPagaveis'+i+'" name="ValorPagoPagaveis'+i+'" value="">\
+										   name="ValorPagoPagaveis'+i+'" value="">\
 								</div>\
 							</div>\
 							<div class="col-md-2">\
@@ -449,11 +432,11 @@ function calculaParcelasPagaveis() {
 									<div class="btn-group" data-toggle="buttons">\
 										<label class="btn btn-warning active" name="radio_QuitadoPagaveis'+i+'" id="radio_QuitadoPagaveis'+i+'N">\
 										<input type="radio" name="QuitadoPagaveis'+i+'" id="radiogeraldinamico"\
-											onchange="carregaQuitadoDespesas(this.value,this.name,'+i+',1)" autocomplete="off" value="N" checked>Não\
+											autocomplete="off" value="N" checked>Não\
 										</label>\
 										<label class="btn btn-default" name="radio_QuitadoPagaveis'+i+'" id="radio_QuitadoPagaveis'+i+'S">\
 										<input type="radio" name="QuitadoPagaveis'+i+'" id="radiogeraldinamico"\
-											onchange="carregaQuitadoDespesas(this.value,this.name,'+i+',1)" autocomplete="off" value="S">Sim\
+											autocomplete="off" value="S">Sim\
 										</label>\
 									</div>\
 								</div>\
@@ -1267,7 +1250,7 @@ $(document).ready(function () {
     $(".Valor").mask("#.##0,00", {reverse: true});
     $('.Numero').mask('0#');
 
-    $(".Celular").mask("99999999999");
+    $(".Celular").mask("(99)999999999");
     $(".CelularVariavel").on("blur", function () {
         var last = $(this).val().substr($(this).val().indexOf("-") + 1);
 

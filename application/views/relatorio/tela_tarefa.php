@@ -48,8 +48,9 @@
                                 </select>
                             </div>
 							-->
+
 							<div class="col-md-1">
-                                <label for="AprovadoTarefa">Trf. Concl.?</label>
+                                <label for="AprovadoTarefa">Tarefa Concluída?</label>
                                 <select data-placeholder="Selecione uma opção..." class="form-control Chosen"
                                         id="AprovadoTarefa" name="AprovadoTarefa">
                                     <?php
@@ -63,8 +64,9 @@
                                     ?>
                                 </select>
                             </div>
+
 							<div class="col-md-2">
-                                <label for="Ordenamento">Profissional:</label>
+                                <label for="Ordenamento">Responsável da Ação:</label>
                                 <select data-placeholder="Selecione uma opção..." class="form-control Chosen"
                                         id="Profissional" name="Profissional">
                                     <?php
@@ -95,8 +97,9 @@
                                 </select>
                             </div>
 							-->
+
 							<div class="col-md-1">
-                                <label for="ConcluidoProcedtarefa">Ação Concl.?</label>
+                                <label for="ConcluidoProcedtarefa">Ação Concluída?</label>
                                 <select data-placeholder="Selecione uma opção..." class="form-control Chosen"
                                         id="ConcluidoProcedtarefa" name="ConcluidoProcedtarefa">
                                     <?php
@@ -110,7 +113,7 @@
                                     ?>
                                 </select>
                             </div>
-																					                           						                            							
+							<!--														                           						                            							
 							<div class="col-md-1">
                                 <label for="ServicoConcluido">Rotina</label>
                                 <select data-placeholder="Selecione uma opção..." class="form-control Chosen"
@@ -142,7 +145,7 @@
                                     ?>
                                 </select>
                             </div>							
-							<!--
+							
                             <div class="col-md-4">
                                 <label for="Ordenamento">Ordenamento:</label>
 
@@ -182,7 +185,7 @@
                             </div>
 							-->
 							<div class="col-md-2">
-                                <label for="DataInicio">Data Orçam.- Início: *</label>
+                                <label for="DataInicio">Data da Tarefa - Início: *</label>
                                 <div class="input-group DatePicker">
                                     <input type="text" class="form-control Date" maxlength="10" placeholder="DD/MM/AAAA"
                                            autofocus name="DataInicio" value="<?php echo set_value('DataInicio', $query['DataInicio']); ?>">
@@ -192,7 +195,7 @@
                                 </div>
                             </div>
                             <div class="col-md-2">
-                                <label for="DataFim">Data Orçam.- Fim: (opcional)</label>
+                                <label for="DataFim">Data da Tarefa - Fim: (opcional)</label>
                                 <div class="input-group DatePicker">
                                     <input type="text" class="form-control Date" maxlength="10" placeholder="DD/MM/AAAA"
                                            autofocus name="DataFim" value="<?php echo set_value('DataFim', $query['DataFim']); ?>">
@@ -200,7 +203,8 @@
                                         <span class="glyphicon glyphicon-calendar"></span>
                                     </span>
                                 </div>
-                            </div>						
+                            </div>
+							
                         </div>						
                     </div>
                     <div class="form-group">

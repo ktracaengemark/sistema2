@@ -1024,15 +1024,14 @@ class Relatorio extends CI_Controller {
             'Ordenamento',
             'Campo',
             'AprovadoTarefa',
-            'QuitadoTarefa',
-			'ServicoConcluido',
+
 			'ConcluidoProcedtarefa',
 			'ObsTarefa',
 			'Procedtarefa',
 			
         ), TRUE));
-
-	if (!$data['query']['DataInicio'])			
+	
+		if (!$data['query']['DataInicio'])			
            $data['query']['DataInicio'] = '01/01/2017';
 
         $this->form_validation->set_error_delimiters('<div class="alert alert-danger" role="alert">', '</div>');
@@ -1046,17 +1045,7 @@ class Relatorio extends CI_Controller {
             'S' => 'Sim',
         );
 
-        $data['select']['QuitadoTarefa'] = array(
-            '#' => 'TODOS',
-            'N' => 'Não',
-            'S' => 'Sim',
-        );
-		
-		$data['select']['ServicoConcluido'] = array(
-            '#' => 'TODOS',
-            'N' => 'Não',
-            'S' => 'Sim',
-        );
+
 		
 		$data['select']['ConcluidoProcedtarefa'] = array(
             '#' => 'TODOS',
@@ -1107,8 +1096,7 @@ class Relatorio extends CI_Controller {
             $data['bd']['Ordenamento'] = $data['query']['Ordenamento'];
             $data['bd']['Campo'] = $data['query']['Campo'];
             $data['bd']['AprovadoTarefa'] = $data['query']['AprovadoTarefa'];
-            $data['bd']['QuitadoTarefa'] = $data['query']['QuitadoTarefa'];
-			$data['bd']['ServicoConcluido'] = $data['query']['ServicoConcluido'];
+
 			$data['bd']['ConcluidoProcedtarefa'] = $data['query']['ConcluidoProcedtarefa'];
 			$data['bd']['ObsTarefa'] = $data['query']['ObsTarefa'];
 			$data['bd']['Procedtarefa'] = $data['query']['Procedtarefa'];

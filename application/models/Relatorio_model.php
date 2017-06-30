@@ -407,6 +407,61 @@ class Relatorio_model extends CI_Model {
 
     }
 	
+	public function list_consumo($data, $completo) {
+       
+        if ($data['DataFim']) {
+            $consulta =
+                '(DataConsumo >= "' . $data['DataInicio'] . '" AND DataConsumo <= "' . $data['DataFim'] . '")';
+        }
+        else {
+            $consulta =
+                '(DataConsumo >= "' . $data['DataInicio'] . '")';
+        }
+				
+        $query = $this->db->query('
+            SELECT
+
+                CP.idApp_Consumo,
+                CP.DataConsumo,
+				PD.QtdConsumoProduto,
+				TPD.NomeProduto
+
+            FROM
+
+                App_Consumo AS CP
+					LEFT JOIN App_ProdutoConsumo AS PD ON CP.idApp_Consumo = PD.idApp_Consumo
+					LEFT JOIN Tab_Produto AS TPD ON TPD.idTab_Produto = PD.idTab_Produto
+
+            WHERE
+                CP.idSis_Usuario = ' . $_SESSION['log']['id'] . ' AND               
+				(' . $consulta . ') 
+
+
+            ORDER BY
+                ' . $data['Campo'] . ' ' . $data['Ordenamento'] . '
+        ');
+
+        /*
+          echo $this->db->last_query();
+          echo "<pre>";
+          print_r($query);
+          echo "</pre>";
+          exit();
+          */
+
+        if ($completo === FALSE) {
+            return TRUE;
+        } else {
+
+            $somapago=$somapagar=$somaentrada=$somareceber=$somarecebido=$somareal=$balanco=$ant=0;
+            foreach ($query->result() as $row) {
+				$row->DataConsumo = $this->basico->mascara_data($row->DataConsumo, 'barras');             
+            }           
+            return $query;
+        }
+
+    }
+	
 	public function list_balanco($data, $completo) {
        
         if ($data['DataFim']) {
@@ -1066,7 +1121,7 @@ class Relatorio_model extends CI_Model {
             $consulta =
                 '(TF.DataTarefa >= "' . $data['DataInicio'] . '")';
         }
-
+	
         $data['NomeProfissional'] = ($data['NomeProfissional']) ? ' AND P.idApp_Profissional = ' . $data['NomeProfissional'] : FALSE;
 		$data['Profissional'] = ($data['Profissional']) ? ' AND P2.idApp_Profissional = ' . $data['Profissional'] : FALSE;
 		
@@ -1076,8 +1131,7 @@ class Relatorio_model extends CI_Model {
 		
 		$filtro5 = ($data['AprovadoTarefa'] != '#') ? 'TF.AprovadoTarefa = "' . $data['AprovadoTarefa'] . '" AND ' : FALSE;
 		
-        $filtro6 = ($data['QuitadoTarefa'] != '#') ? 'TF.QuitadoTarefa = "' . $data['QuitadoTarefa'] . '" AND ' : FALSE;
-		$filtro7 = ($data['ServicoConcluido'] != '#') ? 'TF.ServicoConcluido = "' . $data['ServicoConcluido'] . '" AND ' : FALSE;
+
 		$filtro8 = ($data['ConcluidoProcedtarefa'] != '#') ? 'PT.ConcluidoProcedtarefa = "' . $data['ConcluidoProcedtarefa'] . '" AND ' : FALSE;
 		
         $query = $this->db->query('
@@ -1110,8 +1164,7 @@ class Relatorio_model extends CI_Model {
                 TF.idSis_Usuario = ' . $_SESSION['log']['id'] . ' AND
 				TF.idTab_Modulo = ' . $_SESSION['log']['idTab_Modulo'] . ' AND			
 					'.$filtro5.'
-					'.$filtro6.'
-					'.$filtro7.'
+
 					'.$filtro8.'
 				(' . $consulta . ')
                 ' . $data['NomeProfissional'] . ' 
@@ -1123,9 +1176,9 @@ class Relatorio_model extends CI_Model {
 				P.NomeProfissional ASC,
 				TF.AprovadoTarefa ASC,
 				TF.ServicoConcluido Desc,
+				TF.DataPrazoTarefa ASC,
 				PT.ConcluidoProcedtarefa ASC,
-				PT.DataProcedtarefa ASC,
-				TF.DataPrazoTarefa ASC,											
+				PT.DataProcedtarefa ASC,														
 				TF.QuitadoTarefa
 				
         ');
@@ -1404,12 +1457,12 @@ class Relatorio_model extends CI_Model {
 
         $query = $this->db->query('
             SELECT
-                C.idApp_Cliente,
-                C.NomeCliente
+                idApp_Cliente,
+                CONCAT(NomeCliente, " --- ", Telefone1, " --- ", DataNascimento) As NomeCliente
             FROM
-                App_Cliente AS C
+                App_Cliente 
             WHERE
-                C.idSis_Usuario = ' . $_SESSION['log']['id'] . '
+                idSis_Usuario = ' . $_SESSION['log']['id'] . '
             ORDER BY
                 NomeCliente ASC
         ');
@@ -1417,7 +1470,7 @@ class Relatorio_model extends CI_Model {
         $array = array();
         $array[0] = ':: Todos ::';
         foreach ($query->result() as $row) {
-            $array[$row->idApp_Cliente] = $row->NomeCliente;
+			$array[$row->idApp_Cliente] = $row->NomeCliente;
         }
 
         return $array;

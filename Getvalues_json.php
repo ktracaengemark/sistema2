@@ -28,7 +28,7 @@ if ($_GET['q']==1) {
                 idTab_Modulo = ' . $_SESSION['log']['idTab_Modulo'] . ' AND
                 idSis_Usuario = ' . $_SESSION['log']['id'] . ' AND
 				TipoServico = "V"
-                ORDER BY Convenio ASC, NomeServico ASC'
+                ORDER BY Convenio DESC, NomeServico ASC'
     );
 
     while ($row = mysql_fetch_assoc($result)) {
@@ -55,7 +55,7 @@ elseif ($_GET['q'] == 2) {
                 idTab_Modulo = ' . $_SESSION['log']['idTab_Modulo'] . ' AND
                 idSis_Usuario = ' . $_SESSION['log']['id'] . ' AND
 				TipoProduto = "V"
-                ORDER BY Convenio ASC, NomeProduto ASC'
+                ORDER BY Convenio DESC, NomeProduto ASC'
     );
 
     while ($row = mysql_fetch_assoc($result)) {
@@ -71,15 +71,15 @@ elseif ($_GET['q'] == 2) {
 elseif ($_GET['q'] == 3) {
 
     $result = mysql_query(
-            'SELECT
-                idApp_Profissional,
-                NomeProfissional
+            'SELECT                
+				idApp_Profissional,
+				CONCAT(Funcao, " --- ", NomeProfissional) AS NomeProfissional				
             FROM
                 App_Profissional
             WHERE
                 idTab_Modulo = ' . $_SESSION['log']['idTab_Modulo'] . ' AND
                 idSis_Usuario = ' . $_SESSION['log']['id'] . '
-                ORDER BY NomeProfissional ASC'
+                ORDER BY Funcao ASC, NomeProfissional ASC'
     );
 
     while ($row = mysql_fetch_assoc($result)) {

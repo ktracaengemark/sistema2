@@ -459,7 +459,7 @@
 																<label for="ValorParcelaRecebiveis">Valor Parcela:</label><br>
 																<div class="input-group" id="txtHint">
 																	<span class="input-group-addon" id="basic-addon1">R$</span>
-																	<input type="text" class="form-control Valor" maxlength="10" placeholder="0,00"
+																	<input type="text" class="form-control Valor" maxlength="10" placeholder="0,00" id="ValorParcelaRecebiveis<?php echo $i ?>"
 																		   name="ValorParcelaRecebiveis<?php echo $i ?>" value="<?php echo $parcelasrec[$i]['ValorParcelaRecebiveis'] ?>">
 																</div>
 															</div>
@@ -477,7 +477,7 @@
 																<label for="ValorPagoRecebiveis">Valor Pago:</label><br>
 																<div class="input-group" id="txtHint">
 																	<span class="input-group-addon" id="basic-addon1">R$</span>
-																	<input type="text" class="form-control Valor" maxlength="10" placeholder="0,00"
+																	<input type="text" class="form-control Valor" maxlength="10" placeholder="0,00" id="ValorPagoRecebiveis<?php echo $i ?>"
 																		   name="ValorPagoRecebiveis<?php echo $i ?>" value="<?php echo $parcelasrec[$i]['ValorPagoRecebiveis'] ?>">
 																</div>
 															</div>
@@ -503,6 +503,7 @@
 																				echo ''
 																				. '<label class="btn btn-warning active" name="radiobutton_QuitadoRecebiveis' . $i . '" id="radiobutton_QuitadoRecebiveis' . $i .  $key . '">'
 																				. '<input type="radio" name="QuitadoRecebiveis' . $i . '" id="radiobuttondinamico" '
+																				. 'onchange="carregaQuitado(this.value,this.name,'.$i.')" '
 																				. 'autocomplete="off" value="' . $key . '" checked>' . $row
 																				. '</label>'
 																				;
@@ -510,6 +511,7 @@
 																				echo ''
 																				. '<label class="btn btn-default" name="radiobutton_QuitadoRecebiveis' . $i . '" id="radiobutton_QuitadoRecebiveis' . $i .  $key . '">'
 																				. '<input type="radio" name="QuitadoRecebiveis' . $i . '" id="radiobuttondinamico" '
+																				. 'onchange="carregaQuitado(this.value,this.name,'.$i.')" '
 																				. 'autocomplete="off" value="' . $key . '" >' . $row
 																				. '</label>'
 																				;
@@ -520,8 +522,8 @@
 																</div>
 															</div>
 														</div>
-													</div>	
-												</div>		
+													</div>
+												</div>
 											</div>
 
 										<?php
