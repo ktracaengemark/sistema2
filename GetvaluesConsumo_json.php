@@ -19,15 +19,15 @@ if ($_GET['q']==1) {
     $result = mysql_query(
             'SELECT
                 idTab_Servico,
-				CONCAT(TipoServico, " --- ", Convenio, " --- ", NomeServico, " --- R$ ", ValorCompraServico) As NomeServico,
-				ValorCompraServico
+				CONCAT(TipoServico, " --- ", Convenio, " --- ", NomeServico, " --- R$ ", ValorConsumoServico) As NomeServico,
+				ValorConsumoServico
                 
             FROM
                 Tab_Servico 
             WHERE
                 idTab_Modulo = ' . $_SESSION['log']['idTab_Modulo'] . ' AND
                 idSis_Usuario = ' . $_SESSION['log']['id'] . '
-                ORDER BY TipoServico DESC, Convenio DESC, NomeServico ASC '
+                ORDER BY TipoServico DESC, Convenio ASC, NomeServico ASC '
     );
 
     while ($row = mysql_fetch_assoc($result)) {
@@ -35,7 +35,7 @@ if ($_GET['q']==1) {
         $event_array[] = array(
             'id' => $row['idTab_Servico'],
             'name' => utf8_encode($row['NomeServico']),
-            'value' => $row['ValorCompraServico'],
+            'value' => $row['ValorConsumoServico'],
         );
     }
 
@@ -45,14 +45,14 @@ elseif ($_GET['q'] == 2) {
     $result = mysql_query(
             'SELECT
                 idTab_Produto,
-				CONCAT(TipoProduto, " --- ", Convenio, " --- ", NomeProduto, " --- ", UnidadeProduto, " --- R$ ", ValorCompraProduto) AS NomeProduto,
-				ValorCompraProduto
+				CONCAT(TipoProduto, " --- ", Convenio, " --- ", NomeProduto, " --- ", UnidadeProduto, " --- R$ ", ValorConsumoProduto) AS NomeProduto,
+				ValorConsumoProduto
             FROM
                 Tab_Produto
             WHERE
                 idTab_Modulo = ' . $_SESSION['log']['idTab_Modulo'] . ' AND
                 idSis_Usuario = ' . $_SESSION['log']['id'] . '
-				ORDER BY TipoProduto DESC, Convenio DESC, NomeProduto ASC '
+				ORDER BY TipoProduto DESC, Convenio ASC, NomeProduto ASC '
     );
 
     while ($row = mysql_fetch_assoc($result)) {
@@ -60,7 +60,7 @@ elseif ($_GET['q'] == 2) {
         $event_array[] = array(
             'id' => $row['idTab_Produto'],
             'name' => utf8_encode($row['NomeProduto']),
-            'value' => $row['ValorCompraProduto'],
+            'value' => $row['ValorConsumoProduto'],
         );
     }
 
@@ -68,15 +68,15 @@ elseif ($_GET['q'] == 2) {
 elseif ($_GET['q'] == 3) {
 
     $result = mysql_query(
-            'SELECT                
-				idApp_Profissional,
-				CONCAT(NomeProfissional, " --- ", Funcao) AS NomeProfissional				
+            'SELECT
+                idApp_Profissional,
+                NomeProfissional
             FROM
                 App_Profissional
             WHERE
                 idTab_Modulo = ' . $_SESSION['log']['idTab_Modulo'] . ' AND
                 idSis_Usuario = ' . $_SESSION['log']['id'] . '
-                ORDER BY Funcao ASC, NomeProfissional ASC'
+                ORDER BY NomeProfissional ASC'
     );
 
     while ($row = mysql_fetch_assoc($result)) {
