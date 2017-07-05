@@ -22,12 +22,17 @@
 								<input type="text" class="form-control" id="NomeCliente" maxlength="255" <?php echo $readonly; ?>
 									   name="NomeCliente" autofocus value="<?php echo $query['NomeCliente']; ?>">
 							</div>
-							<div class="col-md-4">
+							<div class="col-md-3">
 								<label for="Telefone1">Tel.1 - Fixo ou Celular*</label>
 								<input type="text" class="form-control Celular CelularVariavel" id="Telefone1" maxlength="11" <?php echo $readonly; ?>
-									   name="Telefone1" placeholder="99999999999" value="<?php echo $query['Telefone1']; ?>">
-							</div>					
-							<div class="col-md-4">
+									   name="Telefone1" placeholder="(XX)999999999" value="<?php echo $query['Telefone1']; ?>">
+							</div>
+							<div class="col-md-3">
+								<label for="DataNascimento">Data de Nascimento:</label>
+								<input type="text" class="form-control Date" maxlength="10" <?php echo $readonly; ?>
+									   name="DataNascimento" placeholder="DD/MM/AAAA" value="<?php echo $query['DataNascimento']; ?>">
+							</div>
+							<div class="col-md-2">
 								<label for="Sexo">Sexo:</label>
 								<select data-placeholder="Selecione uma opção..." class="form-control" <?php echo $readonly; ?>
 										id="Sexo" name="Sexo">
@@ -61,20 +66,20 @@
 						<div class="form-group">	
 							<div class="row">
 								<div class="col-md-3">
-									<label for="DataNascimento">Data de Nascimento:</label>
-									<input type="text" class="form-control Date" maxlength="10" <?php echo $readonly; ?>
-										   name="DataNascimento" placeholder="DD/MM/AAAA" value="<?php echo $query['DataNascimento']; ?>">
-								</div>
-								<div class="col-md-3">
 									<label for="Telefone2">Tel.2 - Fixo ou Celular:</label>
 									<input type="text" class="form-control Celular CelularVariavel" id="Telefone2" maxlength="11" <?php echo $readonly; ?>
-										   name="Telefone2" placeholder="99999999999" value="<?php echo $query['Telefone2']; ?>">
-								</div>										
+										   name="Telefone2" placeholder="(XX)999999999" value="<?php echo $query['Telefone2']; ?>">
+								</div>
+								<div class="col-md-3">
+									<label for="Telefone3">Tel3 - Fixo ou Celular:</label>
+									<input type="text" class="form-control Celular CelularVariavel" placeholder="(XX)999999999" id="Telefone3" maxlength="11" <?php echo $readonly; ?>
+										   name="Telefone3" value="<?php echo $query['Telefone3']; ?>">
+								</div>
 								<div class="col-md-5">
 									<label for="Email">E-mail:</label>
 									<input type="text" class="form-control" id="Bairro" maxlength="100" <?php echo $readonly; ?>
 										   name="Email" value="<?php echo $query['Email']; ?>">
-								</div>
+								</div>								
 							</div>
 						</div>
 						<div class="form-group">
@@ -111,11 +116,6 @@
 									</select>
 								</div>							
 								<div class="col-md-3">
-									<label for="Telefone3">Telefone ou Celular:</label>
-									<input type="text" class="form-control Celular CelularVariavel" placeholder="99999999999" id="Telefone3" maxlength="11" <?php echo $readonly; ?>
-										   name="Telefone3" value="<?php echo $query['Telefone3']; ?>">
-								</div>
-								<div class="col-md-3">
 									<label for="RegistroFicha">Ficha Nº:</label>
 									<input type="text" class="form-control" maxlength="45" <?php echo $readonly; ?>
 										   name="RegistroFicha" value="<?php echo $query['RegistroFicha']; ?>">
@@ -140,8 +140,48 @@
 					<div class="form-group">
 						<div class="row">
 							<input type="hidden" name="idApp_Cliente" value="<?php echo $query['idApp_Cliente']; ?>">
-							<?php if ($metodo == 3) { ?>
-								<div class="col-md-12 text-center">                            
+							<?php if ($metodo == 2) { ?>
+
+								<div class="col-md-6">
+									<button class="btn btn-lg btn-primary" id="inputDb" data-loading-text="Aguarde..." type="submit">
+										<span class="glyphicon glyphicon-save"></span> Salvar
+									</button>
+								</div>
+								<div class="col-md-6 text-right">
+									<button  type="button" class="btn btn-lg btn-danger" data-toggle="modal" data-loading-text="Aguarde..." data-target=".bs-excluir-modal-sm">
+										<span class="glyphicon glyphicon-trash"></span> Excluir
+									</button>
+								</div>
+
+								<div class="modal fade bs-excluir-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+									<div class="modal-dialog" role="document">
+										<div class="modal-content">
+											<div class="modal-header bg-danger">
+												<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+												<h4 class="modal-title">Tem certeza que deseja excluir?</h4>
+											</div>
+											<div class="modal-body">
+												<p>Ao confirmar esta operação todos os dados serão excluídos permanentemente do sistema.
+													Esta operação é irreversível.</p>
+											</div>
+											<div class="modal-footer">
+												<div class="col-md-6 text-left">
+													<button type="button" class="btn btn-warning" data-dismiss="modal">
+														<span class="glyphicon glyphicon-ban-circle"></span> Cancelar
+													</button>
+												</div>
+												<div class="col-md-6 text-right">
+													<a class="btn btn-danger" href="<?php echo base_url() . 'cliente/excluir/' . $query['idApp_Cliente'] ?>" role="button">
+														<span class="glyphicon glyphicon-trash"></span> Confirmar Exclusão
+													</a>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+
+							<?php } elseif ($metodo == 3) { ?>
+								<div class="col-md-12 text-center">
 									<button class="btn btn-lg btn-danger" id="inputDb" data-loading-text="Aguarde..." name="submit" value="1" type="submit">
 										<span class="glyphicon glyphicon-trash"></span> Excluir
 									</button>
@@ -149,12 +189,12 @@
 											return true;">
 										<span class="glyphicon glyphicon-ban-circle"></span> Cancelar
 									</button>
-								</div>                        
+								</div>
 							<?php } else { ?>
-								<div class="col-md-6">                            
+								<div class="col-md-6">
 									<button class="btn btn-lg btn-primary" id="inputDb" data-loading-text="Aguarde..." name="submit" value="1" type="submit">
 										<span class="glyphicon glyphicon-save"></span> Salvar
-									</button>                            
+									</button>
 								</div>
 							<?php } ?>
 						</div>
