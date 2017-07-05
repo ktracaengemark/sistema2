@@ -26,8 +26,14 @@
 							<div class="col-md-4">
 								<label for="Telefone1">Telefone Principal:*</label>
 								<input type="text" class="form-control Celular CelularVariavel" id="Telefone1" maxlength="14" <?php echo $readonly; ?>
-									   name="Telefone1" placeholder="99999999999" value="<?php echo $query['Telefone1']; ?>">
+									   name="Telefone1" placeholder="(XX)999999999" value="<?php echo $query['Telefone1']; ?>">
 							</div>							
+							<br>
+							<div class="col-md-4">
+								<label for="DataNascimento">Data de Nascimento:</label>
+								<input type="text" class="form-control Date" maxlength="10" <?php echo $readonly; ?>
+									   name="DataNascimento" placeholder="DD/MM/AAAA" value="<?php echo $query['DataNascimento']; ?>">
+							</div>
 							<br>							
 							<div class="col-md-4">
 								<label for="Sexo">Sexo:</label>
@@ -44,12 +50,6 @@
 									}
 									?>   
 								</select>
-							</div>
-							<br>
-							<div class="col-md-4">
-								<label for="DataNascimento">Data de Nascimento:</label>
-								<input type="text" class="form-control Date" maxlength="10" <?php echo $readonly; ?>
-									   name="DataNascimento" placeholder="DD/MM/AAAA" value="<?php echo $query['DataNascimento']; ?>">
 							</div>
 							<br>						
 							<div class="col-md-4">
@@ -94,12 +94,12 @@
 							<div class="col-md-4">
 								<label for="Telefone2">Telefone ou Celular:</label>
 								<input type="text" class="form-control Celular CelularVariavel" id="Telefone2" maxlength="14" <?php echo $readonly; ?>
-									   name="Telefone2" placeholder="99999999999" value="<?php echo $query['Telefone2']; ?>">
+									   name="Telefone2" placeholder="(XX)999999999" value="<?php echo $query['Telefone2']; ?>">
 							</div>
 							<div class="col-md-4">
 								<label for="Telefone3">Telefone ou Celular:</label>
 								<input type="text" class="form-control Celular CelularVariavel" id="Telefone3" maxlength="14" <?php echo $readonly; ?>
-									   name="Telefone3" placeholder="99999999999" value="<?php echo $query['Telefone3']; ?>">
+									   name="Telefone3" placeholder="(XX)999999999" value="<?php echo $query['Telefone3']; ?>">
 							</div>                    
 						</div>
 					</div>
@@ -107,7 +107,7 @@
 						<div class="form-group">
 							<div class="row">
 								<div class="col-md-4">
-									<label for="Cnpj">Cnpj:</label>
+									<label for="Cnpj">CPF:</label>
 									<input type="text" class="form-control" maxlength="45" <?php echo $readonly; ?>
 										   name="Cnpj" value="<?php echo $query['Cnpj']; ?>">
 								</div>                        								                        

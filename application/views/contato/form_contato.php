@@ -28,7 +28,7 @@
 							<div class="col-md-4">
 								<label for="TelefoneContato">Telefone Principal: *</label>
 								<input type="text" class="form-control Celular CelularVariavel" id="TelefoneContato" maxlength="14" <?php echo $readonly; ?>
-									   name="TelefoneContato" placeholder="99999999999" value="<?php echo $query['TelefoneContato']; ?>">
+									   name="TelefoneContato" placeholder="(XX)999999999" value="<?php echo $query['TelefoneContato']; ?>">
 							</div>
 							
 							
@@ -67,6 +67,12 @@
 					<div class="form-group">
 						<div class="row">							                       
 							<div class="col-md-6">
+								<label for="DataNascimento">Data de Nascimento:</label>
+								<input type="text" class="form-control Date" maxlength="10" <?php echo $readonly; ?>
+									   name="DataNascimento" placeholder="DD/MM/AAAA" value="<?php echo $query['DataNascimento']; ?>">
+							</div>
+							<br>							
+							<div class="col-md-6">
 								<label for="Sexo">Sexo:</label>
 								<select data-placeholder="Selecione uma Opção..." class="form-control" <?php echo $readonly; ?>
 										id="Sexo" name="Sexo">
@@ -81,12 +87,6 @@
 									}
 									?>   
 								</select>
-							</div>
-							<br>
-							<div class="col-md-6">
-								<label for="DataNascimento">Data de Nascimento:</label>
-								<input type="text" class="form-control Date" maxlength="10" <?php echo $readonly; ?>
-									   name="DataNascimento" placeholder="DD/MM/AAAA" value="<?php echo $query['DataNascimento']; ?>">
 							</div>
 							<br>
 							<div class="col-md-4">

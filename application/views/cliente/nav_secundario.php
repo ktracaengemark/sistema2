@@ -16,7 +16,13 @@
 					<a href="<?php echo base_url() . 'cliente/alterar/' . $_SESSION['Cliente']['idApp_Cliente']; ?>">
 						<span class="glyphicon glyphicon-edit"></span> Editar
 					</a>
-				</li>											
+				</li>
+				<li role="separator" class="divider"></li>
+				<!--<li <?php if (preg_match("/cliente\/excluir\b/", $_SERVER['REQUEST_URI'])) echo 'class=active'; ///(.)+\/alterar/    ?>>
+					<a href="<?php echo base_url() . 'cliente/excluir/' . $_SESSION['Cliente']['idApp_Cliente']; ?>">
+						<span class="glyphicon glyphicon-trash"></span> Excluir
+					</a>
+				</li>-->
 			</ul>
 		</li>
 		

@@ -3,6 +3,7 @@
 session_start();
 
 $link = mysql_connect($_SESSION['db']['hostname'], $_SESSION['db']['username'], $_SESSION['db']['password']);
+#$link = mysql_connect('localhost', 'root', '');
 if (!$link) {
     die('Não foi possível conectar: ' . mysql_error());
 }
@@ -19,6 +20,7 @@ $result = mysql_query(
             C.idApp_Consulta,
             C.idApp_Cliente,
             R.NomeCliente,
+			R.Telefone1,
             D.NomeContatoCliente,
             P.NomeProfissional,
             C.DataInicio,
@@ -56,10 +58,12 @@ while ($row = mysql_fetch_assoc($result)) {
             $title = utf8_encode($row['NomeContatoCliente']);
             $subtitle = utf8_encode($row['NomeCliente']);
             $profissional = utf8_encode($row['NomeProfissional']);
+			$telefone1 = utf8_encode($row['Telefone1']);
         }
         else {
             $title = utf8_encode($row['NomeCliente']);
             $profissional = utf8_encode($row['NomeProfissional']);
+			$telefone1 = utf8_encode($row['Telefone1']);
         }
 
     }
@@ -115,6 +119,7 @@ while ($row = mysql_fetch_assoc($result)) {
         'textColor' => $textColor,
         'TipoConsulta' => utf8_encode($row['TipoConsulta']),
         'Procedimento' => utf8_encode($row['Procedimento']),
+		'Telefone1' => utf8_encode($row['Telefone1']),
         'Obs' => utf8_encode($row['Obs']),
         'Evento' => $row['Evento'],
         'Paciente' => $row['Paciente'],
