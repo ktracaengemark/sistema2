@@ -227,6 +227,19 @@ function calculaRestaDespesas(entrada) {
 
 }
 
+function calculaRestaConsumo(entrada) {
+
+    //recebe o valor da despesa
+    var despesa = $("#ValorConsumo").val();
+    var resta = (despesa.replace(".","").replace(",",".") - entrada.replace(".","").replace(",","."));
+
+    resta = mascaraValorReal(resta);
+
+    //o valor é escrito no seu campo no formulário
+    $('#ValorRestanteConsumo').val(resta);
+
+}
+
 /*
 $(document).on('focus',".input_fields_parcelas", function(){
     $(this).datepicker();
@@ -817,6 +830,44 @@ function buscaValorCompra(id, campo, tabela, num) {
 
 }
 
+function buscaValorConsumo(id, campo, tabela, num) {
+
+    $.ajax({
+        // url para o arquivo json.php
+        url: window.location.origin + "/" + app + "/ValorConsumo_json.php?tabela=" + tabela,
+        // dataType json
+        dataType: "json",
+        // função para de sucesso
+        success: function (data) {
+
+            // executo este laço para acessar os itens do objeto javaScript
+            for (i = 0; i < data.length; i++) {
+
+                if (data[i].id == id) {
+
+                    //carrega o valor no campo de acordo com a opção selecionada
+                    $('#'+campo).val(data[i].valor);
+
+                    //if (tabela == area && $("#QtdCompra"+tabela+num).val()) {
+                    if ($("#QtdConsumo"+tabela+num).val()) {
+                        calculaSubtotalConsumo($("#idTab_"+tabela+num).val(),$("#QtdConsumo"+tabela+num).val(),num,'OUTRO',tabela);
+                        break;
+                    }
+
+                    //para cada valor carregado a despesa é calculado/atualizado
+                    //através da chamada de sua função
+                    calculaConsumo();
+                    break;
+                }
+
+            }//fim do laço
+
+        }
+    });//termina o ajax
+
+
+}
+
 /*
  * Função responsável por calcular o subtotal dos campos de produto
  *
@@ -882,6 +933,36 @@ function calculaSubtotalCompra(valor, campo, num, tipo, tabela) {
     //para cada vez que o subtotal for calculado o orçamento e o total restante
     //também serão atualizados
     calculaDespesas();
+
+}
+
+function calculaSubtotalConsumo(valor, campo, num, tipo, tabela) {
+
+    if (tipo == 'VP') {
+        //variável valor recebe o valor do produto selecionado
+        var data = $("#QtdConsumo"+tabela+num).val();
+
+        //o subtotal é calculado como o produto da quantidade pelo seu valor
+        var subtotal = (valor.replace(".","").replace(",",".") * data);
+        //alert('>>>'+valor+' :: '+campo+' :: '+num+' :: '+tipo+'<<<');
+    } else if (tipo == 'QTD') {
+        //variável valor recebe o valor do produto selecionado
+        var data = $("#idTab_"+tabela+num).val();
+
+        //o subtotal é calculado como o produto da quantidade pelo seu valor
+        var subtotal = (valor * data.replace(".","").replace(",","."));
+    } else {
+        //o subtotal é calculado como o produto da quantidade pelo seu valor
+        var subtotal = (valor.replace(".","").replace(",",".") * campo.replace(".","").replace(",","."));
+    }
+
+    subtotal = mascaraValorReal(subtotal);
+    //o subtotal é escrito no seu campo no formulário
+    $('#Subtotal'+tabela+num).val(subtotal);
+
+    //para cada vez que o subtotal for calculado o orçamento e o total restante
+    //também serão atualizados
+    calculaConsumo();
 
 }
 
@@ -976,6 +1057,49 @@ function calculaDespesas() {
     calculaRestaDespesas($("#ValorEntradaDespesas").val());
 }
 
+function calculaConsumo() {
+
+    //captura o número incrementador do formulário, que controla quantos campos
+    //foram acrescidos tanto para serviços quanto para produtos
+    var sc = parseFloat($('#SCount').val().replace(".","").replace(",","."));
+    var pc = parseFloat($('#PCount').val().replace(".","").replace(",","."));
+    //define o subtotal inicial em 0.00
+    var subtotal = 0.00;
+
+    //variável incrementadora
+    var i = 0;
+    //percorre todos os campos de serviço, somando seus valores
+    while (i <= sc) {
+
+        //soma os valores apenas dos campos que existirem, o que forem apagados
+        //ou removidos são ignorados
+        if ($('#SubtotalServico'+i).val())
+            //subtotal += parseFloat($('#idTab_Servico'+i).val().replace(".","").replace(",","."));
+            subtotal += parseFloat($('#SubtotalServico'+i).val().replace(".","").replace(",","."));
+
+        //incrementa a variável i
+        i++;
+    }
+
+    //faz o mesmo que o laço anterior mas agora para produtos
+    var i = 0;
+    while (i <= pc) {
+
+        if ($('#SubtotalProduto'+i).val())
+            subtotal += parseFloat($('#SubtotalProduto'+i).val().replace(".","").replace(",","."));
+
+        i++;
+    }
+
+    //calcula o subtotal, configurando para duas casas decimais e trocando o
+    //ponto para o vírgula como separador de casas decimais
+    subtotal = mascaraValorReal(subtotal);
+
+    //escreve o subtotal no campo do formulário
+    $('#ValorConsumo').val(subtotal);
+    calculaRestaConsumo($("#ValorEntradaConsumo").val());
+}
+
 /*
  * Função responsável por adicionar novos campos de serviço dinamicamente no
  * formulário de orçamento/tratametno
@@ -1025,15 +1149,9 @@ function adicionaServico() {
                                        name="SubtotalServico'+ps+'" value="">\
                             </div>\
                         </div>\
-                        <div class="col-md-1">\
-                            <label><br></label><br>\
-                            <a href="#" id="'+ps+'" class="remove_field btn btn-danger">\
-                                <span class="glyphicon glyphicon-trash"></span>\
-                            </a>\
-                        </div>\
                     </div>\
                     <div class="row">\
-                        <div class="col-md-10">\
+                        <div class="col-md-8">\
                             <label for="ObsServico'+ps+'">Obs:</label><br>\
                             <input type="text" class="form-control" id="ObsServico'+ps+'" maxlength="250"\
                                    name="ObsServico'+ps+'" value="">\
@@ -1052,6 +1170,12 @@ function adicionaServico() {
                                     </label>\
                                 </div>\
                             </div>\
+                        </div>\
+						<div class="col-md-1">\
+                            <label><br></label><br>\
+                            <a href="#" id="'+ps+'" class="remove_field btn btn-danger">\
+                                <span class="glyphicon glyphicon-trash"></span>\
+                            </a>\
                         </div>\
                     </div>\
                 </div>\
@@ -1145,15 +1269,9 @@ function adicionaServicoCompra() {
                                        name="SubtotalServico'+ps+'" value="">\
                             </div>\
                         </div>\
-                        <div class="col-md-1">\
-                            <label><br></label><br>\
-                            <a href="#" id="'+ps+'" class="remove_field5 btn btn-danger">\
-                                <span class="glyphicon glyphicon-trash"></span>\
-                            </a>\
-                        </div>\
                     </div>\
                     <div class="row">\
-                        <div class="col-md-10">\
+                        <div class="col-md-8">\
                             <label for="ObsServico'+ps+'">Obs:</label><br>\
                             <input type="text" class="form-control" id="ObsServico'+ps+'" maxlength="250"\
                                    name="ObsServico'+ps+'" value="">\
@@ -1172,6 +1290,12 @@ function adicionaServicoCompra() {
                                     </label>\
                                 </div>\
                             </div>\
+                        </div>\
+						<div class="col-md-1">\
+                            <label><br></label><br>\
+                            <a href="#" id="'+ps+'" class="remove_field5 btn btn-danger">\
+                                <span class="glyphicon glyphicon-trash"></span>\
+                            </a>\
                         </div>\
                     </div>\
                 </div>\
@@ -1370,13 +1494,30 @@ $(document).ready(function () {
                                            name="SubtotalProduto'+pc+'" value="">\
                                 </div>\
                             </div>\
-                            <div class="col-md-1">\
+                        </div>\
+						<div class="row">\
+							<div class="col-md-8">\
+								<label for="ObsProduto'+pc+'">Obs:</label><br>\
+								<input type="text" class="form-control" id="ObsProduto'+pc+'" maxlength="250"\
+									   name="ObsProduto'+pc+'" value="">\
+							</div>\
+							<div class="col-md-2">\
+								<label for="DataValidadeProduto'+pc+'">Data Val. do Produto:</label>\
+								<div class="input-group DatePicker">\
+									<input type="text" class="form-control Date" maxlength="10" placeholder="DD/MM/AAAA"\
+										   name="DataValidadeProduto'+pc+'" value="">\
+									<span class="input-group-addon" disabled>\
+										<span class="glyphicon glyphicon-calendar"></span>\
+									</span>\
+								</div>\
+							</div>\
+							<div class="col-md-1">\
                                 <label><br></label><br>\
                                 <a href="#" id="'+pc+'" class="remove_field2 btn btn-danger">\
                                     <span class="glyphicon glyphicon-trash"></span>\
                                 </a>\
                             </div>\
-                        </div>\
+						</div>\
                     </div>\
                 </div>\
             </div>'
@@ -1538,13 +1679,30 @@ $(document).ready(function () {
                                            name="SubtotalProduto'+pc+'" value="">\
                                 </div>\
                             </div>\
-                            <div class="col-md-1">\
+                        </div>\
+						<div class="row">\
+							<div class="col-md-8">\
+								<label for="ObsProduto'+pc+'">Obs:</label><br>\
+								<input type="text" class="form-control" id="ObsProduto'+pc+'" maxlength="250"\
+									   name="ObsProduto'+pc+'" value="">\
+							</div>\
+							<div class="col-md-2">\
+								<label for="DataValidadeProduto'+pc+'">Data Val. do Produto:</label>\
+								<div class="input-group DatePicker">\
+									<input type="text" class="form-control Date" maxlength="10" placeholder="DD/MM/AAAA"\
+										   name="DataValidadeProduto'+pc+'" value="">\
+									<span class="input-group-addon" disabled>\
+										<span class="glyphicon glyphicon-calendar"></span>\
+									</span>\
+								</div>\
+							</div>\
+							<div class="col-md-1">\
                                 <label><br></label><br>\
                                 <a href="#" id="'+pc+'" class="remove_field6 btn btn-danger">\
                                     <span class="glyphicon glyphicon-trash"></span>\
                                 </a>\
                             </div>\
-                        </div>\
+						</div>\
                     </div>\
                 </div>\
             </div>'
@@ -1595,15 +1753,32 @@ $(document).ready(function () {
                                 <label for="QtdConsumoProduto">Qtd:</label><br>\
                                 <div class="input-group">\
                                     <input type="text" class="form-control Numero" maxlength="3" id="QtdConsumoProduto'+pc+'" placeholder="0"\
-                                        onkeyup="calculaSubtotalCompra(this.value,this.name,'+pc+',\'QTD\',\'Produto\')"\
+                                        onkeyup="calculaSubtotalConsumo(this.value,this.name,'+pc+',\'QTD\',\'Produto\')"\
                                         name="QtdConsumoProduto'+pc+'" value="">\
                                 </div>\
                             </div>\
                             <div class="col-md-4">\
                                 <label for="idTab_Produto">Produto:</label><br>\
-                                <select class="form-control" id="listadinamicab'+pc+'" onchange="buscaValorCompra(this.value,this.name,\'Produto\','+pc+')" name="idTab_Produto'+pc+'">\
+                                <select class="form-control" id="listadinamicab'+pc+'" onchange="buscaValorConsumo(this.value,this.name,\'Produto\','+pc+')" name="idTab_Produto'+pc+'">\
                                     <option value="">-- Selecione uma opção --</option>\
                                 </select>\
+                            </div>\
+							<div class="col-md-3">\
+                                <label for="ValorConsumoProduto">Valor do Produto:</label><br>\
+                                <div class="input-group id="txtHint">\
+                                    <span class="input-group-addon" id="basic-addon1">R$</span>\
+                                    <input type="text" class="form-control Valor" id="idTab_Produto'+pc+'" maxlength="10" placeholder="0,00" \
+                                        onkeyup="calculaSubtotalConsumo(this.value,this.name,'+pc+',\'VP\',\'Produto\')"\
+                                        name="ValorCompraProduto'+pc+'" value="">\
+                                </div>\
+                            </div>\
+                            <div class="col-md-3">\
+                                <label for="SubtotalProduto">Subtotal:</label><br>\
+                                <div class="input-group id="txtHint">\
+                                    <span class="input-group-addon" id="basic-addon1">R$</span>\
+                                    <input type="text" class="form-control Valor" maxlength="10" placeholder="0,00" readonly="" id="SubtotalProduto'+pc+'"\
+                                           name="SubtotalProduto'+pc+'" value="">\
+                                </div>\
                             </div>\
                             <div class="col-md-1">\
                                 <label><br></label><br>\
@@ -1622,7 +1797,7 @@ $(document).ready(function () {
 
         //request the JSON data and parse into the select element
         $.ajax({
-            url: window.location.origin+ '/' + app + '/GetvaluesCompra_json.php?q=2',
+            url: window.location.origin+ '/' + app + '/GetvaluesConsumo_json.php?q=2',
             dataType: 'JSON',
             type: "GET",
             success: function (data) {
@@ -1683,6 +1858,8 @@ $(document).ready(function () {
 	//Remove os campos adicionados dinamicamente
     $(".input_fields_wrap7").on("click",".remove_field7", function(e){ //user click on remove text
         $("#7div"+$(this).attr("id")).remove();
+		//após remover o campo refaz o cálculo do orçamento e total restante
+        calculaConsumo();
     })
 
     //Remove os campos adicionados dinamicamente
@@ -2062,13 +2239,13 @@ $('#calendar').fullCalendar({
     eventAfterRender: function (event, element) {
 
         if (event.Evento == 1)
-            var title = "<b>Evento Agendado</b><br><br><b>Obs:</b> " + event.Obs;
+            var title = "<b>Evento Agendado</b><br><br><b>Obs:</b> " + event.Obs + "<br>\n\<b>Profissional:</b> " + event.Profissional;
         else {
 
             if (event.Paciente == 'D')
                 var title = "<b>" + event.title + "</b><br><b>Responsável:</b> " + event.subtitle + "<br><b>Tel.1:</b> " + event.Telefone1 + "<br>\n\<b>Profissional:</b> " + event.Profissional + "<br>\n\<b>Obs:</b> " + event.Obs + "<br>\n\<b>Tipo de Consulta:</b> " + event.TipoConsulta;
             else
-                var title = "<b>" + event.title + "<br><b>Tel.1:</b> " + event.Telefone1 + "<br>\n\<b>Profissional:</b> " + event.Profissional + "<br>\n\<b>Obs:</b> " + event.Obs + "<br>\n\<b>Tipo de Consulta:</b> " + event.TipoConsulta;
+                var title = "<b>" + event.title + "<b> " + "<br><b>Tel.1:</b> " + event.Telefone1 + "<br>\n\<b>Profissional:</b> " + event.Profissional + "<br>\n\<b>Obs:</b> " + event.Obs + "<br>\n\<b>Tipo de Consulta:</b> " + event.TipoConsulta;
         }
 
 

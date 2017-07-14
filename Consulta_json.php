@@ -41,6 +41,7 @@ $result = mysql_query(
         WHERE
             C.idTab_Modulo = ' . $_SESSION['log']['idTab_Modulo'] . ' AND
             A.idSis_Usuario = ' . $_SESSION['log']['id'] . ' AND
+
             A.idApp_Agenda = C.idApp_Agenda
         ORDER BY C.DataInicio ASC'
 );
@@ -51,6 +52,9 @@ while ($row = mysql_fetch_assoc($result)) {
         $c = '_evento';
         //(strlen(utf8_encode($row['Obs'])) > 20) ? $title = substr(utf8_encode($row['Obs']), 0, 20).'...' : $title = utf8_encode($row['Obs']);
         $title = utf8_encode($row['Obs']);
+		#$title = utf8_encode($row['NomeProfissional']);
+		$subtitle = utf8_encode($row['NomeProfissional']);
+		$profissional = utf8_encode($row['NomeProfissional']);
     } else {
         $c = '/' . $row['idApp_Cliente'];
 
@@ -62,8 +66,11 @@ while ($row = mysql_fetch_assoc($result)) {
         }
         else {
             $title = utf8_encode($row['NomeCliente']);
+			#$title = utf8_encode($row['NomeProfissional']);
+			$subtitle = utf8_encode($row['NomeProfissional']);
             $profissional = utf8_encode($row['NomeProfissional']);
 			$telefone1 = utf8_encode($row['Telefone1']);
+			
         }
 
     }
@@ -110,7 +117,7 @@ while ($row = mysql_fetch_assoc($result)) {
     $event_array[] = array(
         'id' => $row['idApp_Consulta'],
         'title' => $title,
-        //'subtitle' => $subtitle,
+        'subtitle' => $subtitle,
         'start' => str_replace('', 'T', $row['DataInicio']),
         'end' => str_replace('', 'T', $row['DataFim']),
         'allDay' => false,
