@@ -93,8 +93,8 @@ class Tarefa extends CI_Controller {
         $this->form_validation->set_error_delimiters('<div class="alert alert-danger" role="alert">', '</div>');
 
         #### App_Tarefa ####
-        $this->form_validation->set_rules('DataTarefa', 'Data da Tarefa', 'required|trim|valid_date');
-        $this->form_validation->set_rules('DataPrazoTarefa', 'Data para Conclusão', 'required|trim');
+        $this->form_validation->set_rules('DataTarefa', 'Tarefa Criada em', 'required|trim|valid_date');
+        $this->form_validation->set_rules('DataPrazoTarefa', 'Prazo para Conclusão', 'required|trim');
         $this->form_validation->set_rules('ProfissionalTarefa', 'Profissional', 'required|trim');
 
         $data['select']['AprovadoTarefa'] = $this->Basico_model->select_status_sn();
@@ -109,8 +109,8 @@ class Tarefa extends CI_Controller {
         $data['disabled'] = '';
         $data['panel'] = 'primary';
         $data['metodo'] = 1;
-
-        //if ($data['procedtarefa'][0]['DataProcedtarefa'] || $data['procedtarefa'][0]['Profissional'])
+	
+		//if ($data['procedtarefa'][0]['DataProcedtarefa'] || $data['procedtarefa'][0]['Profissional'])
         if (isset($data['procedtarefa']))
             $data['tratamentosin'] = 'in';
         else
@@ -296,8 +296,8 @@ class Tarefa extends CI_Controller {
         $this->form_validation->set_error_delimiters('<div class="alert alert-danger" role="alert">', '</div>');
 
         #### App_Tarefa ####
-        $this->form_validation->set_rules('DataTarefa', 'Data da Tarefa', 'required|trim|valid_date');        
-		$this->form_validation->set_rules('DataPrazoTarefa', 'Data para Conclusão', 'required|trim');      
+        $this->form_validation->set_rules('DataTarefa', 'Tarefa Criada em', 'required|trim|valid_date');        
+		$this->form_validation->set_rules('DataPrazoTarefa', 'Prazo para Conclusão', 'required|trim');      
         $this->form_validation->set_rules('ProfissionalTarefa', 'Profissional', 'required|trim');
 
         $data['select']['AprovadoTarefa'] = $this->Basico_model->select_status_sn();        
