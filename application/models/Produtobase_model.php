@@ -4,7 +4,7 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Produto_model extends CI_Model {
+class Produtobase_model extends CI_Model {
 
     public function __construct() {
         parent::__construct();
@@ -12,9 +12,9 @@ class Produto_model extends CI_Model {
         $this->load->library('basico');
     }
    
-    public function set_produto($data) {
+    public function set_produtobase($data) {
 
-        $query = $this->db->insert('Tab_Produto', $data);
+        $query = $this->db->insert('Tab_ProdutoBase', $data);
 
         if ($this->db->affected_rows() === 0) {
             return FALSE;
@@ -24,17 +24,17 @@ class Produto_model extends CI_Model {
         }
     }   
     
-    public function get_produto($data) {
-        $query = $this->db->query('SELECT * FROM Tab_Produto WHERE idTab_Produto = ' . $data);
+    public function get_produtobase($data) {
+        $query = $this->db->query('SELECT * FROM Tab_ProdutoBase WHERE idTab_ProdutoBase = ' . $data);
         $query = $query->result_array();
 
         return $query[0];
     }    
     
-    public function update_produto($data, $id) {
+    public function update_produtobase($data, $id) {
 
         unset($data['Id']);
-        $query = $this->db->update('Tab_Produto', $data, array('idTab_Produto' => $id));
+        $query = $this->db->update('Tab_ProdutoBase', $data, array('idTab_ProdutoBase' => $id));
         /*
           echo $this->db->last_query();
           echo '<br>';
@@ -50,8 +50,8 @@ class Produto_model extends CI_Model {
         }
     }
 
-	public function delete_produto($data) {        
-		$query = $this->db->delete('Tab_Produto', array('idTab_Produto' => $data));
+	public function delete_produtobase($data) {        
+		$query = $this->db->delete('Tab_ProdutoBase', array('idTab_ProdutoBase' => $data));
 
         if ($this->db->affected_rows() === 0) {
             return FALSE;
@@ -60,23 +60,20 @@ class Produto_model extends CI_Model {
         }
     }
     
-    public function lista_produto1($x) {
+    public function lista_produtobase1($x) {
 
         $query = $this->db->query(
                 'SELECT '
-                    . 'idTab_Produto, '
-                    . 'NomeProduto, '
-                    . 'TipoProduto, '
-					. 'Convenio, '
-					. 'ProdutoBase, '
-                    . 'UnidadeProduto, '
-                    . 'ValorCompraProduto, '
-                    . 'ValorVendaProduto '
+                    . 'idTab_ProdutoBase, '
+                    . 'ProdutoBase, '
+                    . 'TipoProdutoBase, '
+                    . 'UnidadeProdutoBase, '
+                    . 'ValorCompraProdutoBase '
                     . 'FROM '
-                    . 'Tab_Produto '
+                    . 'Tab_ProdutoBase '
                     . 'WHERE '
                     . 'idSis_Usuario = ' . $_SESSION['log']['id'] . ' ' 
-					. 'ORDER BY TipoProduto ASC, NomeProduto ASC ');
+					. 'ORDER BY TipoProdutoBase ASC, ProdutoBase ASC ');
         
         /*
           echo $this->db->last_query();
@@ -102,27 +99,26 @@ class Produto_model extends CI_Model {
         }
     }
 
-	public function lista_produto($x) {
+	public function lista_produtobase($x) {
 
         $query = $this->db->query('
             SELECT
-                D.idTab_Produto,
-                CO.Convenio,
-				CONCAT(PB.TipoProdutoBase, " --- ", PB.ProdutoBase, " --- ", PB.UnidadeProdutoBase, " --- R$ ", PB.ValorCompraProdutoBase) AS ProdutoBase,
-				D.ValorVendaProduto
-            
+                D.idTab_ProdutoBase,
+                D.ProdutoBase,
+				D.TipoProdutoBase,
+				D.UnidadeProdutoBase, 
+                D.ValorCompraProdutoBase
+           
             FROM
-                Tab_Produto AS D
-				LEFT JOIN Tab_ProdutoBase AS PB ON PB.idTab_ProdutoBase = D.ProdutoBase
-				LEFT JOIN Tab_Convenio AS CO ON CO.idTab_Convenio = D.Convenio
-				
+                Tab_ProdutoBase AS D
+
             WHERE
                 D.idSis_Usuario = ' . $_SESSION['log']['id'] . ' AND
-                D.idTab_Modulo = ' . $_SESSION['log']['idTab_Modulo'] . ' 
+                D.idTab_Modulo = ' . $_SESSION['log']['idTab_Modulo'] . '
 
             ORDER BY
-				D.Convenio DESC,
-				PB.ProdutoBase ASC				
+				D.TipoProdutoBase DESC,
+				D.ProdutoBase ASC
 				
         ');
 
@@ -146,37 +142,75 @@ class Produto_model extends CI_Model {
             }
         }
     }
-	   		
-	public function select_produto($data = FALSE) {
+	
+	public function select_produtobase($data = FALSE) {
 
         if ($data === TRUE) {
             $array = $this->db->query(
                 'SELECT                
-				idTab_Produto,				
-				CONCAT(TipoProduto, " --- ", NomeProduto, " --- ", ProdutoBase, " --- ", UnidadeProduto, " --- R$", ValorCompraProduto) AS NomeProduto				
+				idTab_ProdutoBase,				
+				CONCAT(TipoProdutoBase, " --- ", ProdutoBase, " --- ", UnidadeProdutoBase, " --- R$", ValorCompraProdutoBase) AS ProdutoBase				
             FROM
-                Tab_Produto
+                Tab_ProdutoBase
             WHERE
                 idTab_Modulo = ' . $_SESSION['log']['idTab_Modulo'] . ' AND
                 idSis_Usuario = ' . $_SESSION['log']['id'] . ' 
-			ORDER BY TipoProduto DESC, NomeProduto ASC'
+			ORDER BY TipoProdutoBase DESC, ProdutoBase ASC'
     );
         } else {
             $query = $this->db->query(
                 'SELECT                
-				idTab_Produto,
-				CONCAT(TipoProduto, " --- ", NomeProduto, " --- ", ProdutoBase, " --- ", UnidadeProduto, " --- R$", ValorCompraProduto) AS NomeProduto				
+				idTab_ProdutoBase,
+				CONCAT(TipoProdutoBase, " --- ", ProdutoBase, " --- ", UnidadeProdutoBase, " --- R$", ValorCompraProdutoBase) AS ProdutoBase				
             FROM
-                Tab_Produto
+                Tab_ProdutoBase
             WHERE
                 idTab_Modulo = ' . $_SESSION['log']['idTab_Modulo'] . ' AND
                 idSis_Usuario = ' . $_SESSION['log']['id'] . ' 
-			ORDER BY TipoProduto DESC, NomeProduto ASC'
+			ORDER BY TipoProdutoBase DESC, ProdutoBase ASC'
     );
 
             $array = array();
             foreach ($query->result() as $row) {
-                $array[$row->idTab_Produto] = $row->NomeProduto;
+                $array[$row->idTab_ProdutoBase] = $row->ProdutoBase;
+            }
+        }
+
+        return $array;
+    }
+	
+	public function select_produtobase2($data = FALSE) {
+
+        if ($data === TRUE) {
+            $array = $this->db->query(
+                'SELECT                
+				idTab_ProdutoBase,				
+				CONCAT(TipoProdutoBase, " --- ", ProdutoBase, " --- ", UnidadeProdutoBase, " --- R$", ValorCompraProdutoBase) AS ProdutoBase				
+            FROM
+                Tab_ProdutoBase
+            WHERE
+                idTab_Modulo = ' . $_SESSION['log']['idTab_Modulo'] . ' AND
+                idSis_Usuario = ' . $_SESSION['log']['id'] . ' AND
+				TipoProdutoBase = "V"
+			ORDER BY TipoProdutoBase DESC, ProdutoBase ASC'
+    );
+        } else {
+            $query = $this->db->query(
+                'SELECT                
+				idTab_ProdutoBase,
+				CONCAT(TipoProdutoBase, " --- ", ProdutoBase, " --- ", UnidadeProdutoBase, " --- R$", ValorCompraProdutoBase) AS ProdutoBase				
+            FROM
+                Tab_ProdutoBase
+            WHERE
+                idTab_Modulo = ' . $_SESSION['log']['idTab_Modulo'] . ' AND
+                idSis_Usuario = ' . $_SESSION['log']['id'] . ' AND
+				TipoProdutoBase = "V"
+			ORDER BY TipoProdutoBase DESC, ProdutoBase ASC'
+    );
+
+            $array = array();
+            foreach ($query->result() as $row) {
+                $array[$row->idTab_ProdutoBase] = $row->ProdutoBase;
             }
         }
 
