@@ -39,18 +39,29 @@
 						<li><a href="<?php echo base_url() ?>tarefa/cadastrar">Tarefas dos Funcionários</a></li>
 						<li role="separator" class="divider"></li>
 						<li><a href="<?php echo base_url() ?>despesas/cadastrar">Despesas & Saídas</a></li>
-						<li role="separator" class="divider"></li>												
+						<li role="separator" class="divider"></li>
+						<li><a href="<?php echo base_url() ?>consumo/cadastrar">Produtos Consumidos</a></li>
+						<li role="separator" class="divider"></li>
 						<li><a href="<?php echo base_url() ?>funcao/cadastrar/funcao">Função dos Funcionários</a></li>
 						<li role="separator" class="divider"></li>
 						<li><a href="<?php echo base_url() ?>atividade/cadastrar/atividade">Atividade dos Fornecedores</a></li>
 						<li role="separator" class="divider"></li>
-						<li><a href="<?php echo base_url() ?>convenio/cadastrar">Convênio</a></li>
+						<li><a href="<?php echo base_url() ?>convenio/cadastrar">Convênios</a></li>
+						<li role="separator" class="divider"></li>						
+						<li><a href="<?php echo base_url() ?>produtobase/cadastrar">Tabela de Produtos</a></li>
 						<li role="separator" class="divider"></li>
-						<li><a href="<?php echo base_url() ?>servico/cadastrar">Tabela de Preço de Serviços</a></li>
+						<li><a href="<?php echo base_url() ?>produto/cadastrar">Tabela de Preços de Produtos p/ Venda</a></li>
 						<li role="separator" class="divider"></li>
-						<li><a href="<?php echo base_url() ?>produto/cadastrar">Tabela de Preço de Produtos</a></li>
+						<li><a href="<?php echo base_url() ?>servicobase/cadastrar">Tabela de Serviços</a></li>
 						<li role="separator" class="divider"></li>
-						<!--<li><a href="<?php echo base_url() ?>formapag/cadastrar/formapag">Forma de Pagamento</a></li>
+						<li><a href="<?php echo base_url() ?>servico/cadastrar">Tabela de Preços de Serviços p/ Venda</a></li>
+						<li role="separator" class="divider"></li>						
+						<li><a href="<?php echo base_url() ?>consumo/cadastrar">Produtos Consumidos</a></li>
+						<!--<li role="separator" class="divider"></li>
+						<li><a href="<?php echo base_url() ?>produtoconsumo/cadastrar">Tabela de Produtos p/ Consumo</a></li>
+						<li role="separator" class="divider"></li>												
+						
+						<li><a href="<?php echo base_url() ?>formapag/cadastrar/formapag">Forma de Pagamento</a></li>
 						<li role="separator" class="divider"></li>
 						<li><a href="<?php echo base_url() ?>tipodespesa/cadastrar/tipodespesa">Tipo de Despesa</a></li>
 						<li role="separator" class="divider"></li>						
@@ -112,8 +123,12 @@
 						<li><a href="<?php echo base_url() ?>relatorio/tarefa">Tarefas dos Funcionários</a></li>
 						<li role="separator" class="divider"></li>						
 						<li><a href="<?php echo base_url() ?>relatorio/despesas">Despesas & Saídas</a></li>
-						<li role="separator" class="divider"></li>						
-						<!--<li><a href="<?php echo base_url() ?>relatorio/orcamentosv">Clientes & Serviços</a></li>
+						<li role="separator" class="divider"></li>
+						<li><a href="<?php echo base_url() ?>relatorio/consumo">Produtos Consumidos</a></li>
+						<!--<li role="separator" class="divider"></li>
+						<li><a href="<?php echo base_url() ?>relatorio/orcacom">Produtos Consumidos</a></li>
+						<li role="separator" class="divider"></li>
+						<li><a href="<?php echo base_url() ?>relatorio/orcamentosv">Clientes & Serviços</a></li>
 						<li role="separator" class="divider"></li>
 						<li><a href="<?php echo base_url() ?>relatorio/clienteprod">Clientes & Produtos</a></li>
 						<li role="separator" class="divider"></li>					
@@ -126,29 +141,27 @@
 						<li><a href="<?php echo base_url() ?>relatorio/estoque">Estoque</a></li>
 						<li role="separator" class="divider"></li>-->
 					</ul>
-				</li>
-				
-					<div class="btn-toolbar navbar-form navbar-right" role="toolbar" aria-label="...">					
-						<div class="btn-group" role="group" aria-label="...">
-							<button type="button" class="btn active" id="countdowndiv">
-								<span class="glyphicon glyphicon-hourglass" id="clock"></span>
-							</button>
-						</div>
-						<div class="btn-group" role="group" aria-label="...">
-							<button type="button" class="btn btn-info active">
-								<span class="glyphicon glyphicon-user"></span> <?php echo $_SESSION['log']['Usuario']; ?>
-							</button>
-						</div>
-						<div class="btn-group" role="group" aria-label="...">
-							<a href="<?php echo base_url(); ?>login/sair">
-								<button type="button" class="btn btn-danger">
-									<span class="glyphicon glyphicon-log-out"></span> Sair
-								</button>
-							</a>
-						</div>										
-						<div class="btn-group" role="group" aria-label="..."> </div>
+				</li>				
+				<div class="btn-toolbar navbar-form navbar-right" role="toolbar" aria-label="...">					
+					<div class="btn-group" role="group" aria-label="...">
+						<button type="button" class="btn active" id="countdowndiv">
+							<span class="glyphicon glyphicon-hourglass" id="clock"></span>
+						</button>
 					</div>
-					
+					<div class="btn-group" role="group" aria-label="...">
+						<button type="button" class="btn btn-info active">
+							<span class="glyphicon glyphicon-user"></span> <?php echo $_SESSION['log']['Usuario']; ?>
+						</button>
+					</div>
+					<div class="btn-group" role="group" aria-label="...">
+						<a href="<?php echo base_url(); ?>login/sair">
+							<button type="button" class="btn btn-danger">
+								<span class="glyphicon glyphicon-log-out"></span> Sair
+							</button>
+						</a>
+					</div>										
+					<div class="btn-group" role="group" aria-label="..."> </div>
+				</div>					
 			</ul>						
 		</div> 
 	</div> 

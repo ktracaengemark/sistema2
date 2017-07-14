@@ -106,6 +106,17 @@
                         ';
                         
                         }
+						
+						if ($query['Ativo']) {
+                            
+                        echo '                                                 
+                        <tr>
+                            <td><span class="glyphicon glyphicon-alert"></span> Ativo:</td>
+                            <td>' . $query['Ativo'] . '</td>
+                        </tr>
+                        ';
+                        
+                        }
                         ?>
                         
                     </tbody>

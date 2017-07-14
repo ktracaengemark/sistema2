@@ -12,27 +12,10 @@
                 <div class="panel-heading"><strong><?php echo $titulo; ?></strong></div>
                 <div class="panel-body">
 
-                    <?php echo form_open('relatorio/despesas', 'role="form"'); ?>
+                    <?php echo form_open('relatorio/consumo', 'role="form"'); ?>
 
                     <div class="form-group">
-                        <div class="row">
-
-                            <div class="col-md-2">
-                                <label for="Ordenamento">Tipo de Despesa:</label>
-                                <select data-placeholder="Selecione uma opção..." class="form-control Chosen"
-                                        id="TipoDespesa" name="TipoDespesa">
-                                    <?php
-                                    foreach ($select['TipoDespesa'] as $key => $row) {
-                                        if ($query['TipoDespesa'] == $key) {
-                                            echo '<option value="' . $key . '" selected="selected">' . $row . '</option>';
-                                        } else {
-                                            echo '<option value="' . $key . '">' . $row . '</option>';
-                                        }
-                                    }
-                                    ?>
-                                </select>
-                            </div>
-
+                        <div class="row">                           
                             <div class="col-md-2">
                                 <label for="DataInicio">Data Início: *</label>
                                 <div class="input-group DatePicker">
@@ -53,7 +36,22 @@
                                     </span>
                                 </div>
                             </div>
-							
+							<div class="col-md-2">
+                                <label for="Ordenamento">Tipo de Consumo:</label>
+                                <select data-placeholder="Selecione uma opção..." class="form-control Chosen"
+                                        id="TipoDespesa" name="TipoDespesa">
+                                    <?php
+                                    foreach ($select['TipoDespesa'] as $key => $row) {
+                                        if ($query['TipoDespesa'] == $key) {
+                                            echo '<option value="' . $key . '" selected="selected">' . $row . '</option>';
+                                        } else {
+                                            echo '<option value="' . $key . '">' . $row . '</option>';
+                                        }
+                                    }
+                                    ?>
+                                </select>
+                            </div>
+							<!--
 							<div class="col-md-1">
                                 <label for="AprovadoDespesas">Desp.Aprov.?</label>
                                 <select data-placeholder="Selecione uma opção..." class="form-control Chosen"
@@ -115,7 +113,7 @@
                                     ?>
                                 </select>
                             </div>
-							<!--
+							-->
                             <div class="col-md-3">
                                 <label for="Ordenamento">Ordenamento:</label>
                                 <div class="form-group">
@@ -152,7 +150,7 @@
                                     </div>
                                 </div>
                             </div>
-							-->
+							
                         </div>
                     </div>
 
@@ -165,8 +163,8 @@
                             </div>
 							
 							<div class="col-md-2 text-left">											
-									<a class="btn btn-lg btn-warning" href="<?php echo base_url() ?>despesas/cadastrar" role="button"> 
-										<span class="glyphicon glyphicon-plus"></span> Nova Despesa
+									<a class="btn btn-lg btn-warning" href="<?php echo base_url() ?>consumo/cadastrar" role="button"> 
+										<span class="glyphicon glyphicon-plus"></span> Novo Consumo
 									</a>
 							</div>
                         </div>

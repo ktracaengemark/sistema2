@@ -24,14 +24,16 @@
 								<input type="text" class="form-control" id="NomeContato" maxlength="255" <?php echo $readonly; ?>
 									   name="NomeContato" autofocus value="<?php echo $query['NomeContato']; ?>">
 							</div>
-							<br>
 							<div class="col-md-4">
 								<label for="TelefoneContato">Telefone Principal: *</label>
-								<input type="text" class="form-control Celular CelularVariavel" id="TelefoneContato" maxlength="14" <?php echo $readonly; ?>
-									   name="TelefoneContato" placeholder="(XX)999999999" value="<?php echo $query['TelefoneContato']; ?>">
+								<input type="text" class="form-control Celular CelularVariavel" id="TelefoneContato" maxlength="20" <?php echo $readonly; ?>
+									   name="TelefoneContato" placeholder="(99) 99999-9999" value="<?php echo $query['TelefoneContato']; ?>">
 							</div>
-							
-							
+							<div class="col-md-4">
+								<label for="DataNascimento">Data de Nascimento:</label>
+								<input type="text" class="form-control Date" maxlength="10" <?php echo $readonly; ?>
+									   name="DataNascimento" placeholder="DD/MM/AAAA" value="<?php echo $query['DataNascimento']; ?>">
+							</div>																											
 							<!--<div class="col-md-2 form-inline">
 								<label for="StatusVida">Status de Vida:</label><br>
 								<div class="form-group">
@@ -65,14 +67,8 @@
 					</div> 
 
 					<div class="form-group">
-						<div class="row">							                       
-							<div class="col-md-6">
-								<label for="DataNascimento">Data de Nascimento:</label>
-								<input type="text" class="form-control Date" maxlength="10" <?php echo $readonly; ?>
-									   name="DataNascimento" placeholder="DD/MM/AAAA" value="<?php echo $query['DataNascimento']; ?>">
-							</div>
-							<br>							
-							<div class="col-md-6">
+						<div class="row">
+							<div class="col-md-4">
 								<label for="Sexo">Sexo:</label>
 								<select data-placeholder="Selecione uma Opção..." class="form-control" <?php echo $readonly; ?>
 										id="Sexo" name="Sexo">
@@ -87,8 +83,7 @@
 									}
 									?>   
 								</select>
-							</div>
-							<br>
+							</div>						
 							<div class="col-md-4">
 								<label for="RelaCom">Relação*</label>
 								<!--<a class="btn btn-xs btn-info" href="<?php echo base_url() ?>relacom/cadastrar/relacom" role="button"> 
@@ -108,21 +103,42 @@
 									?>   
 								</select>          
 							</div>
-						</div>
-					</div>                 
-
-					<div class="form-group">
-						<div class="row">
-							<div class="col-md-12">
+							<div class="col-md-4">
 								<label for="Obs">OBS:</label>
 								<textarea class="form-control" id="Obs" <?php echo $readonly; ?>
 										  name="Obs"><?php echo $query['Obs']; ?></textarea>
 							</div>
+							<div class="col-md-2">
+								<label for="Ativo">Ativo?</label><br>
+								<div class="form-group">
+									<div class="btn-group" data-toggle="buttons">
+										<?php
+										foreach ($select['Ativo'] as $key => $row) {
+											(!$query['Ativo']) ? $query['Ativo'] = 'S' : FALSE;
+
+											if ($query['Ativo'] == $key) {
+												echo ''
+												. '<label class="btn btn-warning active" name="radiobutton_Ativo" id="radiobutton_Ativo' . $key . '">'
+												. '<input type="radio" name="Ativo" id="radiobutton" '
+												. 'autocomplete="off" value="' . $key . '" checked>' . $row
+												. '</label>'
+												;
+											} else {
+												echo ''
+												. '<label class="btn btn-default" name="radiobutton_Ativo" id="radiobutton_Ativo' . $key . '">'
+												. '<input type="radio" name="Ativo" id="radiobutton" '
+												. 'autocomplete="off" value="' . $key . '" >' . $row
+												. '</label>'
+												;
+											}
+										}
+										?>
+									</div>
+								</div>
+							</div>
 						</div>
 					</div>                 
-
-					<br>
-
+					
 					<div class="form-group">
 						<div class="row">
 							<input type="hidden" name="idApp_Empresa" value="<?php echo $_SESSION['Empresa']['idApp_Empresa']; ?>">  
@@ -174,15 +190,10 @@
 								</div>
 							<?php } ?>
 						</div>
-					</div>                
-
+					</div>					
 					</form>
-
 				</div>
-
 			</div>
-
 		</div>
-
 	</div>
 </div>
