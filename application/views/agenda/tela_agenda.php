@@ -21,6 +21,33 @@
         </div>
     </div>
 </div>
+
+<div class="col-md-3">
+
+	<?php echo form_open('agenda', 'role="form"'); ?>
+	<div class="col-md-12">
+		<label for="Ordenamento">Agenda por Profissional:</label>
+		<div class="form-group">
+			<div class="row">
+				<div class="col-md-12">
+					<select data-placeholder="Selecione uma opção..." class="form-control Chosen" onchange="this.form.submit()"
+							id="NomeProfissional" name="NomeProfissional">
+						<?php
+						foreach ($select['NomeProfissional'] as $key => $row) {
+							if ($query['NomeProfissional'] == $key) {
+								echo '<option value="' . $key . '" selected="selected">' . $row . '</option>';
+							} else {
+								echo '<option value="' . $key . '">' . $row . '</option>';
+							}
+						}
+						?>
+					</select>
+				</div>
+			</div>
+		</div>
+	</div>
+	</form>
+
 <div class="container-fluid">
 	<div class="form-group">
 		<div class="row">
