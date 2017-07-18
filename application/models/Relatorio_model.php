@@ -1123,9 +1123,6 @@ class Relatorio_model extends CI_Model {
 		$data['Procedtarefa'] = ($data['Procedtarefa']) ? ' AND PT.idApp_Procedtarefa = ' . $data['Procedtarefa'] : FALSE;
 		
 		$filtro5 = ($data['AprovadoTarefa'] != '#') ? 'TF.AprovadoTarefa = "' . $data['AprovadoTarefa'] . '" AND ' : FALSE;
-		
-        $filtro6 = ($data['QuitadoTarefa'] != '#') ? 'TF.QuitadoTarefa = "' . $data['QuitadoTarefa'] . '" AND ' : FALSE;
-		$filtro7 = ($data['ServicoConcluido'] != '#') ? 'TF.ServicoConcluido = "' . $data['ServicoConcluido'] . '" AND ' : FALSE;
 		$filtro8 = ($data['ConcluidoProcedtarefa'] != '#') ? 'PT.ConcluidoProcedtarefa = "' . $data['ConcluidoProcedtarefa'] . '" AND ' : FALSE;
 		
         $query = $this->db->query('
@@ -1158,14 +1155,10 @@ class Relatorio_model extends CI_Model {
                 TF.idSis_Usuario = ' . $_SESSION['log']['id'] . ' AND
 				TF.idTab_Modulo = ' . $_SESSION['log']['idTab_Modulo'] . ' AND			
 					'.$filtro5.'
-					'.$filtro6.'
-					'.$filtro7.'
 					'.$filtro8.'
 				(' . $consulta . ')
                 ' . $data['NomeProfissional'] . ' 
 				' . $data['Profissional'] . '
-				' . $data['ObsTarefa'] . '
-				' . $data['Procedtarefa'] . '
 				                 
             ORDER BY
 				P.NomeProfissional ASC,

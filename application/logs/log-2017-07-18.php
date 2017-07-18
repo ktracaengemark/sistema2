@@ -35,3 +35,14 @@ ERROR - 2017-07-18 04:50:48 --> 404 Page Not Found: Produtobase/arquivos
 ERROR - 2017-07-18 04:51:12 --> 404 Page Not Found: Servicobase/arquivos
 ERROR - 2017-07-18 04:52:22 --> 404 Page Not Found: Servicobase/arquivos
 ERROR - 2017-07-18 04:52:35 --> 404 Page Not Found: Produtobase/arquivos
+ERROR - 2017-07-18 05:04:58 --> 404 Page Not Found: Relatorio/arquivos
+ERROR - 2017-07-18 05:06:43 --> 404 Page Not Found: Relatorio/arquivos
+ERROR - 2017-07-18 05:06:53 --> 404 Page Not Found: Relatorio/arquivos
+ERROR - 2017-07-18 05:07:05 --> Severity: Notice --> Undefined index: Cliente C:\xampp\htdocs\sistema2\application\views\tarefa\form_tarefa.php 329
+ERROR - 2017-07-18 05:07:05 --> Severity: Notice --> Undefined index: idApp_Procedtarefa C:\xampp\htdocs\sistema2\application\views\tarefa\form_tarefa.php 332
+ERROR - 2017-07-18 05:07:05 --> Severity: Notice --> Undefined variable: parcelasrec C:\xampp\htdocs\sistema2\application\views\tarefa\form_tarefa.php 333
+ERROR - 2017-07-18 05:07:06 --> Query error: Unknown column 'arquivos' in 'where clause' - Invalid query: SELECT * FROM App_Tarefa WHERE idApp_Tarefa = arquivos
+ERROR - 2017-07-18 05:07:06 --> 404 Page Not Found: Faviconico/index
+ERROR - 2017-07-18 05:07:10 --> Severity: Notice --> Undefined index: auditoriaitem C:\xampp\htdocs\sistema2\application\controllers\Tarefa.php 425
+ERROR - 2017-07-18 05:07:20 --> 404 Page Not Found: Relatorio/arquivos
+ERROR - 2017-07-18 05:07:28 --> 404 Page Not Found: Relatorio/arquivos
