@@ -3,13 +3,12 @@
 <table class="table table-hover">
     <thead>
         <tr>
-            
-			<!--<th>Tipo de Produto</th>          
-			<th>Produto</th>-->
-			<th>Convenio</th>
-			<th>Tipo---Produto---Unid.---Preco de Cormpra R$</th>
-            <!--<th>Unidade de Medida</th>			
-            <th>Valor de Compra</th>-->
+
+			<!--<th>idTab_Produto</th>-->
+			<th>Plano</th>
+			<th>Produto</th>
+            <th>Unidade</th>			
+            <th>Valor de Compra</th>
             <th>Valor de Venda</th>
             <th></th>
         </tr>
@@ -26,12 +25,11 @@
                 #$url = '';
 
                 echo '<tr class="clickable-row" data-href="' . $url . '">';                   
-					#echo '<td>' . str_replace('.',',',$row['TipoProduto']) . '</td>';					
-                    #echo '<td>' . str_replace('.',',',$row['NomeProduto']) . '</td>';
+					#echo '<td>' . str_replace('.',',',$row['idTab_Produto']) . '</td>';
 					echo '<td>' . str_replace('.',',',$row['Convenio']) . '</td>';
 					echo '<td>' . str_replace('.',',',$row['ProdutoBase']) . '</td>';
-					#echo '<td>' . str_replace('.',',',$row['UnidadeProduto']) . '</td>';              
-					#echo '<td>' . str_replace('.',',',$row['ValorCompraProduto']) . '</td>';
+					echo '<td>' . str_replace('.',',',$row['UnidadeProdutoBase']) . '</td>';              
+					echo '<td>' . str_replace('.',',',$row['ValorCompraProdutoBase']) . '</td>';
                     echo '<td>' . str_replace('.',',',$row['ValorVendaProduto']) . '</td>';
                     echo '<td></td>';
                 echo '</tr>';            
