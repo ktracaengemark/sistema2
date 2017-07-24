@@ -47,7 +47,7 @@
 		</div>
 	</div>
 	</form>
-
+</div>
 <div class="container-fluid">
 	<div class="form-group">
 		<div class="row">

@@ -48,62 +48,6 @@
 											?>
 										</select>
 									</div>									
-									<div class="col-md-2 form-inline">
-										<label for="ServicoConcluido">Rotina?</label><br>
-										<div class="form-group">
-											<div class="btn-group" data-toggle="buttons">
-												<?php
-												foreach ($select['ServicoConcluido'] as $key => $row) {
-													(!$tarefa['ServicoConcluido']) ? $tarefa['ServicoConcluido'] = 'N' : FALSE;
-
-													if ($tarefa['ServicoConcluido'] == $key) {
-														echo ''
-														. '<label class="btn btn-warning active" name="radiobutton_ServicoConcluido" id="radiobutton_ServicoConcluido' . $key . '">'
-														. '<input type="radio" name="ServicoConcluido" id="radiobutton" '
-														. 'autocomplete="off" value="' . $key . '" checked>' . $row
-														. '</label>'
-														;
-													} else {
-														echo ''
-														. '<label class="btn btn-default" name="radiobutton_ServicoConcluido" id="radiobutton_ServicoConcluido' . $key . '">'
-														. '<input type="radio" name="ServicoConcluido" id="radiobutton" '
-														. 'autocomplete="off" value="' . $key . '" >' . $row
-														. '</label>'
-														;
-													}
-												}
-												?>
-											</div>
-										</div>
-									</div>
-									<div class="col-md-2 form-inline">
-										<label for="QuitadoTarefa">Prioridade?</label><br>
-										<div class="form-group">
-											<div class="btn-group" data-toggle="buttons">
-												<?php
-												foreach ($select['QuitadoTarefa'] as $key => $row) {
-													(!$tarefa['QuitadoTarefa']) ? $tarefa['QuitadoTarefa'] = 'N' : FALSE;
-
-													if ($tarefa['QuitadoTarefa'] == $key) {
-														echo ''
-														. '<label class="btn btn-warning active" name="radiobutton_QuitadoTarefa" id="radiobutton_QuitadoTarefa' . $key . '">'
-														. '<input type="radio" name="QuitadoTarefa" id="radiobutton" '
-														. 'autocomplete="off" value="' . $key . '" checked>' . $row
-														. '</label>'
-														;
-													} else {
-														echo ''
-														. '<label class="btn btn-default" name="radiobutton_QuitadoTarefa" id="radiobutton_QuitadoTarefa' . $key . '">'
-														. '<input type="radio" name="QuitadoTarefa" id="radiobutton" '
-														. 'autocomplete="off" value="' . $key . '" >' . $row
-														. '</label>'
-														;
-													}
-												}
-												?>
-											</div>
-										</div>
-									</div>
 									<div class="col-md-2">
 										<label for="DataTarefa">Criada em:</label>
 										<div class="input-group <?php echo $datepicker; ?>">
@@ -262,6 +206,62 @@
 
 					<div class="form-group">
 						<div class="row">
+							<div class="col-md-2 form-inline">
+								<label for="ServicoConcluido">Rotina?</label><br>
+								<div class="form-group">
+									<div class="btn-group" data-toggle="buttons">
+										<?php
+										foreach ($select['ServicoConcluido'] as $key => $row) {
+											(!$tarefa['ServicoConcluido']) ? $tarefa['ServicoConcluido'] = 'N' : FALSE;
+
+											if ($tarefa['ServicoConcluido'] == $key) {
+												echo ''
+												. '<label class="btn btn-warning active" name="radiobutton_ServicoConcluido" id="radiobutton_ServicoConcluido' . $key . '">'
+												. '<input type="radio" name="ServicoConcluido" id="radiobutton" '
+												. 'autocomplete="off" value="' . $key . '" checked>' . $row
+												. '</label>'
+												;
+											} else {
+												echo ''
+												. '<label class="btn btn-default" name="radiobutton_ServicoConcluido" id="radiobutton_ServicoConcluido' . $key . '">'
+												. '<input type="radio" name="ServicoConcluido" id="radiobutton" '
+												. 'autocomplete="off" value="' . $key . '" >' . $row
+												. '</label>'
+												;
+											}
+										}
+										?>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-2 form-inline">
+								<label for="QuitadoTarefa">Prioridade?</label><br>
+								<div class="form-group">
+									<div class="btn-group" data-toggle="buttons">
+										<?php
+										foreach ($select['QuitadoTarefa'] as $key => $row) {
+											(!$tarefa['QuitadoTarefa']) ? $tarefa['QuitadoTarefa'] = 'N' : FALSE;
+
+											if ($tarefa['QuitadoTarefa'] == $key) {
+												echo ''
+												. '<label class="btn btn-warning active" name="radiobutton_QuitadoTarefa" id="radiobutton_QuitadoTarefa' . $key . '">'
+												. '<input type="radio" name="QuitadoTarefa" id="radiobutton" '
+												. 'autocomplete="off" value="' . $key . '" checked>' . $row
+												. '</label>'
+												;
+											} else {
+												echo ''
+												. '<label class="btn btn-default" name="radiobutton_QuitadoTarefa" id="radiobutton_QuitadoTarefa' . $key . '">'
+												. '<input type="radio" name="QuitadoTarefa" id="radiobutton" '
+												. 'autocomplete="off" value="' . $key . '" >' . $row
+												. '</label>'
+												;
+											}
+										}
+										?>
+									</div>
+								</div>
+							</div>
 							<div class="col-md-2 form-inline">
 								<label for="AprovadoTarefa">Tarefa Concluída?</label><br>
 								<div class="form-group">
