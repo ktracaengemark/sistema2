@@ -15,11 +15,11 @@
 
 					<?php echo form_open($form_open_path, 'role="form"'); ?>
 						<div class="row">                      
-							<div class="col-md-3">
+							<div class="col-md-2">
 								<label for="TipoProdutoBase">Tipo de Produto</label>								
 								<select data-placeholder="Selecione uma opção..." class="form-control" <?php echo $readonly; ?>
 										id="TipoProdutoBase" autofocus name="TipoProdutoBase">
-									<option value="">-- Sel. Tipo de ProdutoBase --</option>
+									<option value="">--Sel. Tipo de Produto--</option>
 									<?php
 									foreach ($select['TipoProdutoBase'] as $key => $row) {
 										(!$query['TipoProdutoBase']) ? $query['TipoProdutoBase'] = 'V' : FALSE;
@@ -31,25 +31,17 @@
 									}
 									?>
 								</select>
-							</div>
-							<div class="col-md-4">
+							</div>						
+							<div class="col-md-5">
 								<label for="ProdutoBase">Nome do Produto:*</label><br>
 								<input type="text" class="form-control" maxlength="200"
 										name="ProdutoBase" value="<?php echo $query['ProdutoBase'] ?>">
 							</div>						
 							<div class="col-md-2">
-								<label for="UnidadeProdutoBase">Unid. de Medida:*</label><br>
+								<label for="UnidadeProdutoBase">Unidade:*</label><br>
 								<input type="text" class="form-control" maxlength="20"
 										name="UnidadeProdutoBase" value="<?php echo $query['UnidadeProdutoBase'] ?>">
-							</div>						
-							<div class="col-md-3">
-								<label for="ValorCompraProdutoBase">Valor de Compra:</label><br>
-								<div class="input-group">
-									<span class="input-group-addon" id="basic-addon1">R$</span>
-									<input type="text" class="form-control Valor" maxlength="10" placeholder="0,00"
-											name="ValorCompraProdutoBase" value="<?php echo $query['ValorCompraProdutoBase'] ?>">
-								</div>
-							</div>																																										
+							</div>
 						</div>
 
 						<br>
@@ -64,7 +56,12 @@
 											<span class="glyphicon glyphicon-save"></span> Salvar
 										</button>
 									</div>
-									<div class="col-md-6 text-right">
+									<div class="col-md-3 text-right">											
+										<a class="btn btn-lg btn-warning" href="<?php echo base_url() ?>produtocompra/cadastrar" role="button"> 
+											<span class="glyphicon glyphicon-list"></span> Fornec & <span class="glyphicon glyphicon-usd"></span>Preco Compra
+										</a>
+									</div>
+									<div class="col-md-3 text-right">
 										<button  type="button" class="btn btn-lg btn-danger" data-toggle="modal" data-loading-text="Aguarde..." data-target=".bs-excluir-modal-sm">
 											<span class="glyphicon glyphicon-trash"></span> Excluir
 										</button>
@@ -103,15 +100,22 @@
 											<span class="glyphicon glyphicon-save"></span> Salvar
 										</button>
 									</div>
+									<div class="col-md-3 text-right">											
+										<a class="btn btn-lg btn-warning" href="<?php echo base_url() ?>produtocompra/cadastrar" role="button"> 
+											<span class="glyphicon glyphicon-list"></span> Fornec & <span class="glyphicon glyphicon-usd"></span>Preco Compra
+										</a>
+									</div>
 								<?php } ?>
 							</div>
-						</div>						
+						</div>					
 					</form>
+
 					<br>                
 					
 					<?php if (isset($list)) echo $list; ?>
 
 				</div>
+
 			</div>
 		</div>
 		<div class="col-md-2"></div>

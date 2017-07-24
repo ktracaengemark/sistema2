@@ -4,10 +4,10 @@
     <thead>
         <tr>
             
-			<th>Tipo de Produto</th>          
+			<th>Tipo de Produto</th>
 			<th>Nome do Produto</th>
             <th>Unidade de Medida</th>
-            <th>Valor de Compra</th>
+
             <th></th>
         </tr>
     </thead>
@@ -23,10 +23,9 @@
                 #$url = '';
 
                 echo '<tr class="clickable-row" data-href="' . $url . '">';                   
-					echo '<td>' . str_replace('.',',',$row['TipoProdutoBase']) . '</td>';					
+					echo '<td>' . str_replace('.',',',$row['TipoProduto']) . '</td>';
                     echo '<td>' . str_replace('.',',',$row['ProdutoBase']) . '</td>';
 					echo '<td>' . str_replace('.',',',$row['UnidadeProdutoBase']) . '</td>';                    
-					echo '<td>' . str_replace('.',',',$row['ValorCompraProdutoBase']) . '</td>';
                     echo '<td></td>';
                 echo '</tr>';            
 

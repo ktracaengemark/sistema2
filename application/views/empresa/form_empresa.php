@@ -29,29 +29,52 @@
 									   name="Telefone1" placeholder="(XX)999999999" value="<?php echo $query['Telefone1']; ?>">
 							</div>
 							<br>                        
-							<!--<div class="col-md-4">
-								<label for="Sexo">Sexo:</label>
+							<div class="col-md-2">
+								<label for="TipoFornec">Serv. ou Prod.</label>								
 								<select data-placeholder="Selecione uma opção..." class="form-control" <?php echo $readonly; ?>
-										id="Sexo" name="Sexo">
-									<option value="">-- Selecione uma opção --</option>
+										id="TipoFornec" name="TipoFornec">
+									<option value="">-- Sel. Tipo de Fornec. --</option>
 									<?php
-									foreach ($select['Sexo'] as $key => $row) {
-										if ($query['Sexo'] == $key) {
+									foreach ($select['TipoFornec'] as $key => $row) {
+										(!$query['TipoFornec']) ? $query['TipoFornec'] = 'V' : FALSE;
+										if ($query['TipoFornec'] == $key) {
 											echo '<option value="' . $key . '" selected="selected">' . $row . '</option>';
 										} else {
 											echo '<option value="' . $key . '">' . $row . '</option>';
 										}
 									}
-									?>   
+									?>
 								</select>
 							</div>
-							<br>
-							<div class="col-md-4">
-								<label for="DataNascimento">Data de Nascimento:</label>
-								<input type="text" class="form-control" maxlength="8" <?php echo $readonly; ?>
-									   name="DataNascimento" placeholder="DD/MM/AAAA" value="<?php echo $query['DataNascimento']; ?>">
+							<div class="col-md-2 text-center">
+								<label for="VendaFornec">P/Venda?</label><br>
+								<div class="form-group">
+									<div class="btn-group" data-toggle="buttons">
+										<?php
+										foreach ($select['VendaFornec'] as $key => $row) {
+											(!$query['VendaFornec']) ? $query['VendaFornec'] = 'S' : FALSE;
+
+											if ($query['VendaFornec'] == $key) {
+												echo ''
+												. '<label class="btn btn-warning active" name="radiobutton_VendaFornec" id="radiobutton_VendaFornec' . $key . '">'
+												. '<input type="radio" name="VendaFornec" id="radiobutton" '
+												. 'autocomplete="off" value="' . $key . '" checked>' . $row
+												. '</label>'
+												;
+											} else {
+												echo ''
+												. '<label class="btn btn-default" name="radiobutton_VendaFornec" id="radiobutton_VendaFornec' . $key . '">'
+												. '<input type="radio" name="VendaFornec" id="radiobutton" '
+												. 'autocomplete="off" value="' . $key . '" >' . $row
+												. '</label>'
+												;
+											}
+										}
+										?>
+									</div>
+								</div>
 							</div>	
-							<br>-->
+							<br>
 							<div class="col-md-4">
 								<label for="Atividade">Atividade: *</label>
 								<a class="btn btn-xs btn-info" href="<?php echo base_url() ?>atividade/cadastrar/atividade" role="button"> 

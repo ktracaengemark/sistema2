@@ -1,13 +1,13 @@
 <br>
 
 <table class="table table-hover">
-    <thead>
+    
+	<thead>
         <tr>           			
 			<th>Serviço</th>
 			<th>Fornecedor</th>
-            <th>Valor de Compra</th>
-			<th>Plano</th>
-			<th>Valor de Venda</th>
+            <th>Cod. Fornec.</th>
+			<th>Valor de Compra</th>			
             <th></th>
         </tr>
     </thead>
@@ -19,15 +19,14 @@
             foreach ($q as $row)
             {
 
-                $url = base_url() . 'servico/alterar/' . $row['idTab_Servico'];
+                $url = base_url() . 'servicocompra/alterar/' . $row['idTab_ServicoCompra'];
                 #$url = '';
 
                 echo '<tr class="clickable-row" data-href="' . $url . '">';					
 					echo '<td>' . str_replace('.',',',$row['ServicoBase']) . '</td>';
 					echo '<td>' . str_replace('.',',',$row['NomeEmpresa']) . '</td>';
+					echo '<td>' . str_replace('.',',',$row['CodFornec']) . '</td>';
 					echo '<td>' . str_replace('.',',',$row['ValorCompraServico']) . '</td>';
-                    echo '<td>' . str_replace('.',',',$row['Convenio']) . '</td>';
-				    echo '<td>' . str_replace('.',',',$row['ValorVendaServico']) . '</td>';
                     echo '<td></td>';
                 echo '</tr>';            
 
@@ -44,3 +43,6 @@
         </tr>
     </tfoot>
 </table>
+
+
+

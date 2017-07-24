@@ -47,20 +47,16 @@
 		</div>
 	</div>
 	</form>
-</div>
-<div class="container-fluid ">
-	<div class="col-md-2 form-group">
+
+<div class="container-fluid">
+	<div class="form-group">
 		<div class="row">
-			<div class="col-md-6 text-left">
-				<a class="btn btn-lg btn-warning" href="<?php echo base_url() ?>tarefa/cadastrar" role="button"> 
-					<span class="glyphicon glyphicon-plus"></span> Nova Tarefa
-				</a>
-			</div>	
-			<div class="col-md-2 text-right">	
-				<a class="btn btn-lg btn-success" href="<?php echo base_url() ?>relatorio/tarefa" role="button"> 
-					<span class="glyphicon glyphicon-list"></span> Lista Tarefa
-				</a>
-			</div>	
+			<a class="btn btn-lg btn-warning" href="<?php echo base_url() ?>tarefa/cadastrar" role="button"> 
+				<span class="glyphicon glyphicon-plus"></span> Nova Tarefa
+			</a>
+			<a class="btn btn-lg btn-success" href="<?php echo base_url() ?>relatorio/tarefa" role="button"> 
+				<span class="glyphicon glyphicon-list"></span> Lista Tarefa
+			</a>				
 		</div>	
 	</div>
 </div>

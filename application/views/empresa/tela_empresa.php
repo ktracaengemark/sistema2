@@ -66,6 +66,17 @@
                         
                         }
 						
+						if ($query['TipoFornec']) {
+                            
+                        echo '                                                 
+                        <tr>
+                            <td><span class="glyphicon glyphicon-heart"></span> TipoFornec:</td>
+                            <td>' . $query['TipoFornec'] . '</td>
+                        </tr>
+                        ';
+                        
+                        }
+						
 						if ($query['Atividade']) {
                             
                         echo '                                                 

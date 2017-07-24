@@ -1,9 +1,9 @@
-<?php if ($msg) echo $msg; ?>
-
+<?php if (isset($msg)) echo $msg; ?>
 <div class="container-fluid">
 	<div class="row">
 
-		<div class="main">
+		<div class="col-md-2"></div>
+		<div class="col-md-8">
 
 			<?php echo validation_errors(); ?>
 
@@ -13,31 +13,15 @@
 				<div class="panel-body">
 
 					<?php echo form_open($form_open_path, 'role="form"'); ?>
-						<div class="row">                      						
+						<div class="row">						
 							<div class="col-md-4">
-								<label for="ProdutoBase">Produto</label>								
+								<label for="ServicoBase">Servico</label>								
 								<select data-placeholder="Selecione uma opção..." class="form-control" <?php echo $readonly; ?>
-										id="ProdutoBase" autofocus name="ProdutoBase">
-									<option value="">--Sel. Produto --</option>
+										id="ServicoBase" name="ServicoBase">
+									<option value="">--Sel. Servico --</option>
 									<?php
-									foreach ($select['ProdutoBase'] as $key => $row) {
-										if ($query['ProdutoBase'] == $key) {
-											echo '<option value="' . $key . '" selected="selected">' . $row . '</option>';
-										} else {
-											echo '<option value="' . $key . '">' . $row . '</option>';
-										}
-									}
-									?>
-								</select>
-							</div>						
-							<div class="col-md-2">
-								<label for="Convenio">Plano</label>								
-								<select data-placeholder="Selecione uma opção..." class="form-control" <?php echo $readonly; ?>
-										id="Convenio" autofocus name="Convenio">
-									<option value="">--Sel. Plano --</option>
-									<?php
-									foreach ($select['Convenio'] as $key => $row) {
-										if ($query['Convenio'] == $key) {
+									foreach ($select['ServicoBase'] as $key => $row) {
+										if ($query['ServicoBase'] == $key) {
 											echo '<option value="' . $key . '" selected="selected">' . $row . '</option>';
 										} else {
 											echo '<option value="' . $key . '">' . $row . '</option>';
@@ -47,18 +31,42 @@
 								</select>
 							</div>
 							<div class="col-md-2">
-								<label for="ValorVendaProduto">Valor de Venda: *</label><br>
+								<label for="Empresa">Fornecedor</label>								
+								<select data-placeholder="Selecione uma opção..." class="form-control" <?php echo $readonly; ?>
+										id="Empresa"  name="Empresa">
+									<option value="">-- Sel. Fornec. --</option>
+									<?php
+									foreach ($select['Empresa'] as $key => $row) {
+										(!$query['Empresa']) ? $query['Empresa'] = 'V' : FALSE;
+										if ($query['Empresa'] == $key) {
+											echo '<option value="' . $key . '" selected="selected">' . $row . '</option>';
+										} else {
+											echo '<option value="' . $key . '">' . $row . '</option>';
+										}
+									}
+									?>
+								</select>
+							</div>
+							<div class="col-md-2">
+								<label for="CodFornec">Cod. Fornec.:</label><br>
+								<input type="text" class="form-control" maxlength="200"
+										name="CodFornec" value="<?php echo $query['CodFornec'] ?>">
+							</div>
+							<div class="col-md-2">
+								<label for="ValorCompraServico">Valor de Compra: *</label><br>
 								<div class="input-group">
 									<span class="input-group-addon" id="basic-addon1">R$</span>
 									<input type="text" class="form-control Valor" maxlength="10" placeholder="0,00"
-											name="ValorVendaProduto" value="<?php echo $query['ValorVendaProduto'] ?>">
+											name="ValorCompraServico" value="<?php echo $query['ValorCompraServico'] ?>">
 								</div>
-							</div>												
+							</div>
 						</div>
-						<br>				
+
+						<br>
+					
 						<div class="form-group">
 							<div class="row">
-								<input type="hidden" name="idTab_Produto" value="<?php echo $query['idTab_Produto']; ?>">
+								<input type="hidden" name="idTab_ServicoCompra" value="<?php echo $query['idTab_ServicoCompra']; ?>">
 								<?php if ($metodo == 2) { ?>
 
 									<div class="col-md-3">
@@ -67,13 +75,13 @@
 										</button>
 									</div>
 									<div class="col-md-3 text-left">											
-										<a class="btn btn-lg btn-success" href="<?php echo base_url() ?>produtobase/cadastrar" role="button"> 
+										<a class="btn btn-lg btn-success" href="<?php echo base_url() ?>servicobase/cadastrar" role="button"> 
 											<span class="glyphicon glyphicon-plus"></span> Novo Servico
 										</a>
 									</div>
 									<div class="col-md-3 text-right">											
-										<a class="btn btn-lg btn-warning" href="<?php echo base_url() ?>produtocompra/cadastrar" role="button"> 
-											<span class="glyphicon glyphicon-list"></span> Fornec & <span class="glyphicon glyphicon-usd"></span> Preco Compra
+										<a class="btn btn-lg btn-warning" href="<?php echo base_url() ?>servico/cadastrar" role="button"> 
+											<span class="glyphicon glyphicon-list"></span> Plano & <span class="glyphicon glyphicon-usd"></span>Preco Venda
 										</a>
 									</div>
 									<div class="col-md-3 text-right">
@@ -100,7 +108,7 @@
 														</button>
 													</div>
 													<div class="col-md-6 text-right">
-														<a class="btn btn-danger" href="<?php echo base_url() . 'produto/excluir/' . $query['idTab_Produto'] ?>" role="button">
+														<a class="btn btn-danger" href="<?php echo base_url() . 'servicocompra/excluir/' . $query['idTab_ServicoCompra'] ?>" role="button">
 															<span class="glyphicon glyphicon-trash"></span> Confirmar Exclusão
 														</a>
 													</div>
@@ -116,23 +124,24 @@
 										</button>
 									</div>
 									<div class="col-md-3 text-left">											
-										<a class="btn btn-lg btn-success" href="<?php echo base_url() ?>produtobase/cadastrar" role="button"> 
+										<a class="btn btn-lg btn-success" href="<?php echo base_url() ?>servicobase/cadastrar" role="button"> 
 											<span class="glyphicon glyphicon-plus"></span> Novo Servico
 										</a>
 									</div>
 									<div class="col-md-3 text-right">											
-										<a class="btn btn-lg btn-warning" href="<?php echo base_url() ?>produtocompra/cadastrar" role="button"> 
-											<span class="glyphicon glyphicon-list"></span> Fornec & <span class="glyphicon glyphicon-usd"></span> Preco Compra
+										<a class="btn btn-lg btn-warning" href="<?php echo base_url() ?>servico/cadastrar" role="button"> 
+											<span class="glyphicon glyphicon-list"></span> Plano & <span class="glyphicon glyphicon-usd"></span>Preco Venda
 										</a>
 									</div>
 								<?php } ?>
 							</div>
-						</div>					
+						</div>                
 					</form>
 					<br>                               
 					<?php if (isset($list)) echo $list; ?>
 				</div>
 			</div>
 		</div>
+		<div class="col-md-2"></div>
 	</div>
 </div>
