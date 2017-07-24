@@ -51,7 +51,7 @@ class ServicoBase extends CI_Controller {
             'idSis_Usuario',
 			'idTab_ServicoBase',
             'ServicoBase',
-			'ValorCompraServicoBase',
+			#'ValorCompraServicoBase',
 			'TipoServicoBase',
                 ), TRUE));
 				
@@ -88,7 +88,7 @@ class ServicoBase extends CI_Controller {
         } else {
 
             $data['query']['ServicoBase'] = trim(mb_strtoupper($data['query']['ServicoBase'], 'ISO-8859-1'));
-            $data['query']['ValorCompraServicoBase'] = str_replace(',','.',str_replace('.','',$data['query']['ValorCompraServicoBase']));
+            #$data['query']['ValorCompraServicoBase'] = str_replace(',','.',str_replace('.','',$data['query']['ValorCompraServicoBase']));
 			$data['query']['TipoServicoBase'] = $data['query']['TipoServicoBase'];
 			$data['query']['idSis_Usuario'] = $_SESSION['log']['id'];
             $data['query']['idTab_Modulo'] = $_SESSION['log']['idTab_Modulo'];
@@ -131,7 +131,7 @@ class ServicoBase extends CI_Controller {
             'idSis_Usuario',
 			'idTab_ServicoBase',
             'ServicoBase',
-			'ValorCompraServicoBase',
+			#'ValorCompraServicoBase',
 			'TipoServicoBase',
                 ), TRUE));
 
@@ -172,7 +172,7 @@ class ServicoBase extends CI_Controller {
         } else {
 
             $data['query']['ServicoBase'] = trim(mb_strtoupper($data['query']['ServicoBase'], 'ISO-8859-1'));
-            $data['query']['ValorCompraServicoBase'] = str_replace(',','.',str_replace('.','',$data['query']['ValorCompraServicoBase']));
+            #$data['query']['ValorCompraServicoBase'] = str_replace(',','.',str_replace('.','',$data['query']['ValorCompraServicoBase']));
 			$data['query']['TipoServicoBase'] = $data['query']['TipoServicoBase'];
 			$data['query']['idSis_Usuario'] = $_SESSION['log']['id'];
 

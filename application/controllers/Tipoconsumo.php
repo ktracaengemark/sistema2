@@ -4,7 +4,7 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Tipodespesa extends CI_Controller {
+class Tipoconsumo extends CI_Controller {
 
     public function __construct() {
         parent::__construct();
@@ -13,7 +13,7 @@ class Tipodespesa extends CI_Controller {
         $this->load->helper(array('form', 'url', 'date', 'string'));
         #$this->load->library(array('basico', 'Basico_model', 'form_validation'));
         $this->load->library(array('basico', 'form_validation'));
-        $this->load->model(array('Basico_model', 'Tipodespesa_model', 'Contatocliente_model'));
+        $this->load->model(array('Basico_model', 'Tipoconsumo_model', 'Contatocliente_model'));
         $this->load->driver('session');
 
         #load header view
@@ -49,18 +49,18 @@ class Tipodespesa extends CI_Controller {
 
         $data['query'] = quotes_to_entities($this->input->post(array(
             'idSis_Usuario',
-			'idTab_TipoDespesa',
-            'TipoDespesa',
+			'idTab_TipoConsumo',
+            'TipoConsumo',
             #'ValorVenda',
                 ), TRUE));
 
         $this->form_validation->set_error_delimiters('<div class="alert alert-danger" role="alert">', '</div>');
 
-        $this->form_validation->set_rules('TipoDespesa', 'Nome do Serviço', 'required|trim');
+        $this->form_validation->set_rules('TipoConsumo', 'Nome do Serviço', 'required|trim');
         #$this->form_validation->set_rules('ValorVenda', 'Valor do Serviço', 'required|trim');
 
         $data['titulo'] = 'Cadastrar Serviço';
-        $data['form_open_path'] = 'tipodespesa/cadastrar';
+        $data['form_open_path'] = 'tipoconsumo/cadastrar';
         $data['readonly'] = '';
         $data['disabled'] = '';
         $data['panel'] = 'primary';
@@ -75,15 +75,15 @@ class Tipodespesa extends CI_Controller {
         $data['sidebar'] = 'col-sm-3 col-md-2';
         $data['main'] = 'col-sm-7 col-md-8';
 
-        $data['q'] = $this->Tipodespesa_model->lista_tipodespesa(TRUE);
-        $data['list'] = $this->load->view('tipodespesa/list_tipodespesa', $data, TRUE);
+        $data['q'] = $this->Tipoconsumo_model->lista_tipoconsumo(TRUE);
+        $data['list'] = $this->load->view('tipoconsumo/list_tipoconsumo', $data, TRUE);
 
         #run form validation
         if ($this->form_validation->run() === FALSE) {
-            $this->load->view('tipodespesa/pesq_tipodespesa', $data);
+            $this->load->view('tipoconsumo/pesq_tipoconsumo', $data);
         } else {
 
-            $data['query']['TipoDespesa'] = trim(mb_strtoupper($data['query']['TipoDespesa'], 'ISO-8859-1'));
+            $data['query']['TipoConsumo'] = trim(mb_strtoupper($data['query']['TipoConsumo'], 'ISO-8859-1'));
            # $data['query']['ValorVenda'] = str_replace(',','.',str_replace('.','',$data['query']['ValorVenda']));
             $data['query']['idSis_Usuario'] = $_SESSION['log']['id'];
             $data['query']['idTab_Modulo'] = $_SESSION['log']['idTab_Modulo'];
@@ -91,20 +91,20 @@ class Tipodespesa extends CI_Controller {
             $data['campos'] = array_keys($data['query']);
             $data['anterior'] = array();
 
-            $data['idTab_TipoDespesa'] = $this->Tipodespesa_model->set_tipodespesa($data['query']);
+            $data['idTab_TipoConsumo'] = $this->Tipoconsumo_model->set_tipoconsumo($data['query']);
 
-            if ($data['idTab_TipoDespesa'] === FALSE) {
+            if ($data['idTab_TipoConsumo'] === FALSE) {
                 $msg = "<strong>Erro no Banco de dados. Entre em contato com o administrador deste sistema.</strong>";
 
                 $this->basico->erro($msg);
-                $this->load->view('tipodespesa/cadastrar', $data);
+                $this->load->view('tipoconsumo/cadastrar', $data);
             } else {
 
-                $data['auditoriaitem'] = $this->basico->set_log($data['anterior'], $data['query'], $data['campos'], $data['idTab_TipoDespesa'], FALSE);
-                $data['auditoria'] = $this->Basico_model->set_auditoria($data['auditoriaitem'], 'Tab_TipoDespesa', 'CREATE', $data['auditoriaitem']);
+                $data['auditoriaitem'] = $this->basico->set_log($data['anterior'], $data['query'], $data['campos'], $data['idTab_TipoConsumo'], FALSE);
+                $data['auditoria'] = $this->Basico_model->set_auditoria($data['auditoriaitem'], 'Tab_TipoConsumo', 'CREATE', $data['auditoriaitem']);
                 $data['msg'] = '?m=1';
 
-                redirect(base_url() . 'tipodespesa/cadastrar' . $data['msg']);
+                redirect(base_url() . 'tipoconsumo/cadastrar' . $data['msg']);
                 exit();
             }
         }
@@ -123,23 +123,23 @@ class Tipodespesa extends CI_Controller {
 
         $data['query'] = quotes_to_entities($this->input->post(array(
             'idSis_Usuario',
-			'idTab_TipoDespesa',
-            'TipoDespesa',
+			'idTab_TipoConsumo',
+            'TipoConsumo',
            # 'ValorVenda',
                 ), TRUE));
 
 
         if ($id)
-            $data['query'] = $this->Tipodespesa_model->get_tipodespesa($id);
+            $data['query'] = $this->Tipoconsumo_model->get_tipoconsumo($id);
 
 
         $this->form_validation->set_error_delimiters('<div class="alert alert-danger" role="alert">', '</div>');
 
-        $this->form_validation->set_rules('TipoDespesa', 'Nome do Serviço', 'required|trim');
+        $this->form_validation->set_rules('TipoConsumo', 'Nome do Serviço', 'required|trim');
        # $this->form_validation->set_rules('ValorVenda', 'Valor do Serviço', 'required|trim');
 
         $data['titulo'] = 'Editar Serviço';
-        $data['form_open_path'] = 'tipodespesa/alterar';
+        $data['form_open_path'] = 'tipoconsumo/alterar';
         $data['readonly'] = '';
         $data['disabled'] = '';
         $data['panel'] = 'primary';
@@ -154,37 +154,37 @@ class Tipodespesa extends CI_Controller {
         $data['sidebar'] = 'col-sm-3 col-md-2';
         $data['main'] = 'col-sm-7 col-md-8';
 
-        $data['q'] = $this->Tipodespesa_model->lista_tipodespesa(TRUE);
-        $data['list'] = $this->load->view('tipodespesa/list_tipodespesa', $data, TRUE);
+        $data['q'] = $this->Tipoconsumo_model->lista_tipoconsumo(TRUE);
+        $data['list'] = $this->load->view('tipoconsumo/list_tipoconsumo', $data, TRUE);
 
         #run form validation
         if ($this->form_validation->run() === FALSE) {
-            $this->load->view('tipodespesa/pesq_tipodespesa', $data);
+            $this->load->view('tipoconsumo/pesq_tipoconsumo', $data);
         } else {
 
-            $data['query']['TipoDespesa'] = trim(mb_strtoupper($data['query']['TipoDespesa'], 'ISO-8859-1'));
+            $data['query']['TipoConsumo'] = trim(mb_strtoupper($data['query']['TipoConsumo'], 'ISO-8859-1'));
          #   $data['query']['ValorVenda'] = str_replace(',','.',str_replace('.','',$data['query']['ValorVenda']));
             $data['query']['idSis_Usuario'] = $_SESSION['log']['id'];
 
-            $data['anterior'] = $this->Tipodespesa_model->get_tipodespesa($data['query']['idTab_TipoDespesa']);
+            $data['anterior'] = $this->Tipoconsumo_model->get_tipoconsumo($data['query']['idTab_TipoConsumo']);
             $data['campos'] = array_keys($data['query']);
 
-            $data['auditoriaitem'] = $this->basico->set_log($data['anterior'], $data['query'], $data['campos'], $data['query']['idTab_TipoDespesa'], TRUE);
+            $data['auditoriaitem'] = $this->basico->set_log($data['anterior'], $data['query'], $data['campos'], $data['query']['idTab_TipoConsumo'], TRUE);
 
-            if ($data['auditoriaitem'] && $this->Tipodespesa_model->update_tipodespesa($data['query'], $data['query']['idTab_TipoDespesa']) === FALSE) {
+            if ($data['auditoriaitem'] && $this->Tipoconsumo_model->update_tipoconsumo($data['query'], $data['query']['idTab_TipoConsumo']) === FALSE) {
                 $data['msg'] = '?m=2';
-                redirect(base_url() . 'tipodespesa/alterar/' . $data['query']['idApp_Cliente'] . $data['msg']);
+                redirect(base_url() . 'tipoconsumo/alterar/' . $data['query']['idApp_Cliente'] . $data['msg']);
                 exit();
             } else {
 
                 if ($data['auditoriaitem'] === FALSE) {
                     $data['msg'] = '';
                 } else {
-                    $data['auditoria'] = $this->Basico_model->set_auditoria($data['auditoriaitem'], 'Tab_TipoDespesa', 'UPDATE', $data['auditoriaitem']);
+                    $data['auditoria'] = $this->Basico_model->set_auditoria($data['auditoriaitem'], 'Tab_TipoConsumo', 'UPDATE', $data['auditoriaitem']);
                     $data['msg'] = '?m=1';
                 }
 
-                redirect(base_url() . 'tipodespesa/cadastrar/' . $data['msg']);
+                redirect(base_url() . 'tipoconsumo/cadastrar/' . $data['msg']);
                 exit();
             }
         }
@@ -201,11 +201,11 @@ class Tipodespesa extends CI_Controller {
         else
             $data['msg'] = '';
 
-                $this->Tipodespesa_model->delete_tipodespesa($id);
+                $this->Tipoconsumo_model->delete_tipoconsumo($id);
 
                 $data['msg'] = '?m=1';
 
-				redirect(base_url() . 'tipodespesa/cadastrar/' . $data['msg']);
+				redirect(base_url() . 'tipoconsumo/cadastrar/' . $data['msg']);
 				exit();
             //}
         //}
