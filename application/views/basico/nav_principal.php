@@ -40,7 +40,7 @@
 					</ul>
 				</li>								
 				<li class="dropdown">
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Mov.Diária<span class="caret"></span></a>
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Mov. Diária<span class="caret"></span></a>
 					<ul class="dropdown-menu">
 						<!--<li><a href="<?php echo base_url() ?>cliente/pesquisar">Clientes & Contatos</a></li>
 						<li role="separator" class="divider"></li>-->
@@ -53,7 +53,7 @@
 				</li>
 				
 				<li class="dropdown">
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Admin.<span class="caret"></span></a>
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Administração<span class="caret"></span></a>
 					<ul class="dropdown-menu">
 						<li><a href="<?php echo base_url() ?>profissional/pesquisar">Funcionários & Contatos</a></li>
 						<li role="separator" class="divider"></li>

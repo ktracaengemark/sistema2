@@ -71,7 +71,7 @@
 									</div>
 									<div class="col-md-3 text-left">											
 										<a class="btn btn-lg btn-success" href="<?php echo base_url() ?>servicobase/cadastrar" role="button"> 
-											<span class="glyphicon glyphicon-plus"></span> Novo Servico
+											<span class="glyphicon glyphicon-plus"></span> Servico Base
 										</a>
 									</div>
 									<div class="col-md-3 text-right">											
@@ -120,7 +120,7 @@
 									</div>
 									<div class="col-md-3 text-left">											
 										<a class="btn btn-lg btn-success" href="<?php echo base_url() ?>servicobase/cadastrar" role="button"> 
-											<span class="glyphicon glyphicon-plus"></span> Novo Servico
+											<span class="glyphicon glyphicon-plus"></span> Servico Base
 										</a>
 									</div>
 									<div class="col-md-3 text-right">											
