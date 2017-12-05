@@ -1,6 +1,9 @@
 <?php if (isset($msg)) echo $msg; ?>
+
 <div class="container-fluid">
 	<div class="row">
+
+		<div class="col-md-2"></div>
 		<div class="col-md-8">
 
 			<?php echo validation_errors(); ?>
@@ -33,7 +36,11 @@
 					<?php if (isset($list)) echo $list; ?>
 
 				</div>
+
 			</div>
+
 		</div>
+		<div class="col-md-2"></div>
+
 	</div>
 </div>

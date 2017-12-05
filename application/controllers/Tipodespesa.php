@@ -56,10 +56,10 @@ class Tipodespesa extends CI_Controller {
 
         $this->form_validation->set_error_delimiters('<div class="alert alert-danger" role="alert">', '</div>');
 
-        $this->form_validation->set_rules('TipoDespesa', 'Nome do Serviço', 'required|trim');
+        $this->form_validation->set_rules('TipoDespesa', 'Tipo de Despesa', 'required|trim');
         #$this->form_validation->set_rules('ValorVenda', 'Valor do Serviço', 'required|trim');
 
-        $data['titulo'] = 'Cadastrar Serviço';
+        $data['titulo'] = 'Cadastrar Tipo de Despesa';
         $data['form_open_path'] = 'tipodespesa/cadastrar';
         $data['readonly'] = '';
         $data['disabled'] = '';
@@ -87,6 +87,7 @@ class Tipodespesa extends CI_Controller {
            # $data['query']['ValorVenda'] = str_replace(',','.',str_replace('.','',$data['query']['ValorVenda']));
             $data['query']['idSis_Usuario'] = $_SESSION['log']['id'];
             $data['query']['idTab_Modulo'] = $_SESSION['log']['idTab_Modulo'];
+			$data['query']['Empresa'] = $_SESSION['log']['Empresa'];
 
             $data['campos'] = array_keys($data['query']);
             $data['anterior'] = array();
@@ -135,10 +136,10 @@ class Tipodespesa extends CI_Controller {
 
         $this->form_validation->set_error_delimiters('<div class="alert alert-danger" role="alert">', '</div>');
 
-        $this->form_validation->set_rules('TipoDespesa', 'Nome do Serviço', 'required|trim');
+        $this->form_validation->set_rules('TipoDespesa', 'Tipo de Despesa', 'required|trim');
        # $this->form_validation->set_rules('ValorVenda', 'Valor do Serviço', 'required|trim');
 
-        $data['titulo'] = 'Editar Serviço';
+        $data['titulo'] = 'Editar Tipo de Despesa';
         $data['form_open_path'] = 'tipodespesa/alterar';
         $data['readonly'] = '';
         $data['disabled'] = '';

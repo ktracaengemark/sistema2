@@ -49,13 +49,23 @@ class Funcao_model extends CI_Model {
             return TRUE;
         }
     }
+	
+	public function delete_funcao($data) {        
+		$query = $this->db->delete('Tab_Funcao', array('idTab_Funcao' => $data));
+
+        if ($this->db->affected_rows() === 0) {
+            return FALSE;
+        } else {
+            return TRUE;
+        }
+    }	
 
     public function lista_funcao($x) {
 
         $query = $this->db->query('SELECT * '
                 . 'FROM Tab_Funcao '
                 . 'WHERE '
-                . 'idSis_Usuario = ' . $_SESSION['log']['id'] . ' AND '
+                . 'idSis_EmpresaFilial = ' . $_SESSION['log']['id'] . ' AND '
                 . 'idTab_Modulo = ' . $_SESSION['log']['idTab_Modulo'] . ' '
                 . 'ORDER BY Funcao ASC ');
         
@@ -93,7 +103,7 @@ class Funcao_model extends CI_Model {
                     . 'FROM '
                     . 'Tab_Funcao '					
 					. 'WHERE '
-                    . 'idSis_Usuario = ' . $_SESSION['log']['id'] . ' AND '
+                    . 'idSis_EmpresaFilial = ' . $_SESSION['log']['id'] . ' AND '
                     . 'idTab_Modulo = ' . $_SESSION['log']['idTab_Modulo'] . ' '
 					. 'ORDER BY Funcao ASC ');		
 					
@@ -105,9 +115,47 @@ class Funcao_model extends CI_Model {
                     . 'FROM '
                     . 'Tab_Funcao '					
 					. 'WHERE '
-                    . 'idSis_Usuario = ' . $_SESSION['log']['id'] . ' AND '
+                    . 'idSis_EmpresaFilial = ' . $_SESSION['log']['id'] . ' AND '
                     . 'idTab_Modulo = ' . $_SESSION['log']['idTab_Modulo'] . ' '
 					. 'ORDER BY Funcao ASC ');
+            
+            $array = array();
+            foreach ($query->result() as $row) {
+                $array[$row->idTab_Funcao] = $row->Funcao;
+				#$array[$row->Funcao] = $row->Funcao;
+            }
+        }
+
+        return $array;
+    }
+	
+	public function select_funcao2($data = FALSE) {
+
+        if ($data === TRUE) {
+            $array = $this->db->query('
+                SELECT 
+                    idTab_Funcao, 
+                    CONCAT(Abrev, " --- ", Funcao) AS Funcao,
+					Abrev
+				FROM 
+                    Tab_Funcao 					
+				WHERE  
+                    idTab_Modulo = "10" 
+				ORDER BY idTab_Funcao ASC 
+			');		
+					
+        } else {
+            $query = $this->db->query('
+				SELECT 
+                    idTab_Funcao, 
+                    CONCAT(Abrev, " --- ", Funcao) AS Funcao,
+					Abrev 
+				FROM 
+                    Tab_Funcao 					
+				WHERE 
+                    idTab_Modulo = "10" 
+				ORDER BY idTab_Funcao ASC 
+			');
             
             $array = array();
             foreach ($query->result() as $row) {

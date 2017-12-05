@@ -1,34 +1,26 @@
 <?php if (isset($msg)) echo $msg; ?>
-<div class="container-fluid">
+
+<div class="container-fluid">	
 	<div class="row">
-
-		<div class=""><?php if (isset($nav_secundario)) echo $nav_secundario; ?></div>
-
+		<div class="<?php echo $sidebar; ?>"><?php if (isset($nav_secundario)) echo $nav_secundario; ?></div>
 		<div class="<?php echo $main; ?>">
-
 			<?php echo validation_errors(); ?>
-
 			<div class="panel panel-<?php echo $panel; ?>">
-
 				<div class="panel-heading"><strong><?php echo $titulo; ?></strong></div>
 				<div class="panel-body">
-
 					<?php echo form_open_multipart($form_open_path); ?>
-
 					<div class="form-group">
 						<div class="row">
 							<div class="col-md-4">
-								<label for="NomeEmpresa">Fornecedor: *</label>
+								<label for="NomeEmpresa">Fornecedor *</label>
 								<input type="text" class="form-control" id="NomeEmpresa" maxlength="255" <?php echo $readonly; ?>
 									   name="NomeEmpresa" autofocus value="<?php echo $query['NomeEmpresa']; ?>">
 							</div>
-							<br>
-							<div class="col-md-4">
-								<label for="Telefone1">Telefone Principal: *</label>
+							<div class="col-md-2">
+								<label for="Telefone1">Tel Principal: *</label>
 								<input type="text" class="form-control Celular CelularVariavel" id="Telefone1" maxlength="14" <?php echo $readonly; ?>
 									   name="Telefone1" placeholder="(XX)999999999" value="<?php echo $query['Telefone1']; ?>">
 							</div>
-							<br>                        
 							<div class="col-md-2">
 								<label for="TipoFornec">Serv. ou Prod.</label>								
 								<select data-placeholder="Selecione uma opção..." class="form-control" <?php echo $readonly; ?>
@@ -73,16 +65,15 @@
 										?>
 									</div>
 								</div>
-							</div>	
-							<br>
-							<div class="col-md-4">
-								<label for="Atividade">Atividade: *</label>
+							</div>
+							<div class="col-md-2 text-left">
+								<label for="Atividade">Ativ.: *</label>
 								<a class="btn btn-xs btn-info" href="<?php echo base_url() ?>atividade/cadastrar/atividade" role="button"> 
-									<span class="glyphicon glyphicon-plus"></span> <b>Atividade</b>
+									<span class="glyphicon glyphicon-plus"></span> <b>Ativ.</b>
 								</a>
 								<select data-placeholder="Selecione uma opção..." class="form-control" <?php echo $readonly; ?>
 										id="Atividade" name="Atividade">
-									<option value="">-- Selecione uma Atividade --</option>
+									<option value="">-- Sel. Ativ. --</option>
 									<?php
 									foreach ($select['Atividade'] as $key => $row) {
 										if ($query['Atividade'] == $key) {
@@ -93,9 +84,11 @@
 									}
 									?>   
 								</select>          
-							</div>																																									
-						</div>
-					</div> 									
+							</div>
+							
+						</div>	
+					</div>		
+												   
 					<div class="form-group">
 						<div class="row">
 							<div class="col-md-12 text-center">
@@ -105,37 +98,23 @@
 							</div>                
 						</div>
 					</div>                 
-
 					<div <?php echo $collapse; ?> id="DadosComplementares">
-
-					<div class="form-group">
-						<div class="row">
-							
-							<div class="col-md-4">
-								<label for="Telefone2">Telefone ou Celular:</label>
-								<input type="text" class="form-control Celular CelularVariavel" id="Telefone2" maxlength="14" <?php echo $readonly; ?>
-									   name="Telefone2" placeholder="(XX)999999999" value="<?php echo $query['Telefone2']; ?>">
-							</div>
-							<div class="col-md-4">
-								<label for="Telefone3">Telefone ou Celular:</label>
-								<input type="text" class="form-control Celular CelularVariavel" id="Telefone3" maxlength="14" <?php echo $readonly; ?>
-									   name="Telefone3" placeholder="(XX)999999999" value="<?php echo $query['Telefone3']; ?>">
-							</div>                    
-						</div>
-					</div>
-						
 						<div class="form-group">
-							<div class="row">
-								<div class="col-md-6">
+							<div class="row">                      
+								<div class="col-md-4">
+									<label for="Telefone2">Telefone ou Celular:</label>
+									<input type="text" class="form-control Celular CelularVariavel" id="Telefone2" maxlength="20" <?php echo $readonly; ?>
+										   name="Telefone2" placeholder="(XX)999999999" value="<?php echo $query['Telefone2']; ?>">
+								</div>
+								<div class="col-md-4">
+									<label for="Telefone3">Telefone ou Celular:</label>
+									<input type="text" class="form-control Celular CelularVariavel" id="Telefone3" maxlength="20" <?php echo $readonly; ?>
+										   name="Telefone3" placeholder="(XX)999999999" value="<?php echo $query['Telefone3']; ?>">
+								</div>
+								<div class="col-md-4">
 									<label for="Cnpj">Cnpj:</label>
 									<input type="text" class="form-control" maxlength="45" <?php echo $readonly; ?>
 										   name="Cnpj" value="<?php echo $query['Cnpj']; ?>">
-								</div>                        								                        
-							
-								<div class="col-md-6">
-									<label for="Email">Site / Email:</label>
-									<input type="text" class="form-control" id="Bairro" maxlength="100" <?php echo $readonly; ?>
-										   name="Email" value="<?php echo $query['Email']; ?>">
 								</div>
 							</div>
 						</div>
@@ -153,7 +132,6 @@
 								</div>
 							</div>
 						</div> 
-
 						<div class="form-group">
 							<div class="row">
 								<div class="col-md-6">
@@ -171,18 +149,22 @@
 										}
 										?>
 									</select>
-								</div>								                        
+								</div>
+								<div class="col-md-6">
+									<label for="Email">E-mail:</label>
+									<input type="text" class="form-control" id="Bairro" maxlength="100" <?php echo $readonly; ?>
+										   name="Email" value="<?php echo $query['Email']; ?>">
+								</div>                        
 							</div>
 						</div> 
-
 						<div class="form-group">
 							<div class="row">
-								<div class="col-md-12">
+								<div class="col-md-10">
 									<label for="Obs">OBS:</label>
 									<textarea class="form-control" id="Obs" <?php echo $readonly; ?>
 											  name="Obs"><?php echo $query['Obs']; ?></textarea>
 								</div>
-									<div class="col-md-2">
+								<div class="col-md-2">
 									<label for="Ativo">Ativo?</label><br>
 									<div class="form-group">
 										<div class="btn-group" data-toggle="buttons">
@@ -212,11 +194,8 @@
 								</div>
 							</div>
 						</div>                 
-
 					</div>                                    
-
-					<br>
-
+					<br>               
 					<div class="form-group">
 						<div class="row">
 							<input type="hidden" name="idApp_Empresa" value="<?php echo $query['idApp_Empresa']; ?>">
@@ -232,7 +211,6 @@
 										<span class="glyphicon glyphicon-trash"></span> Excluir
 									</button>
 								</div>
-
 								<div class="modal fade bs-excluir-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
 									<div class="modal-dialog" role="document">
 										<div class="modal-content">
@@ -259,7 +237,6 @@
 										</div>
 									</div>
 								</div>
-
 							<?php } else { ?>
 								<div class="col-md-6">
 									<button class="btn btn-lg btn-primary" id="inputDb" data-loading-text="Aguarde..." type="submit">
@@ -268,15 +245,10 @@
 								</div>
 							<?php } ?>
 						</div>
-					</div>                
-
+					</div>
 					</form>
-
 				</div>
-
 			</div>
-
 		</div>
-
 	</div>
 </div>

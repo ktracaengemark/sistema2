@@ -2,11 +2,11 @@
 
 <div class="container-fluid">
     <div class="row">
-        <div class="col-sm-3 col-md-2">
+        <div class="col-sm-3 col-md-2 sidebar">
             <?php echo $nav_secundario; ?>
         </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-            <!--<h1 class="page-header"><?php echo $query['NomeEmpresa'] . ' <small>Identificador: ' . $query['idApp_Empresa'] . '</small>'; ?></h1>-->
+            <h1 class="page-header"><?php echo $query['NomeEmpresa'] . ' <small>Identificador: ' . $query['idApp_Empresa'] . '</small>'; ?></h1>
 
             <div class="col-md-2 col-lg-2 " align="center"> 
                 <img alt="User Pic" src="<?php echo base_url() . 'arquivos/imagens/profile-' . $query['profile'] . '.png'; ?>" 
@@ -121,6 +121,17 @@
                         
                         }
 						
+						if ($query['VendaFornec']) {
+                            
+                        echo '                                                 
+                        <tr>
+                            <td><span class="glyphicon glyphicon-alert"></span> Fornec. P/Venda:</td>
+                            <td>' . $query['VendaFornec'] . '</td>
+                        </tr>
+                        ';
+                        
+                        }
+						
 						if ($query['Ativo']) {
                             
                         echo '                                                 
@@ -130,7 +141,7 @@
                         </tr>
                         ';
                         
-                        }
+                        }												
                         ?>
                         
                     </tbody>

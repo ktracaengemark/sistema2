@@ -4,9 +4,9 @@
     <thead>
         <tr>
             <th>Fornecedor</th>
-			<th>Serv./Prod.</th>
+            <th>Serv./Prod.</th>
 			<th>P/Venda</th>
-            <th>Atividade</th>
+			<th>Atividade</th>			
             <th>Telefone</th>
         </tr>
     </thead>
@@ -24,7 +24,7 @@
                 echo '<td>' . $row['NomeEmpresa'] . '</td>';
 				echo '<td>' . $row['TipoFornec'] . '</td>';
 				echo '<td>' . $row['StatusSN'] . '</td>';
-				echo '<td>' . $row['Atividade'] . '</td>';
+				echo '<td>' . $row['Atividade'] . '</td>';				               
                 echo '<td>' . $row['Telefone1'] . '</td>';
             echo '</tr>';            
         }

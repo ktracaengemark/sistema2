@@ -2,7 +2,7 @@
 <div class="container-fluid">
 	<div class="row">
 
-		<div class="col-sm-3 col-md-2">
+		<div class="col-sm-3 col-md-2 sidebar">
 			<?php echo $nav_secundario; ?>
 		</div>
 
@@ -24,18 +24,16 @@
 								<input type="text" class="form-control" id="NomeContatoProf" maxlength="255" <?php echo $readonly; ?>
 									   name="NomeContatoProf" autofocus value="<?php echo $query['NomeContatoProf']; ?>">
 							</div>
-							<br>
 							<div class="col-md-4">
 								<label for="TelefoneContatoProf">Telefone Principal: *</label>
 								<input type="text" class="form-control Celular CelularVariavel" id="TelefoneContatoProf" maxlength="14" <?php echo $readonly; ?>
 									   name="TelefoneContatoProf" placeholder="(XX)999999999" value="<?php echo $query['TelefoneContatoProf']; ?>">
 							</div>
-							<br>
 							<div class="col-md-4">
 								<label for="DataNascimento">Data de Nascimento:</label>
 								<input type="text" class="form-control Date" maxlength="10" <?php echo $readonly; ?>
 									   name="DataNascimento" placeholder="DD/MM/AAAA" value="<?php echo $query['DataNascimento']; ?>">
-							</div> 
+							</div>                        													 
 							<!--
 							<div class="col-md-2 form-inline">
 								<label for="StatusVida">Status de Vida:</label><br>
@@ -87,8 +85,7 @@
 									}
 									?>   
 								</select>
-							</div>                       
-							<br>
+							</div>						
 							<div class="col-md-4">
 								<label for="RelaPes">Relação*</label>
 								<!--<a class="btn btn-xs btn-info" href="<?php echo base_url() ?>relapes/cadastrar/relapes" role="button"> 
@@ -108,11 +105,7 @@
 									?>   
 								</select>          
 							</div>
-						</div>
-					</div>
-					<div class="form-group">
-						<div class="row">
-							<div class="col-md-12">
+							<div class="col-md-4">
 								<label for="Obs">OBS:</label>
 								<textarea class="form-control" id="Obs" <?php echo $readonly; ?>
 										  name="Obs"><?php echo $query['Obs']; ?></textarea>
@@ -146,62 +139,60 @@
 								</div>
 							</div>
 						</div>
-					</div>                 
-
-					<br>
-
+					</div>
+					
 					<div class="form-group">
-						<div class="row">
-							<input type="hidden" name="idApp_Profissional" value="<?php echo $_SESSION['Profissional']['idApp_Profissional']; ?>"> 
-							<?php if ($metodo == 2) { ?>
+                    <div class="row">
+                        <input type="hidden" name="idApp_Profissional" value="<?php echo $_SESSION['Profissional']['idApp_Profissional']; ?>"> 
+                        <?php if ($metodo == 2) { ?>
 
-								<div class="col-md-6">
-									<button class="btn btn-lg btn-primary" id="inputDb" data-loading-text="Aguarde..." type="submit">
-										<span class="glyphicon glyphicon-save"></span> Salvar
-									</button>
-								</div>
-								<div class="col-md-6 text-right">
-									<button  type="button" class="btn btn-lg btn-danger" data-toggle="modal" data-loading-text="Aguarde..." data-target=".bs-excluir-modal-sm">
-										<span class="glyphicon glyphicon-trash"></span> Excluir
-									</button>
-								</div>
+                            <div class="col-md-6">
+                                <button class="btn btn-lg btn-primary" id="inputDb" data-loading-text="Aguarde..." type="submit">
+                                    <span class="glyphicon glyphicon-save"></span> Salvar
+                                </button>
+                            </div>
+                            <div class="col-md-6 text-right">
+                                <button  type="button" class="btn btn-lg btn-danger" data-toggle="modal" data-loading-text="Aguarde..." data-target=".bs-excluir-modal-sm">
+                                    <span class="glyphicon glyphicon-trash"></span> Excluir
+                                </button>
+                            </div>
 
-								<div class="modal fade bs-excluir-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
-									<div class="modal-dialog" role="document">
-										<div class="modal-content">
-											<div class="modal-header bg-danger">
-												<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-												<h4 class="modal-title">Tem certeza que deseja excluir?</h4>
-											</div>
-											<div class="modal-body">
-												<p>Ao confirmar esta operação todos os dados serão excluídos permanentemente do sistema.
-													Esta operação é irreversível.</p>
-											</div>
-											<div class="modal-footer">
-												<div class="col-md-6 text-left">
-													<button type="button" class="btn btn-warning" data-dismiss="modal">
-														<span class="glyphicon glyphicon-ban-circle"></span> Cancelar
-													</button>
-												</div>
-												<div class="col-md-6 text-right">
-													<a class="btn btn-danger" href="<?php echo base_url() . 'contatoprof/excluir/' . $query['idApp_ContatoProf'] ?>" role="button">
-														<span class="glyphicon glyphicon-trash"></span> Confirmar Exclusão
-													</a>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
+                            <div class="modal fade bs-excluir-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header bg-danger">
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                            <h4 class="modal-title">Tem certeza que deseja excluir?</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <p>Ao confirmar esta operação todos os dados serão excluídos permanentemente do sistema.
+                                                Esta operação é irreversível.</p>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <div class="col-md-6 text-left">
+                                                <button type="button" class="btn btn-warning" data-dismiss="modal">
+                                                    <span class="glyphicon glyphicon-ban-circle"></span> Cancelar
+                                                </button>
+                                            </div>
+                                            <div class="col-md-6 text-right">
+                                                <a class="btn btn-danger" href="<?php echo base_url() . 'contatoprof/excluir/' . $query['idApp_ContatoProf'] ?>" role="button">
+                                                    <span class="glyphicon glyphicon-trash"></span> Confirmar Exclusão
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
 
-							<?php } else { ?>
-								<div class="col-md-6">
-									<button class="btn btn-lg btn-primary" id="inputDb" data-loading-text="Aguarde..." type="submit">
-										<span class="glyphicon glyphicon-save"></span> Salvar
-									</button>
-								</div>
-							<?php } ?>
-						</div>
-					</div>                
+                        <?php } else { ?>
+                            <div class="col-md-6">
+                                <button class="btn btn-lg btn-primary" id="inputDb" data-loading-text="Aguarde..." type="submit">
+                                    <span class="glyphicon glyphicon-save"></span> Salvar
+                                </button>
+                            </div>
+                        <?php } ?>
+                    </div>
+                </div>
 
 					</form>
 

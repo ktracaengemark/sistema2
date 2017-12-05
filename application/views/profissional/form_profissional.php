@@ -1,40 +1,35 @@
 <?php if (isset($msg)) echo $msg; ?>
-<div class="container-fluid">
+
+<div class="container-fluid">	
 	<div class="row">
-
-		<div class=""><?php if (isset($nav_secundario)) echo $nav_secundario; ?></div>
-
+		<div class="<?php echo $sidebar; ?>"><?php if (isset($nav_secundario)) echo $nav_secundario; ?></div>
 		<div class="<?php echo $main; ?>">
-
 			<?php echo validation_errors(); ?>
-
 			<div class="panel panel-<?php echo $panel; ?>">
-
 				<div class="panel-heading"><strong><?php echo $titulo; ?></strong></div>
 				<div class="panel-body">
-
 					<?php echo form_open_multipart($form_open_path); ?>
-
 					<div class="form-group">
 						<div class="row">
 							<div class="col-md-4">
-								<label for="NomeProfissional">Funcionário:*</label>
+								<label for="NomeProfissional">Funcionário*</label>
 								<input type="text" class="form-control" id="NomeProfissional" maxlength="255" <?php echo $readonly; ?>
 									   name="NomeProfissional" autofocus value="<?php echo $query['NomeProfissional']; ?>">
 							</div>
-							<br>
 							<div class="col-md-4">
 								<label for="Telefone1">Telefone Principal:*</label>
 								<input type="text" class="form-control Celular CelularVariavel" id="Telefone1" maxlength="14" <?php echo $readonly; ?>
 									   name="Telefone1" placeholder="(XX)999999999" value="<?php echo $query['Telefone1']; ?>">
-							</div>							
-							<br>
+							</div>
 							<div class="col-md-4">
 								<label for="DataNascimento">Data de Nascimento:</label>
 								<input type="text" class="form-control Date" maxlength="10" <?php echo $readonly; ?>
 									   name="DataNascimento" placeholder="DD/MM/AAAA" value="<?php echo $query['DataNascimento']; ?>">
-							</div>
-							<br>							
+							</div>																			
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="row">											
 							<div class="col-md-4">
 								<label for="Sexo">Sexo:</label>
 								<select data-placeholder="Selecione uma opção..." class="form-control" <?php echo $readonly; ?>
@@ -50,8 +45,7 @@
 									}
 									?>   
 								</select>
-							</div>
-							<br>						
+							</div>						
 							<div class="col-md-4">
 								<label for="Funcao">Funcao:*</label>
 								<a class="btn btn-xs btn-info" href="<?php echo base_url() ?>funcao/cadastrar/funcao" role="button"> 
@@ -70,12 +64,9 @@
 									}
 									?>   
 								</select>          
-							</div>
-																																									
+							</div>																																							
 						</div>
-					</div> 
-
-									
+					</div> 							
 					<div class="form-group">
 						<div class="row">
 							<div class="col-md-12 text-center">
@@ -85,12 +76,9 @@
 							</div>                
 						</div>
 					</div>                 
-
 					<div <?php echo $collapse; ?> id="DadosComplementares">
-
 					<div class="form-group">
-						<div class="row">
-							
+						<div class="row">						
 							<div class="col-md-4">
 								<label for="Telefone2">Telefone ou Celular:</label>
 								<input type="text" class="form-control Celular CelularVariavel" id="Telefone2" maxlength="14" <?php echo $readonly; ?>
@@ -100,20 +88,14 @@
 								<label for="Telefone3">Telefone ou Celular:</label>
 								<input type="text" class="form-control Celular CelularVariavel" id="Telefone3" maxlength="14" <?php echo $readonly; ?>
 									   name="Telefone3" placeholder="(XX)999999999" value="<?php echo $query['Telefone3']; ?>">
-							</div>                    
+							</div> 
+							<div class="col-md-4">
+								<label for="Cnpj">CPF:</label>
+								<input type="text" class="form-control" maxlength="45" <?php echo $readonly; ?>
+									   name="Cnpj" value="<?php echo $query['Cnpj']; ?>">
+							</div> 
 						</div>
 					</div>
-						
-						<div class="form-group">
-							<div class="row">
-								<div class="col-md-4">
-									<label for="Cnpj">CPF:</label>
-									<input type="text" class="form-control" maxlength="45" <?php echo $readonly; ?>
-										   name="Cnpj" value="<?php echo $query['Cnpj']; ?>">
-								</div>                        								                        
-							</div>
-						</div>                 
-
 						<div class="form-group">
 							<div class="row">
 								<div class="col-md-6">
@@ -128,7 +110,6 @@
 								</div>
 							</div>
 						</div> 
-
 						<div class="form-group">
 							<div class="row">
 								<div class="col-md-6">
@@ -154,7 +135,6 @@
 								</div>                        
 							</div>
 						</div> 
-
 						<div class="form-group">
 							<div class="row">
 								<div class="col-md-10">
@@ -192,11 +172,8 @@
 								</div>
 							</div>
 						</div>                 
-
 					</div>                                    
-
-					<br>
-
+					<br>				
 					<div class="form-group">
 						<div class="row">
 							<input type="hidden" name="idApp_Profissional" value="<?php echo $query['idApp_Profissional']; ?>">
@@ -239,7 +216,6 @@
 										</div>
 									</div>
 								</div>
-
 							<?php } else { ?>
 								<div class="col-md-6">
 									<button class="btn btn-lg btn-primary" id="inputDb" data-loading-text="Aguarde..." type="submit">
@@ -248,15 +224,10 @@
 								</div>
 							<?php } ?>
 						</div>
-					</div>               
-
+					</div>					
 					</form>
-
 				</div>
-
 			</div>
-
 		</div>
-
 	</div>
 </div>

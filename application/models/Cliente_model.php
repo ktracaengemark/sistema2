@@ -106,8 +106,8 @@ class Cliente_model extends CI_Model {
 
         $query = $this->db->query('SELECT * '
                 . 'FROM App_Cliente WHERE '
-                . 'idSis_Usuario = ' . $_SESSION['log']['id'] . ' AND '
-                . 'idTab_Modulo = 1 AND '
+                . 'Empresa = ' . $_SESSION['log']['Empresa'] . ' AND '
+                . 'idTab_Modulo = ' . $_SESSION['log']['idTab_Modulo'] . ' AND '
                 . '(NomeCliente like "%' . $data . '%" OR '
                 #. 'DataNascimento = "' . $this->basico->mascara_data($data, 'mysql') . '" OR '
                 #. 'NomeCliente like "%' . $data . '%" OR '
@@ -135,5 +135,44 @@ class Cliente_model extends CI_Model {
             }
         }
     }
+	
+	public function select_cliente($data = FALSE) {
+
+        if ($data === TRUE) {
+            $array = $this->db->query(					
+				'SELECT                
+				idApp_Cliente,
+				CONCAT(IFNULL(NomeCliente, ""), " --- ", IFNULL(Telefone1, ""), " --- ", IFNULL(Telefone2, ""), " --- ", IFNULL(Telefone3, "")) As NomeCliente				
+            FROM
+                App_Cliente					
+            WHERE
+                idTab_Modulo = ' . $_SESSION['log']['idTab_Modulo'] . ' AND
+                Empresa = ' . $_SESSION['log']['Empresa'] . '
+			ORDER BY 
+				NomeCliente ASC'
+    );
+					
+        } else {
+            $query = $this->db->query(
+                'SELECT                
+				idApp_Cliente,
+				CONCAT(IFNULL(NomeCliente, ""), " --- ", IFNULL(Telefone1, ""), " --- ", IFNULL(Telefone2, ""), " --- ", IFNULL(Telefone3, "")) As NomeCliente				
+            FROM
+                App_Cliente					
+            WHERE
+                idTab_Modulo = ' . $_SESSION['log']['idTab_Modulo'] . ' AND
+                Empresa = ' . $_SESSION['log']['Empresa'] . '
+			ORDER BY 
+				NomeCliente ASC'
+    );
+            
+            $array = array();
+            foreach ($query->result() as $row) {
+                $array[$row->idApp_Cliente] = $row->NomeCliente;
+            }
+        }
+
+        return $array;
+    }	
 
 }

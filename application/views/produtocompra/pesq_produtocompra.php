@@ -1,5 +1,5 @@
 <?php if (isset($msg)) echo $msg; ?>
-<div class="container-fluid">
+<div class="container-fluid">	
 	<div class="row">
 
 		<div class="col-md-2"></div>
@@ -14,11 +14,11 @@
 
 					<?php echo form_open($form_open_path, 'role="form"'); ?>
 						<div class="row">                      						
-							<div class="col-md-4">
+							<div class="col-md-6">
 								<label for="ProdutoBase">Produto</label>								
-								<select data-placeholder="Selecione uma opção..." class="form-control" <?php echo $readonly; ?>
+								<select data-placeholder="Selecione uma opção..." class="form-control Chosen"
 										id="ProdutoBase" autofocus name="ProdutoBase">
-									<option value="">--Sel. Produto --</option>
+									<option value="">--Sel. Produto Base --</option>
 									<?php
 									foreach ($select['ProdutoBase'] as $key => $row) {
 										if ($query['ProdutoBase'] == $key) {
@@ -32,7 +32,7 @@
 							</div>
 							<div class="col-md-2">
 								<label for="Empresa">Fornecedor</label>								
-								<select data-placeholder="Selecione uma opção..." class="form-control" <?php echo $readonly; ?>
+								<select data-placeholder="Selecione uma opção..." class="form-control Chosen"
 										id="Empresa"  name="Empresa">
 									<option value="">-- Sel. Fornec. --</option>
 									<?php
@@ -137,11 +137,17 @@
 							</div>
 						</div>					
 					</form>
-					<br>                               
+					
+					<br>
+					
 					<?php if (isset($list)) echo $list; ?>
+					
 				</div>
+				
 			</div>
+			
 		</div>
 		<div class="col-md-2"></div>
+		
 	</div>
 </div>

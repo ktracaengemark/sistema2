@@ -1,9 +1,10 @@
-<?php if ($msg) echo $msg; ?>
+<?php if (isset($msg)) echo $msg; ?>
 
-<div class="container-fluid">
+<div class="container-fluid">	
 	<div class="row">
 
-		<div class="main">
+		<div class="col-md-2"></div>
+		<div class="col-md-8">
 
 			<?php echo validation_errors(); ?>
 
@@ -13,48 +14,63 @@
 				<div class="panel-body">
 
 					<?php echo form_open($form_open_path, 'role="form"'); ?>
-						<div class="row">                      						
-							<div class="col-md-4">
-								<label for="ProdutoBase">Produto</label>								
-								<select data-placeholder="Selecione uma opção..." class="form-control" <?php echo $readonly; ?>
-										id="ProdutoBase" autofocus name="ProdutoBase">
-									<option value="">--Sel. Produto --</option>
-									<?php
-									foreach ($select['ProdutoBase'] as $key => $row) {
-										if ($query['ProdutoBase'] == $key) {
-											echo '<option value="' . $key . '" selected="selected">' . $row . '</option>';
-										} else {
-											echo '<option value="' . $key . '">' . $row . '</option>';
+						<div class="form-group">   
+							<div class="row">                      								
+								<div class="col-md-3">
+									<label for="TipoProduto">Tipo de Produto</label>								
+									<select data-placeholder="Selecione uma opção..." class="form-control" <?php echo $readonly; ?>
+											id="TipoProduto"  name="TipoProduto">
+										<option value="">--Sel. Tipo de Produto--</option>
+										<?php
+										foreach ($select['TipoProduto'] as $key => $row) {
+											(!$query['TipoProduto']) ? $query['TipoProduto'] = 'V' : FALSE;
+											if ($query['TipoProduto'] == $key) {
+												echo '<option value="' . $key . '" selected="selected">' . $row . '</option>';
+											} else {
+												echo '<option value="' . $key . '">' . $row . '</option>';
+											}
 										}
-									}
-									?>
-								</select>
-							</div>						
-							<div class="col-md-2">
-								<label for="Convenio">Plano</label>								
-								<select data-placeholder="Selecione uma opção..." class="form-control" <?php echo $readonly; ?>
-										id="Convenio" autofocus name="Convenio">
-									<option value="">--Sel. Plano --</option>
-									<?php
-									foreach ($select['Convenio'] as $key => $row) {
-										if ($query['Convenio'] == $key) {
-											echo '<option value="' . $key . '" selected="selected">' . $row . '</option>';
-										} else {
-											echo '<option value="' . $key . '">' . $row . '</option>';
-										}
-									}
-									?>
-								</select>
-							</div>
-							<div class="col-md-2">
-								<label for="ValorVendaProduto">Valor de Venda: *</label><br>
-								<div class="input-group">
-									<span class="input-group-addon" id="basic-addon1">R$</span>
-									<input type="text" class="form-control Valor" maxlength="10" placeholder="0,00"
-											name="ValorVendaProduto" value="<?php echo $query['ValorVendaProduto'] ?>">
+										?>
+									</select>
 								</div>
-							</div>												
+								<div class="col-md-2">
+									<label for="CodProd">Cod. Prod.:</label><br>
+									<input type="text" class="form-control" maxlength="20"
+											name="CodProd" value="<?php echo $query['CodProd'] ?>">
+								</div>
+								<div class="col-md-4">
+									<label for="NomeProduto">Nome do Produto:*</label><br>
+									<input type="text" class="form-control" maxlength="200"
+									autofocus name="NomeProduto" value="<?php echo $query['NomeProduto'] ?>">
+								</div>													
+							</div>
 						</div>
+						<br>
+						<div class="form-group"> 					
+							<div class="row"> 	
+								<div class="col-md-2">
+									<label for="UnidadeProduto">Unidade:</label><br>
+									<input type="text" class="form-control" maxlength="20"
+											name="UnidadeProduto" value="<?php echo $query['UnidadeProduto'] ?>">
+								</div>
+								<div class="col-md-3">
+									<label for="ValorCompraProduto">Valor de Compra:</label><br>
+									<div class="input-group">
+										<span class="input-group-addon" id="basic-addon1">R$</span>
+										<input type="text" class="form-control Valor" maxlength="10" placeholder="0,00"
+												name="ValorCompraProduto" value="<?php echo $query['ValorCompraProduto'] ?>">
+									</div>
+								</div>                    											
+								<div class="col-md-3">
+									<label for="ValorVendaProduto">Valor de Venda:</label><br>
+									<div class="input-group">
+										<span class="input-group-addon" id="basic-addon1">R$</span>
+										<input type="text" class="form-control Valor" maxlength="10" placeholder="0,00"
+												name="ValorVendaProduto" value="<?php echo $query['ValorVendaProduto'] ?>">
+									</div>
+								</div>												
+							</div>
+						</div>	
 						<br>				
 						<div class="form-group">
 							<div class="row">
@@ -65,16 +81,6 @@
 										<button class="btn btn-lg btn-primary" id="inputDb" data-loading-text="Aguarde..." type="submit">
 											<span class="glyphicon glyphicon-save"></span> Salvar
 										</button>
-									</div>
-									<div class="col-md-3 text-left">											
-										<a class="btn btn-lg btn-success" href="<?php echo base_url() ?>produtobase/cadastrar" role="button"> 
-											<span class="glyphicon glyphicon-plus"></span> Produto Base
-										</a>
-									</div>
-									<div class="col-md-3 text-right">											
-										<a class="btn btn-lg btn-warning" href="<?php echo base_url() ?>produtocompra/cadastrar" role="button"> 
-											<span class="glyphicon glyphicon-list"></span> Fornec & <span class="glyphicon glyphicon-usd"></span> Preco Compra
-										</a>
 									</div>
 									<div class="col-md-3 text-right">
 										<button  type="button" class="btn btn-lg btn-danger" data-toggle="modal" data-loading-text="Aguarde..." data-target=".bs-excluir-modal-sm">
@@ -115,16 +121,7 @@
 											<span class="glyphicon glyphicon-save"></span> Salvar
 										</button>
 									</div>
-									<div class="col-md-3 text-left">											
-										<a class="btn btn-lg btn-success" href="<?php echo base_url() ?>produtobase/cadastrar" role="button"> 
-											<span class="glyphicon glyphicon-plus"></span> Produto Base
-										</a>
-									</div>
-									<div class="col-md-3 text-right">											
-										<a class="btn btn-lg btn-warning" href="<?php echo base_url() ?>produtocompra/cadastrar" role="button"> 
-											<span class="glyphicon glyphicon-list"></span> Fornec & <span class="glyphicon glyphicon-usd"></span> Preco Compra
-										</a>
-									</div>
+
 								<?php } ?>
 							</div>
 						</div>					
@@ -134,5 +131,6 @@
 				</div>
 			</div>
 		</div>
+		<div class="col-md-2"></div>		
 	</div>
 </div>

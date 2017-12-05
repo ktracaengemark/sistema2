@@ -13,7 +13,7 @@ class Despesas extends CI_Controller {
         $this->load->helper(array('form', 'url', 'date', 'string'));
         #$this->load->library(array('basico', 'Basico_model', 'form_validation'));
         $this->load->library(array('basico', 'form_validation'));
-        $this->load->model(array('Basico_model', 'Servico_model', 'Produto_model', 'ServicoBase_model', 'ProdutoBase_model', 'Produtocompra_model', 'Servicocompra_model', 'Despesas_model', 'Tipodespesa_model', 'Profissional_model', 'Formapag_model', 'Cliente_model'));
+        $this->load->model(array('Basico_model', 'Servico_model', 'Produto_model', 'Produtos_model', 'ServicoBase_model', 'ProdutoBase_model', 'Produtocompra_model', 'Servicocompra_model', 'Despesas_model', 'Tipodespesa_model', 'Profissional_model', 'Formapag_model', 'Cliente_model'));
         $this->load->driver('session');
 
         #load header view
@@ -137,7 +137,7 @@ class Despesas extends CI_Controller {
         $this->form_validation->set_rules('DataDespesas', 'Data da Despesa', 'required|trim|valid_date');
         #$this->form_validation->set_rules('Despesa', 'Despesa', 'required|trim');
         #$this->form_validation->set_rules('TipoDespesa', 'Tipo de Despesa', 'required|trim');
-        $this->form_validation->set_rules('ProfissionalDespesas', 'Profissional', 'required|trim');
+        #$this->form_validation->set_rules('ProfissionalDespesas', 'Profissional', 'required|trim');
 		$this->form_validation->set_rules('FormaPagamentoDespesas', 'Forma de Pagamento', 'required|trim');
 		$this->form_validation->set_rules('QtdParcelasDespesas', 'Qtd de Parcelas', 'required|trim');
 		$this->form_validation->set_rules('DataVencimentoDespesas', 'Data do 1ºVenc.', 'required|trim|valid_date');
@@ -150,10 +150,12 @@ class Despesas extends CI_Controller {
 		$data['select']['QuitadoDespesas'] = $this->Basico_model->select_status_sn();
         $data['select']['QuitadoPagaveis'] = $this->Basico_model->select_status_sn();
 		$data['select']['Profissional'] = $this->Profissional_model->select_profissional();
-        #$data['select']['Servico'] = $this->ServicoBase_model->select_servicobase();
+		$data['select']['Servico'] = $this->Servico_model->select_servico();
+        $data['select']['Produto'] = $this->Produtos_model->select_produtos();		
+		#$data['select']['Servico'] = $this->ServicoBase_model->select_servicobase();
         #$data['select']['Produto'] = $this->ProdutoBase_model->select_produtobase();
-		$data['select']['Servico'] = $this->Servicocompra_model->select_servicocompra2();
-        $data['select']['Produto'] = $this->Produtocompra_model->select_produtocompra2();
+		#$data['select']['Servico'] = $this->Servicocompra_model->select_servicocompra2();
+        #$data['select']['Produto'] = $this->Produtocompra_model->select_produtocompra2();
 
         $data['titulo'] = 'Cadastar Despesas';
         $data['form_open_path'] = 'despesas/cadastrar';
@@ -231,7 +233,7 @@ class Despesas extends CI_Controller {
             $data['despesas']['DataEntradaDespesas'] = $this->basico->mascara_data($data['despesas']['DataEntradaDespesas'], 'mysql');
             $data['despesas']['ValorRestanteDespesas'] = str_replace(',', '.', str_replace('.', '', $data['despesas']['ValorRestanteDespesas']));
 			$data['despesas']['TipoProduto'] = $data['despesas']['TipoProduto'];
-
+			$data['despesas']['Empresa'] = $_SESSION['log']['Empresa'];
             $data['despesas']['idSis_Usuario'] = $_SESSION['log']['id'];
             $data['despesas']['idTab_Modulo'] = $_SESSION['log']['idTab_Modulo'];
             $data['despesas']['idApp_Despesas'] = $this->Despesas_model->set_despesas($data['despesas']);
@@ -480,7 +482,7 @@ class Despesas extends CI_Controller {
         $this->form_validation->set_rules('DataDespesas', 'Data da Despesa', 'required|trim|valid_date');
         #$this->form_validation->set_rules('Despesa', 'Despesa', 'required|trim');
         #$this->form_validation->set_rules('TipoDespesa', 'Tipo de Despesa', 'required|trim');
-        $this->form_validation->set_rules('ProfissionalDespesas', 'Profissional', 'required|trim');
+        #$this->form_validation->set_rules('ProfissionalDespesas', 'Profissional', 'required|trim');
 		$this->form_validation->set_rules('FormaPagamentoDespesas', 'Forma de Pagamento', 'required|trim');
 		$this->form_validation->set_rules('QtdParcelasDespesas', 'Qtd de Parcelas', 'required|trim');
 		$this->form_validation->set_rules('DataVencimentoDespesas', 'Data do 1ºVenc.', 'required|trim|valid_date');
@@ -494,10 +496,12 @@ class Despesas extends CI_Controller {
 		$data['select']['QuitadoDespesas'] = $this->Basico_model->select_status_sn();
         $data['select']['QuitadoPagaveis'] = $this->Basico_model->select_status_sn();
 		$data['select']['Profissional'] = $this->Profissional_model->select_profissional();
-        #$data['select']['Servico'] = $this->ServicoBase_model->select_servicobase();
+		$data['select']['Servico'] = $this->Servico_model->select_servico();
+        $data['select']['Produto'] = $this->Produtos_model->select_produtos();		
+		#$data['select']['Servico'] = $this->ServicoBase_model->select_servicobase();
         #$data['select']['Produto'] = $this->ProdutoBase_model->select_produtobase();
-		$data['select']['Servico'] = $this->Servicocompra_model->select_servicocompra2();
-        $data['select']['Produto'] = $this->Produtocompra_model->select_produtocompra2();
+		#$data['select']['Servico'] = $this->Servicocompra_model->select_servicocompra2();
+        #$data['select']['Produto'] = $this->Produtocompra_model->select_produtocompra2();
 
         $data['titulo'] = 'Editar Despesas';
         $data['form_open_path'] = 'despesas/alterar';
@@ -574,9 +578,9 @@ class Despesas extends CI_Controller {
             $data['despesas']['DataEntradaDespesas'] = $this->basico->mascara_data($data['despesas']['DataEntradaDespesas'], 'mysql');
             $data['despesas']['ValorRestanteDespesas'] = str_replace(',', '.', str_replace('.', '', $data['despesas']['ValorRestanteDespesas']));
 			$data['despesas']['TipoProduto'] = $data['despesas']['TipoProduto'];
-			
+			#$data['despesas']['Empresa'] = $_SESSION['log']['Empresa'];			
             $data['despesas']['idSis_Usuario'] = $_SESSION['log']['id'];
-            $data['despesas']['idTab_Modulo'] = $_SESSION['log']['idTab_Modulo'];
+            #$data['despesas']['idTab_Modulo'] = $_SESSION['log']['idTab_Modulo'];
 
             $data['update']['despesas']['anterior'] = $this->Despesas_model->get_despesas($data['despesas']['idApp_Despesas']);
             $data['update']['despesas']['campos'] = array_keys($data['despesas']);

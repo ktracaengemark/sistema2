@@ -185,7 +185,7 @@ class Basico_model extends CI_Model {
 
         return $array;
     }
-	
+
 	public function select_municipio($data = FALSE) {
 
         if ($data === TRUE) {
@@ -193,8 +193,8 @@ class Basico_model extends CI_Model {
 				'SELECT
 					idTab_Municipio,
 					CONCAT(Uf, " - ", NomeMunicipio) AS NomeMunicipio
-				FROM 
-					Tab_Municipio 
+				FROM
+					Tab_Municipio
 				ORDER BY NomeMunicipio ASC, Uf ASC'
 				);
         } else {
@@ -202,8 +202,8 @@ class Basico_model extends CI_Model {
 				'SELECT
 					idTab_Municipio,
 					CONCAT(Uf, " - ", NomeMunicipio) AS NomeMunicipio
-				FROM 
-					Tab_Municipio 
+				FROM
+					Tab_Municipio
 				ORDER BY Uf ASC, NomeMunicipio ASC'
 				);
 
@@ -278,7 +278,7 @@ class Basico_model extends CI_Model {
             return '';
         }
     }
-	
+
 	public function get_relacom($data) {
 
         if (isset($data) && $data) {
@@ -295,7 +295,7 @@ class Basico_model extends CI_Model {
             return '';
         }
     }
-	
+
 	public function get_relapes($data) {
 
         if (isset($data) && $data) {
@@ -312,7 +312,7 @@ class Basico_model extends CI_Model {
             return '';
         }
     }
-	
+
 	public function get_funcao($data) {
 
         if (isset($data) && $data) {
@@ -329,7 +329,24 @@ class Basico_model extends CI_Model {
             return '';
         }
     }
-	
+
+	public function get_permissao($data) {
+
+        if (isset($data) && $data) {
+
+			$query = $this->db->query('SELECT * FROM Sis_Permissao WHERE idSis_Permissao = "' . $data . '"');
+
+            if ($query->num_rows() === 0) {
+                return '';
+            } else {
+                $query = $query->result_array();
+                return $query[0]['Nivel'];
+            }
+        } else {
+            return '';
+        }
+    }
+
 	public function get_atividade($data) {
 
         if (isset($data) && $data) {
@@ -346,7 +363,7 @@ class Basico_model extends CI_Model {
             return '';
         }
     }
-	
+
 	public function get_tipofornec($data) {
 
         if (isset($data) && $data) {
@@ -363,7 +380,7 @@ class Basico_model extends CI_Model {
             return '';
         }
     }
-	
+
 	public function get_vendafornec($data) {
 
         if (isset($data) && $data) {
@@ -380,7 +397,7 @@ class Basico_model extends CI_Model {
             return '';
         }
     }
-	
+
 	public function get_ativo($data) {
 
         if (isset($data) && $data) {
@@ -397,28 +414,93 @@ class Basico_model extends CI_Model {
             return '';
         }
     }
+
+	public function get_inativo($data) {
+
+        if (isset($data) && $data) {
+
+			$query = $this->db->query('SELECT * FROM Tab_StatusSN WHERE Inativo = "' . $data . '"');
+
+            if ($query->num_rows() === 0) {
+                return '';
+            } else {
+                $query = $query->result_array();
+                return $query[0]['StatusSN'];
+            }
+        } else {
+            return '';
+        }
+    }
+
+	public function get_empresa($data) {
+
+        if (isset($data) && $data) {
+
+			$query = $this->db->query('
+				SELECT *
+					FROM
+						Sis_EmpresaFilial
+					WHERE
+						idSis_EmpresaFilial = "' . $data . '"
+				');
+
+            if ($query->num_rows() === 0) {
+                return '';
+            } else {
+                $query = $query->result_array();
+                return $query[0]['NomeEmpresa'];
+            }
+        } else {
+            return '';
+        }
+    }
 	
-	public function select_profissional($data = FALSE) {
+	public function select_cliente($data = FALSE) {
 
         if ($data === TRUE) {
             $array = $this->db->query(					
 				'SELECT                
-				P.idApp_Profissional,
-				CONCAT(F.Abrev, " --- ", P.NomeProfissional) AS NomeProfissional				
+				idApp_Cliente,
+				CONCAT(IFNULL(NomeCliente, ""), " --- ", IFNULL(Telefone1, ""), " --- ", IFNULL(Telefone2, ""), " --- ", IFNULL(Telefone3, "")) As NomeCliente				
             FROM
-                App_Profissional AS P
-					LEFT JOIN Tab_Funcao AS F ON F.idTab_Funcao = P.Funcao
+                App_Cliente					
             WHERE
-                P.idTab_Modulo = ' . $_SESSION['log']['idTab_Modulo'] . ' AND
-                P.idSis_Usuario = ' . $_SESSION['log']['id'] . '
-                ORDER BY F.Abrev ASC, P.NomeProfissional ASC'
+                idTab_Modulo = ' . $_SESSION['log']['idTab_Modulo'] . ' AND
+                Empresa = ' . $_SESSION['log']['Empresa'] . '
+			ORDER BY 
+				NomeCliente ASC'
     );
 					
         } else {
             $query = $this->db->query(
                 'SELECT                
+				idApp_Cliente,
+				CONCAT(IFNULL(NomeCliente, ""), " --- ", IFNULL(Telefone1, ""), " --- ", IFNULL(Telefone2, ""), " --- ", IFNULL(Telefone3, "")) As NomeCliente				
+            FROM
+                App_Cliente					
+            WHERE
+                idTab_Modulo = ' . $_SESSION['log']['idTab_Modulo'] . ' AND
+                Empresa = ' . $_SESSION['log']['Empresa'] . '
+			ORDER BY 
+				NomeCliente ASC'
+    );
+            
+            $array = array();
+            foreach ($query->result() as $row) {
+                $array[$row->idApp_Cliente] = $row->NomeCliente;
+            }
+        }
+
+        return $array;
+    }	
+
+	public function select_profissional($data = FALSE) {
+
+        if ($data === TRUE) {
+            $array = $this->db->query(
+				'SELECT
 				P.idApp_Profissional,
-				CONCAT(F.Abrev, " --- ", P.NomeProfissional) AS NomeProfissional				
+				CONCAT(F.Abrev, " --- ", P.NomeProfissional) AS NomeProfissional
             FROM
                 App_Profissional AS P
 					LEFT JOIN Tab_Funcao AS F ON F.idTab_Funcao = P.Funcao
@@ -427,7 +509,21 @@ class Basico_model extends CI_Model {
                 P.idSis_Usuario = ' . $_SESSION['log']['id'] . '
                 ORDER BY F.Abrev ASC, P.NomeProfissional ASC'
     );
-            
+
+        } else {
+            $query = $this->db->query(
+                'SELECT
+				P.idApp_Profissional,
+				CONCAT(F.Abrev, " --- ", P.NomeProfissional) AS NomeProfissional
+            FROM
+                App_Profissional AS P
+					LEFT JOIN Tab_Funcao AS F ON F.idTab_Funcao = P.Funcao
+            WHERE
+                P.idTab_Modulo = ' . $_SESSION['log']['idTab_Modulo'] . ' AND
+                P.idSis_Usuario = ' . $_SESSION['log']['id'] . '
+                ORDER BY F.Abrev ASC, P.NomeProfissional ASC'
+    );
+
             $array = array();
             foreach ($query->result() as $row) {
                 $array[$row->idApp_Profissional] = $row->NomeProfissional;
@@ -441,32 +537,32 @@ class Basico_model extends CI_Model {
 
         if ($data === TRUE) {
             $array = $this->db->query(
-                'SELECT                
-				P.idTab_Produto,				
-				CONCAT(CO.Abrev, " --- ", PB.ProdutoBase, " --- ", PB.UnidadeProdutoBase, " --- ", EM.NomeEmpresa, " ---R$", P.ValorVendaProduto) AS ProdutoBase				
+                'SELECT
+				P.idTab_Produto,
+				CONCAT(CO.Abrev, " --- ", PB.ProdutoBase, " --- ", PB.UnidadeProdutoBase, " --- ", EM.NomeEmpresa, " ---R$", P.ValorVendaProduto) AS ProdutoBase
             FROM
                 Tab_Produto AS P
-				LEFT JOIN Tab_ProdutoBase AS PB ON PB.idTab_ProdutoBase = P.ProdutoBase    
+				LEFT JOIN Tab_ProdutoBase AS PB ON PB.idTab_ProdutoBase = P.ProdutoBase
 				LEFT JOIN Tab_Convenio AS CO ON CO.idTab_Convenio = P.Convenio
 				LEFT JOIN App_Empresa AS EM ON EM.idApp_Empresa = P.Empresa
             WHERE
                 P.idTab_Modulo = ' . $_SESSION['log']['idTab_Modulo'] . ' AND
-                P.idSis_Usuario = ' . $_SESSION['log']['id'] . ' 
+                P.idSis_Usuario = ' . $_SESSION['log']['id'] . '
 			ORDER BY CO.Convenio DESC, PB.ProdutoBase ASC'
     );
         } else {
             $query = $this->db->query(
-                'SELECT                
-				P.idTab_Produto,				
-				CONCAT(CO.Abrev, " --- ", PB.ProdutoBase, " --- ", PB.UnidadeProdutoBase, " --- ", EM.NomeEmpresa, " ---R$", P.ValorVendaProduto) AS ProdutoBase				
+                'SELECT
+				P.idTab_Produto,
+				CONCAT(CO.Abrev, " --- ", PB.ProdutoBase, " --- ", PB.UnidadeProdutoBase, " --- ", EM.NomeEmpresa, " ---R$", P.ValorVendaProduto) AS ProdutoBase
             FROM
                 Tab_Produto AS P
-				LEFT JOIN Tab_ProdutoBase AS PB ON PB.idTab_ProdutoBase = P.ProdutoBase    
+				LEFT JOIN Tab_ProdutoBase AS PB ON PB.idTab_ProdutoBase = P.ProdutoBase
 				LEFT JOIN Tab_Convenio AS CO ON CO.idTab_Convenio = P.Convenio
 				LEFT JOIN App_Empresa AS EM ON EM.idApp_Empresa = P.Empresa
             WHERE
                 P.idTab_Modulo = ' . $_SESSION['log']['idTab_Modulo'] . ' AND
-                P.idSis_Usuario = ' . $_SESSION['log']['id'] . ' 
+                P.idSis_Usuario = ' . $_SESSION['log']['id'] . '
 			ORDER BY CO.Convenio DESC, PB.ProdutoBase ASC'
     );
 
@@ -478,100 +574,150 @@ class Basico_model extends CI_Model {
 
         return $array;
     }
-	
+
 	public function select_produto($data = FALSE) {
 
         if ($data === TRUE) {
             $array = $this->db->query(
                 'SELECT
                 TPV.idTab_Produto,
-				CONCAT(TCO.Abrev, " --- ", TEM.NomeEmpresa, " --- ", TPB.ProdutoBase, " --- ", TPB.UnidadeProdutoBase, " --- R$ ", TPV.ValorVendaProduto) AS ProdutoBase,
+				CONCAT(TPV.NomeProduto, " --- ", TPV.UnidadeProduto, " --- R$ ", TPV.ValorVendaProduto) AS NomeProduto,
 				TPV.ValorVendaProduto
             FROM
-                Tab_Produto AS TPV				
-				LEFT JOIN Tab_Convenio AS TCO ON TCO.idTab_Convenio = TPV.Convenio				
-				LEFT JOIN Tab_ProdutoCompra AS TPC ON TPC.idTab_ProdutoCompra = TPV.ProdutoBase				
-				LEFT JOIN App_Empresa AS TEM ON TEM.idApp_Empresa = TPC.Empresa				
-				LEFT JOIN Tab_ProdutoBase AS TPB ON TPB.idTab_ProdutoBase = TPC.ProdutoBase								
+                Tab_Produto AS TPV
             WHERE
-                TPV.idTab_Modulo = ' . $_SESSION['log']['idTab_Modulo'] . ' AND
-                TPV.idSis_Usuario = ' . $_SESSION['log']['id'] . ' 
-			ORDER BY 
-				TCO.Convenio DESC,
-				TEM.NomeEmpresa,
-				TPB.ProdutoBase ASC 
+				TPV.idTab_Modulo = ' . $_SESSION['log']['idTab_Modulo'] . ' AND
+				(TPV.Empresa = ' . $_SESSION['log']['id'] . ' OR
+				 TPV.Empresa = ' . $_SESSION['log']['Empresa'] . ')
+			ORDER BY
+				TPV.NomeProduto ASC
     ');
         } else {
             $query = $this->db->query(
                 'SELECT
                 TPV.idTab_Produto,
-				CONCAT(TCO.Abrev, " --- ", TEM.NomeEmpresa, " --- ", TPB.ProdutoBase, " --- ", TPB.UnidadeProdutoBase, " --- R$ ", TPV.ValorVendaProduto) AS ProdutoBase,
+				CONCAT(TPV.NomeProduto, " --- ", TPV.UnidadeProduto, " --- R$ ", TPV.ValorVendaProduto) AS NomeProduto,
 				TPV.ValorVendaProduto
             FROM
-                Tab_Produto AS TPV				
-				LEFT JOIN Tab_Convenio AS TCO ON TCO.idTab_Convenio = TPV.Convenio				
-				LEFT JOIN Tab_ProdutoCompra AS TPC ON TPC.idTab_ProdutoCompra = TPV.ProdutoBase				
-				LEFT JOIN App_Empresa AS TEM ON TEM.idApp_Empresa = TPC.Empresa				
-				LEFT JOIN Tab_ProdutoBase AS TPB ON TPB.idTab_ProdutoBase = TPC.ProdutoBase								
+                Tab_Produto AS TPV
             WHERE
-                TPV.idTab_Modulo = ' . $_SESSION['log']['idTab_Modulo'] . ' AND
-                TPV.idSis_Usuario = ' . $_SESSION['log']['id'] . ' 
-			ORDER BY 
-				TCO.Convenio DESC,
-				TEM.NomeEmpresa,
-				TPB.ProdutoBase ASC 
+				TPV.idTab_Modulo = ' . $_SESSION['log']['idTab_Modulo'] . ' AND
+				(TPV.Empresa = ' . $_SESSION['log']['id'] . ' OR
+				 TPV.Empresa = ' . $_SESSION['log']['Empresa'] . ')
+			ORDER BY
+				TPV.NomeProduto ASC
     ');
 
             $array = array();
             foreach ($query->result() as $row) {
-                $array[$row->idTab_Produto] = $row->ProdutoBase;
+                $array[$row->idTab_Produto] = $row->NomeProduto;
             }
         }
 
         return $array;
     }
-	
-	public function select_servico($data = FALSE) {
+
+	public function select_produtos($data = FALSE) {
+
+        if ($data === TRUE) {
+            $array = $this->db->query(
+            'SELECT
+                V.idTab_Valor,
+                CONCAT(IFNULL(TP3.Prodaux3,""), " -- ", IFNULL(P.Produtos,""), " -- ", IFNULL(TP1.Prodaux1,""), " -- ", IFNULL(TP2.Prodaux2,""), " -- ", IFNULL(TCO.Convenio,""), " -- ", IFNULL(V.Convdesc,""), " --- ", V.ValorVendaProduto, " -- ", IFNULL(P.UnidadeProduto,""), " -- ", IFNULL(TFO.NomeFornecedor,""), " -- ", IFNULL(P.CodProd,"")) AS NomeProduto,
+                V.ValorVendaProduto,
+				P.Categoria
+            FROM
+                Tab_Valor AS V
+					LEFT JOIN Tab_Convenio AS TCO ON idTab_Convenio = V.Convenio
+					LEFT JOIN Tab_Produtos AS P ON P.idTab_Produtos = V.idTab_Produtos
+					LEFT JOIN App_Fornecedor AS TFO ON TFO.idApp_Fornecedor = P.Fornecedor
+					LEFT JOIN Tab_Prodaux3 AS TP3 ON TP3.idTab_Prodaux3 = P.Prodaux3
+					LEFT JOIN Tab_Prodaux2 AS TP2 ON TP2.idTab_Prodaux2 = P.Prodaux2
+					LEFT JOIN Tab_Prodaux1 AS TP1 ON TP1.idTab_Prodaux1 = P.Prodaux1
+            WHERE
+				P.idTab_Modulo = ' . $_SESSION['log']['idTab_Modulo'] . ' AND
+				P.Empresa = ' . $_SESSION['log']['Empresa'] . ' AND
+                P.idTab_Produtos = V.idTab_Produtos
+			ORDER BY
+				P.Categoria ASC,
+				TP3.Prodaux3,				
+				P.Produtos ASC,
+				TP1.Prodaux1,
+				TP2.Prodaux2,
+				TFO.NomeFornecedor ASC'
+    );
+        } else {
+            $query = $this->db->query(
+            'SELECT
+                V.idTab_Valor,
+                CONCAT(IFNULL(TP3.Prodaux3,""), " -- ", IFNULL(P.Produtos,""), " -- ", IFNULL(TP1.Prodaux1,""), " -- ", IFNULL(TP2.Prodaux2,""), " -- ", IFNULL(TCO.Convenio,""), " -- ", IFNULL(V.Convdesc,""), " --- ", V.ValorVendaProduto, " -- ", IFNULL(P.UnidadeProduto,""), " -- ", IFNULL(TFO.NomeFornecedor,""), " -- ", IFNULL(P.CodProd,"")) AS NomeProduto,
+                V.ValorVendaProduto,
+				P.Categoria
+            FROM
+                Tab_Valor AS V
+					LEFT JOIN Tab_Convenio AS TCO ON idTab_Convenio = V.Convenio
+					LEFT JOIN Tab_Produtos AS P ON P.idTab_Produtos = V.idTab_Produtos
+					LEFT JOIN App_Fornecedor AS TFO ON TFO.idApp_Fornecedor = P.Fornecedor
+					LEFT JOIN Tab_Prodaux3 AS TP3 ON TP3.idTab_Prodaux3 = P.Prodaux3
+					LEFT JOIN Tab_Prodaux2 AS TP2 ON TP2.idTab_Prodaux2 = P.Prodaux2
+					LEFT JOIN Tab_Prodaux1 AS TP1 ON TP1.idTab_Prodaux1 = P.Prodaux1
+            WHERE
+				P.idTab_Modulo = ' . $_SESSION['log']['idTab_Modulo'] . ' AND
+				P.Empresa = ' . $_SESSION['log']['Empresa'] . ' AND
+                P.idTab_Produtos = V.idTab_Produtos
+			ORDER BY
+				P.Categoria ASC,
+				TP3.Prodaux3,				
+				P.Produtos ASC,
+				TP1.Prodaux1,
+				TP2.Prodaux2,
+				TFO.NomeFornecedor ASC'
+    );
+
+            $array = array();
+            foreach ($query->result() as $row) {
+                $array[$row->idTab_Valor] = $row->NomeProduto;
+            }
+        }
+
+        return $array;
+    }
+
+	public function select_servico4($data = FALSE) {
 
         if ($data === TRUE) {
             $array = $this->db->query('
             SELECT
                 TSV.idTab_Servico,
-                CONCAT(TCO.Abrev, " --- ", TEM.NomeEmpresa, " --- ", TSB.ServicoBase, " --- R$ ", TSV.ValorVendaServico) AS ServicoBase,
+                CONCAT(TCO.Abrev, " --- ", TSB.ServicoBase, " --- R$ ", TSV.ValorVendaServico) AS ServicoBase,
                 TSV.ValorVendaServico
             FROM
                 Tab_Servico AS TSV
-				LEFT JOIN Tab_Convenio AS TCO ON TCO.idTab_Convenio = TSV.Convenio				
-				LEFT JOIN Tab_ServicoCompra AS TSC ON TSC.idTab_ServicoCompra = TSV.ServicoBase												
-				LEFT JOIN App_Empresa AS TEM ON TEM.idApp_Empresa = TSC.Empresa				
-				LEFT JOIN Tab_ServicoBase AS TSB ON TSB.idTab_ServicoBase = TSC.ServicoBase								
+				LEFT JOIN Tab_Convenio AS TCO ON TCO.idTab_Convenio = TSV.Convenio
+				LEFT JOIN Tab_ServicoBase AS TSB ON TSB.idTab_ServicoBase = TSV.ServicoBase
             WHERE
                 TSV.idTab_Modulo = ' . $_SESSION['log']['idTab_Modulo'] . ' AND
-                TSV.idSis_Usuario = ' . $_SESSION['log']['id'] . ' 
-			ORDER BY 
-				TCO.Convenio DESC, 
-				TEM.NomeEmpresa,
-				TSB.ServicoBase ASC				
+                TSV.idSis_Usuario = ' . $_SESSION['log']['id'] . '
+			ORDER BY
+				TCO.Convenio DESC,
+				TSB.ServicoBase ASC
     ');
         } else {
             $query = $this->db->query('
             SELECT
                 TSV.idTab_Servico,
-                CONCAT(TCO.Abrev, " --- ", TEM.NomeEmpresa, " --- ", TSB.ServicoBase, " --- R$ ", TSV.ValorVendaServico) AS ServicoBase,
+                CONCAT(TCO.Abrev, " --- ", TSB.ServicoBase, " --- R$ ", TSV.ValorVendaServico) AS ServicoBase,
                 TSV.ValorVendaServico
             FROM
                 Tab_Servico AS TSV
-				LEFT JOIN Tab_Convenio AS TCO ON TCO.idTab_Convenio = TSV.Convenio				
-				LEFT JOIN Tab_ServicoCompra AS TSC ON TSC.idTab_ServicoCompra = TSV.ServicoBase												
-				LEFT JOIN App_Empresa AS TEM ON TEM.idApp_Empresa = TSC.Empresa				
-				LEFT JOIN Tab_ServicoBase AS TSB ON TSB.idTab_ServicoBase = TSC.ServicoBase								
+				LEFT JOIN Tab_Convenio AS TCO ON TCO.idTab_Convenio = TSV.Convenio
+				LEFT JOIN Tab_ServicoBase AS TSB ON TSB.idTab_ServicoBase = TSV.ServicoBase
             WHERE
                 TSV.idTab_Modulo = ' . $_SESSION['log']['idTab_Modulo'] . ' AND
-                TSV.idSis_Usuario = ' . $_SESSION['log']['id'] . ' 
-			ORDER BY 
-				TCO.Convenio DESC, 
-				TEM.NomeEmpresa ASC,
-				TSB.ServicoBase ASC				
+                TSV.idSis_Usuario = ' . $_SESSION['log']['id'] . '
+			ORDER BY
+				TCO.Convenio DESC,
+				TSB.ServicoBase ASC
     ');
 
             $array = array();
@@ -582,43 +728,43 @@ class Basico_model extends CI_Model {
 
         return $array;
     }
-	
-	public function select_servico1($data = FALSE) {
+
+	public function select_servico($data = FALSE) {
 
         if ($data === TRUE) {
             $array = $this->db->query(
-                'SELECT                
-				S.idTab_Servico,
-				CONCAT(CO.Abrev, " --- ", SB.ServicoBase, " --- ", EM.NomeEmpresa, " --- R$ ", S.ValorVendaServico) AS ServicoBase				
+                'SELECT
+                TSV.idTab_Servico,
+                CONCAT(TSV.NomeServico, " --- R$ ", TSV.ValorVendaServico) AS NomeServico,
+                TSV.ValorVendaServico
             FROM
-                Tab_Servico AS S
-                LEFT JOIN Tab_ServicoBase AS SB ON SB.idTab_ServicoBase = S.ServicoBase    
-				LEFT JOIN Tab_Convenio AS CO ON CO.idTab_Convenio = S.Convenio
-				LEFT JOIN App_Empresa AS EM ON EM.idApp_Empresa = S.Empresa
+                Tab_Servico AS TSV
             WHERE
-                S.idTab_Modulo = ' . $_SESSION['log']['idTab_Modulo'] . ' AND
-                S.idSis_Usuario = ' . $_SESSION['log']['id'] . ' 
-			ORDER BY CO.Convenio DESC, SB.ServicoBase ASC'
-    );
+				TSV.idTab_Modulo = ' . $_SESSION['log']['idTab_Modulo'] . ' AND
+				(TSV.Empresa = ' . $_SESSION['log']['id'] . ' OR
+				 TSV.Empresa = ' . $_SESSION['log']['Empresa'] . ')
+			ORDER BY
+				TSV.NomeServico ASC
+    ');
         } else {
             $query = $this->db->query(
-                'SELECT                
-				S.idTab_Servico,
-				CONCAT(CO.Abrev, " --- ", SB.ServicoBase, " --- ", EM.NomeEmpresa, " --- R$ ", S.ValorVendaServico) AS ServicoBase				
+                'SELECT
+                TSV.idTab_Servico,
+                CONCAT(TSV.NomeServico, " --- R$ ", TSV.ValorVendaServico) AS NomeServico,
+                TSV.ValorVendaServico
             FROM
-                Tab_Servico AS S
-                LEFT JOIN Tab_ServicoBase AS SB ON SB.idTab_ServicoBase = S.ServicoBase    
-				LEFT JOIN Tab_Convenio AS CO ON CO.idTab_Convenio = S.Convenio
-				LEFT JOIN App_Empresa AS EM ON EM.idApp_Empresa = S.Empresa
+                Tab_Servico AS TSV
             WHERE
-                S.idTab_Modulo = ' . $_SESSION['log']['idTab_Modulo'] . ' AND
-                S.idSis_Usuario = ' . $_SESSION['log']['id'] . ' 
-			ORDER BY CO.Convenio DESC, SB.ServicoBase ASC'
-    );
+				TSV.idTab_Modulo = ' . $_SESSION['log']['idTab_Modulo'] . ' AND
+				(TSV.Empresa = ' . $_SESSION['log']['id'] . ' OR
+				 TSV.Empresa = ' . $_SESSION['log']['Empresa'] . ')
+			ORDER BY
+				TSV.NomeServico ASC
+    ');
 
             $array = array();
             foreach ($query->result() as $row) {
-                $array[$row->idTab_Servico] = $row->ServicoBase;
+                $array[$row->idTab_Servico] = $row->NomeServico;
             }
         }
 
@@ -666,7 +812,23 @@ class Basico_model extends CI_Model {
 
         return $array;
     }
-	
+
+	public function select_inativo($data = FALSE) {
+
+        if ($data === TRUE) {
+            $array = $this->db->query('SELECT * FROM Tab_StatusSN');
+        } else {
+            $query = $this->db->query('SELECT * FROM Tab_StatusSN');
+
+            $array = array();
+            foreach ($query->result() as $row) {
+                $array[$row->Inativo] = $row->StatusSN;
+            }
+        }
+
+        return $array;
+    }
+
 	public function select_tipoproduto($data = FALSE) {
 
         if ($data === TRUE) {
@@ -682,7 +844,39 @@ class Basico_model extends CI_Model {
 
         return $array;
     }
-	
+
+	public function select_unidadeproduto($data = FALSE) {
+
+        if ($data === TRUE) {
+            $array = $this->db->query('SELECT * FROM Tab_UnidadeProduto');
+        } else {
+            $query = $this->db->query('SELECT * FROM Tab_UnidadeProduto');
+
+            $array = array();
+            foreach ($query->result() as $row) {
+                $array[$row->Abrev] = $row->UnidadeProduto;
+            }
+        }
+
+        return $array;
+    }
+
+	public function select_categoria($data = FALSE) {
+
+        if ($data === TRUE) {
+            $array = $this->db->query('SELECT * FROM Tab_Categoria');
+        } else {
+            $query = $this->db->query('SELECT * FROM Tab_Categoria');
+
+            $array = array();
+            foreach ($query->result() as $row) {
+                $array[$row->Abrev] = $row->Categoria;
+            }
+        }
+
+        return $array;
+    }
+
 	public function select_tipofornec($data = FALSE) {
 
         if ($data === TRUE) {
@@ -693,6 +887,161 @@ class Basico_model extends CI_Model {
             $array = array();
             foreach ($query->result() as $row) {
                 $array[$row->Abrev] = $row->TipoFornec;
+            }
+        }
+
+        return $array;
+    }
+
+	public function select_permissao($data = FALSE) {
+
+        if ($data === TRUE) {
+            $array = $this->db->query('
+                SELECT
+                    idSis_Permissao,
+                    Permissao,
+					CONCAT(Nivel, " -- ", Permissao) AS Nivel
+				FROM
+                    Sis_Permissao
+
+				ORDER BY idSis_Permissao ASC
+			');
+
+        } else {
+            $query = $this->db->query('
+				SELECT
+                    idSis_Permissao,
+                    Permissao,
+					CONCAT(Nivel, " -- ", Permissao) AS Nivel
+				FROM
+                    Sis_Permissao
+
+				ORDER BY idSis_Permissao ASC
+			');
+
+            $array = array();
+            foreach ($query->result() as $row) {
+                $array[$row->idSis_Permissao] = $row->Nivel;
+            }
+        }
+
+        return $array;
+    }
+	
+	public function select_numusuarios($data = FALSE) {
+
+        if ($data === TRUE) {
+            $array = $this->db->query('
+                SELECT
+                    idTab_NumUsuarios,
+					DescNumUsuarios,
+					CONCAT(NumUsuarios, " -- ", DescNumUsuarios) AS NumUsuarios
+				FROM
+                    Tab_NumUsuarios
+				ORDER BY 
+					idTab_NumUsuarios ASC
+			');
+
+        } else {
+            $query = $this->db->query('
+                SELECT
+                    idTab_NumUsuarios,
+					DescNumUsuarios,
+					CONCAT(NumUsuarios, " -- ", DescNumUsuarios) AS NumUsuarios
+				FROM
+                    Tab_NumUsuarios
+				ORDER BY 
+					idTab_NumUsuarios ASC
+			');
+
+            $array = array();
+            foreach ($query->result() as $row) {
+                $array[$row->NumUsuarios] = $row->NumUsuarios;
+            }
+        }
+
+        return $array;
+    }	
+
+	public function select_agenda($data = FALSE) {
+
+        $q = ($_SESSION['log']['Permissao'] > 2) ?
+            ' U.idSis_Usuario = ' . $_SESSION['log']['id'] . ' AND ' : FALSE;
+
+        if ($data === TRUE) {
+            $array = $this->db->query('
+                SELECT
+                    A.idApp_Agenda,
+                    A.idSis_Usuario,
+					U.Nome
+				FROM
+                    App_Agenda AS A
+						LEFT JOIN Sis_Usuario AS U ON U.idSis_Usuario = A.idSis_Usuario
+				WHERE
+                    ' . $q . '
+					A.Empresa = ' . $_SESSION['log']['Empresa'] . '
+				ORDER BY
+					U.Nome ASC
+			');
+
+        } else {
+            $query = $this->db->query('
+				SELECT
+                    A.idApp_Agenda,
+                    A.idSis_Usuario,
+					CONCAT(IFNULL(F.Abrev,""), " --- ", IFNULL(U.Nome,"")) AS Nome
+
+				FROM
+                    App_Agenda AS A
+						LEFT JOIN Sis_Usuario AS U ON U.idSis_Usuario = A.idSis_Usuario
+						LEFT JOIN Tab_Funcao AS F ON F.idTab_Funcao = U.Funcao
+				WHERE
+                    ' . $q . '
+					A.Empresa = ' . $_SESSION['log']['Empresa'] . '
+				ORDER BY
+					F.Abrev ASC
+			');
+
+            $array = array();
+            foreach ($query->result() as $row) {
+                $array[$row->idApp_Agenda] = $row->Nome;
+            }
+        }
+
+        return $array;
+    }
+
+	public function select_tipoprofissional($data = FALSE) {
+
+        if ($data === TRUE) {
+            $array = $this->db->query('
+                SELECT
+                    idTab_TipoProfissional,
+                    TipoProfissional,
+					idTab_Modulo
+				FROM
+                    Tab_TipoProfissional
+				WHERE
+					idTab_Modulo = "1"
+				ORDER BY TipoProfissional ASC
+			');
+
+        } else {
+            $query = $this->db->query('
+				SELECT
+                    idTab_TipoProfissional,
+                    TipoProfissional,
+					idTab_Modulo
+				FROM
+                    Tab_TipoProfissional
+				WHERE
+					idTab_Modulo = "1"
+				ORDER BY TipoProfissional ASC
+			');
+
+            $array = array();
+            foreach ($query->result() as $row) {
+                $array[$row->idTab_TipoProfissional] = $row->TipoProfissional;
             }
         }
 

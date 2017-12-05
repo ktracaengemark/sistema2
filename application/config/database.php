@@ -105,11 +105,11 @@ $db['default'] = array(
     'hostname' => '159.203.125.243',
 	'username' => 'usuario',
 	'password' => '20UtpJ15',
-
-    #'hostname' => 'localhost',
-	#'username' => 'root',
-	#'password' => '',    
-
+/*
+    'hostname' => 'localhost',
+	'username' => 'root',
+	'password' => '',
+*/
     #'database' => 'ci',
     'database' => 'app',
 	'dbdriver' => 'mysqli',

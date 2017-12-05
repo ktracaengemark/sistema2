@@ -1,9 +1,10 @@
 <?php if (isset($msg)) echo $msg; ?>
-<div class="container-fluid">
-	<div class="row">
-	   
 
-		<div class="col-sm-7 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+<div class="container-fluid">	
+	<div class="row">	   
+		
+		<div class="col-md-1"></div>
+		<div class="col-md-10 ">
 
 			<?php echo validation_errors(); ?>
 
@@ -17,7 +18,7 @@
 					<!--App_Despesas-->
 
 						<div class="form-group">
-							<div class="panel panel-info">
+							<div class="panel panel-danger">
 								<div class="panel-heading">
 									<div class="row">														
 										<!--<div class="col-md-2">
@@ -29,7 +30,7 @@
 													<span class="glyphicon glyphicon-calendar"></span>
 												</span>
 											</div>
-										</div>-->
+										</div>
 										<div class="col-md-3">
 											<label for="ProfissionalDespesas">Profissional:</label>
 											<a class="btn btn-xs btn-info" href="<?php echo base_url() ?>profissional/cadastrar/profissional" role="button">
@@ -49,18 +50,13 @@
 												?>
 											</select>
 										</div>
-										<div class="col-md-3">
-											<label for="Despesa">Consumo: *</label><br>
-											<input type="text" class="form-control" maxlength="200"
-													name="Despesa" value="<?php echo $despesas['Despesa'] ?>">
-										</div>
-										
-										<div class="col-md-3">
+										-->										
+										<div class="col-md-6">
 											<label for="TipoDespesa">Tipo de Consumo</label>
 											<!--<a class="btn btn-xs btn-info" href="<?php echo base_url() ?>tipodespesa/cadastrar/tipodespesa" role="button">
 												<span class="glyphicon glyphicon-plus"></span> <b>Forma Pag</b>
 											</a>-->
-											<select data-placeholder="Selecione uma opção..." class="form-control" <?php echo $readonly; ?>
+											<select data-placeholder="Selecione uma opção..." class="form-control Chosen" <?php echo $readonly; ?>
 													id="TipoDespesa" name="TipoDespesa">
 												<option value="">-- Sel. Tipo de Consumo --</option>
 												<?php
@@ -73,17 +69,12 @@
 												}
 												?>
 											</select>
-										</div>									
-										<div class="col-md-2">
-											<label for="DataDespesas">Data do Consumo:</label>
-											<div class="input-group <?php echo $datepicker; ?>">
-												<input type="text" class="form-control Date" <?php echo $readonly; ?> maxlength="10" placeholder="DD/MM/AAAA"
-													   name="DataDespesas" value="<?php echo $despesas['DataDespesas']; ?>">
-												<span class="input-group-addon" disabled>
-													<span class="glyphicon glyphicon-calendar"></span>
-												</span>
-											</div>
-										</div>																		
+										</div>
+										<div class="col-md-6">
+											<label for="Despesa">Obs.</label><br>
+											<input type="text" class="form-control" maxlength="200"
+													name="Despesa" value="<?php echo $despesas['Despesa'] ?>">
+										</div>										
 									</div>
 								</div>
 							</div>
@@ -121,7 +112,7 @@
 											<div class="panel panel-info">
 												<div class="panel-heading">
 													<div class="row">
-														<div class="col-md-1">
+														<div class="col-md-2">
 															<label for="QtdCompraServico">Qtd:</label>
 															<input type="text" class="form-control Numero" maxlength="3" id="QtdCompraServico<?php echo $i ?>" placeholder="0"
 																	onkeyup="calculaSubtotalCompra(this.value,this.name,'<?php echo $i ?>','QTD','Servico')"
@@ -227,12 +218,12 @@
 												</div>
 											</div>
 										</div>
-										-->
-										<hr>
 										
+										<hr>
+										-->
 										<input type="hidden" name="PCount" id="PCount" value="<?php echo $count['PCount']; ?>"/>
 
-										<div class="input_fields_wrap6">
+										<div class="input_fields_wrap7">
 
 										<?php
 										for ($i=1; $i <= $count['PCount']; $i++) {
@@ -242,8 +233,8 @@
 										<input type="hidden" name="idApp_ProdutoCompra<?php echo $i ?>" value="<?php echo $produto[$i]['idApp_ProdutoCompra']; ?>"/>
 										<?php } ?>
 
-										<div class="form-group" id="6div<?php echo $i ?>">
-											<div class="panel panel-info">
+										<div class="form-group" id="7div<?php echo $i ?>">
+											<div class="panel panel-danger">
 												<div class="panel-heading">
 													<div class="row">
 														<div class="col-md-1">
@@ -252,14 +243,14 @@
 																	onkeyup="calculaSubtotalCompra(this.value,this.name,'<?php echo $i ?>','QTD','Produto')"
 																	autofocus name="QtdCompraProduto<?php echo $i ?>" value="<?php echo $produto[$i]['QtdCompraProduto'] ?>">
 														</div>
-														<div class="col-md-4">
+														<div class="col-md-7">
 															<label for="idTab_Produto">Produto:</label>
 															<?php if ($i == 1) { ?>
-															<a class="btn btn-xs btn-info" href="<?php echo base_url() ?>produto/cadastrar/produto" role="button">
+															<!--<a class="btn btn-xs btn-info" href="<?php echo base_url() ?>produtos/cadastrar" role="button">
 																<span class="glyphicon glyphicon-plus"></span> <b>Novo Produto</b>
-															</a>
+															</a>-->
 															<?php } ?>
-															<select data-placeholder="Selecione uma opção..." class="form-control" onchange="buscaValorCompra(this.value,this.name,'Produto',<?php echo $i ?>)" <?php echo $readonly; ?>
+															<select data-placeholder="Selecione uma opção..." class="form-control Chosen" onchange="buscaValorCompra(this.value,this.name,'Produto',<?php echo $i ?>)" <?php echo $readonly; ?>
 																	 id="listadinamicab<?php echo $i ?>" name="idTab_Produto<?php echo $i ?>">
 																<option value="">-- Selecione uma opção --</option>
 																<?php
@@ -273,44 +264,17 @@
 																?>
 															</select>
 														</div>
-
-														<div class="col-md-3">
-															<label for="ValorCompraProduto">Valor do Produto:</label>
-															<div class="input-group">
-																<span class="input-group-addon" id="basic-addon1">R$</span>
-																<input type="text" class="form-control Valor" id="idTab_Produto<?php echo $i ?>" maxlength="10" placeholder="0,00"
-																	onkeyup="calculaSubtotalCompra(this.value,this.name,'<?php echo $i ?>','VP','Produto')"
-																	name="ValorCompraProduto<?php echo $i ?>" value="<?php echo $produto[$i]['ValorCompraProduto'] ?>">
-															</div>
-														</div>													
-														<div class="col-md-3">
-															<label for="SubtotalProduto">Subtotal:</label>
-															<div class="input-group">
-																<span class="input-group-addon" id="basic-addon1">R$</span>
-																<input type="text" class="form-control Valor" maxlength="10" placeholder="0,00" readonly="" id="SubtotalProduto<?php echo $i ?>"
-																	   name="SubtotalProduto<?php echo $i ?>" value="<?php echo $produto[$i]['SubtotalProduto'] ?>">
-															</div>
-														</div>
 													</div>
 													<div class="row">
-														<div class="col-md-8">
+														<div class="col-md-1"></div>
+														<div class="col-md-7">
 															<label for="ObsProduto<?php echo $i ?>">Obs:</label><br>
 															<input type="text" class="form-control" id="ObsProduto<?php echo $i ?>" maxlength="250"
 																   name="ObsProduto<?php echo $i ?>" value="<?php echo $produto[$i]['ObsProduto'] ?>">
 														</div>
-														<div class="col-md-2">
-															<label for="DataValidadeProduto<?php echo $i ?>">Data Val. do Produto:</label>
-															<div class="input-group <?php echo $datepicker; ?>">
-																<input type="text" class="form-control Date" <?php echo $readonly; ?> maxlength="10" placeholder="DD/MM/AAAA"
-																	   name="DataValidadeProduto<?php echo $i ?>" value="<?php echo $produto[$i]['DataValidadeProduto']; ?>">
-																<span class="input-group-addon" disabled>
-																	<span class="glyphicon glyphicon-calendar"></span>
-																</span>
-															</div>
-														</div>
 														<div class="col-md-1">
 															<label><br></label><br>
-															<button type="button" id="<?php echo $i ?>" class="remove_field6 btn btn-danger">
+															<button type="button" id="<?php echo $i ?>" class="remove_field7 btn btn-danger">
 																<span class="glyphicon glyphicon-trash"></span>
 															</button>
 														</div>
@@ -328,17 +292,18 @@
 										<div class="form-group">
 											<div class="row">
 												<div class="col-md-4">
-													<a class="add_field_button6 btn btn-xs btn-warning">
-														<span class="glyphicon glyphicon-plus"></span> Adicionar Produto
+													<a class="add_field_button7 btn btn-xs btn-danger">
+														<span class="glyphicon glyphicon-plus"></span> Adic. Produtos
 													</a>
 												</div>
 											</div>
 										</div>
 										<hr>
 									</div>
+									<!--
 									<div class="panel-body">
 										<div class="form-group">
-											<div class="panel panel-info">
+											<div class="panel panel-danger">
 												<div class="panel-heading">
 													<div class="row">
 														<div class="col-md-3">
@@ -373,6 +338,7 @@
 											</div>	
 										</div>		
 									</div>
+									-->
 								</div>
 							</div>
 						</div>
@@ -576,11 +542,22 @@
 						<div class="form-group">
 							<div class="row">
 								<div class="col-md-3">
+									<label for="DataDespesas">Data do Consumo:</label>
+									<div class="input-group <?php echo $datepicker; ?>">
+										<input type="text" class="form-control Date" <?php echo $readonly; ?> maxlength="10" placeholder="DD/MM/AAAA"
+											   name="DataDespesas" value="<?php echo $despesas['DataDespesas']; ?>">
+										<span class="input-group-addon" disabled>
+											<span class="glyphicon glyphicon-calendar"></span>
+										</span>
+									</div>
+								</div>
+								<!--
+								<div class="col-md-6">
 									<label for="ObsDespesas">Obs:</label>
 									<textarea class="form-control" id="ObsDespesas" <?php echo $readonly; ?>
 											  name="ObsDespesas"><?php echo $despesas['ObsDespesas']; ?></textarea>
 								</div>
-								<!--
+								
 								<div class="col-md-2 form-inline">
 									<label for="AprovadoDespesas">Despesa Aprovada?</label><br>
 									<div class="form-group">
@@ -790,5 +767,6 @@
 			</div>
 
 		</div>
+		<div class="col-md-1"></div>
 	</div>
 </div>

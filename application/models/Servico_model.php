@@ -109,24 +109,19 @@ class Servico_model extends CI_Model {
         $query = $this->db->query('
             SELECT
                 TSV.idTab_Servico,
-				TPB.ServicoBase,
-				TCO.Convenio,
-				TEM.NomeEmpresa,
-				TSC.ValorCompraServico,
+				TSU.NomeEmpresa,
+				TSV.CodServ,				
+				TSV.NomeServico,				
 				TSV.ValorVendaServico           
             FROM
-                Tab_Servico AS TSV				
-				LEFT JOIN Tab_Convenio AS TCO ON TCO.idTab_Convenio = TSV.Convenio				
-				LEFT JOIN Tab_ServicoCompra AS TSC ON TSC.idTab_ServicoCompra = TSV.ServicoBase				
-				LEFT JOIN App_Empresa AS TEM ON TEM.idApp_Empresa = TSC.Empresa				
-				LEFT JOIN Tab_ServicoBase AS TPB ON TPB.idTab_ServicoBase= TSC.ServicoBase				
+                Tab_Servico AS TSV
+					LEFT JOIN Sis_Usuario AS TSU ON TSU.idSis_Usuario = TSV.idSis_Usuario
             WHERE
-                TSV.idSis_Usuario = ' . $_SESSION['log']['id'] . ' AND
-                TSV.idTab_Modulo = ' . $_SESSION['log']['idTab_Modulo'] . ' 
+				TSV.idTab_Modulo = ' . $_SESSION['log']['idTab_Modulo'] . ' AND
+				(TSV.Empresa = ' . $_SESSION['log']['id'] . ' OR
+				 TSV.Empresa = ' . $_SESSION['log']['Empresa'] . ')
             ORDER BY
-				TCO.Convenio ASC,
-				TPB.ServicoBase,
-				TEM.NomeEmpresa								
+				TSV.NomeServico						
         ');
 
         /*	
@@ -201,6 +196,48 @@ class Servico_model extends CI_Model {
 	public function select_servico($data = FALSE) {
 
         if ($data === TRUE) {
+            $array = $this->db->query('
+                SELECT                
+                TSV.idTab_Servico,
+                CONCAT(TSV.NomeServico, " --- R$ ", TSV.ValorCompraServico) AS NomeServico,
+                TSV.ValorCompraServico              
+            FROM
+                Tab_Servico AS TSV					
+            WHERE
+                TSV.idTab_Modulo = ' . $_SESSION['log']['idTab_Modulo'] . ' AND
+                (TSV.Empresa = ' . $_SESSION['log']['id'] . ' OR
+				 TSV.Empresa = ' . $_SESSION['log']['Empresa'] . ')
+			ORDER BY 
+				TSV.NomeServico ASC
+    ');
+        } else {
+            $query = $this->db->query('
+                SELECT                
+                TSV.idTab_Servico,
+                CONCAT(TSV.NomeServico, " --- R$ ", TSV.ValorCompraServico) AS NomeServico,
+                TSV.ValorCompraServico              
+            FROM
+                Tab_Servico AS TSV					
+            WHERE
+                TSV.idTab_Modulo = ' . $_SESSION['log']['idTab_Modulo'] . ' AND
+                (TSV.Empresa = ' . $_SESSION['log']['id'] . ' OR
+				 TSV.Empresa = ' . $_SESSION['log']['Empresa'] . ')
+			ORDER BY 
+				TSV.NomeServico ASC
+    ');
+
+            $array = array();
+            foreach ($query->result() as $row) {
+                $array[$row->idTab_Servico] = $row->NomeServico;
+            }
+        }
+
+        return $array;
+    }
+	
+	public function select_servico1($data = FALSE) {
+
+        if ($data === TRUE) {
             $array = $this->db->query(
                 'SELECT                
 				idTab_Servico,
@@ -233,7 +270,5 @@ class Servico_model extends CI_Model {
 
         return $array;
     }
-	
-	
-    
+	  
 }

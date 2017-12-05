@@ -1,4 +1,5 @@
 <?php if (isset($msg)) echo $msg; ?>
+
 <div class="container-fluid">
 	<div class="row">
 

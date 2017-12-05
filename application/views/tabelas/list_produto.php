@@ -6,7 +6,7 @@
             <th>Produto</th>
             <!--<th>Qte Compra</th>-->
             <th>Unidade</th>
-            <th>Valor Compra</th>
+            <!--<th>Valor Compra</th>-->
             <th>Valor de Venda</th>
             <th></th>
         </tr>
@@ -26,7 +26,7 @@
                     echo '<td>' . str_replace('.',',',$row['NomeProduto']) . '</td>';
                     #echo '<td>' . str_replace('.',',',$row['QuantidadeCompra']) . '</td>';
                     echo '<td>' . str_replace('.',',',$row['Unidade']) . '</td>';                    
-                    echo '<td>' . str_replace('.',',',$row['ValorCompra']) . '</td>';
+                    #echo '<td>' . str_replace('.',',',$row['ValorCompra']) . '</td>';
                     echo '<td>' . str_replace('.',',',$row['ValorVenda']) . '</td>';
                     echo '<td></td>';
                 echo '</tr>';            

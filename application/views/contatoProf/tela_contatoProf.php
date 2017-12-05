@@ -1,8 +1,7 @@
 <?php if ($msg) echo $msg; ?>
-
 <div class="container-fluid">
     <div class="row">
-        <div class="col-sm-3 col-md-2">
+        <div class="col-sm-3 col-md-2 sidebar">
             <?php echo $nav_secundario; ?>
         </div>
 

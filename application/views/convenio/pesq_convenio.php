@@ -1,5 +1,5 @@
 <?php if (isset($msg)) echo $msg; ?>
-<div class="container-fluid">
+<div class="container-fluid">	
 	<div class="row">
 
 		<div class="col-md-2"></div>
@@ -15,24 +15,18 @@
 					<?php echo form_open($form_open_path, 'role="form"'); ?>
 						<div class="row">
 							<div class="col-md-4">
-								<label for="Convenio">Convenio ou Plano</label><br>
-								<input type="text" class="form-control" maxlength="200"
+								<label for="Convenio">Tabelas & Planos:</label><br>
+								<input type="text" class="form-control" maxlength="30"
 									   autofocus name="Convenio" value="<?php echo $query['Convenio'] ?>">
 							</div>
 							
 							<div class="col-md-3">
 								<label for="Abrev">Abrev.:</label><br>
 								<input type="text" class="form-control" maxlength="4"
-									    name="Abrev" value="<?php echo $query['Abrev'] ?>">
+										name="Abrev" value="<?php echo $query['Abrev'] ?>">
 							</div>
-							
-						  
-							<input type="hidden" name="idTab_Convenio" value="<?php echo $query['idTab_Convenio']; ?>">
-
 						</div>
-
 						<br>
-					
 						<div class="form-group">
 							<div class="row">
 								<input type="hidden" name="idTab_Convenio" value="<?php echo $query['idTab_Convenio']; ?>">
@@ -84,7 +78,8 @@
 									</div>
 								<?php } ?>
 							</div>
-						</div>                
+						</div>
+						
 					</form>
 
 					<br>                

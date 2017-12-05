@@ -1,4 +1,5 @@
 <?php if (isset($msg)) echo $msg; ?>
+
 <div class="container-fluid">
 	<div class="row">
 
@@ -15,7 +16,7 @@
 					<?php echo form_open($form_open_path, 'role="form"'); ?>
 						<div class="row">
 							<div class="col-md-6">
-								<label for="FormaPag">Nome do FormaPag:</label><br>
+								<label for="FormaPag">Forma de Pagamento:</label><br>
 								<input type="text" class="form-control" maxlength="200"
 									   autofocus name="FormaPag" value="<?php echo $query['FormaPag'] ?>">
 							</div>

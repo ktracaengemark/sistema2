@@ -10,8 +10,12 @@
 						<th class="active">Tipo de Consumo.</th>
                         <th class="active">Data do Consumo</th>
 						<th class="active">Quant.</th>
-						<th class="active">Produto.</th>
-						<th class="active">Fornec.</th>
+						<th class="active">Categoria</th>
+						<th class="active">Produto</th>
+						<th class="active">Aux1</th>
+						<th class="active">Aux2</th>
+						<th class="active">Obs.</th>
+
                     </tr>
                 </thead>
                 <tbody>
@@ -27,9 +31,11 @@
 							echo '<td>' . $row['TipoConsumo'] . '</td>';
                             echo '<td>' . $row['DataDespesas'] . '</td>';
 							echo '<td>' . $row['QtdCompraProduto'] . '</td>';
-							#echo '<td>' . $row['idTab_Produto'] . '</td>';
-							echo '<td>' . $row['ProdutoBase'] . '</td>';
-							echo '<td>' . $row['NomeEmpresa'] . '</td>';
+							echo '<td>' . $row['Prodaux3'] . '</td>';
+							echo '<td>' . $row['Produtos'] . '</td>';
+							echo '<td>' . $row['Prodaux1'] . '</td>';
+							echo '<td>' . $row['Prodaux2'] . '</td>';
+							echo '<td>' . $row['ObsProduto'] . '</td>';
                         echo '</tr>';
                     }
                     ?>
@@ -45,4 +51,3 @@
         </div>
     </div>
 </div>
-

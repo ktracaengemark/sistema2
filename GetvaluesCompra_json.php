@@ -18,56 +18,60 @@ if ($_GET['q']==1) {
 
     $result = mysql_query(
             'SELECT
-                TSC.idTab_ServicoCompra,
-				CONCAT(TEM.NomeEmpresa, " --- ", TSB.ServicoBase) AS ServicoBase,
-				TSC.ValorCompraServico               
+                TSV.idTab_Servico,
+                CONCAT(TSV.NomeServico, " --- R$ ", TSV.ValorCompraServico) AS NomeServico,
+                TSV.ValorCompraServico              
             FROM
-                Tab_ServicoCompra AS TSC
-					LEFT JOIN Tab_ServicoBase AS TSB ON TSB.idTab_ServicoBase = TSC.ServicoBase
-					LEFT JOIN App_Empresa AS TEM ON TEM.idApp_Empresa = TSC.Empresa
-				
+                Tab_Servico AS TSV					
             WHERE
-                TSC.idTab_Modulo = ' . $_SESSION['log']['idTab_Modulo'] . ' AND
-                TSC.idSis_Usuario = ' . $_SESSION['log']['id'] . '
+                TSV.idTab_Modulo = ' . $_SESSION['log']['idTab_Modulo'] . ' AND
+                (TSV.Empresa = ' . $_SESSION['log']['id'] . ' OR
+				 TSV.Empresa = ' . $_SESSION['log']['Empresa'] . ')
 			ORDER BY 
-					TEM.NomeEmpresa ASC,
-					TSB.ServicoBase ASC 
+				TSV.NomeServico ASC 
     ');
 
     while ($row = mysql_fetch_assoc($result)) {
 
         $event_array[] = array(
-            'id' => $row['idTab_ServicoCompra'],
-            'name' => utf8_encode($row['ServicoBase']),
+            'id' => $row['idTab_Servico'],
+            'name' => utf8_encode($row['NomeServico']),
             'value' => $row['ValorCompraServico'],
         );
     }
 
 }
+
 elseif ($_GET['q'] == 2) {
 
     $result = mysql_query(
             'SELECT
-                TPC.idTab_ProdutoCompra,
-				CONCAT(TEM.NomeEmpresa, "---", TPB.ProdutoBase, "---", TPB.UnidadeProdutoBase) AS ProdutoBase,
-				TPC.ValorCompraProduto
+                TPV.idTab_Produtos,
+				CONCAT(IFNULL(TP3.Prodaux3,""), " -- ", IFNULL(TPV.Produtos,""), " -- ", IFNULL(TP1.Prodaux1,""), " -- ", IFNULL(TP2.Prodaux2,""), " -- ", IFNULL(TPV.UnidadeProduto,""), " -- ", IFNULL(TFO.NomeFornecedor,""), " -- ", IFNULL(TPV.CodProd,"")) AS NomeProduto,
+				TPV.ValorCompraProduto,
+				TPV.Categoria
             FROM
-                Tab_ProdutoCompra AS TPC
-					LEFT JOIN Tab_ProdutoBase AS TPB ON TPB.idTab_ProdutoBase = TPC.ProdutoBase
-					LEFT JOIN App_Empresa AS TEM ON TEM.idApp_Empresa = TPC.Empresa
+                Tab_Produtos AS TPV
+					LEFT JOIN App_Fornecedor AS TFO ON TFO.idApp_Fornecedor = TPV.Fornecedor
+					LEFT JOIN Tab_Prodaux3 AS TP3 ON TP3.idTab_Prodaux3 = TPV.Prodaux3
+					LEFT JOIN Tab_Prodaux2 AS TP2 ON TP2.idTab_Prodaux2 = TPV.Prodaux2
+					LEFT JOIN Tab_Prodaux1 AS TP1 ON TP1.idTab_Prodaux1 = TPV.Prodaux1
             WHERE
-                TPC.idTab_Modulo = ' . $_SESSION['log']['idTab_Modulo'] . ' AND
-                TPC.idSis_Usuario = ' . $_SESSION['log']['id'] . '				
-			ORDER BY 
-				TEM.NomeEmpresa,
-				TPB.ProdutoBase ASC 
+                TPV.idTab_Modulo = ' . $_SESSION['log']['idTab_Modulo'] . ' AND
+				TPV.Empresa = ' . $_SESSION['log']['Empresa'] . '
+			ORDER BY  
+				TPV.Categoria ASC,
+				TP3.Prodaux3,				
+				TPV.Produtos ASC,
+				TP1.Prodaux1,
+				TP2.Prodaux2
     ');
 
     while ($row = mysql_fetch_assoc($result)) {
 
         $event_array[] = array(
-            'id' => $row['idTab_ProdutoCompra'],
-            'name' => utf8_encode($row['ProdutoBase']),
+            'id' => $row['idTab_Produtos'],
+            'name' => utf8_encode($row['NomeProduto']),
             'value' => $row['ValorCompraProduto'],
         );
     }

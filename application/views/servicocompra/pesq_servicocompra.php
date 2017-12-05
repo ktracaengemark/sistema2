@@ -1,5 +1,6 @@
 <?php if (isset($msg)) echo $msg; ?>
-<div class="container-fluid">
+
+<div class="container-fluid">	
 	<div class="row">
 
 		<div class="col-md-2"></div>
@@ -16,9 +17,9 @@
 						<div class="row">						
 							<div class="col-md-4">
 								<label for="ServicoBase">Servico</label>								
-								<select data-placeholder="Selecione uma opção..." class="form-control" <?php echo $readonly; ?>
+								<select data-placeholder="Selecione uma opção..." class="form-control Chosen" 
 										id="ServicoBase" name="ServicoBase">
-									<option value="">--Sel. Servico --</option>
+									<option value="">-- Sel. Servico Base --</option>
 									<?php
 									foreach ($select['ServicoBase'] as $key => $row) {
 										if ($query['ServicoBase'] == $key) {
@@ -32,7 +33,7 @@
 							</div>
 							<div class="col-md-2">
 								<label for="Empresa">Fornecedor</label>								
-								<select data-placeholder="Selecione uma opção..." class="form-control" <?php echo $readonly; ?>
+								<select data-placeholder="Selecione uma opção..." class="form-control Chosen" 
 										id="Empresa"  name="Empresa">
 									<option value="">-- Sel. Fornec. --</option>
 									<?php

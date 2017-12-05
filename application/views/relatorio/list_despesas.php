@@ -10,14 +10,14 @@
                 <input type="text" class="form-control" disabled aria-label="Total Entrada" value="<?php echo $report->soma->somaentrada ?>">
             </div>
         </div>-->
-		<div class="col-md-2">
+		<div class="col-md-3">
             <label for="DataFim">Total Pago:</label>
             <div class="input-group">
                 <span class="input-group-addon">R$</span>
                 <input type="text" class="form-control" disabled aria-label="Total Pago" value="<?php echo $report->soma->somarecebido ?>">
             </div>
         </div>
-		<div class="col-md-2">
+		<div class="col-md-3">
             <label for="DataFim">Total a Pagar:</label>
             <div class="input-group">
                 <span class="input-group-addon">R$</span>
@@ -32,7 +32,7 @@
             </div>
         </div>-->
 
-        <div class="col-md-2">
+        <div class="col-md-3">
             <label for="DataFim">Total do Período:</label>
             <div class="input-group">
                 <span class="input-group-addon">R$</span>
@@ -50,20 +50,26 @@
     <div class="row">
 
         <div>
-
+			<table class="table table-bordered table-condensed table-striped">
+                <tfoot>
+                    <tr>
+                        <th colspan="3" class="active">Total encontrado: <?php echo $report->num_rows(); ?> resultado(s)</th>
+                    </tr>
+                </tfoot>
+			</table>	
             <table class="table table-bordered table-condensed table-striped">
 
                 <thead>
                     <tr>
-                        <th class="active">D/C</th>
+                        <!--<th class="active">D/C</th>-->
 						<th class="active">Id Despesa</th>
 						<th class="active">Despesa</th>
 						<th class="active">Tipo de Desp.</th>
                         <th class="active">Data da Despesa</th>
                         <!--<th class="active">Data Entrada</th>
-                        <th class="active">Valor Entrada</th>-->
+                        <th class="active">Valor Entrada</th>
 						<th class="active">Desp. Aprov.?</th>
-						<th class="active">Desp. Concl.?</th>
+						<th class="active">Desp. Concl.?</th>-->
 						<th class="active">Desp. Quit.?</th>						
                         <th class="active">Parcela</th>
                         <th class="active">Data do Venc.</th>
@@ -81,15 +87,15 @@
 
                         #echo '<tr>';
                         echo '<tr class="clickable-row" data-href="' . base_url() . 'despesas/alterar/' . $row['idApp_Despesas'] . '">';
-                            echo '<td>' . $row['TipoProduto'] . '</td>';
+                            #echo '<td>' . $row['TipoProduto'] . '</td>';
 							echo '<td>' . $row['idApp_Despesas'] . '</td>';
 							echo '<td>' . $row['Despesa'] . '</td>';
 							echo '<td>' . $row['TipoDespesa'] . '</td>';
                             echo '<td>' . $row['DataDespesas'] . '</td>';
-                           # echo '<td>' . $row['DataEntradaOrca'] . '</td>';
-                           # echo '<td class="text-right">R$ ' . $row['ValorEntradaOrca'] . '</td>';
-							echo '<td>' . $row['AprovadoDespesas'] . '</td>';
-							echo '<td>' . $row['ServicoConcluidoDespesas'] . '</td>';
+                            #echo '<td>' . $row['DataEntradaOrca'] . '</td>';
+                            #echo '<td class="text-right">R$ ' . $row['ValorEntradaOrca'] . '</td>';
+							#echo '<td>' . $row['AprovadoDespesas'] . '</td>';
+							#echo '<td>' . $row['ServicoConcluidoDespesas'] . '</td>';
 							echo '<td>' . $row['QuitadoDespesas'] . '</td>';							
                             echo '<td>' . $row['ParcelaPagaveis'] . '</td>';
                             echo '<td>' . $row['DataVencimentoPagaveis'] . '</td>';
@@ -102,12 +108,7 @@
                     ?>
 
                 </tbody>
-
-                <tfoot>
-                    <tr>
-                        <th colspan="3" class="active">Total encontrado: <?php echo $report->num_rows(); ?> resultado(s)</th>
-                    </tr>
-                </tfoot>
+				
             </table>
 
         </div>
